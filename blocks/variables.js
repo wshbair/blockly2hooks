@@ -54,7 +54,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "message0": "%{BKY_VARIABLES_SET}",
     "args0": [
       {
-        "type": "field_variable",
+        "type": "variable_define",
         "name": "VAR",
         "variable": "%{BKY_VARIABLES_DEFAULT_NAME}"
       },
@@ -69,7 +69,32 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "tooltip": "%{BKY_VARIABLES_SET_TOOLTIP}",
     "helpUrl": "%{BKY_VARIABLES_SET_HELPURL}",
     "extensions": ["contextMenu_variableSetterGetter"]
+  },
+  {
+    "type": "variables_define",
+    "message0": "#define name %1 is %2 %3",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "NAME",
+        "text": "macro"
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_value",
+        "name": "NAME"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 120,
+    "tooltip": "define block",
+    "helpUrl": ""
   }
+  
 ]);  // END JSON EXTRACT (Do not delete this comment.)
 
 /**
@@ -158,6 +183,7 @@ Blockly.Constants.Variables.DELETE_OPTION_CALLBACK_FACTORY = function(block) {
     workspace.refreshToolboxSelection();
   };
 };
+
 
 Blockly.Extensions.registerMixin('contextMenu_variableSetterGetter',
     Blockly.Constants.Variables.CUSTOM_CONTEXT_MENU_VARIABLE_GETTER_SETTER_MIXIN);

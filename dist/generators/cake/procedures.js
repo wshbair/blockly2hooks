@@ -126,7 +126,13 @@ Blockly.cake['procedures_defreturn'] = function(block) {
     else {
       returnValue = '  return 0;\n';
   }
-  var typePlusArgs = Blockly.Procedures.getTypePlusArgs(block);
+  //var typePlusArgs = Blockly.Procedures.getTypePlusArgs(block);
+  var args = [];
+  var variables = block.getVars();
+  for (var i = 0; i < variables.length; i++) {
+    args[i] = Blockly.cake.nameDB_.getName(variables[i],
+        Blockly.VARIABLE_CATEGORY_NAME);
+  }
 
     var rand = [];
     var time = [];
@@ -163,7 +169,7 @@ Blockly.cake['procedures_defreturn'] = function(block) {
         if(returnSpec == null){
             returnSpec = '*';
         }
-        code = returnType + returnSpec + ' ' + funcName + '(' + typePlusArgs.join(', ') + ') {\n' +
+        code = returnType + returnSpec + ' ' + funcName + '(' + args.join(', ') + ') {\n' +
         allDefs.replace(/\n\n+/g, '\n\n').replace(/\n*$/, '\n') + branch + returnValue + '}';
     }
     else if(returnDist == 'array'){
@@ -171,20 +177,18 @@ Blockly.cake['procedures_defreturn'] = function(block) {
         if(returnSpec == null){
             returnSpec = '[]';
         }
-        code = returnType + returnSpec + ' ' + funcName + '(' + typePlusArgs.join(', ') + ') {\n' +
+        code = returnType + returnSpec + ' ' + funcName + '(' + args.join(', ') + ') {\n' +
         allDefs.replace(/\n\n+/g, '\n\n').replace(/\n*$/, '\n') + branch + returnValue + '}';
     }
     else{
-        code = returnType + ' ' + funcName + '(' + typePlusArgs.join(', ') + ') {\n' +
+        code = returnType + ' ' + funcName + '(' + args.join(', ') + ') {\n' +
         allDefs.replace(/\n\n+/g, '\n\n').replace(/\n*$/, '\n') + branch + returnValue + '}';
     }
   code = Blockly.cake.scrub_(block, code);
   Blockly.cake.definitions_[funcName] = code;
   Blockly.cake.definitions_['Func_declare'+funcName] =
-    returnType + ' ' + funcName + '(' + typePlusArgs.join(', ') + ');';
-    if (Blockly.Blocks.checkLegalName(Blockly.Msg.PROCEDURES_ILLEGALNAME, funcName) == -1) {
-        this.initName();
-    }
+    returnType + ' ' + funcName + '(' + args.join(', ') + ');';
+     
   return null;
 };
 
@@ -237,17 +241,17 @@ Blockly.cake['procedures_defnoreturn'] = function(block) {
   if (returnValue) {
     returnValue = '  return ' + returnValue + ';\n';
   }
-  var typePlusArgs = Blockly.Procedures.getTypePlusArgs(block);
+  var args = [];
+  var variables = block.getVars();
+  for (var i = 0; i < variables.length; i++) {
+    args[i] = Blockly.cake.nameDB_.getName(variables[i],
+        Blockly.VARIABLE_CATEGORY_NAME);
+  }
 
-    var code = 'void ' + funcName + '(' + typePlusArgs.join(', ') + ') {\n' +
+    var code = 'void ' + funcName + '(' + args.join(', ') + ') {\n' +
         allDefs.replace(/\n\n+/g, '\n\n').replace(/\n*$/, '\n') + branch + returnValue + '}';
   code = Blockly.cake.scrub_(block, code);
-  Blockly.cake.definitions_[funcName] = code;
-  Blockly.cake.definitions_['Func_declare'+funcName] =
-    'void ' + funcName + '(' + typePlusArgs.join(', ') + ');';
-    if (Blockly.Blocks.checkLegalName(Blockly.Msg.PROCEDURES_ILLEGALNAME, funcName) == -1) {
-        this.initName();
-    }
+  Blockly.cake.definitions_[funcName] = code;   
   return null;
 };
 

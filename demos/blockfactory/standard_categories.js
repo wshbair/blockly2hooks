@@ -359,7 +359,7 @@ StandardCategories.categoryMap['functions'].custom = 'PROCEDURE';
 
 StandardCategories.categoryMap['variables'] =
     new ListElement(ListElement.TYPE_CATEGORY, 'Variables');
-StandardCategories.categoryMap['variables'].hue = 330;
+StandardCategories.categoryMap['variables'].hue = 430;
 StandardCategories.categoryMap['variables'].custom = 'VARIABLE';
 
 StandardCategories.categoryMap['typedvariables'] =
@@ -381,6 +381,6 @@ StandardCategories.coreBlockTypes =  ["controls_if", "logic_compare",
     "text_prompt_ext", "colour_picker", "colour_random", "colour_rgb",
     "colour_blend", "lists_create_with", "lists_repeat", "lists_length",
     "lists_isEmpty", "lists_indexOf", "lists_getIndex", "lists_setIndex",
-    "lists_getSublist", "lists_split", "lists_sort", "variables_set",
+    "lists_getSublist", "lists_split", "lists_sort", "variables_set", "variables_define",
     "procedures_defreturn", "procedures_ifreturn", "procedures_defnoreturn",
     "procedures_callreturn"];
