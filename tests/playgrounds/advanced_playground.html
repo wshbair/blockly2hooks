@@ -87,7 +87,8 @@
 <script src="./screenshot.js"></script>
 <script src="../../node_modules/@blockly/dev-tools/dist/index.js"></script>
 <script src="../../node_modules/@blockly/theme-modern/dist/index.js"></script>
-<script src="custom_category_es6.js"></script>
+<!-- <script src="custom_category_es6.js"></script> -->
+<script src="custom_toolbox.js"></script>
  
 
 
@@ -168,7 +169,7 @@ function initPlayground() {
           drag: true,
           wheel: false,
         },
-        toolbox: toolboxCategories,
+        toolbox: codelabToolbox,
         toolboxPosition: 'start',
         renderer: 'geras',
         zoom:
@@ -245,9 +246,9 @@ function configureContextMenu(menuOptions, e) {
     font-size: 1.5rem;
   }
   /* Makes our label white. */
-.blocklyTreeLabel {
+/* .blocklyTreeLabel {
   color: white;
-}
+} */
 /* Adds padding around the group of categories and separators. */
 .blocklyToolboxContents {
   padding: .5em;

@@ -182,3 +182,11 @@ Blockly.JavaScript['controls_flow_statements'] = function(block) {
   }
   throw Error('Unknown flow statement.');
 };
+
+Blockly.JavaScript['testing'] = function(block) {
+  var text_name = block.getFieldValue('NAME');
+  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'this is just a testing;\n';
+  return code;
+};
