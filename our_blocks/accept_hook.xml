@@ -1,0 +1,123 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="factory_base" id="@I]vsGRj1UvspjtYwZgr" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="NONE"></mutation>
+    <field name="NAME">hooks_firewall</field>
+    <field name="INLINE">EXT</field>
+    <field name="CONNECTIONS">NONE</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="^R`/G;!D;b}jDt4RrfS[">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id=":Ax_`DUTlBkPn3usYn`a">
+            <field name="TEXT">Firewall Hooks</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="c;-T.gk*-MLKkHS@FtJ{">
+            <field name="INPUTNAME">my_wallet_address</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_label_serializable" id="gv7:^8BQTtYcfmcUs;Sw">
+                <field name="TEXT">My Wallet address:</field>
+                <field name="FIELDNAME">my_wallet_address</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id=".?j]^#fk3NuQI|pAx+K}"></shadow>
+            </value>
+            <next>
+              <block type="input_value" id=";70RKj.z:knW5~ST,hlA">
+                <field name="INPUTNAME">wallet_to_block</field>
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_label_serializable" id="PGfh[c?93zkJ?@K;A~aa">
+                    <field name="TEXT">Wallet to block:</field>
+                    <field name="FIELDNAME">wallet_to_block</field>
+                  </block>
+                </statement>
+                <value name="TYPE">
+                  <shadow type="type_null" id="q#r+}|m!.3~pHkcvr2_V"></shadow>
+                </value>
+                <next>
+                  <block type="input_value" id="xv/#;f%)d$ZyB@@S_3Y.">
+                    <field name="INPUTNAME">blacklist_server</field>
+                    <field name="ALIGN">LEFT</field>
+                    <statement name="FIELDS">
+                      <block type="field_label_serializable" id="D#,tk?mpWJBYP_!b76{1">
+                        <field name="TEXT">Blacklist Server:</field>
+                        <field name="FIELDNAME">blacklist_server</field>
+                      </block>
+                    </statement>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="pnm!?RXVJ1z-g%fBG/,Z"></shadow>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="q2.Rn?}$a$iKa8N+z.sR" deletable="false" movable="false">
+        <field name="TEXT">firewall hook takes as input the backlit account </field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="VV;mX)!fb!9xoDFOz?5A" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="(w=)rNj;WIhewr%8a(4O">
+        <mutation colour="#a55b80"></mutation>
+        <field name="HUE">330</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="@I]vsGRj1UvspjtYwZgr" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="NONE"></mutation>
+    <field name="NAME">hooks_accept</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">NONE</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="u=;k])_Q^[Af!L?bIV5D">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id=":Ax_`DUTlBkPn3usYn`a">
+            <field name="TEXT">Accept Hook</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="[Qgox[~g([YGUm_4VC1J">
+            <field name="INPUTNAME">NAME</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_label_serializable" id="7T^#V~.IHPP5]hT1+2:[">
+                <field name="TEXT">Wallet address:</field>
+                <field name="FIELDNAME">wallet_address</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="yC)i,%}rw)WfWq[9rSW#"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="q2.Rn?}$a$iKa8N+z.sR" deletable="false" movable="false">
+        <field name="TEXT">This hook just accepts any transaction coming through it</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="VV;mX)!fb!9xoDFOz?5A" deletable="false" movable="false">
+        <field name="TEXT">https://github.com/XRPL-Labs/xrpld-hooks/tree/hooks-chaining/hook-api-examples</field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="(w=)rNj;WIhewr%8a(4O">
+        <mutation colour="#5ba55b"></mutation>
+        <field name="HUE">120</field>
+      </block>
+    </value>
+  </block></xml>

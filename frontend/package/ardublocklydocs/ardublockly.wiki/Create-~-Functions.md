@@ -1,0 +1,1 @@
+_(This is a placeholder, the toolbox category functions documentation still needs to be created.)_

@@ -1106,7 +1106,7 @@ Blockly.Css.register([
 
   /* Category tree in Toolbox. */
   '.blocklyToolboxDiv {',
-    'background-color: #ddd;',
+    'background-color: #0743f7;',
     'overflow-x: visible;',
     'overflow-y: auto;',
     'padding: 4px 0 4px 0;',

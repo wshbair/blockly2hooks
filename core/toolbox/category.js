@@ -691,7 +691,7 @@ Blockly.Css.register([
     'cursor: default;',
     'font: 16px sans-serif;',
     'padding: 0 3px;',
-    'vertical-align: middle;',
+    'vertical-align: middle;', 
   '}',
 
   '.blocklyToolboxDelete .blocklyTreeLabel {',

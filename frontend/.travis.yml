@@ -1,0 +1,107 @@
+# Oldest OS X image in TravisCi at the moment is 10.10 Yosemite 
+os: osx
+osx_image: xcode6.4
+language: node_js
+node_js: '6'
+
+before_install:
+  # OS extra info
+  - sw_vers
+  - uname -a
+
+  # Install Python 2 pip, ensure pip installed packages are found first
+  # Python 2 installation and path priority in Travis OS X is a bit of a mess
+  # https://github.com/travis-ci/travis-ci/issues/4194 
+  - curl -O https://bootstrap.pypa.io/get-pip.py
+  - sudo python get-pip.py
+  - rm get-pip.py
+  - sudo pip install --upgrade pip setuptools wheel
+  # Original problem is old version of "six" package lingering around
+  # https://github.com/testing-cabal/mock/issues/337
+  - export PYTHONPATH=/Library/Python/2.7/site-packages:$PYTHONPATH
+  - python -c "import sys; print(sys.path)"
+  - python -c "from six import wraps"
+
+  # Install Python 3.5 with pip, and check versions
+  - brew update
+  - brew tap zoidbergwill/python
+  - brew install python35
+  - cp -R /usr/local/bin/pip3.5 /usr/local/bin/pip3
+  - sudo pip3 install --upgrade pip
+
+  - brew install libcouchbase
+  - PATH=/usr/local/bin:$PATH
+  - echo $PATH
+
+  # Install Python packages (built with Python 3, tests for 2 and 3)
+  - sudo python -m pip install mock
+  - sudo python -m pip install coverage
+  - sudo python -m pip install requests
+  - pip3 install coverage
+  - pip3 install requests
+  - pip3 install coveralls
+  #- pip3 install pydocstyle
+  - pip3 install mkdocs
+  # We need a newer unreleased version of PyInstaller for Python 3.5
+  - pip3 install https://github.com/pyinstaller/pyinstaller/archive/964547cd92cabe28150d52c2ca809de74a5ddbaa.zip
+
+  # Check Python, pip and package versions
+  - python -c "import sys; print(sys.executable)"
+  - python --version
+  - python -c "import struct; print(struct.calcsize('P') * 8)"
+  - python -m pip --version
+  - python -m pip freeze
+  - python3 -c "import sys; print(sys.executable)"
+  - python3 --version
+  - python3 -c "import struct; print(struct.calcsize('P') * 8)"
+  - pip3 --version
+  - pip3 freeze
+  - pyinstaller --version
+
+  # Travis make takes > 10 minutes, so need to increase wait
+  - brew unlink node
+  - travis_wait brew install node
+  - node --version
+  - node -p "process.arch"
+  - npm --version
+
+# Build and pack Ardublockly
+install:
+  - cd blockly && python build.py && cd ../
+  - python3 package/build_docs.py
+  - python3 package/build_pyinstaller.py mac
+  - cd package/electron && npm install && cd ../../
+  - cd package/electron && npm run release && cd ../../
+  - python3 package/pack_ardublockly.py
+  - du -sk releases/
+
+# Run the tests in both Python 2 and 3
+script:
+  - python -m coverage run ardublocklyserver/tests/run_all.py
+  - python -m coverage report
+  - python3 -m coverage run ardublocklyserver/tests/run_all.py
+  - python3 -m coverage report
+  #- pydocstyle ardublocklyserver --match-dir='ardublocklyserver'
+
+after_success:
+  - coveralls
+
+# Deploy the build version in an S3 bucket
+deploy:
+  provider: s3
+  access_key_id: AKIAIBDOPX6GSMBDEFPQ
+  secret_access_key:
+    secure: QNNNIgHpcTYJZS1K4w8iPqJWq1Xhx8ICoVJ79QURS5Vi4ppnP0smuW13+XdmjoZyoceSoR4iOcKX7o4HXDozsejy3ft72tXgNntVQoOOKYxnV1zKYHc7Q6ID6L3GlPKV2EQid30CM4bP0mm4P8ntuemUOwhqm4mjRwDxAMpxsEbXgNAHAMifn40g5u2rHuwo64+UUll6m2Ues6mekAlwq6YQKn0numrcHRZX9F3kMLyrSHO671EkyfVsBbZpk7+HIEXmgXgPb4juefcxUlhYQFvnlBPyyTG1ec0BE2un714vZe+Gq0w1UYQbIpsAvM1HDWQKa2S9m2gz1TXC5YXOKAfoenyFsrgvdT00zpxVrTLAGhmIgtxsbAYXVPRg/6g5E+DW/JJ2xBfMJyw3j/82vexkHpvQcut9zZ74CE2H0CtyNXHvwdcwMs+qoja6tLw1dvFD7yrTo2T/jCOxFoGYjneF3Syuh8GpALSGGUJDnyFiK0yD2B0r2567csFj5Sc0CO/ExFwfG9zmiVtkm0Xpfq09VcZFjVnJ4k8QyNvrHmnGB/H7P6CskSA1X9gGIyk36Cu17XyyrtIuM+UUIdnrZhWCI3zA/2UVawkEjA+zhpbKFKsxIe37bPpIpNM+OyMLppZzzpcaRAynh6a/8Hcc+ckh4zMg7qWu7VXyYvjSkl0=
+  bucket: ardublockly-builds
+  skip_cleanup: true
+  local-dir: releases
+  upload-dir: mac
+  acl: public_read
+  on:
+    repo: carlosperate/ardublockly
+    all_branches: true
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change

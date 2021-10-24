@@ -982,6 +982,39 @@ Blockly.Blocks['procedures_callreturn'] = {
       Blockly.Blocks['procedures_callnoreturn'].customContextMenu,
   defType_: 'procedures_defreturn'
 };
+Blockly.Blocks['procedures_wazen'] = {
+  /**
+   * Block for calling a procedure with a return value.
+   * @this {Blockly.Block}
+   */
+  init: function() {
+    this.appendDummyInput('TOPROW')
+        .appendField('', 'NAME');
+    this.setOutput(true);
+    this.setStyle('procedure_blocks');
+    // Tooltip is set in domToMutation.
+    this.setHelpUrl(Blockly.Msg['PROCEDURES_CALLRETURN_HELPURL']);
+    this.arguments_ = [];
+    this.argumentVarModels_ = [];
+    this.quarkConnections_ = {};
+    this.quarkIds_ = null;
+    this.previousEnabledState_ = true;
+  },
+
+  getProcedureCall: Blockly.Blocks['procedures_callnoreturn'].getProcedureCall,
+  renameProcedure: Blockly.Blocks['procedures_callnoreturn'].renameProcedure,
+  setProcedureParameters_:
+      Blockly.Blocks['procedures_callnoreturn'].setProcedureParameters_,
+  updateShape_: Blockly.Blocks['procedures_callnoreturn'].updateShape_,
+  mutationToDom: Blockly.Blocks['procedures_callnoreturn'].mutationToDom,
+  domToMutation: Blockly.Blocks['procedures_callnoreturn'].domToMutation,
+  getVars: Blockly.Blocks['procedures_callnoreturn'].getVars,
+  getVarModels: Blockly.Blocks['procedures_callnoreturn'].getVarModels,
+  onchange: Blockly.Blocks['procedures_callnoreturn'].onchange,
+  customContextMenu:
+      Blockly.Blocks['procedures_callnoreturn'].customContextMenu,
+  defType_: 'procedures_defreturn'
+};
 
 Blockly.Blocks['procedures_ifreturn'] = {
   /**
@@ -1078,3 +1111,4 @@ Blockly.Blocks['procedures_ifreturn'] = {
    */
   FUNCTION_TYPES: ['procedures_defnoreturn', 'procedures_defreturn']
 };
+

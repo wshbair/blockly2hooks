@@ -32,7 +32,6 @@
      // Variable getter.
      var code = Blockly.cake.variableDB_.getName(block.getFieldValue('VAR'),
          Blockly.Variables.NAME_TYPE);
-     code = Blockly.Blocks.checkUnselect(code);
      return [code, Blockly.cake.ORDER_ATOMIC];
  };
  
@@ -56,7 +55,6 @@
      // Variable getter.
      var code = Blockly.cake.variableDB_.getName(block.getFieldValue('VAR'),
          Blockly.Variables.NAME_TYPE);
-     code = Blockly.Blocks.checkUnselect(code);
      return [code, Blockly.cake.ORDER_ATOMIC];
  };
  
@@ -66,7 +64,6 @@
              Blockly.cake.ORDER_ASSIGNMENT) || '0';
      var varName = Blockly.cake.variableDB_.getName(
          block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
-     varName = Blockly.Blocks.checkUnselect(varName);
      return varName + ' = ' + argument0 + ';\n';
  };
  
@@ -87,7 +84,6 @@
      // Variable getter.
      var code = Blockly.cake.variableDB_.getName(block.getFieldValue('VAR'),
          Blockly.Variables.NAME_TYPE);
-     code = Blockly.Blocks.checkUnselect(code);
      return [code, Blockly.cake.ORDER_ATOMIC];
  };
  
@@ -97,7 +93,6 @@
              Blockly.cake.ORDER_ASSIGNMENT) || '0';
      var argument1 = Blockly.cake.valueToCode(block, 'VAR',
          Blockly.cake.ORDER_ASSIGNMENT);
-     argument1 = Blockly.Blocks.checkUnselect(argument1);
      return argument1 + ' = ' + argument0 + ';\n';
  };
  
@@ -134,7 +129,6 @@
  Blockly.cake['variables_array_get'] = function(block) {
      var varName = Blockly.cake.variableDB_.getName(block.getFieldValue('VAR'),
          Blockly.Variables.NAME_TYPE);
-     varName = Blockly.Blocks.checkUnselect(varName);
      var length_1 = block.getFieldValue('LENGTH_1');
      var length_2 = block.getFieldValue('LENGTH_2');
      var length_3 = block.getFieldValue('LENGTH_3');
@@ -199,9 +193,7 @@
              Blockly.cake.ORDER_ASSIGNMENT) || '0';
      var varName = Blockly.cake.variableDB_.getName(
          block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
- 
-     varName = Blockly.Blocks.checkUnselect(varName);
- 
+  
      var length_1 = block.getFieldValue('LENGTH_1');
      var length_2 = block.getFieldValue('LENGTH_2');
      var length_3 = block.getFieldValue('LENGTH_3');

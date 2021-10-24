@@ -41,7 +41,6 @@ Blockly.cake['structure_define'] = function(block) {
 Blockly.cake['structure_declare'] = function(block) {
   var type = Blockly.cake.variableDB_.getName(
     block.getFieldValue('TYPES'), null);
-    type = Blockly.Blocks.checkUnselect(type);
   var structName = Blockly.cake.variableDB_.getName(
     block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
     if (Blockly.Blocks.checkLegalName(Blockly.Msg.STRUCTURE_ILLEGALNAME, structName) == -1){
@@ -55,7 +54,6 @@ Blockly.cake['structure_get'] = function(block) {
     block.getFieldValue('NAME'), null);
   var structMem = Blockly.cake.variableDB_.getName(
     block.getFieldValue('Mem'), Blockly.Variables.NAME_TYPE);
-    structMem = Blockly.Blocks.checkUnselect(structMem);
   var code;
   if (structMem == 'Itself')
     var code = name;
@@ -69,7 +67,6 @@ Blockly.cake['structure_set'] = function(block) {
   var name = block.getFieldValue('NAME');
   var structMem = Blockly.cake.variableDB_.getName(
     block.getFieldValue('Mem'), Blockly.Variables.NAME_TYPE);
-    structMem = Blockly.Blocks.checkUnselect(structMem);
   var argument0 = Blockly.cake.valueToCode(block, 'VALUE',
     Blockly.cake.ORDER_ASSIGNMENT) || '0';
   var fullName;

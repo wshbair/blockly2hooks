@@ -4,6 +4,12 @@ goog.provide('Blockly.cake.string');
 
 goog.require('Blockly.cake');
 
+Blockly.cake['text'] = function(block) {
+    // Text value.
+    var code = Blockly.cake.quote_(block.getFieldValue('TEXT'));
+    return [code, Blockly.cake.ORDER_ATOMIC];
+  };
+
 Blockly.cake['library_string_strlen'] = function(block) {
     var code;
     var arg = Blockly.cake.valueToCode(block, 'VAR',

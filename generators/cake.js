@@ -25,6 +25,15 @@
   */
  Blockly.cake = new Blockly.Generator('cake');
  
+ Blockly.cake.C_VARIABLE_TYPES = [
+  ["float", "float"],
+  ["int", "int"],
+  ["unsigned int", "unsigned int"],
+  ["short", "short"],
+  ["unsigned short", "unsigned short"],
+  ["bool", "bool"]
+];
+
  /**
   * List of illegal variable names.
   * This is not intended to be a security feature.  Blockly is 100% client-side,

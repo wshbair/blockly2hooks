@@ -1,26 +1,82 @@
 Blockly.defineBlocksWithJsonArray([{
-    "type": "testing",
-    "message0": "#define name %1 is %2 %3",
-    "args0": [
-      {
-        "type": "field_input",
-        "name": "NAME",
-        "text": "macro"
-      },
-      {
-        "type": "input_dummy"
-      },
-      {
-        "type": "input_value",
-        "name": "NAME"
-      }
-    ],
-    "inputsInline": true,
-    "colour": 230,
-    "tooltip": "",
-    "helpUrl": ""
-  }
-]);
+  "type": "hooks_firewall",
+  "message0": "Firewall Hooks %1 %2 %3 %4 %5 %6 %7",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_label_serializable",
+      "name": "my_wallet_address",
+      "text": "My Wallet address:"
+    },
+    {
+      "type": "input_value",
+      "name": "my_wallet_address"
+    },
+    {
+      "type": "field_label_serializable",
+      "name": "wallet_to_block",
+      "text": "Wallet to block:"
+    },
+    {
+      "type": "input_value",
+      "name": "wallet_to_block"
+    },
+    {
+      "type": "field_label_serializable",
+      "name": "blacklist_server",
+      "text": "Blacklist Server:"
+    },
+    {
+      "type": "input_value",
+      "name": "blacklist_server"
+    }
+  ],
+  "inputsInline": false,
+  "colour": 330,
+  "tooltip": "firewall hook takes as input the backlit account ",
+  "helpUrl": ""
+},
+{
+  "type": "hooks_accept",
+  "message0": "Accept Hook %1 %2 %3",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_label_serializable",
+      "name": "wallet_address",
+      "text": "Wallet address:"
+    },
+    {
+      "type": "input_value",
+      "name": "NAME"
+    }
+  ],
+  "colour": 120,
+  "tooltip": "This hook just accepts any transaction coming through it",
+  "helpUrl": "https://github.com/XRPL-Labs/xrpld-hooks/tree/hooks-chaining/hook-api-examples"
+},
+{
+  "type": "hooks_wallet_address",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_input",
+      "name": "wallet_address",
+      "text": "wallet address"
+    }
+  ],
+  "colour": 210,
+  "output":"String",
+  "tooltip": "XRPL wallet address ",
+  "helpUrl": ""
+}]);
+
+Blockly.Blocks.procedures.HUE = 290;
+
 
   var codelabToolbox = `
   <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
@@ -39,7 +95,236 @@ Blockly.defineBlocksWithJsonArray([{
     <block type="logic_null"></block>
     <block type="logic_ternary"></block>
   </category>
-  <category name="Variables" colour="#000000" custom="VARIABLE"></category>
+  <category name="Loops" colour="#5ba55b">
+    <block type="controls_repeat_ext">
+      <value name="TIMES">
+        <shadow type="math_number">
+          <field name="NUM">10</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="controls_whileUntil">
+      <field name="MODE">WHILE</field>
+    </block>
+    <block type="controls_for">
+      <field name="VAR" id="_tEeC{;0B-7e2Y+w!{wA">i</field>
+      <value name="FROM">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="TO">
+        <shadow type="math_number">
+          <field name="NUM">10</field>
+        </shadow>
+      </value>
+      <value name="BY">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="controls_forEach">
+      <field name="VAR" id="XY=ngsf)+?]llt_B-a7P">j</field>
+    </block>
+    <block type="controls_flow_statements">
+      <field name="FLOW">BREAK</field>
+    </block>
+  </category>
+  <category name="Math" colour="#5b67a5">
+    <block type="math_number">
+      <field name="NUM">0</field>
+    </block>
+    <block type="math_arithmetic">
+      <field name="OP">ADD</field>
+      <value name="A">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="B">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_single">
+      <field name="OP">ROOT</field>
+      <value name="NUM">
+        <shadow type="math_number">
+          <field name="NUM">9</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_trig">
+      <field name="OP">SIN</field>
+      <value name="NUM">
+        <shadow type="math_number">
+          <field name="NUM">45</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_constant">
+      <field name="CONSTANT">PI</field>
+    </block>
+    <block type="math_number_property">
+      <mutation divisor_input="false"></mutation>
+      <field name="PROPERTY">EVEN</field>
+      <value name="NUMBER_TO_CHECK">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_round">
+      <field name="OP">ROUND</field>
+      <value name="NUM">
+        <shadow type="math_number">
+          <field name="NUM">3.1</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_on_list">
+      <mutation op="SUM"></mutation>
+      <field name="OP">SUM</field>
+    </block>
+    <block type="math_modulo">
+      <value name="DIVIDEND">
+        <shadow type="math_number">
+          <field name="NUM">64</field>
+        </shadow>
+      </value>
+      <value name="DIVISOR">
+        <shadow type="math_number">
+          <field name="NUM">10</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_constrain">
+      <value name="VALUE">
+        <shadow type="math_number">
+          <field name="NUM">50</field>
+        </shadow>
+      </value>
+      <value name="LOW">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="HIGH">
+        <shadow type="math_number">
+          <field name="NUM">100</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_random_int">
+      <value name="FROM">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="TO">
+        <shadow type="math_number">
+          <field name="NUM">100</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_random_float"></block>
+  </category>
+  <category name="Text" colour="#5ba58c">
+    <block type="text">
+      <field name="TEXT"></field>
+    </block>
+    <block type="text_join">
+      <mutation items="2"></mutation>
+    </block>
+    <block type="text_append">
+      <field name="VAR" id=",RsRx[kYP~8~f=)Qx]P:">item</field>
+      <value name="TEXT">
+        <shadow type="text">
+          <field name="TEXT"></field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_length">
+      <value name="VALUE">
+        <shadow type="text">
+          <field name="TEXT">abc</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_isEmpty">
+      <value name="VALUE">
+        <shadow type="text">
+          <field name="TEXT"></field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_indexOf">
+      <field name="END">FIRST</field>
+      <value name="VALUE">
+        <block type="variables_get">
+          <field name="VAR" id="KI|)e@h|L~R,x$S">text</field>
+        </block>
+      </value>
+      <value name="FIND">
+        <shadow type="text">
+          <field name="TEXT">abc</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_charAt">
+      <mutation at="true"></mutation>
+      <field name="WHERE">FROM_START</field>
+      <value name="VALUE">
+        <block type="variables_get">
+          <field name="VAR" id="KPI|)e@h|L~R,x$S">text</field>
+        </block>
+      </value>
+    </block>
+    <block type="text_getSubstring">
+      <mutation at1="true" at2="true"></mutation>
+      <field name="WHERE1">FROM_START</field>
+      <field name="WHERE2">FROM_START</field>
+      <value name="STRING">
+        <block type="variables_get">
+          <field name="VAR" id="KI|)e@h|L~R,x$S">text</field>
+        </block>
+      </value>
+    </block>
+    <block type="text_changeCase">
+      <field name="CASE">UPPERCASE</field>
+      <value name="TEXT">
+        <shadow type="text">
+          <field name="TEXT">abc</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_trim">
+      <field name="MODE">BOTH</field>
+      <value name="TEXT">
+        <shadow type="text">
+          <field name="TEXT">abc</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_print">
+      <value name="TEXT">
+        <shadow type="text">
+          <field name="TEXT">abc</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_prompt_ext">
+      <mutation type="TEXT"></mutation>
+      <field name="TYPE">TEXT</field>
+      <value name="TEXT">
+        <shadow type="text">
+          <field name="TEXT">abc</field>
+        </shadow>
+      </value>
+    </block>
+  </category>
   <category name="Lists" colour="#745ba5">
     <block type="lists_create_with">
       <mutation items="0"></mutation>
@@ -60,7 +345,7 @@ Blockly.defineBlocksWithJsonArray([{
       <field name="END">FIRST</field>
       <value name="VALUE">
         <block type="variables_get">
-          <field name="VAR" id="T}#*-f.#TPQKoIGz5ytc">list</field>
+          <field name="VAR" id="^H~{~+lwvo3WiKYRC:6W">list</field>
         </block>
       </value>
     </block>
@@ -70,7 +355,7 @@ Blockly.defineBlocksWithJsonArray([{
       <field name="WHERE">FROM_START</field>
       <value name="VALUE">
         <block type="variables_get">
-          <field name="VAR" id="T}#*-f.#TPQKoIGz5ytc">list</field>
+          <field name="VAR" id="^H~{~+lwvo3WiKYRC:6W">list</field>
         </block>
       </value>
     </block>
@@ -80,7 +365,7 @@ Blockly.defineBlocksWithJsonArray([{
       <field name="WHERE">FROM_START</field>
       <value name="LIST">
         <block type="variables_get">
-          <field name="VAR" id="T}#*-f.#TPQKoIGz5ytc">list</field>
+          <field name="VAR" id="^H~{~+lwvo3WiKYRC:6W">list</field>
         </block>
       </value>
     </block>
@@ -90,7 +375,7 @@ Blockly.defineBlocksWithJsonArray([{
       <field name="WHERE2">FROM_START</field>
       <value name="LIST">
         <block type="variables_get">
-          <field name="VAR" id="T}#*-f.#TPQKoIGz5ytc">list</field>
+          <field name="VAR" id="^H~{~+lwvo3WiKYRC:6W">list</field>
         </block>
       </value>
     </block>
@@ -108,9 +393,58 @@ Blockly.defineBlocksWithJsonArray([{
       <field name="DIRECTION">1</field>
     </block>
   </category>
-  <category name="My" colour="#9fa55b">
-    <block type="testing">
-      <field name="NAME">macro</field>
+  <category name="Colour" colour="#a5745b">
+    <block type="colour_picker">
+      <field name="COLOUR">#ff0000</field>
+    </block>
+    <block type="colour_random"></block>
+    <block type="colour_rgb">
+      <value name="RED">
+        <shadow type="math_number">
+          <field name="NUM">100</field>
+        </shadow>
+      </value>
+      <value name="GREEN">
+        <shadow type="math_number">
+          <field name="NUM">50</field>
+        </shadow>
+      </value>
+      <value name="BLUE">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="colour_blend">
+      <value name="COLOUR1">
+        <shadow type="colour_picker">
+          <field name="COLOUR">#ff0000</field>
+        </shadow>
+      </value>
+      <value name="COLOUR2">
+        <shadow type="colour_picker">
+          <field name="COLOUR">#3333ff</field>
+        </shadow>
+      </value>
+      <value name="RATIO">
+        <shadow type="math_number">
+          <field name="NUM">0.5</field>
+        </shadow>
+      </value>
+    </block>
+  </category>
+  <sep></sep>
+  <category name="Variables" colour="#a55b80" custom="VARIABLE"></category>
+  <category name="Functions" colour="#995ba5" custom="PROCEDURE"></category>
+
+  <category name="Hooks" colour="#a55b80">
+    <block type="hooks_wallet_address">
+      <field name="TEXT">XRPL Wallet address</field>
+    </block>
+    <block type="hooks_firewall">
+      <field name="blacklsit_account">BLACKLIST_ACCOUNT</field>
+    </block>
+    <block type="hooks_accept">
     </block>
   </category>
 </xml>
