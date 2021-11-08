@@ -46,7 +46,7 @@
  Blockly.Blocks['guard'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("guard");
+          .appendField("GUARD");
       this.appendValueInput("arg1")
           .setCheck(null);
       this.setInputsInline(true);
@@ -218,6 +218,32 @@
       this.setOutput(true, null);
       this.setTooltip('');
       this.setColour(Blockly.Blocks.essential.HUE);
+      this.setHelpUrl('http://www.example.com/');
+    }
+  };
+
+  Blockly.Blocks['loops_for'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("count with")
+          .appendField(new Blockly.FieldTextInput("i"), "var0")
+          .appendField("from");
+      this.appendValueInput("arg0")
+          .setCheck(null);
+      this.appendDummyInput()
+          .appendField("to");
+      this.appendValueInput("arg1")
+          .setCheck(null);
+      this.appendDummyInput()
+          .appendField("by");
+      this.appendValueInput("arg2")
+          .setCheck(null);
+      this.appendStatementInput("NAME")
+          .setCheck(null)
+          .appendField("do");
+      this.setInputsInline(true);
+      this.setColour(120);
+      this.setTooltip('for loop');
       this.setHelpUrl('http://www.example.com/');
     }
   };

@@ -76,7 +76,7 @@
       </a>
       <!-- Horizontal Navbar links only shown on large resolutions -->
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#" id="button_deploy"><span class="translatable_open">Deploy to XRPL</span><i class="mdi-action-note-add disabled left"></i></a></li>
+        <li><a href="#" id="button_deploy"><span class="translatable_open">Deploy to XRPL</span><i class="mdi-action-note-add left"></i></a></li>
         <li><a href="#" id="button_load"><span class="translatable_open">Open</span><i class="mdi-file-file-upload left"></i></a></li>
         <li><a href="#" id="button_save"><span class="translatable_save">Save</span><i class="mdi-file-file-download left"></i></a></li>
         <li><a href="#" id="button_delete"><span class="translatable_deleteAll">Delete All</span><i class="mdi-action-delete left"></i></a></li>
@@ -86,8 +86,7 @@
 
   <!-- Sidebar navigation -->
   <ul id="slide-out" class="side-nav">
-    <li class="logo"><img src="img/sidenav_header.png" alt="Ardublockly block image"></li>
-    <li class="no-padding">
+     <li class="no-padding">
       <ul>
         <li id="menu_load"><a href="#"><span class="translatable_open">Open</span><i class="mdi-file-file-upload left"></i></a></li>
         <li id="menu_save"><a href="#"><span class="translatable_save">Save</span><i class="mdi-file-file-download left"></i></a></li>
@@ -118,13 +117,13 @@
   <!-- Content -->
   <div class="container">
     <div class="row">
-      <div class="col s12 m12 l8" style="position:relative">
+      <div class="col s12 m12 l7" style="position:relative">
         <!-- Toolbox visibility button -->
         <a id="button_toggle_toolbox" class="waves-effect waves-light btn-flat button_toggle_toolbox_off" style="display: none"><i id="button_toggle_toolbox_icon" class="mdi-action-visibility-off"></i></a>
         <!-- Hook action buttons -->
         <div id="ide_buttons_wrapper">
           <!-- <a id="button_ide_left" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_yellow"><i id="button_ide_left_icon" class="mdi-action-open-in-browser"></i></a> -->
-          <a id="button_ide_middle" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_teal"><i id="button_ide_middle_icon" class="mdi-navigation-check"></i></a>
+          <!-- <a id="button_ide_middle" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_teal"><i id="button_ide_middle_icon" class="mdi-navigation-check"></i></a> -->
           <a id="button_ide_large" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_orange"><i id="button_ide_large_icon" class="mdi-av-play-arrow"></i></a>
           <div id="button_ide_large_spinner" class="preloader-wrapper active ide_loader" style="display:none">
             <div class="spinner-layer spinner-orange">
@@ -172,18 +171,20 @@
           </div>
         </div>
       </div>
-      <div class="col s12 m12 l4">
+      <div class="col s12 m12 l5">
         <ul class="collapsible z-depth-1" data-collapsible="accordion">
           <li>
             <div class="collapsible-header active">
               <span class="collapsible_logo">{ }</span>              
-              <span class="translatable_arduinoSourceCode">Hook Source Code</span>
+              <span class="translatable_arduinoSourceCode">Hook Source Code</span> 
             </div>
             <!-- <div class="collapsible-body" contenteditable="true"> -->
             <div class="collapsible-body" >
-              <pre id="content_arduino" class="content content_height_transition content_arduino_large"></pre>
-              <a class="btn-floating btn-large waves-effect waves-light arduino_orange z-depth-1-half" id="button_copy_code"> <i class="mdi-content-content-copy"></i></a>
+              <pre id="content_arduino" class="content content_height_transition content_arduino_large">
 
+                
+              </pre>
+              
             </div>
           </li>
           <li>
@@ -206,8 +207,8 @@
     <ul class="collapsible ide_output_collapsible" data-collapsible="expandable">
       <li>
         <div id="ide_output_collapsible_header" class="collapsible-header ide_output_header_normal">
-          <i class="mdi-action-swap-vert Medium" style="font-size: 2.2rem;"></i>
-          <span class="translatable_arduinoOpMainTitle">Hook execution output</span>
+          <span class="collapsible_logo">{ }</span>   
+          <span class="translatable_arduinoOpMainTitle">Hook WASM Compilation Output</span>
         </div>
         <div id="wazen" class="collapsible-body">
           <div class="row" style="background-color: beige;">

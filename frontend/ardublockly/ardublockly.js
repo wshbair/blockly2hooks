@@ -89,9 +89,9 @@ Ardublockly.bindActionFunctions = function() {
     Ardublockly.ideButtonLargeAction();
   });
 
-  Ardublockly.bindClick_('button_ide_middle', function() {
-      Ardublockly.ideButtonMiddleAction();
-  });
+  // Ardublockly.bindClick_('button_ide_middle', function() {
+  //     Ardublockly.ideButtonMiddleAction();
+  // });
   // Ardublockly.bindClick_('button_ide_left', function() {
   //   Ardublockly.ideButtonLeftAction();
   // });
@@ -133,7 +133,7 @@ Ardublockly.bindActionFunctions = function() {
 Ardublockly.ideSendUpload = function() {
   // Check if this is the currently selected option before edit sever setting
   if (Ardublockly.ideButtonLargeAction !== Ardublockly.ideSendUpload) {
-    Ardublockly.showExtraIdeButtons(false);
+    //Ardublockly.showExtraIdeButtons(false);
     Ardublockly.setIdeSettings(null, 'upload');
     
   }
@@ -146,7 +146,7 @@ Ardublockly.ideSendUpload = function() {
 Ardublockly.ideSendVerify = function() {
   // Check if this is the currently selected option before edit sever setting
   if (Ardublockly.ideButtonLargeAction !== Ardublockly.ideSendVerify) {
-    Ardublockly.showExtraIdeButtons(false);
+   // Ardublockly.showExtraIdeButtons(false);
     Ardublockly.setIdeSettings(null, 'verify');
   }
   Ardublockly.shortMessage(Ardublockly.getLocalStr('verifyingSketch'));
@@ -190,7 +190,7 @@ Ardublockly.deployHooKtoTestnet = function() {
 Ardublockly.ideSendOpen = function() {
   // Check if this is the currently selected option before edit sever setting
   if (Ardublockly.ideButtonLargeAction !== Ardublockly.ideSendOpen) {
-    Ardublockly.showExtraIdeButtons(false);
+   // Ardublockly.showExtraIdeButtons(false);
     Ardublockly.setIdeSettings(null, 'open');
   }
   Ardublockly.shortMessage(Ardublockly.getLocalStr('openingSketch'));
@@ -211,11 +211,10 @@ Ardublockly.ideButtonLeftAction = Ardublockly.ideSendOpen;
 Ardublockly.initialiseIdeButtons = function() {
   // document.getElementById('button_ide_left').title =
   //     Ardublockly.getLocalStr('openSketch');
-  document.getElementById('button_ide_middle').title =
-      Ardublockly.getLocalStr('verifySketch');
+  // document.getElementById('button_ide_middle').title =
+  //     Ardublockly.getLocalStr('verifySketch');
   document.getElementById('button_ide_large').title =
       Ardublockly.getLocalStr('uploadSketch');
-  document.getElementById('button_copy_code').title = "Copy Source Code";
   
   ArdublocklyServer.requestIdeOptions(function(jsonObj) {
     if (jsonObj != null) {
@@ -250,7 +249,7 @@ Ardublockly.changeIdeButtons = function(value) {
     Ardublockly.ideButtonMiddleAction = Ardublockly.ideSendUpload;
     Ardublockly.ideButtonLargeAction = Ardublockly.ideSendVerify;
     //leftButton.title = openTitle;
-    middleButton.title = uploadTitle;
+    //middleButton.title = uploadTitle;
     largeButton.title = verifyTitle;
   } else if (value === 'open') {
     Ardublockly.changeIdeButtonsDesign(value);

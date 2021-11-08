@@ -58,12 +58,12 @@ Ardublockly.bindDesignEventListeners = function() {
         Ardublockly.contentHeightToggle();
       });
   // Display/hide the additional IDE buttons when mouse over/out of play button
-  $('#button_ide_large').mouseenter(function() {
-      Ardublockly.showExtraIdeButtons(true);
-  });
-  $('#ide_buttons_wrapper').mouseleave(function() {
-      Ardublockly.showExtraIdeButtons(false);
-  });
+  // $('#button_ide_large').mouseenter(function() {
+  //     Ardublockly.showExtraIdeButtons(true);
+  // });
+  // $('#ide_buttons_wrapper').mouseleave(function() {
+  //     Ardublockly.showExtraIdeButtons(false);
+  // });
 };
 
 /**
@@ -109,9 +109,9 @@ Ardublockly.changeIdeButtonsDesign = function(value) {
     // buttonLeft.className =
     //     buttonLeft.className.replace(/arduino_\S+/, 'arduino_yellow');
     //iconLeft.className = 'mdi-action-open-in-browser';
-    buttonMiddle.className =
-        buttonMiddle.className.replace(/arduino_\S+/, 'arduino_orange');
-    iconMiddle.className = 'mdi-av-play-arrow';
+    // buttonMiddle.className =
+    //     buttonMiddle.className.replace(/arduino_\S+/, 'arduino_orange');
+    // iconMiddle.className = 'mdi-av-play-arrow';
     buttonLarge.className =
         buttonLarge.className.replace(/arduino_\S+/, 'arduino_teal');
     iconLarge.className = 'mdi-navigation-check';
@@ -133,33 +133,33 @@ Ardublockly.changeIdeButtonsDesign = function(value) {
  * Hide/display effects done with CCS3 transitions on visibility and opacity.
  * @param {!boolean} show Indicates if the extra buttons are to be shown.
  */
-Ardublockly.showExtraIdeButtons = function(show) {
-  //var IdeButtonLeft = document.getElementById('button_ide_left');
-  var IdeButtonMiddle = document.getElementById('button_ide_middle');
-  if (show) {
-    // prevent previously set time-out to hide buttons while trying to show them
-    clearTimeout(Ardublockly.outHoldtimeoutHandle);
-    clearTimeout(Ardublockly.hidetimeoutHandle);
-    IdeButtonMiddle.style.visibility = 'visible';
-    IdeButtonMiddle.style.opacity = '1';
-    // Ardublockly.showtimeoutHandle = setTimeout(function() {
-    //   IdeButtonLeft.style.visibility = 'visible';
-    //   IdeButtonLeft.style.opacity = '1';
-    // }, 50);
-  } else {
-    // As the mouse out can be accidental, only hide them after a delay
-    Ardublockly.outHoldtimeoutHandle = setTimeout(function() {
-      // Prevent show time-out to affect the hiding of the buttons
-      clearTimeout(Ardublockly.showtimeoutHandle);
-      // IdeButtonLeft.style.visibility = 'hidden';
-      // IdeButtonLeft.style.opacity = '0';
-      Ardublockly.hidetimeoutHandle = setTimeout(function() {
-        IdeButtonMiddle.style.visibility = 'hidden';
-        IdeButtonMiddle.style.opacity = '0';
-      }, 50);
-    }, 200);
-  }
-};
+// Ardublockly.showExtraIdeButtons = function(show) {
+//   //var IdeButtonLeft = document.getElementById('button_ide_left');
+//   var IdeButtonMiddle = document.getElementById('button_ide_middle');
+//   if (show) {
+//     // prevent previously set time-out to hide buttons while trying to show them
+//     clearTimeout(Ardublockly.outHoldtimeoutHandle);
+//     clearTimeout(Ardublockly.hidetimeoutHandle);
+//     IdeButtonMiddle.style.visibility = 'visible';
+//     IdeButtonMiddle.style.opacity = '1';
+//     // Ardublockly.showtimeoutHandle = setTimeout(function() {
+//     //   IdeButtonLeft.style.visibility = 'visible';
+//     //   IdeButtonLeft.style.opacity = '1';
+//     // }, 50);
+//   } else {
+//     // As the mouse out can be accidental, only hide them after a delay
+//     Ardublockly.outHoldtimeoutHandle = setTimeout(function() {
+//       // Prevent show time-out to affect the hiding of the buttons
+//       clearTimeout(Ardublockly.showtimeoutHandle);
+//       // IdeButtonLeft.style.visibility = 'hidden';
+//       // IdeButtonLeft.style.opacity = '0';
+//       Ardublockly.hidetimeoutHandle = setTimeout(function() {
+//         IdeButtonMiddle.style.visibility = 'hidden';
+//         IdeButtonMiddle.style.opacity = '0';
+//       }, 50);
+//     }, 200);
+//   }
+// };
 
 /**
  * Shows or hides the spinner around the large IDE button.
