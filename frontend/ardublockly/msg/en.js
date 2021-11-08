@@ -74,11 +74,12 @@ Ardublockly.LOCALISED_TEXT = {
                      "Are you sure you want to delete them?",
   invalidXmlTitle: "Invalid XML",
   invalidXmlBody: "The XML file was not successfully parsed into blocks. Please review the XML code and try again.",
+  
   /* Tooltips */
   uploadingSketch: "Uploading Sketch into Arduino...",
   uploadSketch: "Upload Sketch to the Arduino",
-  verifyingSketch: "Verifying Sketch...",
-  verifySketch: "Verify the Sketch",
+  verifyingSketch: "Compiling the Hook...",
+  verifySketch: "Compile the Hook",
   openingSketch: "Opening Sketch in the Arduino IDE...",
   openSketch: "Open Sketch in IDE",
   notImplemented: "Function not yet implemented",
@@ -88,7 +89,7 @@ Ardublockly.LOCALISED_TEXT = {
   cancel: "Cancel",
   return: "Return",
   /* Cards */
-  arduinoSourceCode: "Arduino Source Code",
+  arduinoSourceCode: "Hooks Source Code",
   blocksXml: "Blocks XML",
   /* Toolbox Categories*/
   catLogic: "Logic",
@@ -97,9 +98,14 @@ Ardublockly.LOCALISED_TEXT = {
   catText: "Text",
   catVariables: "Variables",
   catFunctions: "Functions",
-  catInputOutput: "Input/Output",
-  catTime: "Time",
-  catAudio: "Audio",
-  catMotors: "Motors",
-  catComms: "Comms",
+  catComms: "Ready2Go",
+  catUtilities: 'Utilities',
+  catSerialization: 'Serialization',
+  catEmittedTransaction:'Emitted Transaction',
+  catFloat:'Float',
+  catLedger:'Ledger',
+  catSlot: 'Slot',
+  catState:'State',
+  catTrace:'Trace (Debug)',
+  catOriginatingTransaction: 'Originating Transaction'
 };

@@ -329,6 +329,7 @@ ArdublocklyServer.setIdeOptions = function(ide_option, callback) {
 };
 
 
+
 /**
  * Sends the Arduino code to the ArdublocklyServer to be processed as defined
  * by the settings.
@@ -337,6 +338,32 @@ ArdublocklyServer.setIdeOptions = function(ide_option, callback) {
  *     have one argument to receive the JSON response.
  */
 ArdublocklyServer.sendSketchToServer = function(code, callback) {
-  ArdublocklyServer.sendRequest(
-      '/code', 'POST', 'application/json', {"sketch_code": code}, callback);
+
+    var inputString = encodeURIComponent(code).replace('%20', '+');
+    var actionString = "c2wast&version=1";
+    var optionsString = "-O3%20-std%3DC99";
+    var command = "input=" + inputString + "&action=" + actionString + "&options=" + optionsString
+    var xhr = new XMLHttpRequest();
+    xhr.addEventListener("load", function () {
+      var wast = this.responseText;
+      callback(wast);
+    });  
+    xhr.open("POST", "https://wasmexplorer-service.herokuapp.com/" + "service.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+    xhr.send(command);
+      
+  // ArdublocklyServer.sendRequest(
+  //     '/code', 'POST', 'application/json', {"sketch_code": code}, callback);
+
+  
 };
+
+// Send the Wasm Binary file to the backend to deploy it 
+ArdublocklyServer.hookDeploy = function(wasmBinaryFile,callback){
+  var data ={"wasmFile": wasmBinaryFile} 
+  ArdublocklyServer.sendRequest('/deploy_hook', 'POST', "application/json", data, callback)
+};
+
+
+
+    

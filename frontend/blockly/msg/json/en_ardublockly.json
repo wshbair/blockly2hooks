@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "carlosperate",
-		"lastupdated": "2021-10-24 16:09:45.045990",
+		"lastupdated": "2021-10-31 22:21:01.613753",
 		"locale": "en",
 		"messagedocumentation" : "qqq_ardublockly"
 	},
@@ -39,9 +39,9 @@
 	"ARD_MAP": "Map",
 	"ARD_MAP_VAL": "value to [0-",
 	"ARD_MAP_TIP": "Re-maps a number from [0-1024] to another.",
-	"ARD_FUN_RUN_SETUP": "Arduino run first:",
-	"ARD_FUN_RUN_LOOP": "Arduino loop forever:",
-	"ARD_FUN_RUN_TIP": "Defines the Arduino setup() and loop() functions.",
+	"ARD_FUN_RUN_SETUP": "cbak:",
+	"ARD_FUN_RUN_LOOP": "hook:",
+	"ARD_FUN_RUN_TIP": "Defines the hook cbak() and hook() functions.",
 	"ARD_PIN_WARN1": "Pin %1 is needed for %2 as pin %3. Already used as %4.",
 	"ARD_SERIAL_SETUP": "Setup",
 	"ARD_SERIAL_SPEED": ":  speed to",

@@ -231,7 +231,7 @@ Blockly.Generator.prototype.valueToCode = function(block, name, order) {
       // wrap the code in parentheses.
       // Technically, this should be handled on a language-by-language basis.
       // However all known (sane) languages use parentheses for grouping.
-      code = '(' + code + ')';
+      code = code // '( ' + code + ' )';
     }
   }
   return code;

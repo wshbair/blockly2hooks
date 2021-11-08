@@ -54,3 +54,30 @@ Blockly.Arduino['variables_set_type'] = function(block) {
   var code = '(' + varType + ')(' + argument0 + ')';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
+
+Blockly.Arduino['declare_variable_hook'] = function(block) {
+  var dropdown_var_type = block.getFieldValue('var_type');
+  var text_var_name = block.getFieldValue('var_name');
+  var value_inital = Blockly.Arduino.valueToCode(block, 'inital', Blockly.Arduino.ORDER_ATOMIC);
+  console.log(block)
+  var code = dropdown_var_type+' '+text_var_name + ' = '+value_inital+';\n';
+  return code;
+};
+
+Blockly.Arduino['pointer'] = function(block) {
+  var dropdown_type = block.getFieldValue('type');
+  var text_name = block.getFieldValue('NAME');
+  var text_pointer_name = block.getFieldValue('pointer_name');
+  var value_inital = Blockly.Arduino.valueToCode(block, 'initial', Blockly.Arduino.ORDER_ATOMIC);
+  var code = dropdown_type+' '+text_name+text_pointer_name+' = '+value_inital+ ';\n';
+  return code;
+};
+
+Blockly.Arduino['string'] = function(block) {
+  var dropdown_type = block.getFieldValue('type');
+  var text_mystring = block.getFieldValue('mystring');
+  var value_length = Blockly.Arduino.valueToCode(block, 'length', Blockly.Arduino.ORDER_ATOMIC);
+  var value_string_var = Blockly.Arduino.valueToCode(block, 'string_var', Blockly.Arduino.ORDER_ATOMIC);
+  var code = dropdown_type +' '+text_mystring+'['+value_length+'] = '+value_string_var+ ';\n';
+  return code;
+};

@@ -17,6 +17,18 @@ from six import iteritems
 from ardublocklyserver import actions
 
 
+
+# # Define the network client
+# from xrpl.clients import JsonRpcClient
+# from xrpl.wallet import generate_faucet_wallet
+
+# JSON_RPC_URL = "https://s.altnet.rippletest.net:51234/"
+# client = JsonRpcClient(JSON_RPC_URL)
+
+
+
+
+
 #
 # Configure server
 #
@@ -365,6 +377,8 @@ def handler_code_not_allowed():
 
 @app.post('/code')
 def handler_code_post():
+
+    print("hello from python")
     """Handle sent Arduino Sketch code.
 
     Error codes:
@@ -390,33 +404,54 @@ def handler_code_post():
     exit_code = 52
     response_dict = {'response_type': 'ide_output',
                      'response_state': 'full_response'}
-    try:
-        sketch_code = request.json['sketch_code']
-    except (TypeError, ValueError, KeyError) as e:
-        exit_code = 64
-        err_out = 'Unable to parse sent JSON.'
-        print('Error: Unable to parse sent JSON:\n%s' % str(e))
-    else:
-        try:
-            success, ide_mode, std_out, err_out, exit_code = \
-                actions.arduino_ide_send_code(sketch_code)
-        except Exception as e:
-            exit_code = 52
-            err_out += 'Unexpected server error.'
-            print('Error: Exception in arduino_ide_send_code:\n%s' % str(e))
+    # try:
+    #     sketch_code = request.json['sketch_code']
+    # except (TypeError, ValueError, KeyError) as e:
+    #     exit_code = 64
+    #     err_out = 'Unable to parse sent JSON.'
+    #     print('Error: Unable to parse sent JSON:\n%s' % str(e))
+    # else:
+    #     try:
+    #         success, ide_mode, std_out, err_out, exit_code = \
+    #             actions.arduino_ide_send_code(sketch_code)
+    #     except Exception as e:
+    #         exit_code = 52
+    #         err_out += 'Unexpected server error.'
+    #         print('Error: Exception in arduino_ide_send_code:\n%s' % str(e))
 
-    response_dict.update({'success': success,
-                          'ide_mode': ide_mode,
-                          'ide_data': {
-                              'std_output': std_out,
-                              'err_output': err_out,
-                              'exit_code': exit_code}})
-    if not success:
-        response_dict.update({
-            'errors': [{
-                'id': exit_code,
-                'description': 'More info available in the \'ide_data\' value.'
-            }]
-        })
+    # response_dict.update({'success': success,
+    #                       'ide_mode': ide_mode,
+    #                       'ide_data': {
+    #                           'std_output': std_out,
+    #                           'err_output': err_out,
+    #                           'exit_code': exit_code}})
+    # if not success:
+    #     response_dict.update({
+    #         'errors': [{
+    #             'id': exit_code,
+    #             'description': 'More info available in the \'ide_data\' value.'
+    #         }]
+    #     })
     set_header_no_cache()
+    response_dict.update({'success': "True",
+                          'ide_mode': "unknown",
+                          'ide_data': {
+                              'std_output': "OK",
+                              'err_output': "{'error':'non'}",
+                              'exit_code': 0}})
     return response_dict
+
+@app.post('/deploy_hook')
+def deploy_hook():
+    print("hello from hook deploy")
+    hook_code = request.json['wasmFile']
+    print(hook_code)
+
+    #get the binary here 
+
+
+    response = {'response_type': 'test',
+                'response_state': 'test'}
+    return response
+    
+

@@ -4,11 +4,9 @@
  */
 
 /**
- * @fileoverview Blocks for Arduino Digital and Analogue input and output
- *     functions. The Arduino function syntax can be found at
- *     http://arduino.cc/en/Reference/HomePage
+ * @fileoverview  Firewall XRPL hook  block
+ *     https://xrpl-hooks.readme.io/reference/hook
  *
- * TODO: maybe change this to a "PIN" BlocklyType
  */
  'use strict';
 
@@ -23,7 +21,7 @@
  Blockly.Blocks['firewall'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("Firewall Hooks");
+          .appendField("Firewall Hook");
       this.appendValueInput("x")
           .setCheck(null)
           .appendField(new Blockly.FieldTextInput("block account"), "block_account");
@@ -35,7 +33,38 @@
           .appendField(new Blockly.FieldTextInput("blacklist server"), "blacklist_server");
       this.setColour(330);
       this.setTooltip('');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('https://github.com/XRPL-Labs/xrpld-hooks');
+    }
+  };
+
+  Blockly.Blocks['accept'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("Accept hook");
+      this.setColour(120);
+      this.setTooltip('Accept hook');
+      this.setHelpUrl('https://github.com/XRPL-Labs/xrpld-hooks');
+    }
+  };
+
+  // Hooks control functions 
+  Blockly.Blocks['control_accept'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("accept");
+      this.appendValueInput("read_ptr")
+          .setCheck("uint32_t")
+          .appendField("read_ptr");
+      this.appendValueInput("read_len")
+          .setCheck("uint32_t")
+          .appendField("read_len");
+      this.appendValueInput("error_code")
+          .setCheck("uint32_t")
+          .appendField("error_code");
+      this.setInputsInline(true);
+      this.setColour(290);
+      this.setTooltip('Accept the originating transaction and commit any changes the hook made.');
+      this.setHelpUrl('https://xrpl-hooks.readme.io/reference/accept');
     }
   };
  

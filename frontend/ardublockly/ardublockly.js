@@ -80,15 +80,21 @@ Ardublockly.bindActionFunctions = function() {
   });
 
   // Floating buttons
+
+  // Ardublockly.bindClick_('button_deploy', function() {
+  //   Ardublockly.deployHooKtoTestnet();
+  // });
+
   Ardublockly.bindClick_('button_ide_large', function() {
     Ardublockly.ideButtonLargeAction();
   });
+
   Ardublockly.bindClick_('button_ide_middle', function() {
       Ardublockly.ideButtonMiddleAction();
   });
-  Ardublockly.bindClick_('button_ide_left', function() {
-    Ardublockly.ideButtonLeftAction();
-  });
+  // Ardublockly.bindClick_('button_ide_left', function() {
+  //   Ardublockly.ideButtonLeftAction();
+  // });
   Ardublockly.bindClick_('button_load_xml', Ardublockly.XmlTextareaToBlocks);
   Ardublockly.bindClick_('button_toggle_toolbox', Ardublockly.toogleToolbox);
 
@@ -129,6 +135,7 @@ Ardublockly.ideSendUpload = function() {
   if (Ardublockly.ideButtonLargeAction !== Ardublockly.ideSendUpload) {
     Ardublockly.showExtraIdeButtons(false);
     Ardublockly.setIdeSettings(null, 'upload');
+    
   }
   Ardublockly.shortMessage(Ardublockly.getLocalStr('uploadingSketch'));
   Ardublockly.resetIdeOutputContent();
@@ -145,7 +152,39 @@ Ardublockly.ideSendVerify = function() {
   Ardublockly.shortMessage(Ardublockly.getLocalStr('verifyingSketch'));
   Ardublockly.resetIdeOutputContent();
   Ardublockly.sendCode();
+  Ardublockly.contentHeightToggle()
+  var outputHeader = document.getElementById('ide_output_collapsible_header');
+  outputHeader.classList.add('active')
+  document.getElementById("wazen").setAttribute("style", "display: block; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;")
 };
+
+/** Deploy the WASM binary hook to Ripple Legder */
+Ardublockly.deployHooKtoTestnet = function() {
+  var deployWasmCode = function(result) {
+    console.log(result)
+  };
+  // get the wasm binary form from the interface. 
+  var binayrWasm = document.getElementById('wasmoutput').innerText;
+  
+  // call hookdeply via Ajax request to the paython server
+  ArdublocklyServer.hookDeploy(binayrWasm, deployWasmCode);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /** Sets the Ardublockly server IDE setting to open and sends the code. */
 Ardublockly.ideSendOpen = function() {
@@ -163,19 +202,21 @@ Ardublockly.ideSendOpen = function() {
 Ardublockly.ideButtonLargeAction = Ardublockly.ideSendUpload;
 
 /** Function bound to the middle IDE button, to be changed based on settings. */
-Ardublockly.ideButtonMiddleAction = Ardublockly.ideSendVerify;
+Ardublockly.ideButtonMiddleAction =  Ardublockly.ideSendVerify;
 
 /** Function bound to the large IDE button, to be changed based on settings. */
 Ardublockly.ideButtonLeftAction = Ardublockly.ideSendOpen;
 
 /** Initialises the IDE buttons with the default option from the server. */
 Ardublockly.initialiseIdeButtons = function() {
-  document.getElementById('button_ide_left').title =
-      Ardublockly.getLocalStr('openSketch');
+  // document.getElementById('button_ide_left').title =
+  //     Ardublockly.getLocalStr('openSketch');
   document.getElementById('button_ide_middle').title =
       Ardublockly.getLocalStr('verifySketch');
   document.getElementById('button_ide_large').title =
       Ardublockly.getLocalStr('uploadSketch');
+  document.getElementById('button_copy_code').title = "Copy Source Code";
+  
   ArdublocklyServer.requestIdeOptions(function(jsonObj) {
     if (jsonObj != null) {
       Ardublockly.changeIdeButtons(jsonObj.selected);
@@ -191,7 +232,7 @@ Ardublockly.initialiseIdeButtons = function() {
 Ardublockly.changeIdeButtons = function(value) {
   var largeButton = document.getElementById('button_ide_large');
   var middleButton = document.getElementById('button_ide_middle');
-  var leftButton = document.getElementById('button_ide_left');
+  // var leftButton = document.getElementById('button_ide_left');
   var openTitle = Ardublockly.getLocalStr('openSketch');
   var verifyTitle = Ardublockly.getLocalStr('verifySketch');
   var uploadTitle = Ardublockly.getLocalStr('uploadSketch');
@@ -200,7 +241,7 @@ Ardublockly.changeIdeButtons = function(value) {
     Ardublockly.ideButtonLeftAction = Ardublockly.ideSendOpen;
     Ardublockly.ideButtonMiddleAction = Ardublockly.ideSendVerify;
     Ardublockly.ideButtonLargeAction = Ardublockly.ideSendUpload;
-    leftButton.title = openTitle;
+    //leftButton.title = openTitle;
     middleButton.title = verifyTitle;
     largeButton.title = uploadTitle;
   } else if (value === 'verify') {
@@ -208,7 +249,7 @@ Ardublockly.changeIdeButtons = function(value) {
     Ardublockly.ideButtonLeftAction = Ardublockly.ideSendOpen;
     Ardublockly.ideButtonMiddleAction = Ardublockly.ideSendUpload;
     Ardublockly.ideButtonLargeAction = Ardublockly.ideSendVerify;
-    leftButton.title = openTitle;
+    //leftButton.title = openTitle;
     middleButton.title = uploadTitle;
     largeButton.title = verifyTitle;
   } else if (value === 'open') {
@@ -216,7 +257,7 @@ Ardublockly.changeIdeButtons = function(value) {
     Ardublockly.ideButtonLeftAction = Ardublockly.ideSendVerify;
     Ardublockly.ideButtonMiddleAction = Ardublockly.ideSendUpload;
     Ardublockly.ideButtonLargeAction = Ardublockly.ideSendOpen;
-    leftButton.title = verifyTitle;
+    //leftButton.title = verifyTitle;
     middleButton.title = uploadTitle;
     largeButton.title = openTitle;
   }
@@ -322,7 +363,7 @@ Ardublockly.saveXmlFile = function() {
  */
 Ardublockly.saveSketchFile = function() {
   Ardublockly.saveTextFileAs(
-      document.getElementById('sketch_name').value + '.ino',
+      document.getElementById('sketch_name').value + '.c',
       Ardublockly.generateArduino());
 };
 
@@ -522,14 +563,19 @@ Ardublockly.sendCode = function() {
    */
   var sendCodeReturn = function(jsonObj) {
     Ardublockly.largeIdeButtonSpinner(false);
-    if (jsonObj === null) return Ardublockly.openNotConnectedModal();
-    var dataBack = ArdublocklyServer.jsonToIdeModal(jsonObj);
-    Ardublockly.arduinoIdeOutput(dataBack);
+    //if (jsonObj === null) return Ardublockly.openNotConnectedModal();
+    //var dataBack = ArdublocklyServer.jsonToIdeModal(jsonObj);
+    Ardublockly.arduinoIdeOutput(jsonObj);
   };
-  console.log(Ardublockly.generateArduino())
 
   ArdublocklyServer.sendSketchToServer(
       Ardublockly.generateArduino(), sendCodeReturn);
+
+      // var deployWasmCode = function(jsonObj) {
+      //   console.log(jsonObj)
+      // };
+      
+      // ArdublocklyServer.hookDeploy("File", deployWasmCode);
 };
 
 /** Populate the workspace blocks with the XML written in the XML text area. */
@@ -551,7 +597,7 @@ Ardublockly.XmlTextareaToBlocks = function() {
  * @type {!String}
  * @private
  */
-Ardublockly.PREV_ARDUINO_CODE_ = 'void setup() {\n\n}\n\n\nvoid loop() {\n\n}';
+Ardublockly.PREV_ARDUINO_CODE_ = 'int64_t cbak(int64_t reserved) {\n\n return 0;}\n\n\n int64_t hook(int64_t reserved) {\n\n return 0;}';
 
 /**
  * Populate the Arduino Code and Blocks XML panels with content generated from
@@ -762,3 +808,5 @@ Ardublockly.bindClick_ = function(el, func) {
   el.addEventListener('ontouchend', propagateOnce);
   el.addEventListener('click', propagateOnce);
 };
+
+

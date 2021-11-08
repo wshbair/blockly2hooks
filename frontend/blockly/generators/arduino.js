@@ -36,12 +36,9 @@ Blockly.Arduino.addReservedWords(
     'setup,loop,if,else,for,switch,case,while,do,break,continue,return,goto,' +
     'define,include,HIGH,LOW,INPUT,OUTPUT,INPUT_PULLUP,true,false,integer,' +
     'constants,floating,point,void,boolean,char,unsigned,byte,int,word,long,' +
-    'float,double,string,String,array,static,volatile,const,sizeof,pinMode,' +
-    'digitalWrite,digitalRead,analogReference,analogRead,analogWrite,tone,' +
-    'noTone,shiftOut,shitIn,pulseIn,millis,micros,delay,delayMicroseconds,' +
-    'min,max,abs,constrain,map,pow,sqrt,sin,cos,tan,randomSeed,random,' +
-    'lowByte,highByte,bitRead,bitWrite,bitSet,bitClear,bit,attachInterrupt,' +
-    'detachInterrupt,interrupts,noInterrupts');
+    'float,double,string,String,array,static,volatile,const,sizeof' +
+    'shiftOut,shitIn,millis,micros,delay,' +
+    'min,max,abs,constrain,map,pow,sqrt,sin,cos,tan,randomSeed,random');
 
 /** Order of operation ENUMs. */
 Blockly.Arduino.ORDER_ATOMIC = 0;         // 0 "" ...
@@ -187,9 +184,11 @@ Blockly.Arduino.finish = function(code) {
 
   var allDefs = includes.join('\n') + variables.join('\n') +
       definitions.join('\n') + functions.join('\n\n');
-  var setup = 'int64_t cbak(int64_t reserved) {' + setups.join('\n  ') + '\n}\n\n';
-  var loop = 'int64_t hook(int64_t reserved) {\n  ' + code.replace(/\n/g, '\n  ') + '\n}';
-  return allDefs + setup + loop;
+  var cbak = 'int64_t cbak(int64_t reserved) {' + setups.join('\n  ') + '\n return 0;\n}\n\n';
+  var cbakDecs="//Executed when an emitted transaction is successfully accepted into a ledger \n";
+  var hook = 'int64_t hook(int64_t reserved) {\n' + code.replace(/\n/g, '\n') + '\n return 0;\n}\n\n';
+  var hookDecs ="//Executed whenever a transaction comes into or leaves from the account the Hook is set on \n";
+  return allDefs + cbakDecs+cbak + hookDecs+hook;
 };
 
 /**
@@ -391,6 +390,8 @@ Blockly.Arduino.getArduinoType_ = function(typeBlockly) {
       // If no block connected default to int, change for easier debugging
       //return 'ChildBlockMissing';
       return 'int';
+    case 'uint8':
+      return 'uint8';  
     default:
       return 'Invalid Blockly Type';
     }

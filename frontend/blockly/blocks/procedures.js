@@ -25,7 +25,6 @@
 'use strict';
 
 goog.provide('Blockly.Blocks.procedures');
-
 goog.require('Blockly.Blocks');
 goog.require('Blockly.Types');
 
@@ -49,8 +48,7 @@ Blockly.Blocks['procedures_defnoreturn'] = {
         .appendField(Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE)
         .appendField(nameField, 'NAME')
         .appendField('', 'PARAMS');
-    //this.setMutator(new Blockly.Mutator(['procedures_mutatorarg']));
-    if (Blockly.Msg.PROCEDURES_DEFNORETURN_COMMENT) {
+     if (Blockly.Msg.PROCEDURES_DEFNORETURN_COMMENT) {
       this.setCommentText(Blockly.Msg.PROCEDURES_DEFNORETURN_COMMENT);
     }
     this.setColour(Blockly.Blocks.procedures.HUE);

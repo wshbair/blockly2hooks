@@ -88,17 +88,17 @@ Ardublockly.buttonLoadXmlCodeDisplay = function() {
  *     in the settings modal: 'upload', 'verify', or 'open'.
  */
 Ardublockly.changeIdeButtonsDesign = function(value) {
-  var buttonLeft = document.getElementById('button_ide_left');
-  var iconLeft = document.getElementById('button_ide_left_icon');
+  // var buttonLeft = document.getElementById('button_ide_left');
+  // var iconLeft = document.getElementById('button_ide_left_icon');
   var buttonMiddle = document.getElementById('button_ide_middle');
   var iconMiddle = document.getElementById('button_ide_middle_icon');
   var buttonLarge = document.getElementById('button_ide_large');
   var iconLarge = document.getElementById('button_ide_large_icon');
 
   if (value === 'upload') {
-    buttonLeft.className =
-        buttonLeft.className.replace(/arduino_\S+/, 'arduino_yellow');
-    iconLeft.className = 'mdi-action-open-in-browser';
+    // buttonLeft.className =
+    //     buttonLeft.className.replace(/arduino_\S+/, 'arduino_yellow');
+    //iconLeft.className = 'mdi-action-open-in-browser';
     buttonMiddle.className =
         buttonMiddle.className.replace(/arduino_\S+/, 'arduino_teal');
     iconMiddle.className = 'mdi-navigation-check';
@@ -106,9 +106,9 @@ Ardublockly.changeIdeButtonsDesign = function(value) {
         buttonLarge.className.replace(/arduino_\S+/, 'arduino_orange');
     iconLarge.className = 'mdi-av-play-arrow';
   } else if (value === 'verify') {
-    buttonLeft.className =
-        buttonLeft.className.replace(/arduino_\S+/, 'arduino_yellow');
-    iconLeft.className = 'mdi-action-open-in-browser';
+    // buttonLeft.className =
+    //     buttonLeft.className.replace(/arduino_\S+/, 'arduino_yellow');
+    //iconLeft.className = 'mdi-action-open-in-browser';
     buttonMiddle.className =
         buttonMiddle.className.replace(/arduino_\S+/, 'arduino_orange');
     iconMiddle.className = 'mdi-av-play-arrow';
@@ -116,9 +116,9 @@ Ardublockly.changeIdeButtonsDesign = function(value) {
         buttonLarge.className.replace(/arduino_\S+/, 'arduino_teal');
     iconLarge.className = 'mdi-navigation-check';
   } else if (value === 'open') {
-    buttonLeft.className =
-        buttonLeft.className.replace(/arduino_\S+/, 'arduino_teal');
-    iconLeft.className = 'mdi-navigation-check';
+    // buttonLeft.className =
+    //     buttonLeft.className.replace(/arduino_\S+/, 'arduino_teal');
+    //iconLeft.className = 'mdi-navigation-check';
     buttonMiddle.className =
         buttonMiddle.className.replace(/arduino_\S+/, 'arduino_orange');
     iconMiddle.className = 'mdi-av-play-arrow';
@@ -134,7 +134,7 @@ Ardublockly.changeIdeButtonsDesign = function(value) {
  * @param {!boolean} show Indicates if the extra buttons are to be shown.
  */
 Ardublockly.showExtraIdeButtons = function(show) {
-  var IdeButtonLeft = document.getElementById('button_ide_left');
+  //var IdeButtonLeft = document.getElementById('button_ide_left');
   var IdeButtonMiddle = document.getElementById('button_ide_middle');
   if (show) {
     // prevent previously set time-out to hide buttons while trying to show them
@@ -142,17 +142,17 @@ Ardublockly.showExtraIdeButtons = function(show) {
     clearTimeout(Ardublockly.hidetimeoutHandle);
     IdeButtonMiddle.style.visibility = 'visible';
     IdeButtonMiddle.style.opacity = '1';
-    Ardublockly.showtimeoutHandle = setTimeout(function() {
-      IdeButtonLeft.style.visibility = 'visible';
-      IdeButtonLeft.style.opacity = '1';
-    }, 50);
+    // Ardublockly.showtimeoutHandle = setTimeout(function() {
+    //   IdeButtonLeft.style.visibility = 'visible';
+    //   IdeButtonLeft.style.opacity = '1';
+    // }, 50);
   } else {
     // As the mouse out can be accidental, only hide them after a delay
     Ardublockly.outHoldtimeoutHandle = setTimeout(function() {
       // Prevent show time-out to affect the hiding of the buttons
       clearTimeout(Ardublockly.showtimeoutHandle);
-      IdeButtonLeft.style.visibility = 'hidden';
-      IdeButtonLeft.style.opacity = '0';
+      // IdeButtonLeft.style.visibility = 'hidden';
+      // IdeButtonLeft.style.opacity = '0';
       Ardublockly.hidetimeoutHandle = setTimeout(function() {
         IdeButtonMiddle.style.visibility = 'hidden';
         IdeButtonMiddle.style.opacity = '0';
@@ -381,9 +381,30 @@ Ardublockly.MaterialToast = function(message) {
  */
 Ardublockly.arduinoIdeOutput = function(bodyEl) {
   var ideOuputContent = document.getElementById('content_ide_output');
-  ideOuputContent.innerHTML = '';
-  ideOuputContent.appendChild(bodyEl);
-  Ardublockly.highlightIdeOutputHeader();
+  ideOuputContent.innerHTML = bodyEl;
+  //ideOuputContent.appendChild(bodyEl);
+  //Ardublockly.highlightIdeOutputHeader();
+  
+  var inputString = encodeURIComponent(bodyEl).replace('%20', '+');
+  var actionString = "wast2wasm";
+  var command = "input=" + inputString + "&action=" + actionString
+  var xhr = new XMLHttpRequest();
+  xhr.addEventListener("load", function () {
+    var wasm = this.responseText;
+    document.getElementById('wasmoutput').innerHTML = wasm
+    var downloadlink = document.getElementById('downloadLink')
+    downloadlink.href = "data:;base64," + wasm.split('\n')[1];
+    downloadlink.download = document.getElementById('sketch_name').value+".wasm"
+  });  
+  xhr.open("POST", "https://wasmexplorer-service.herokuapp.com/" + "service.php", true);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+  xhr.send(command);
+
+
+
+
+
+
 };
 
 /**

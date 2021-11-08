@@ -4,9 +4,9 @@
  */
 
 /**
- * @fileoverview Block for the Arduino functions.
- *     The Arduino built in functions syntax can be found at:
- *     https://arduino.cc/en/Reference/HomePage
+ * @fileoverview Block for the Hooks functions.
+ *     The XRPL Hooks functions syntax can be found at:
+ *     https://xrpl-hooks.readme.io/reference/hook
  */
 'use strict';
 
@@ -18,7 +18,7 @@ Blockly.Blocks.procedures.HUE = 290;
 
 Blockly.Blocks['arduino_functions'] = {
   /**
-   * Block for defining the Arduino setup() and loop() functions.
+   * Block for defining the Hook cbak() and hook() functions.
    * @this Blockly.Block
    */
   init: function() {

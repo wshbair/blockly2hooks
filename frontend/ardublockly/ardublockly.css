@@ -250,7 +250,7 @@ ul.side-nav li.side-menu-end {
   padding: 0px 5px;
   font-family: monospace;
   overflow: auto;
-  font-style: 0.2em !important;
+  font-size: 0.9em !important;
   min-height: 160px;
   max-height: 160px;
   -moz-user-select: text;
@@ -260,7 +260,32 @@ ul.side-nav li.side-menu-end {
   user-select: text;
   background-color: #303030;
   color: #ffffff;
+  overflow-wrap: break-word;
+
 }
+#wasmoutput
+{
+  resize: none;
+  outline: none;
+  border: none;
+  padding: 0px 5px;
+  font-family: monospace;
+  overflow: auto;
+  font-size: 0.9em !important;
+  min-height: 160px;
+  max-height: 160px;
+  -moz-user-select: text;
+  -khtml-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  background-color: #013a50;
+  color: #ffffff;
+  overflow-wrap: break-word;
+
+}
+
+ 
 /* IDE output content text formatting */
 #content_ide_output .arduino_dialog_success {
   color: #0a58ca;   /* hook light teal */
@@ -372,16 +397,26 @@ ul.side-nav li.side-menu-end {
   font-size: 2.1rem !important;
 }
 
+#button_copy_code {
+  position: absolute;
+  right: 36px;
+  bottom: 150px;
+ }
+#button_copy_code.mdi-action-extension {
+  font-size: 2.1rem !important;
+}
+
+
 /* These floating buttons needs to be at a higher z index than card when */
 /* floating and lower when clicked.  */
 #button_ide_large:hover,
 #button_ide_middle:hover,
 #button_ide_left:hover,
-#button_load_xml:hover {
+/* #button_load_xml:hover {
   -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -moz-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+} */
 #button_ide_large:active,
 #button_ide_middle:active,
 #button_ide_left:active,
@@ -701,7 +736,7 @@ ul.side-nav li.side-menu-end {
 
 /* Blockly scrollbars */
 .blocklyScrollbarKnob {
-  fill: #00878F !important;
+  fill: #00438f !important;
   fill-opacity: 0.7 !important;
 }
 .blocklyScrollbarBackground {
@@ -720,7 +755,7 @@ ul.side-nav li.side-menu-end {
 /*********************************/
 /* Modify container to have a larger width in all resolutions */
 .container {
-  width: 90%;
+  width: 100%;
   max-width: initial !important;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -737,7 +772,7 @@ ul.side-nav li.side-menu-end {
 }
 @media only screen and (min-width : 1380px) {
   .container {
-    width: 90%;
+    width: 100%;
   }
 }
 
@@ -832,3 +867,4 @@ ul.side-nav li ul li ul li {
   width: 100% !important;
   background-color: white !important;
 }
+ 

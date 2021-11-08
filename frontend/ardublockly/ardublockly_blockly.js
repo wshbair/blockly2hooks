@@ -40,7 +40,7 @@ Ardublockly.injectBlockly = function(blocklyEl, toolboxXml, blocklyPath) {
       comments: true,
       css: true,
       disable: true,
-      grid: false,
+      grid: true,
       maxBlocks: Infinity,
       media: blocklyPath + '/media/',
       rtl: false,
@@ -82,6 +82,7 @@ Ardublockly.generateArduino = function() {
 Ardublockly.generateXml = function() {
   var xmlDom = Blockly.Xml.workspaceToDom(Ardublockly.workspace);
   return Blockly.Xml.domToPrettyText(xmlDom);
+  
 };
 
 /**
@@ -213,8 +214,7 @@ Ardublockly.changeBlocklyArduinoBoard = function(newBoard) {
 /** Update the toolbox categories language. */
 Ardublockly.updateToolboxLanguage = function() {
   var categories = ['catLogic', 'catLoops', 'catMath', 'catText',
-                    'catVariables', 'catFunctions', 'catInputOutput',
-                    'catTime', 'catAudio', 'catMotors', 'catComms', 'catLists'];
+                    'catVariables', 'catFunctions', 'catComms', 'catLists', 'catHooksControl'];
   var categoryNodes = Ardublockly.xmlTree.getElementsByTagName('category');
   for (var i = 0, cat; cat = categoryNodes[i]; i++) {
     var catId = cat.getAttribute('id');
