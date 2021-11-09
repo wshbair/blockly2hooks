@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="materialize/materialize.css" media="screen,projection">
   <link rel="stylesheet" href="prettify/arduino.css">
   <link rel="stylesheet" href="ardublockly.css" media="screen,projection">
-  
 
 
   <!-- Ardublockly - These three files contain the compress version -->
@@ -220,7 +219,6 @@
             <div class="col s12 m12 l6">
               <h6>WASM Binary <a id="downloadLink" href="">Download</a> </h6>
               <!-- <a id="button_deploy" class=" btn-flat arduino_orange">Deploy</a> -->
-
               <div id="wasmoutput" class="content"></div>
             </div>
           </div>
@@ -230,6 +228,26 @@
   </div>
   <div id="ide_output_spacer"></div>
 
+  <!-- Deploy: Displayed as a Materialize Modal -->
+  <div id="deploy_dialog" class="modal modal-fixed-footer">
+    <div class="modal-content"> 
+      <h5><i class="mdi-action-wallet-travel"></i><span class="translatable_settings"> Hook Deployment to XRPL Ledger</span></h5>
+      <div class="modal_section">
+        <span class="translatable_compilerLocation">XRPL Wallet Address</span>:
+        <input type="text" id="xrpl_wallet_address">
+      </div>
+      <div class="modal_section">
+        <span class="translatable_language">Hook Binary Wasm</span>:
+        <textarea type="textarea" class="materialize-textarea" id="deploy_wasm_binary" style="min-height: 100px;" disabled ></textarea>
+      </div>
+      <div class="modal_section">
+        <a id="setHook_transaction" class="waves-effect waves-light btn z-depth-1-half arduino_teal">Generate Set Hook Transaction</a>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="waves-effect btn-flat modal-close"><span class="translatable_return">Close</span></a>
+    </div>
+  </div>
   <!-- Settings: Displayed as a Materialize Modal -->
   <div id="settings_dialog" class="modal modal-fixed-footer">
     <div class="modal-content">

@@ -21,7 +21,7 @@ import ardublocklyserver.compilersettings
 
 # Server IP and PORT settings
 SERVER_IP = 'localhost'
-SERVER_PORT = 8000
+SERVER_PORT = 8001
 
 
 def open_browser(ip, port, file_path=''):

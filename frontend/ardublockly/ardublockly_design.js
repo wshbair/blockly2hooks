@@ -318,6 +318,17 @@ Ardublockly.openSettingsModal = function() {
   });
 };
 
+/** Opens the modal that displays the deploy. */
+Ardublockly.openDeployModal = function() {
+  $('#deploy_dialog').openModal({
+    dismissible: true,
+    opacity: .5,
+    in_duration: 200,
+    out_duration: 250
+  });
+  $('#deploy_wasm_binary').val($('#wasmoutput').text())
+};
+
 /**
  * Opens the modal that allows selection on additional toolbox categories.
  * @param {!element} htmlContent HTML to include in modal body.
@@ -537,3 +548,8 @@ Ardublockly.getBBox_ = function(element) {
     y: y
   };
 };
+
+function auto_grow(element) {
+  element.style.height = "5px";
+  element.style.height = (element.scrollHeight)+"px";
+}

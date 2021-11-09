@@ -81,9 +81,15 @@ Ardublockly.bindActionFunctions = function() {
 
   // Floating buttons
 
-  // Ardublockly.bindClick_('button_deploy', function() {
-  //   Ardublockly.deployHooKtoTestnet();
-  // });
+  Ardublockly.bindClick_('button_deploy', function() {
+  //Ardublockly.deployHooKtoTestnet();
+  Ardublockly.openDeployModal();
+   });
+
+  Ardublockly.bindClick_('setHook_transaction', function() {
+    Ardublockly.deployHooKtoTestnet();
+    });
+  
 
   Ardublockly.bindClick_('button_ide_large', function() {
     Ardublockly.ideButtonLargeAction();
@@ -165,7 +171,7 @@ Ardublockly.deployHooKtoTestnet = function() {
   };
   // get the wasm binary form from the interface. 
   var binayrWasm = document.getElementById('wasmoutput').innerText;
-  
+  console.log(binayrWasm)
   // call hookdeply via Ajax request to the paython server
   ArdublocklyServer.hookDeploy(binayrWasm, deployWasmCode);
 };

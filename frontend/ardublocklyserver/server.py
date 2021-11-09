@@ -22,7 +22,7 @@ from ardublocklyserver import actions
 # from xrpl.clients import JsonRpcClient
 # from xrpl.wallet import generate_faucet_wallet
 
-# JSON_RPC_URL = "https://s.altnet.rippletest.net:51234/"
+# JSON_RPC_URL = "ws://localhost:6005"
 # client = JsonRpcClient(JSON_RPC_URL)
 
 
@@ -446,10 +446,11 @@ def deploy_hook():
     print("hello from hook deploy")
     hook_code = request.json['wasmFile']
     print(hook_code)
+    secrt= "fgjeijghthjietjg"
+    wasmfile = "-----WASM binary data AGFzbQEAAAABnICAgAAEYAV/f39/fwF+YAN/f34BfmACf38Bf2ABfgF+AqOAgIAAAwNlbnYCX2cAAgNlbnYGYWNjZXB0AAEDZW52BXRyYWNlAAADg4CAgAACAwMEhICAgAABcAAABYOAgIAAAQABBoGAgIAAAAeYgICAAAMGbWVtb3J5AgAEY2JhawADBGhvb2sABAqwgICAAAKEgICAAABCAAuhgICAAABBEEEUQTBBEkEAEAIaQQBBAEIAEAEaQQFBARAAGkIACwuxgICAAAIAQRALFCJBY2NlcHQuYzogQ2FsbGVkLiIAAEEwCxJBY2NlcHQuYzogQ2FsbGVkLgA="
+
 
     #get the binary here 
-
-
     response = {'response_type': 'test',
                 'response_state': 'test'}
     return response
