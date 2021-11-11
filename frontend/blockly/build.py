@@ -177,7 +177,7 @@ class Gen_compressed(threading.Thread):
     self.gen_core()
     self.gen_blocks()
     self.gen_generator("arduino")
-    self.gen_generator("javascript")
+   # self.gen_generator("javascript")
     # self.gen_generator("python")
     # self.gen_generator("php")
     # self.gen_generator("dart")
@@ -530,4 +530,4 @@ https://developers.google.com/blockly/hacking/closure""")
   Gen_compressed(search_paths).start()
 
   # This is run locally in a separate thread.
-  Gen_langfiles().start()
+  #Gen_langfiles().start()

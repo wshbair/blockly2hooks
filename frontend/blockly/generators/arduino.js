@@ -116,11 +116,11 @@ Blockly.Arduino.init = function(workspace) {
   Blockly.Arduino.StaticTyping.setProcedureArgs(workspace, varsWithTypes);
 
   // Set variable declarations with their Arduino type in the defines dictionary
-  for (var varName in varsWithTypes) {
-    Blockly.Arduino.addVariable(varName,
-        Blockly.Arduino.getArduinoType_(varsWithTypes[varName]) +' ' +
-        Blockly.Arduino.variableDB_.getName(varName, Blockly.Variables.NAME_TYPE) + ';');
-  }
+  // for (var varName in varsWithTypes) {
+  //   Blockly.Arduino.addVariable(varName,
+  //       Blockly.Arduino.getArduinoType_(varsWithTypes[varName]) +' ' +
+  //       Blockly.Arduino.variableDB_.getName(varName, Blockly.Variables.NAME_TYPE) + ';');
+  // }
 };
 
 /**
@@ -137,12 +137,12 @@ Blockly.Arduino.finish = function(code) {
   if (includes.length) {
     includes.push('\n');
   }
-  for (var name in Blockly.Arduino.variables_) {
-    variables.push(Blockly.Arduino.variables_[name]);
-  }
-  if (variables.length) {
-    variables.push('\n');
-  }
+  // for (var name in Blockly.Arduino.variables_) {
+  //   variables.push(Blockly.Arduino.variables_[name]);
+  // }
+  // if (variables.length) {
+  //   variables.push('\n');
+  // }
   for (var name in Blockly.Arduino.definitions_) {
     definitions.push(Blockly.Arduino.definitions_[name]);
   }

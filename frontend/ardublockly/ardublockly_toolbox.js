@@ -349,12 +349,7 @@
   '  </category>' +
  '  <sep></sep>' +
  '  <category id="catVariables" name="Variables">' +
- '    <block type="declare_variable_hook"></block>' +
- '    <block type="pointer">'+
- '      <value name="initial">' +
- '        <block type="logic_null"></block>' +
- '      </value>' +
- '    </block>' +
+ '    <block type="variables_declare"></block>'+
  '    <block type="string">'+
  '      <value name="length">' +
  '        <block type="math_number">' +
@@ -373,9 +368,11 @@
  '      </value>' +
  '    </block>' +
  '    <block type="variables_set_type"></block>' +
- '  </category>' +
+ //   '   <block type="variables_pointer_declare"></block>'+
+//  '    <block type="variables_pointer_get"></block>'+
+//  '    <block type="variables_pointer_set"></block>'+
+  '  </category>' +
  '  <sep></sep>' +
-
  '  <category id="catLists" name="Lists">' +
  '    <block type="lists_create_empty"></block>' +
  '    <block type="lists_create_with"></block>' +
