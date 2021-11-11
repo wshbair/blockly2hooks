@@ -171,7 +171,7 @@ Ardublockly.deployHooKtoTestnet = function() {
   };
   // get the wasm binary form from the interface. 
   var binayrWasm = document.getElementById('wasmoutput').innerText;
-  console.log(binayrWasm)
+  
   // call hookdeply via Ajax request to the paython server
   ArdublocklyServer.hookDeploy(binayrWasm, deployWasmCode);
 };

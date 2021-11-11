@@ -402,7 +402,7 @@ Ardublockly.arduinoIdeOutput = function(bodyEl) {
   var xhr = new XMLHttpRequest();
   xhr.addEventListener("load", function () {
     var wasm = this.responseText;
-    document.getElementById('wasmoutput').innerHTML = wasm
+    document.getElementById('wasmoutput').innerHTML = wasm.split('\n')[1];
     var downloadlink = document.getElementById('downloadLink')
     downloadlink.href = "data:;base64," + wasm.split('\n')[1];
     downloadlink.download = document.getElementById('sketch_name').value+".wasm"
@@ -410,12 +410,6 @@ Ardublockly.arduinoIdeOutput = function(bodyEl) {
   xhr.open("POST", "https://wasmexplorer-service.herokuapp.com/" + "service.php", true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
   xhr.send(command);
-
-
-
-
-
-
 };
 
 /**

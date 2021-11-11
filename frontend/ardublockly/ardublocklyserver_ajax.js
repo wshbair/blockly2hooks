@@ -361,7 +361,16 @@ ArdublocklyServer.sendSketchToServer = function(code, callback) {
 // Send the Wasm Binary file to the backend to deploy it 
 ArdublocklyServer.hookDeploy = function(wasmBinaryFile,callback){
   var data ={"wasmFile": wasmBinaryFile} 
-  ArdublocklyServer.sendRequest('/deploy_hook', 'POST', "application/json", data, callback)
+  var xhr = new XMLHttpRequest();
+    xhr.addEventListener("load", function () {
+      var wast = this.responseText;
+      callback(wast);
+    });  
+    xhr.open("POST", "http://localhost:3000" + "/", true);
+    xhr.setRequestHeader("Content-type", "application/json")
+    xhr.send(command);
+
+  //ArdublocklyServer.sendRequest('/deploy_hook', 'POST', "application/json", data, callback)
 };
 
 
