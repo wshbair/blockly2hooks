@@ -19,7 +19,22 @@
  '  </category>' +
  '  <sep></sep>' +
  '  <category id="catHooksTool" name="Essential">' +
- '    <block type="hook_template"></block>' +
+ '    <block type="hook_template">'+
+ '    <value name="LOOP_FUNC">'+ 
+ '    <block type="_g_function">'+
+ '     <value name="arg1">' +
+ '        <block type="math_number">' +
+ '          <field name="NUM">1</field>' +
+ '        </block>' +
+ '      </value>' +
+ '      <value name="arg2">' +
+ '        <block type="math_number">' +
+ '          <field name="NUM">1</field>' +
+ '        </block>' +
+ '      </value>' +
+ '    </block>' +
+ '   </value>'+
+ '    </block>' + 
  '    <block type="comment">'+
  '    </block>' +
  '    <block type="guard">'+

@@ -409,6 +409,19 @@ Ardublockly.arduinoIdeOutput = function(bodyEl) {
     var downloadlink = document.getElementById('downloadLink')
     downloadlink.href = "data:;base64," + wasm.split('\n')[1];
     downloadlink.download = document.getElementById('sketch_name').value+".wasm"
+
+    //Attach the action to deploy button and clean Model feilds
+    document.getElementById("deploy_wasm_binary").value=""
+    document.getElementById("sethooktxjson").value=""
+    document.getElementById("deploymentResult").value=""
+    
+    Ardublockly.bindClick_('button_deploy', function() {
+      Ardublockly.openDeployModal();
+       });
+
+
+
+
   });  
   xhr.open("POST", "https://wasmexplorer-service.herokuapp.com/" + "service.php", true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")

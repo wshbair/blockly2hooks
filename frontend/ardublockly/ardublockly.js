@@ -81,9 +81,9 @@ Ardublockly.bindActionFunctions = function() {
 
   // Floating buttons
 
-  Ardublockly.bindClick_('button_deploy', function() {
-  Ardublockly.openDeployModal();
-   });
+  // Ardublockly.bindClick_('button_deploy', function() {
+  // Ardublockly.openDeployModal();
+  //  });
 
   Ardublockly.bindClick_('setHook_transaction', function() {
     Ardublockly.deployHooKtoTestnet();
@@ -265,7 +265,8 @@ Ardublockly.initialiseIdeButtons = function() {
 Ardublockly.changeIdeButtons = function(value) {
   var largeButton = document.getElementById('button_ide_large');
   var middleButton = document.getElementById('button_ide_middle');
-  // var leftButton = document.getElementById('button_ide_left');
+  var deployButton = document.getElementById('button_deploy');
+  deployButton.title = "Deploy the Hook"
   var openTitle = Ardublockly.getLocalStr('openSketch');
   var verifyTitle = Ardublockly.getLocalStr('verifySketch');
   var uploadTitle = Ardublockly.getLocalStr('uploadSketch');

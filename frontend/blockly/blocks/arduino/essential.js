@@ -31,7 +31,7 @@
           .appendField("hook()");
       this.appendStatementInput('LOOP_FUNC');
       this.setInputsInline(false);
-      this.setColour(Blockly.Blocks.essential.HUE);
+      this.setColour(330);
       this.setTooltip("Block for defining the Hook cbak() and hook() functions");
       this.setHelpUrl('');
       this.contextMenu = false;

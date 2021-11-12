@@ -341,7 +341,7 @@ ul.side-nav li.side-menu-end {
   z-index: 12;
 }
 #button_ide_large {
-  position: absolute;
+  /* position: absolute; */
   right: 0px;
   top: 0px;
   width: 55px;

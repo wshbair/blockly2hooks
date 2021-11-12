@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#00878F">
   <link rel="icon" href="img/favicon.ico">
-  <title class="translatable_title">Blockly2Hooks</title>
+  <title class="translatable_title">XRPL Hook Kit</title>
 
   <!-- Materialize, Prettify, and Ardublockly CSS -->
   <link rel="stylesheet" href="materialize/materialize.css" media="screen,projection">
@@ -76,7 +76,7 @@
       <!-- Horizontal Navbar links only shown on large resolutions -->
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/ardublockly/default.html" ><span class="translatable_open">Home</span><i class="mdi-action-home left"></i></a></li>
-        <li><a href="#" id="button_deploy"><span class="translatable_open">Deploy to XRPL</span><i class="mdi-action-note-add left"></i></a></li>
+        <!-- <li><a href="#" id="button_deploy"><span class="translatable_open">Deploy to XRPL</span><i class="mdi-action-note-add left"></i></a></li> -->
         <li><a href="#" id="button_load"><span class="translatable_open">Open</span><i class="mdi-file-file-upload left"></i></a></li>
         <li><a href="#" id="button_save"><span class="translatable_save">Save</span><i class="mdi-file-file-download left"></i></a></li>
         <li><a href="#" id="button_delete"><span class="translatable_deleteAll">Delete All</span><i class="mdi-action-delete left"></i></a></li>
@@ -92,8 +92,6 @@
         <li id="menu_save"><a href="#"><span class="translatable_save">Save</span><i class="mdi-file-file-download left"></i></a></li>
         <li id="menu_delete"><a href="#"><span class="translatable_deleteAll">Delete All</span><i class="mdi-action-delete left"></i></a></li>
         <li id="menu_settings"><a href="#"><span class="translatable_settings">Settings</span><i class="mdi-action-settings left"></i></a></li>
-        <li id="menu_bug"><a href="https://github.com/carlosperate/ardublockly/wiki" target="_blank"><span class="translatable_documentation">Documentation</span><i class="mdi-action-help left"></i></a></li>
-        <li id="menu_bug"><a href="http://github.com/carlosperate/ardublockly/issues" target="_blank"><span class="translatable_reportBug">Report Bug</span><i class="mdi-action-bug-report left"></i></a></li>
       </ul>
     <li class="no-padding">
       <ul class="collapsible collapsible-accordion">
@@ -123,7 +121,6 @@
         <!-- Hook action buttons -->
         <div id="ide_buttons_wrapper">
           <!-- <a id="button_ide_left" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_yellow"><i id="button_ide_left_icon" class="mdi-action-open-in-browser"></i></a> -->
-          <!-- <a id="button_ide_middle" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_teal"><i id="button_ide_middle_icon" class="mdi-navigation-check"></i></a> -->
           <a id="button_ide_large" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_orange"><i id="button_ide_large_icon" class="mdi-av-play-arrow"></i></a>
           <div id="button_ide_large_spinner" class="preloader-wrapper active ide_loader" style="display:none">
             <div class="spinner-layer spinner-orange">
@@ -163,6 +160,7 @@
               </div>
             </div>
           </div>
+          <a id="button_deploy" class="btn-floating btn-large waves-effect waves-light red"><i id="button_ide_middle_icon" class="mdi-content-send"></i></a>
         </div>
         <!-- Blockly Panel -->
         <div class="card-panel white" style="padding: 0">
@@ -177,6 +175,7 @@
             <div class="collapsible-header active">
               <span class="collapsible_logo">{ }</span>              
               <span class="translatable_arduinoSourceCode">Hook Source Code</span> 
+
             </div>
             <!-- <div class="collapsible-body" contenteditable="true"> -->
             <div class="collapsible-body" >
@@ -218,7 +217,9 @@
 
             </div>
             <div class="col s12 m12 l6">
-              <h6>WASM Binary <a id="downloadLink" href="">Download</a> </h6>
+              <h6>WASM Binary <a id="downloadLink" href="">Download</a> 
+              </h6>
+
               <div id="wasmoutput" class="content"></div>
             </div>
           </div>
@@ -250,8 +251,8 @@
       <div class="modal_section">
         <h6><b>Operation Result</b></h6>
          <textarea type="textarea" id="deploymentResult" style="min-height: 100px;"></textarea>
-         <a id="runtestBtn" class="waves-effect waves-light btn z-depth-1-half arduino_orange">Run Test</a>
-
+         <a id="runtestBtn" class="waves-effect waves-light btn z-depth-1-half arduino_orange">Run Test</a><br/><br/>
+         <a class="btn" href="https://hooks-testnet-explorer.xrpl-labs.com/rGZfSDWpvyiko5i4v8TwLTpnEzAbVeYszV"> View on Explorer</a>
       </div>
 
     </div>
@@ -340,13 +341,9 @@
   <div id="not_running_dialog" class="modal">
     <div class="modal-content">
       <div>
-        <h4 id="gen_alert_title"><span class="translatable_noServerTitle">Ardublockly app not running</span></h4>
+        <h4 id="gen_alert_title"><span class="translatable_noServerTitle">Server is down :(</span></h4>
       </div>
       <div class="translatable_noServerBody">
-        <p>For all the Ardublockly features to be enabled, the Ardublockly desktop application must be running locally on your computer.</p>
-        <p>If you are using an online version you will not be able to configure the settings nor load the blocks code into an Arduino.</p>
-        <p>Installation instruction can be found in the <a href="https://github.com/carlosperate/ardublockly">Ardublockly repository</a>.</p>
-        <p>If you have Ardublockly already installed, make sure the application is running correctly.</p>
       </div>
     </div>
     <div class="modal-footer">
