@@ -75,6 +75,7 @@
       </a>
       <!-- Horizontal Navbar links only shown on large resolutions -->
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/ardublockly/default.html" ><span class="translatable_open">Home</span><i class="mdi-action-home left"></i></a></li>
         <li><a href="#" id="button_deploy"><span class="translatable_open">Deploy to XRPL</span><i class="mdi-action-note-add left"></i></a></li>
         <li><a href="#" id="button_load"><span class="translatable_open">Open</span><i class="mdi-file-file-upload left"></i></a></li>
         <li><a href="#" id="button_save"><span class="translatable_save">Save</span><i class="mdi-file-file-download left"></i></a></li>
@@ -218,7 +219,6 @@
             </div>
             <div class="col s12 m12 l6">
               <h6>WASM Binary <a id="downloadLink" href="">Download</a> </h6>
-              <!-- <a id="button_deploy" class=" btn-flat arduino_orange">Deploy</a> -->
               <div id="wasmoutput" class="content"></div>
             </div>
           </div>
@@ -233,16 +233,27 @@
     <div class="modal-content"> 
       <h5><i class="mdi-action-wallet-travel"></i><span class="translatable_settings"> Hook Deployment to XRPL Ledger</span></h5>
       <div class="modal_section">
-        <span class="translatable_compilerLocation">XRPL Wallet Address</span>:
-        <input type="text" id="xrpl_wallet_address">
+        <span class="translatable_compilerLocation"><b>XRPL Wallet Address</b></span>:
+        <input type="text" id="xrpl_wallet_address" value="rGZfSDWpvyiko5i4v8TwLTpnEzAbVeYszV">
       </div>
       <div class="modal_section">
-        <span class="translatable_language">Hook Binary Wasm</span>:
-        <textarea type="textarea" class="materialize-textarea" id="deploy_wasm_binary" style="min-height: 100px;" disabled ></textarea>
+        <span class="translatable_language"><b>Hook Binary Wasm</b></span>
+        <textarea type="textarea" id="deploy_wasm_binary" style="min-height: 150px;" ></textarea>
+        <a id="setHook_transaction" class="waves-effect waves-light btn z-depth-1-half arduino_teal">Generate SetHook Tx</a>
+      </div>
+      
+      <div class="modal_section">
+        <h6><b>XRPL SetHook Transaction</b></h6>
+        <textarea type="textarea" id="sethooktxjson" style="min-height: 200px;" ></textarea>
+        <a id="signSetHookTxbtn" class="waves-effect waves-light btn z-depth-1-half arduino_teal">Sign and Publish</a>
       </div>
       <div class="modal_section">
-        <a id="setHook_transaction" class="waves-effect waves-light btn z-depth-1-half arduino_teal">Generate Set Hook Transaction</a>
+        <h6><b>Operation Result</b></h6>
+         <textarea type="textarea" id="deploymentResult" style="min-height: 100px;"></textarea>
+         <a id="runtestBtn" class="waves-effect waves-light btn z-depth-1-half arduino_orange">Run Test</a>
+
       </div>
+
     </div>
     <div class="modal-footer">
       <a href="#" class="waves-effect btn-flat modal-close"><span class="translatable_return">Close</span></a>

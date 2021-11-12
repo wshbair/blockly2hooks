@@ -327,6 +327,9 @@ Ardublockly.openDeployModal = function() {
     out_duration: 250
   });
   $('#deploy_wasm_binary').val($('#wasmoutput').text())
+  $('#deploymentResult').val('')
+
+
 };
 
 /**

@@ -80,6 +80,10 @@ def index_redirect():
     """Redirect the server entry point to the Ardublockly front end."""
     redirect('/ardublockly/index.html')
 
+@app.route('/default')
+def index_redirect():
+    """Redirect the server entry point to the default home page."""
+    redirect('/ardublockly/default.html')
 
 @app.route('/ardublockly/<file_path:path>')
 def static_ardublockly(file_path):

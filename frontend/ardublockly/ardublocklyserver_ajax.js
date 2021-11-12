@@ -359,19 +359,42 @@ ArdublocklyServer.sendSketchToServer = function(code, callback) {
 };
 
 // Send the Wasm Binary file to the backend to deploy it 
-ArdublocklyServer.hookDeploy = function(wasmBinaryFile,callback){
-  var data ={"wasmFile": wasmBinaryFile} 
+ArdublocklyServer.hookDeploy = function(wasmBinaryFile, walletAddress, callback){
+  var data ={"wasmFile": wasmBinaryFile, "walletAddress": walletAddress} 
   var xhr = new XMLHttpRequest();
     xhr.addEventListener("load", function () {
       var wast = this.responseText;
       callback(wast);
     });  
-    xhr.open("POST", "http://localhost:3000" + "/", true);
+    xhr.open("POST", "http://localhost:3000" + "/hook/create/sethook_tx", true);
     xhr.setRequestHeader("Content-type", "application/json")
-    xhr.send(command);
+    xhr.send(JSON.stringify(data));
 
-  //ArdublocklyServer.sendRequest('/deploy_hook', 'POST', "application/json", data, callback)
 };
+
+ArdublocklyServer.publishHook = function(setHookJson, callback){
+  var data = {"setHookTx": setHookJson}
+  var xhr = new XMLHttpRequest();
+    xhr.addEventListener("load", function () {
+      var response = this.responseText;
+      callback(response);
+    });  
+    xhr.open("POST", "http://localhost:3000" + "/hook/sign/publish", true);
+    xhr.setRequestHeader("Content-type", "application/json")
+    xhr.send(JSON.stringify(data));
+
+}
+
+ArdublocklyServer.runAcceptTest = function(callback){
+    var xhr = new XMLHttpRequest();
+    xhr.addEventListener("load", function () {
+      var response = this.responseText;
+      callback(response);
+    });  
+    xhr.open("GET", "http://localhost:3000" + "/hook/accept/test", true);
+    xhr.setRequestHeader("Content-type", "application/json")
+    xhr.send();
+}
 
 
 

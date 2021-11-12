@@ -82,7 +82,7 @@
  '      </value>' +
  '     <value name="read_len">' +
  '        <block type="math_number">' +
- '          <field name="NUM">7</field>' +
+ '          <field name="NUM">20</field>' +
  '        </block>' +
  '      </value>' +
  '     <value name="error_code">' +
@@ -349,19 +349,7 @@
   '  </category>' +
  '  <sep></sep>' +
  '  <category id="catVariables" name="Variables">' +
- '    <block type="variables_declare"></block>'+
- '    <block type="string">'+
- '      <value name="length">' +
- '        <block type="math_number">' +
- '          <field name="NUM">15</field>' +
- '        </block>' +
- '      </value>' +
- '      <value name="string_var">' +
- '        <block type="text"><field name="TEXT">Hello</field></block>' +
- '      </value>' +
- '    </block>' +
  '    <block type="variables_get"></block>' +
- '    <block type="variables_set"></block>' +
  '    <block type="variables_set">' +
  '      <value name="VALUE">' +
  '        <block type="variables_set_type"></block>' +

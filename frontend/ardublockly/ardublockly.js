@@ -82,13 +82,23 @@ Ardublockly.bindActionFunctions = function() {
   // Floating buttons
 
   Ardublockly.bindClick_('button_deploy', function() {
-  //Ardublockly.deployHooKtoTestnet();
   Ardublockly.openDeployModal();
    });
 
   Ardublockly.bindClick_('setHook_transaction', function() {
     Ardublockly.deployHooKtoTestnet();
     });
+
+  Ardublockly.bindClick_('signSetHookTxbtn', function() {
+    Ardublockly.signPublishSetHookTx();
+    });
+  
+  Ardublockly.bindClick_('runtestBtn', function(){
+    Ardublockly.runAcceptTesting();
+  });
+
+
+    
   
 
   Ardublockly.bindClick_('button_ide_large', function() {
@@ -167,14 +177,32 @@ Ardublockly.ideSendVerify = function() {
 /** Deploy the WASM binary hook to Ripple Legder */
 Ardublockly.deployHooKtoTestnet = function() {
   var deployWasmCode = function(result) {
-    console.log(result)
+    document.getElementById("sethooktxjson").value = result
   };
   // get the wasm binary form from the interface. 
   var binayrWasm = document.getElementById('wasmoutput').innerText;
-  
+  var xrplWalletAddress= document.getElementById("xrpl_wallet_address").value
   // call hookdeply via Ajax request to the paython server
-  ArdublocklyServer.hookDeploy(binayrWasm, deployWasmCode);
+  ArdublocklyServer.hookDeploy(binayrWasm,xrplWalletAddress, deployWasmCode);
 };
+
+/** Sign and publish SetHook transaction */
+Ardublockly.signPublishSetHookTx = function(){
+  var sethookvalue = document.getElementById("sethooktxjson").value
+  var deploymentResponse = function(result){
+    document.getElementById("deploymentResult").value = result;
+  }
+ ArdublocklyServer.publishHook(sethookvalue,deploymentResponse);
+}
+
+Ardublockly.runAcceptTesting = function(){
+  document.getElementById("deploymentResult").value = "";
+
+  var deploymentResponse = function(result){
+    document.getElementById("deploymentResult").value = result;
+  }
+  ArdublocklyServer.runAcceptTest(deploymentResponse)
+}
 
 
 
