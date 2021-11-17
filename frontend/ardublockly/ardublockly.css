@@ -337,11 +337,11 @@ ul.side-nav li.side-menu-end {
   right: 25px;
   top: -20px;
   height: 55px;
-  width: 160px;
+  width: 120px;
   z-index: 12;
 }
 #button_ide_large {
-  /* position: absolute; */
+  position: absolute;
   right: 0px;
   top: 0px;
   width: 55px;

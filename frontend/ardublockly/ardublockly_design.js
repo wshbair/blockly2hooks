@@ -414,6 +414,7 @@ Ardublockly.arduinoIdeOutput = function(bodyEl) {
     document.getElementById("deploy_wasm_binary").value=""
     document.getElementById("sethooktxjson").value=""
     document.getElementById("deploymentResult").value=""
+    document.getElementById("button_deploy").classList.remove("disabled")
     
     Ardublockly.bindClick_('button_deploy', function() {
       Ardublockly.openDeployModal();

@@ -15,7 +15,7 @@ app.use(function(req, res, next) {
     next();
   });
 app.use(bodyParser.json());       // to support JSON-encoded bodies
-
+app.use(express.static('../ardublockly/'))
 //------------------------------------------------------------------------------
 // Ripple API Setting 
 //------------------------------------------------------------------------------
@@ -109,6 +109,9 @@ app.get('/hook/accept/test', (req,res) =>{
 // Web pages APIs 
 //------------------------------------------------------------------------------
 
+app.get('/', (req,res)=>{
+    res.sendFile('../ardublockly/default.html')
+})
 
 //------------------------------------------------------------------------------
 // Start The Server
