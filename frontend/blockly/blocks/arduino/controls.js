@@ -49,9 +49,6 @@
       this.appendValueInput("read_ptr")
           .setCheck(null)
           .appendField("read_ptr");
-      this.appendValueInput("read_len")
-          .setCheck(null)
-          .appendField("read_len");
       this.appendValueInput("error_code")
           .setCheck(null)
           .appendField("error_code");

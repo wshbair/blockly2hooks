@@ -20,9 +20,8 @@
 
   Blockly.Arduino['otxn_field'] = function(block) {
     var value_write_ptr = Blockly.Arduino.valueToCode(block, 'write_ptr', Blockly.Arduino.ORDER_ATOMIC);
-    var value_write_len = Blockly.Arduino.valueToCode(block, 'write_len', Blockly.Arduino.ORDER_ATOMIC);
     var value_field_id = Blockly.Arduino.valueToCode(block, 'field_id', Blockly.Arduino.ORDER_ATOMIC);
-    var code = 'otxn_field('+value_write_ptr+','+value_write_len+','+value_field_id+')';
+    var code = 'otxn_field('+value_write_ptr+','+value_field_id+')';
     return [code, Blockly.Arduino.ORDER_NONE];
   };
 

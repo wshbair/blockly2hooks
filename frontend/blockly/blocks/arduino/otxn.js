@@ -36,9 +36,6 @@ goog.require('Blockly.Types');
       this.appendValueInput("write_ptr")
           .setCheck(null)
           .appendField("write_ptr");
-      this.appendValueInput("write_len")
-          .setCheck(null)
-          .appendField("write_len");
       this.appendValueInput("field_id")
           .setCheck(null)
           .appendField("field_id");

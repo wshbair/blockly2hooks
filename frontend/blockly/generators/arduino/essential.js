@@ -93,6 +93,7 @@ Blockly.Arduino['hook_template'] = function(block) {
   };
 
   Blockly.Arduino['etxn_reserve'] = function(block) {
+    Blockly.Arduino.addInclude('etxn_reserve', 'extern int64_t etxn_reserve(uint32_t count);');
     var value_num = Blockly.Arduino.valueToCode(block, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
     var code = '//before we start calling hook-api functions we should tell the hook how many tx we intend to create\n'+
                'etxn_reserve('+value_num+');\n';
@@ -130,3 +131,20 @@ Blockly.Arduino['hook_template'] = function(block) {
     code += ') {\n' + statements_name + '}\n';
     return code;
   };
+
+  Blockly.Arduino['hook_account'] = function(block) {
+    Blockly.Arduino.addInclude('hook_account', 'extern int64_t hook_account (uint32_t write_ptr, uint32_t write_len);');
+    var value_arg1 = Blockly.Arduino.valueToCode(block, 'ARG1', Blockly.Arduino.ORDER_ATOMIC);
+    var value_arg2 = Blockly.Arduino.valueToCode(block, 'ARG2', Blockly.Arduino.ORDER_ATOMIC);
+    var code = 'hook_account('+value_arg1+','+value_arg2+');\n';
+    return code;
+  };
+
+  Blockly.Arduino['sfcodes'] = function(block) {
+    var dropdown_value = block.getFieldValue('VALUE');
+    console.log(dropdown_value)
+    var code = dropdown_value;
+    return [code, Blockly.Arduino.ORDER_NONE];
+  };
+
+  

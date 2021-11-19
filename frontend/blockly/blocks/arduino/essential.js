@@ -178,7 +178,7 @@
       this.setNextStatement(true, null);
       this.setColour(Blockly.Blocks.essential.HUE);
       this.setTooltip('Before we start calling hook-api functions we should tell the hook how many tx we intend to create');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -248,4 +248,33 @@
     }
   };
 
-  
+
+
+  Blockly.Blocks['hook_account'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("hook_account");
+      this.appendValueInput("ARG1")
+          .setCheck(null);
+      this.appendValueInput("ARG2")
+          .setCheck("Number");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setTooltip('');
+      this.setHelpUrl('');
+      this.setColour(Blockly.Blocks.essential.HUE);
+    }
+  };
+
+  Blockly.Blocks['sfcodes'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("select sfcodes")
+        .appendField(new Blockly.FieldDropdown([["sfAccount", "0x80001UL"], ["sfOwner", "0x80002UL"], ["sfDestination", "0x80003UL"]]), "VALUE");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  }
+};

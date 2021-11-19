@@ -85,6 +85,14 @@
  '        </block>' +
  '      </value>' +
  '    </block>' +
+ '    <block type="hook_account">'+
+'      <value name="ARG2">' +
+ '        <block type="math_number">' +
+ '          <field name="NUM">20</field>' +
+ '        </block>' +
+ '      </value>' +
+ '    </block>' + 
+ '    <block type="sfcodes"></block>' + 
  '  </category>' +
  '  <sep></sep>' +
  '  <sep></sep>' +
@@ -364,6 +372,7 @@
   '  </category>' +
  '  <sep></sep>' +
  '  <category id="catVariables" name="Variables">' +
+ '    <block type="variables_declare"></block>' +
  '    <block type="variables_get"></block>' +
  '    <block type="variables_set">' +
  '      <value name="VALUE">' +
@@ -371,10 +380,13 @@
  '      </value>' +
  '    </block>' +
  '    <block type="variables_set_type"></block>' +
- //   '   <block type="variables_pointer_declare"></block>'+
-//  '    <block type="variables_pointer_get"></block>'+
-//  '    <block type="variables_pointer_set"></block>'+
-  '  </category>' +
+ '    <block type="variables_pointer_declare"></block>'+
+ '    <block type="variables_pointer_get"></block>'+
+ '    <block type="variables_pointer_set"></block>'+
+ '    <block type="variables_array_get"></block>'+
+ '    <block type="variables_array_set"></block>'+
+ '    <block type="variables_array_declare"></block>'+
+ '  </category>' +
  '  <sep></sep>' +
  '  <category id="catLists" name="Lists">' +
  '    <block type="lists_create_empty"></block>' +

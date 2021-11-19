@@ -38,6 +38,15 @@ goog.require('goog.string');
 Blockly.Variables.NAME_TYPE = 'VARIABLE';
 
 /**
+ * TODO(goto): why isn't this in the string package ? does this solves any
+ * real problem ? move it to the goog.string package if it does.
+ *
+ * @param {string} str The string to lower case.
+ * @return {string} The str in lower case format.
+ */
+ 
+
+/**
  * Find all user-created variables.
  * @param {!Blockly.Block|!Blockly.Workspace} root Root block or workspace.
  * @return {!Array.<string>} Array of variable names.
@@ -61,7 +70,7 @@ Blockly.Variables.allVariables = function(root) {
       var varName = blockVariables[y];
       // Variable name may be null if the block is only half-built.
       if (varName) {
-        variableHash[varName.toLowerCase()] = varName;
+        variableHash[varName] = varName;
       }
     }
   }
@@ -156,7 +165,7 @@ Blockly.Variables.generateUniqueName = function(workspace) {
     while (!newName) {
       var inUse = false;
       for (var i = 0; i < variableList.length; i++) {
-        if (variableList[i].toLowerCase() == potName) {
+        if (variableList[i] == potName) {
           // This potential name is already used.
           inUse = true;
           break;
