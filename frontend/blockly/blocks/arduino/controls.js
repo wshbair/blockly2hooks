@@ -26,13 +26,10 @@
       this.appendValueInput("read_ptr")
           .setCheck(null)
           .appendField("read_ptr");
-      this.appendValueInput("read_len")
-          .setCheck(null)
-          .appendField("read_len");
       this.appendValueInput("error_code")
           .setCheck(null)
           .appendField("error_code");
-      this.setInputsInline(false);
+      this.setInputsInline(true);
       this.setNextStatement(true, null);
       this.setPreviousStatement(true, null);
       this.setColour(290);
@@ -52,7 +49,7 @@
       this.appendValueInput("error_code")
           .setCheck(null)
           .appendField("error_code");
-      this.setInputsInline(false);
+      this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(290);

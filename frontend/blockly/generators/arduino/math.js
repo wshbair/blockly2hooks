@@ -343,3 +343,10 @@ Blockly.Arduino['math_random_int'] = function(block) {
 Blockly.Arduino['math_random_float'] = function(block) {
   return ['(rand() / RAND_MAX)', Blockly.Arduino.ORDER_UNARY_POSTFIX];
 };
+ 
+Blockly.Arduino['math_post_inc_decrement'] = function(block) {
+  var value_var = Blockly.Arduino.valueToCode(block, 'VAR', Blockly.Arduino.ORDER_ATOMIC);
+  var dropdown_op = block.getFieldValue('op');
+  var code = value_var+dropdown_op;
+  return [code, Blockly.Arduino.ORDER_NONE];
+};

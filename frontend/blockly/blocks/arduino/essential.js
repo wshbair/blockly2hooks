@@ -146,7 +146,7 @@
   Blockly.Blocks['buffer_equal'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("BUFFER_EQUAL");
+          .appendField("Buffer equal");
       this.appendValueInput("equal")
           .setCheck(null)
           .appendField("output");
@@ -159,11 +159,12 @@
       this.appendValueInput("length")
           .setCheck(null)
           .appendField("length");
-      this.setInputsInline(false);
-      this.setOutput(true, "Number");
+      this.setInputsInline(true);
       this.setColour(Blockly.Blocks.essential.HUE);
       this.setTooltip('');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
     }
   };
 //Before we start calling hook-api functions we should tell the hook how many tx we intend to create
@@ -276,5 +277,59 @@
     this.setOutput(true, null);
     this.setTooltip('');
     this.setHelpUrl('');
+    this.setColour(Blockly.Blocks.essential.HUE);
+
+  }
+};
+
+Blockly.Blocks['amount_to_drops'] = {
+  init: function() {
+    this.appendValueInput("AMOUNT")
+        .setCheck(null)
+        .appendField("AMOUNT_TO_DROPS");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('');
+    this.setColour(Blockly.Blocks.essential.HUE);
+
+  }
+};
+
+Blockly.Blocks['macro_prepare_payment_simple'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("PREPARE_PAYMENT_SIMPLE");
+    this.appendValueInput("buf_out")
+        .setCheck(null)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("buf_out");
+    this.appendValueInput("drops_amount")
+        .setCheck(null)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("drops_amount");
+    this.appendValueInput("drops_fee")
+        .setCheck(null)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("drops_fee");
+    this.appendValueInput("to_address")
+        .setCheck(null)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("to_address");
+    this.appendValueInput("dest_tag")
+        .setCheck(null)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("dest_tag");
+    this.appendValueInput("src_tag")
+        .setCheck(null)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("src_tag");
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('');
+    this.setColour(Blockly.Blocks.essential.HUE);
+
   }
 };

@@ -61,7 +61,7 @@ goog.require('Blockly.Types');
       this.appendValueInput("field_id")
           .setCheck(null)
           .appendField("field_id");
-      this.setInputsInline(false);
+      this.setInputsInline(true);
       this.setOutput(true, null);
       this.setColour(315);
       this.setTooltip('Output a field from the originating transaction as a human readable string');

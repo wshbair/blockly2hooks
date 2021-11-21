@@ -14,7 +14,6 @@
  goog.require('Blockly.Arduino');
  
  Blockly.Arduino['firewall'] = function(block) {
-    Blockly.Arduino.addInclude('hooks', '#include "../hookapi.h"');
     var text_block_account = block.getFieldValue('block_account');
     var value_x = Blockly.Arduino.valueToCode(block, 'x', Blockly.Arduino.ORDER_ATOMIC);
     var text_wallet_address = block.getFieldValue('wallet_address');
@@ -50,12 +49,11 @@
   };
 
   Blockly.Arduino['accept'] = function(block) {
-    //Blockly.Arduino.addInclude('hooks', '#include "../hookapi.h"');
-    Blockly.Arduino.addInclude('stdint','#include <stdint.h>')
-    Blockly.Arduino.addDeclaration('TRACESTR','#define TRACESTR(v) trace((uint32_t)(#v), (uint32_t)(sizeof(#v)), (uint32_t)(v), sizeof(v), 0);');
-    Blockly.Arduino.addInclude('accept', 'extern int64_t accept(uint32_t read_ptr,  uint32_t read_len,   int64_t error_code);');
-    Blockly.Arduino.addInclude('_g', 'extern int32_t _g (uint32_t id, uint32_t maxiter);');
-    Blockly.Arduino.addInclude('trace', 'extern int64_t trace(uint32_t mread_ptr, uint32_t mread_len,uint32_t dread_ptr, uint32_t dread_len, uint32_t as_hex);' );
+    //Blockly.Arduino.addInclude('stdint','#include <stdint.h>')
+    //Blockly.Arduino.addDeclaration('TRACESTR','#define TRACESTR(v) trace((uint32_t)(#v), (uint32_t)(sizeof(#v)), (uint32_t)(v), sizeof(v), 0);');
+    //Blockly.Arduino.addInclude('accept', 'extern int64_t accept(uint32_t read_ptr,  uint32_t read_len,   int64_t error_code);');
+    //Blockly.Arduino.addInclude('_g', 'extern int32_t _g (uint32_t id, uint32_t maxiter);');
+    //Blockly.Arduino.addInclude('trace', 'extern int64_t trace(uint32_t mread_ptr, uint32_t mread_len,uint32_t dread_ptr, uint32_t dread_len, uint32_t as_hex);' );
     var code = 
     '/** \n'+
     '* This hook just accepts any transaction coming through it\n'+

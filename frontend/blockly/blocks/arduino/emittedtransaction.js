@@ -83,17 +83,18 @@ Blockly.Blocks['emit'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("emit");
+      this.appendValueInput("write_ptr")
+          .setCheck(null)
+          .appendField("write_ptr");
       this.appendValueInput("read_ptr")
           .setCheck(null)
           .appendField("read_ptr");
-      this.appendValueInput("read_len")
-          .setCheck(null)
-          .appendField("read_len");
       this.setInputsInline(true);
-      this.setOutput(true, null);
       this.setColour(330);
       this.setTooltip('Emit a new transaction from the hook');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
     }
   };
 

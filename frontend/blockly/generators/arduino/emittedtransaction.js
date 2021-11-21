@@ -38,10 +38,11 @@ Blockly.Arduino['etxn_reserve'] = function(block) {
     };  
 
 Blockly.Arduino['emit'] = function(block) {
+  //Blockly.Arduino.addInclude('emit','extern int64_t emit (uint32_t write_ptr, uint32_t write_len, uint32_t read_ptr, uint32_t read_len);')
     var value_read_ptr = Blockly.Arduino.valueToCode(block, 'read_ptr', Blockly.Arduino.ORDER_ATOMIC);
-    var value_read_len = Blockly.Arduino.valueToCode(block, 'read_len', Blockly.Arduino.ORDER_ATOMIC);
-    var code = 'emit('+value_read_ptr+','+value_read_len+')';
-    return [code, Blockly.Arduino.ORDER_NONE];
+    var value_write_ptr = Blockly.Arduino.valueToCode(block, 'write_ptr', Blockly.Arduino.ORDER_ATOMIC);
+    var code = 'emit('+value_write_ptr+','+value_read_ptr+');\n';
+    return code;
   };
   
 Blockly.Arduino['etxn_generation'] = function(block) {

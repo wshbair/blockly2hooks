@@ -51,20 +51,14 @@
       this.appendValueInput("write_ptr")
           .setCheck(null)
           .appendField("write_ptr");
-      this.appendValueInput("write_len")
-          .setCheck(null)
-          .appendField("write_len");
       this.appendValueInput("read_ptr")
           .setCheck(null)
           .appendField("read_ptr");
-      this.appendValueInput("read_len")
-          .setCheck(null)
-          .appendField("read_len");
       this.setInputsInline(true);
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.utilities.HUE);
       this.setTooltip('Convert an r-address into a 20 byte Account ID');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   

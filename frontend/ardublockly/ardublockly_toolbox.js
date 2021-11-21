@@ -19,6 +19,7 @@
  '  </category>' +
  '  <sep></sep>' +
  '  <category id="catHooksTool" name="Essential">' +
+ '    <block type="amount_to_drops"></block>' +
  '    <block type="hook_template">'+
  '    <value name="LOOP_FUNC">'+ 
  '    <block type="_g_function">'+
@@ -135,7 +136,10 @@
  '  <sep></sep>' +
  '  <category id="catUtilities" name="Utilities">' +
  '    <block type="util_raddr"></block>' +
- '    <block type="util_accid"></block>' +
+ '    <block type="util_accid">'+
+ '      <value name="write_ptr"><block type="sbuf"></block></value>'+
+ '      <value name="read_ptr"><block type="sbuf"></block></value>'+
+ '    </block>' +
  '    <block type="util_sha512h"></block>' +
  '    <block type="util_verify"></block>' +
  '    <block type="util_keylet"></block>' +
@@ -158,6 +162,9 @@
  '      </value>' +
  '    </block>' +
  '    <block type="buffer_equal">'+
+ '      <value name="equal"><block type="variables_get"></block></value>'+
+ '      <value name="account_field"><block type="variables_get"></block></value>'+
+ '      <value name="hook_accid"><block type="variables_get"></block></value>'+
  '      <value name="length">' +
  '        <block type="math_number">' +
  '          <field name="NUM">20</field>' +
@@ -316,6 +323,7 @@
  '  </category>' +
  '  <sep></sep>' +
  '  <category id="catMath" name="Math">' +
+ '    <block type="math_post_inc_decrement"></block>' +
  '    <block type="math_number"></block>' +
  '    <block type="math_arithmetic"></block>' +
  '    <block type="math_single"></block>' +
@@ -372,7 +380,13 @@
   '  </category>' +
  '  <sep></sep>' +
  '  <category id="catVariables" name="Variables">' +
- '    <block type="variables_declare"></block>' +
+ '    <block type="variables_declare">'+
+ '      <value name="VALUE">' +
+ '        <block type="math_number">' +
+ '          <field name="NUM">0</field>' +
+ '        </block>' +
+ '      </value>' +
+ '    </block>' +
  '    <block type="variables_get"></block>' +
  '    <block type="variables_set">' +
  '      <value name="VALUE">' +
@@ -398,6 +412,16 @@
  '    <block type="lists_setIndex"></block>' +
  '  </category>' +
  '  <sep></sep>' +
+ '  <category id="catMacro" name="Marcos">' +
+ '    <block type="macro_prepare_payment_simple">'+
+ '      <value name="buf_out"><block type="variables_get"></block></value>'+
+ '      <value name="drops_amount"><block type="variables_get"></block></value>'+
+ '      <value name="drops_fee"><block type="variables_get"></block></value>'+
+ '      <value name="to_address"><block type="variables_get"></block></value>'+
+'       <value name="dest_tag"><block type="math_number"><field name="NUM">0</field></block></value>' +
+'       <value name="src_tag"><block type="math_number"><field name="NUM">0</field></block></value>' +
+ '    </block>' +
+ '  </category>' +
  '</xml>';
  
 //  '  <category id="catFunctions" name="Functions" custom="PROCEDURE" hidden="true"></category>' +

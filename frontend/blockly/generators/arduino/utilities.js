@@ -22,11 +22,10 @@ Blockly.Arduino['util_raddr'] = function(block) {
   };
 
   Blockly.Arduino['util_accid'] = function(block) {
+    //Blockly.Arduino.addInclude('util_accid','extern int64_t util_accid(uint32_t write_ptr, uint32_t write_len, uint32_t read_ptr,  uint32_t read_len);')
     var value_write_ptr = Blockly.Arduino.valueToCode(block, 'write_ptr', Blockly.Arduino.ORDER_ATOMIC);
-    var value_write_len = Blockly.Arduino.valueToCode(block, 'write_len', Blockly.Arduino.ORDER_ATOMIC);
     var value_read_ptr = Blockly.Arduino.valueToCode(block, 'read_ptr', Blockly.Arduino.ORDER_ATOMIC);
-    var value_read_len = Blockly.Arduino.valueToCode(block, 'read_len', Blockly.Arduino.ORDER_ATOMIC);
-    var code = 'util_accid('+value_write_ptr+','+value_write_len+','+value_read_ptr+','+value_read_len+')';
+    var code = 'util_accid('+value_write_ptr+','+value_read_ptr+')';
     return [code, Blockly.Arduino.ORDER_NONE];
   };
 

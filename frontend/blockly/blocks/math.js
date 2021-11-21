@@ -606,3 +606,20 @@ Blockly.Blocks['math_random_float'] = {
     return Blockly.Types.DECIMAL;
   }
 };
+
+
+
+Blockly.Blocks['math_post_inc_decrement'] = {
+  init: function() {
+    this.appendValueInput("VAR")
+        .setCheck(null)
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([["++", "++"], ["--", "--"]]), "op");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(20);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};

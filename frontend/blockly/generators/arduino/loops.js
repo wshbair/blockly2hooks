@@ -93,7 +93,7 @@ Blockly.Arduino['controls_whileUntil'] = function(block) {
  * @return {string} Completed code.
  */
 Blockly.Arduino['controls_for'] = function(block) {
-  Blockly.Arduino.addDeclaration("guard",'#define GUARD(maxiter) _g(__LINE__, (maxiter)+1)');
+  //Blockly.Arduino.addDeclaration("guard",'#define GUARD(maxiter) _g(__LINE__, (maxiter)+1)');
   var variable0 = Blockly.Arduino.variableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var argument0 = Blockly.Arduino.valueToCode(block, 'FROM',

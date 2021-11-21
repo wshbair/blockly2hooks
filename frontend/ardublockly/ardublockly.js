@@ -657,6 +657,13 @@ Ardublockly.renderContent = function() {
     }
     document.getElementById('content_arduino').innerHTML =
         prettyPrintOne(resultStringArray.join(''), 'cpp', false);
+        
+    // var editor = ace.edit("content_arduino");
+    // editor.setTheme("ace/theme/twilight");
+    // editor.session.setMode("ace/mode/c_cpp");
+    // var cursorPosition = editor.getCursorPosition();
+    // editor.session.insert(cursorPosition, arduinoCode);
+
     Ardublockly.PREV_ARDUINO_CODE_ = arduinoCode;
   }
 
