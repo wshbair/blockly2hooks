@@ -2,7 +2,7 @@
  * @license Licensed under the Apache License, Version 2.0 (the "License"):
  *          http://www.apache.org/licenses/LICENSE-2.0
  *
- * @fileoverview General javaScript for Arduino app with material design.
+ * @fileoverview General javaScript for XRPL Hooks development.
  */
 'use strict';
 
@@ -26,12 +26,12 @@ Ardublockly.init = function() {
   Ardublockly.bindActionFunctions();
   Ardublockly.bindBlocklyEventListeners();
 
-  // Hackish way to check if not running locally
-  if (document.location.hostname != 'localhost') {
-    Ardublockly.openNotConnectedModal();
-    console.log('Offline app modal opened as non localhost host name found: ' +
-                document.location.hostname)
-  }
+  // // Hackish way to check if not running locally
+  // if (document.location.hostname != 'localhost') {
+  //   Ardublockly.openNotConnectedModal();
+  //   console.log('Offline app modal opened as non localhost host name found: ' +
+  //               document.location.hostname)
+  // }
 };
 
 /** Binds functions to each of the buttons, nav links, and related. */
@@ -79,12 +79,6 @@ Ardublockly.bindActionFunctions = function() {
     $('.button-collapse').sideNav('hide');
   });
 
-  // Floating buttons
-
-  // Ardublockly.bindClick_('button_deploy', function() {
-  // Ardublockly.openDeployModal();
-  //  });
-
   Ardublockly.bindClick_('setHook_transaction', function() {
     Ardublockly.deployHooKtoTestnet();
     });
@@ -97,20 +91,10 @@ Ardublockly.bindActionFunctions = function() {
     Ardublockly.runAcceptTesting();
   });
 
-
-    
-  
-
   Ardublockly.bindClick_('button_ide_large', function() {
     Ardublockly.ideButtonLargeAction();
   });
 
-  // Ardublockly.bindClick_('button_ide_middle', function() {
-  //     Ardublockly.ideButtonMiddleAction();
-  // });
-  // Ardublockly.bindClick_('button_ide_left', function() {
-  //   Ardublockly.ideButtonLeftAction();
-  // });
   Ardublockly.bindClick_('button_load_xml', Ardublockly.XmlTextareaToBlocks);
   Ardublockly.bindClick_('button_toggle_toolbox', Ardublockly.toogleToolbox);
 
@@ -149,7 +133,6 @@ Ardublockly.bindActionFunctions = function() {
 Ardublockly.ideSendUpload = function() {
   // Check if this is the currently selected option before edit sever setting
   if (Ardublockly.ideButtonLargeAction !== Ardublockly.ideSendUpload) {
-    //Ardublockly.showExtraIdeButtons(false);
     Ardublockly.setIdeSettings(null, 'upload');
     
   }
@@ -162,7 +145,6 @@ Ardublockly.ideSendUpload = function() {
 Ardublockly.ideSendVerify = function() {
   // Check if this is the currently selected option before edit sever setting
   if (Ardublockly.ideButtonLargeAction !== Ardublockly.ideSendVerify) {
-   // Ardublockly.showExtraIdeButtons(false);
     Ardublockly.setIdeSettings(null, 'verify');
   }
   Ardublockly.shortMessage(Ardublockly.getLocalStr('verifyingSketch'));
@@ -203,22 +185,6 @@ Ardublockly.runAcceptTesting = function(){
   }
   ArdublocklyServer.runAcceptTest(deploymentResponse)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /** Sets the Ardublockly server IDE setting to open and sends the code. */
 Ardublockly.ideSendOpen = function() {
@@ -849,5 +815,3 @@ Ardublockly.bindClick_ = function(el, func) {
   el.addEventListener('ontouchend', propagateOnce);
   el.addEventListener('click', propagateOnce);
 };
-
-
