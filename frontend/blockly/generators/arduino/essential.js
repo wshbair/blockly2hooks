@@ -139,6 +139,12 @@ Blockly.Arduino['hook_template'] = function(block) {
 
   };
 
+  Blockly.Arduino['hook_account_statment'] = function(block) {
+    var value_var = Blockly.Arduino.valueToCode(block, 'VAR', Blockly.Arduino.ORDER_ATOMIC);
+    var code = 'hook_account('+value_var+');\n';
+    return code;
+  };
+
   Blockly.Arduino['sfcodes'] = function(block) {
     var dropdown_value = block.getFieldValue('VALUE');
     console.log(dropdown_value)

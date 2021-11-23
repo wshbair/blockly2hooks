@@ -258,9 +258,26 @@
       this.setOutput(true, null);
       this.setTooltip('');
       this.setColour(Blockly.Blocks.essential.HUE);
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
+
+
+  Blockly.Blocks['hook_account_statment'] = {
+    init: function() {
+      this.appendValueInput("VAR")
+          .setCheck(null)
+          .appendField("Hook account");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setTooltip('');
+      this.setHelpUrl('');
+      this.setColour(Blockly.Blocks.essential.HUE);
+
+    }
+  };
+
   Blockly.Blocks['sfcodes'] = {
   init: function() {
     this.appendDummyInput()

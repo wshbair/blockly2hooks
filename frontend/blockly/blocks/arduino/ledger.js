@@ -31,7 +31,7 @@ Blockly.Blocks['hook_account'] = {
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.ledger.HUE);
       this.setTooltip('Retreive the 20 byte Account ID the Hook is executing on');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   //Retreive the 32 byte namespace biased SHA512H of the currently executing Hook
@@ -49,7 +49,7 @@ Blockly.Blocks['hook_account'] = {
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.ledger.HUE);
       this.setTooltip('Retreive the 32 byte namespace biased SHA512H of the currently executing Hook');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -68,7 +68,7 @@ Blockly.Blocks['hook_account'] = {
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.ledger.HUE);
       this.setTooltip('Retreive the 32 byte namespace biased SHA512H of the last closed ledger');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   //Generate a 32 byte nonce for use in an emitted transaction
@@ -86,7 +86,7 @@ Blockly.Blocks['hook_account'] = {
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.ledger.HUE);
       this.setTooltip('Generate a 32 byte nonce for use in an emitted transaction');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   //Fetch the fee base of the current ledger
@@ -98,7 +98,7 @@ Blockly.Blocks['hook_account'] = {
       this.setOutput(true, "int64_t");
       this.setColour(Blockly.Blocks.ledger.HUE);
       this.setTooltip('Fetch the fee base of the current ledger');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   //Fetch the current ledger sequence number
@@ -110,6 +110,6 @@ Blockly.Blocks['hook_account'] = {
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.ledger.HUE);
       this.setTooltip('Fetch the current ledger sequence number');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };

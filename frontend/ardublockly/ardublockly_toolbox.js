@@ -81,8 +81,8 @@
  '      </value>' +
  '    </block>' +
  '    <block type="hook_account">'+
-
  '    </block>' + 
+ '    <block type="hook_account_statment"></block>' + 
  '    <block type="sfcodes"></block>' + 
  '  </category>' +
  '  <sep></sep>' +
