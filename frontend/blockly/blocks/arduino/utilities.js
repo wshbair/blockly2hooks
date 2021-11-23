@@ -26,15 +26,9 @@
       this.appendValueInput("write_ptr")
           .setCheck(null)
           .appendField("write_ptr");
-      this.appendValueInput("write_len")
-          .setCheck(null)
-          .appendField("write_len");
       this.appendValueInput("read_ptr")
           .setCheck(null)
           .appendField("read_ptr");
-      this.appendValueInput("read_len")
-          .setCheck(null)
-          .appendField("read_len");
       this.setInputsInline(true);
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.utilities.HUE);
@@ -70,26 +64,17 @@
       this.appendValueInput("dread_ptr")
           .setCheck(null)
           .appendField("dread_ptr");
-      this.appendValueInput("dread_len")
-          .setCheck(null)
-          .appendField("dread_len");
       this.appendValueInput("sread_ptr")
           .setCheck(null)
           .appendField("sread_ptr");
-      this.appendValueInput("sread_len")
-          .setCheck(null)
-          .appendField("sread_len");
       this.appendValueInput("kread_ptr")
           .setCheck(null)
           .appendField("kread_ptr");
-      this.appendValueInput("kread_len")
-          .setCheck(null)
-          .appendField("kread_len");
       this.setInputsInline(false);
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.utilities.HUE);
       this.setTooltip('Verify a cryptographic signature');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   
@@ -101,20 +86,14 @@
       this.appendValueInput("write_ptr")
           .setCheck(null)
           .appendField("write_ptr");
-      this.appendValueInput("write_len")
-          .setCheck(null)
-          .appendField("write_len");
       this.appendValueInput("read_ptr")
           .setCheck(null)
           .appendField("read_ptr");
-      this.appendValueInput("read_len")
-          .setCheck(null)
-          .appendField("read_len");
       this.setInputsInline(true);
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.utilities.HUE);
       this.setTooltip('Compute an sha512-half over some data');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -126,9 +105,6 @@
       this.appendValueInput("write_ptr")
           .setCheck(null)
           .appendField("write_ptr");
-      this.appendValueInput("write_len")
-          .setCheck(null)
-          .appendField("write_len");
       this.appendValueInput("keylet_type")
           .setCheck(null)
           .appendField("keylet_type");
@@ -154,7 +130,7 @@
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.utilities.HUE);
       this.setTooltip('Compute a serialized keylet of a given type');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   

@@ -15,32 +15,23 @@
 
  Blockly.Arduino['state'] = function(block) {
     var value_write_ptr = Blockly.Arduino.valueToCode(block, 'write_ptr', Blockly.Arduino.ORDER_ATOMIC);
-    var value_write_len = Blockly.Arduino.valueToCode(block, 'write_len', Blockly.Arduino.ORDER_ATOMIC);
     var value_kread_ptr = Blockly.Arduino.valueToCode(block, 'kread_ptr', Blockly.Arduino.ORDER_ATOMIC);
-    var value_kread_len = Blockly.Arduino.valueToCode(block, 'kread_len', Blockly.Arduino.ORDER_ATOMIC);
-    var code = 'state('+value_write_ptr+','+value_write_len+','+value_kread_ptr+','+value_kread_len+')';
+    var code = 'state('+value_write_ptr+','+value_kread_ptr+')';
     return [code, Blockly.Arduino.ORDER_NONE];
   };
   
   Blockly.Arduino['state_set'] = function(block) {
     var value_read_ptr = Blockly.Arduino.valueToCode(block, 'read_ptr', Blockly.Arduino.ORDER_ATOMIC);
-    var value_read_len = Blockly.Arduino.valueToCode(block, 'read_len', Blockly.Arduino.ORDER_ATOMIC);
     var value_kread_ptr = Blockly.Arduino.valueToCode(block, 'kread_ptr', Blockly.Arduino.ORDER_ATOMIC);
-    var value_kread_len = Blockly.Arduino.valueToCode(block, 'kread_len', Blockly.Arduino.ORDER_ATOMIC);
-    var code = 'state_set('+value_read_ptr+','+value_read_len+','+value_kread_ptr+','+value_kread_len+')';
+    var code = 'state_set('+value_read_ptr+','+value_kread_ptr+')';
     return [code, Blockly.Arduino.ORDER_NONE];
   };
 
   Blockly.Arduino['state_foreign'] = function(block) {
     var value_write_ptr = Blockly.Arduino.valueToCode(block, 'write_ptr', Blockly.Arduino.ORDER_ATOMIC);
-    var value_write_len = Blockly.Arduino.valueToCode(block, 'write_len', Blockly.Arduino.ORDER_ATOMIC);
     var value_kread_ptr = Blockly.Arduino.valueToCode(block, 'kread_ptr', Blockly.Arduino.ORDER_ATOMIC);
-    var value_kread_len = Blockly.Arduino.valueToCode(block, 'kread_len', Blockly.Arduino.ORDER_ATOMIC);
-    var value_aread_ptr = Blockly.Arduino.valueToCode(block, 'aread_ptr', Blockly.Arduino.ORDER_ATOMIC);
-    var value_aread_len = Blockly.Arduino.valueToCode(block, 'aread_len', Blockly.Arduino.ORDER_ATOMIC);
-    
-    var code = 'state_foreign('+value_write_ptr+','+value_write_len+','+value_kread_ptr+','+
-    value_kread_len+','+value_aread_ptr+','+value_aread_len+')';
+    var value_aread_ptr = Blockly.Arduino.valueToCode(block, 'aread_ptr', Blockly.Arduino.ORDER_ATOMIC);    
+    var code = 'state_foreign('+value_write_ptr+','+value_kread_ptr+','+value_aread_ptr+')';
 
     return [code, Blockly.Arduino.ORDER_NONE];
   };

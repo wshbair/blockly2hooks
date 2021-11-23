@@ -338,8 +338,7 @@ ArdublocklyServer.setIdeOptions = function(ide_option, callback) {
  *     have one argument to receive the JSON response.
  */
 ArdublocklyServer.sendSketchToServer = function(code, callback) {
-    code = ArdublocklyServer.getHookApiFile() + ArdublocklyServer.getSfCodesFile()+ArdublocklyServer.getHookMacroFile() + code;
-    console.log(code)
+    code = ArdublocklyServer.getHookApiFile()+ ArdublocklyServer.getSfCodesFile()+ ArdublocklyServer.getHookMacroFile() + code;
     var inputString = encodeURIComponent(code).replace('%20', '+');
     var actionString = "c2wast&version=1";
     var optionsString = "-O3%20-std%3DC99";
@@ -351,12 +350,7 @@ ArdublocklyServer.sendSketchToServer = function(code, callback) {
     });  
     xhr.open("POST", "https://wasmexplorer-service.herokuapp.com/" + "service.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-    xhr.send(command);
-      
-  // ArdublocklyServer.sendRequest(
-  //     '/code', 'POST', 'application/json', {"sketch_code": code}, callback);
-
-  
+    xhr.send(command);  
 };
 
 // Send the Wasm Binary file to the backend to deploy it 
@@ -417,239 +411,47 @@ ArdublocklyServer.getHookApiFile = function(){
  int64_t hook(int64_t reserved) __attribute__((used));
  int64_t cbak(int64_t reserved) __attribute__((used));
  
- /**
-  * Guard function. Each time a loop appears in your code a call to this must be the first branch instruction after the
-  * beginning of the loop.
-  * @param id The identifier of the guard (typically the line number).
-  * @param maxiter The maximum number of times this loop will iterate across the life of the hook.
-  * @return Can be ignored. If the guard is violated the hook will terminate.
-  */
- extern int32_t _g                  (uint32_t id, uint32_t maxiter);
+ extern int32_t _g(uint32_t id, uint32_t maxiter);
+ extern int64_t accept(uint32_t read_ptr, uint32_t read_len, int64_t error_code);
+ extern int64_t rollback(uint32_t read_ptr, uint32_t read_len, int64_t error_code);
+ extern int64_t util_raddr(uint32_t write_ptr, uint32_t write_len,uint32_t read_ptr,  uint32_t read_len);
+ extern int64_t util_accid(uint32_t write_ptr, uint32_t write_len, uint32_t read_ptr,  uint32_t read_len);
+ extern int64_t util_verify(uint32_t dread_ptr, uint32_t dread_len, uint32_t sread_ptr, uint32_t sread_len, uint32_t kread_ptr, uint32_t kread_len);
+ extern int64_t util_sha512h(uint32_t write_ptr, uint32_t write_len, uint32_t read_ptr,  uint32_t read_len);
+ extern int64_t sto_subfield(uint32_t read_ptr,  uint32_t read_len, uint32_t field_id );
+ extern int64_t sto_subarray(uint32_t read_ptr,  uint32_t read_len, uint32_t array_id);
+ extern int64_t sto_validate(uint32_t read_ptr,  uint32_t read_len);
+ extern int64_t sto_emplace(uint32_t write_ptr, uint32_t write_len, uint32_t sread_ptr, uint32_t sread_len, uint32_t fread_ptr, uint32_t fread_len, uint32_t field_id);
+ extern int64_t sto_erase(uint32_t write_ptr,  uint32_t write_len, uint32_t read_ptr,   uint32_t read_len, uint32_t field_id);
+ extern int64_t util_keylet(uint32_t write_ptr, uint32_t write_len, uint32_t keylet_type, uint32_t a,uint32_t b, uint32_t c, uint32_t d, uint32_t e, uint32_t f);
+ extern int64_t etxn_burden(void );
+ extern int64_t etxn_details(uint32_t write_ptr,  uint32_t write_len);
+ extern int64_t etxn_fee_base(uint32_t tx_byte_count);
+ extern int64_t etxn_reserve(uint32_t count);
+ extern int64_t etxn_generation(void);
+ extern int64_t emit(uint32_t write_ptr, uint32_t write_len, uint32_t read_ptr, uint32_t read_len);
+ extern int64_t hook_account(uint32_t write_ptr,  uint32_t write_len);
+ extern int64_t hook_hash(uint32_t write_ptr,  uint32_t write_len);
+ extern int64_t fee_base(void);
+ extern int64_t ledger_seq(void);
+ extern int64_t ledger_last_hash(uint32_t write_ptr,  uint32_t write_len);
+ extern int64_t nonce(uint32_t write_ptr,  uint32_t write_len);
  
- /**
-  * Accept the originating transaction and commit all hook state changes and submit all emitted transactions.
-  * @param read_ptr An optional string to use as a return comment. May be 0.
-  * @param read_len The length of the string. May be 0.
-  * @return Will never return, terminates the hook.
-  */
- extern int64_t accept              (uint32_t read_ptr,  uint32_t read_len,   int64_t error_code);
+ extern int64_t slot(uint32_t write_ptr, uint32_t write_len, uint32_t slot);
+ extern int64_t slot_clear(uint32_t slot);
+ extern int64_t slot_count(uint32_t slot);
+ extern int64_t slot_id(uint32_t slot);
+ extern int64_t slot_set(uint32_t read_ptr,   uint32_t read_len, int32_t  slot);
+ extern int64_t slot_size(uint32_t slot);
+ extern int64_t slot_subarray(uint32_t parent_slot, uint32_t array_id, uint32_t new_slot);
+ extern int64_t slot_subfield(uint32_t parent_slot, uint32_t field_id, uint32_t new_slot);
+ extern int64_t slot_type(uint32_t slot, uint32_t flags);
+ extern int64_t slot_float(uint32_t slot);
+ extern int64_t trace_slot(uint32_t mread_ptr, uint32_t mread_len, uint32_t slot);
+ extern int64_t otxn_slot(uint32_t slot);
+ extern int64_t state_set(uint32_t read_ptr,   uint32_t read_len, uint32_t kread_ptr,  uint32_t kread_len);
  
- /**
-  * Rollback the originating transaction, discard all hook state changes and emitted transactions.
-  * @param read_ptr An optional string to use as a return comment. May be 0.
-  * @param read_len The length of the string. May be 0.
-  * @return Will never return, terminates the hook.
-  */
- extern int64_t rollback            (uint32_t read_ptr,  uint32_t read_len,   int64_t error_code);
- 
- /**
-  * Read a 20 byte account-id from the memory pointed to by read_ptr of length read_len and encode it to a base58-check
-  * encoded r-address.
-  * @param read_ptr The memory address of the account-id
-  * @param read_len The byte length of the account-id (should always be 20)
-  * @param write_ptr The memory address of a suitable buffer to write the encoded r-address into.
-  * @param write_len The size of the write buffer.
-  * @return On success the length of the r-address will be returned indicating the bytes written to the write buffer.
-  *         On failure a negative integer is returned indicating what went wrong.
-  */
- extern int64_t util_raddr          (uint32_t write_ptr, uint32_t write_len,
-                                     uint32_t read_ptr,  uint32_t read_len);
- 
- /**
-  * Read an r-address from the memory pointed to by read_ptr of length read_len and decode it to a 20 byte account id
-  * and write to write_ptr
-  * @param read_ptr The memory address of the r-address
-  * @param read_len The byte length of the r-address
-  * @param write_ptr The memory address of a suitable buffer to write the decoded account id into.
-  * @param write_len The size of the write buffer.
-  * @return On success 20 will be returned indicating the bytes written. On failure a negative integer is returned
-  *         indicating what went wrong.
-  */
- extern int64_t util_accid          (uint32_t write_ptr, uint32_t write_len,
-                                     uint32_t read_ptr,  uint32_t read_len);
- /**
-  * Verify a cryptographic signature either ED25519 of SECP256k1. Public key should be prefixed with 0xED for 25519.
-  * @param dread_ptr The memory location of the data or payload to verify
-  * @param dread_len The length of the data or payload to verify
-  * @param sread_ptr The memory location of the signature
-  * @param sread_len The length of the signature
-  * @param kread_ptr The memory location of the public key
-  * @param kread_len The length of the public key
-  * @return True if and only if the signature was verified.
-  */
- extern int64_t util_verify         (uint32_t dread_ptr, uint32_t dread_len,
-                                     uint32_t sread_ptr, uint32_t sread_len,
-                                     uint32_t kread_ptr, uint32_t kread_len);
- 
- 
- /**
-  * Compute the first half of a SHA512 checksum.
-  * @param write_ptr The buffer to write the checksum into. Must be at least 32 bytes.
-  * @param write_len The length of the buffer.
-  * @param read_ptr  The buffer to read data for digest from.
-  * @param read_len  The amount of data to read from the buffer.
-  * @return The number of bytes written to write_ptr or a negative integer on error.
-  */
- extern int64_t util_sha512h        (uint32_t write_ptr, uint32_t write_len,
-                                     uint32_t read_ptr,  uint32_t read_len);
- /**
-  * Index into a xrpld serialized object and return the location and length of a subfield. Except for Array subtypes
-  * the offset and length refer to the **payload** of the subfield not the entire subfield. Use SUB_OFFSET and
-  * SUB_LENGTH macros to extract return value.
-  * @param read_ptr The memory location of the stobject
-  * @param read_len The length of the stobject
-  * @param field_id The Field Code of the subfield
-  * @return high-word (most significant 4 bytes excluding the most significant bit (MSB)) is the field offset relative
-  *         to read_ptr and the low-word (least significant 4 bytes) is its length. MSB is sign bit, if set (negative)
-  *         return value indicates error (typically error means could not find.)
-  */
- extern int64_t sto_subfield       (uint32_t read_ptr,  uint32_t read_len, uint32_t field_id );
- 
- /**
-  * Index into a xrpld serialized array and return the location and length of an index. Unlike sto_subfield this api
-  * always returns the offset and length of the whole object at that index (not its payload.) Use SUB_OFFSET and
-  * SUB_LENGTH macros to extract return value.
-  * @param read_ptr The memory location of the stobject
-  * @param read_len The length of the stobject
-  * @param array_id The index requested
-  * @return high-word (most significant 4 bytes excluding the most significant bit (MSB)) is the field offset relative
-  *         to read_ptr and the low-word (least significant 4 bytes) is its length. MSB is sign bit, if set (negative)
-  *         return value indicates error (typically error means could not find.)
-  */
- extern int64_t sto_subarray       (uint32_t read_ptr,  uint32_t read_len, uint32_t array_id);
- 
- extern int64_t sto_validate       (uint32_t read_ptr,  uint32_t read_len);
- 
- extern int64_t sto_emplace        (uint32_t write_ptr, uint32_t write_len,
-                                    uint32_t sread_ptr, uint32_t sread_len,
-                                    uint32_t fread_ptr, uint32_t fread_len, uint32_t field_id);
- 
- extern int64_t sto_erase          (uint32_t write_ptr,  uint32_t write_len,
-                                    uint32_t read_ptr,   uint32_t read_len, uint32_t field_id);
- 
- extern int64_t util_keylet         (uint32_t write_ptr, uint32_t write_len, uint32_t keylet_type,
-                                     uint32_t a,         uint32_t b,         uint32_t c,
-                                     uint32_t d,         uint32_t e,         uint32_t f);
- 
- /**
-  * Compute burden for an emitted transaction.
-  * @return the burden a theoretically emitted transaction would have.
-  */
- extern int64_t etxn_burden         (void );
- 
- /**
-  * Write a full emit_details stobject into the buffer specified.
-  * @param write_ptr A sufficiently large buffer to write into.
-  * @param write_len The length of that buffer.
-  * @return The number of bytes written or a negative integer indicating an error.
-  */
- extern int64_t etxn_details        (uint32_t write_ptr,  uint32_t write_len);
- 
- /**
-  * Compute the minimum fee required to be paid by a hypothetically emitted transaction based on its size in bytes.
-  * @param The size of the emitted transaction in bytes
-  * @return The minimum fee in drops this transaction should pay to succeed
-  */
- extern int64_t etxn_fee_base       (uint32_t tx_byte_count);
- 
- /**
-  * Inform xrpld that you will be emitting at most @count@ transactions during the course of this hook execution.
-  * @param count The number of transactions you intend to emit from this  hook.
-  * @return If a negaitve integer an error has occured
-  */
- extern int64_t etxn_reserve        (uint32_t count);
- 
- /**
-  * Compute the generation of an emitted transaction. If this hook was invoked by a transaction emitted by a previous
-  * hook then the generation counter will be 1+ the previous generation counter otherwise it will be 1.
-  * @return The generation of a hypothetically emitted transaction.
-  */
- extern int64_t etxn_generation     (void);
- 
- /**
-  * Emit a transaction from this hook.
-  * @param read_ptr Memory location of a buffer containing the fully formed binary transaction to emit.
-  * @param read_len The length of the transaction.
-  * @return A negative integer if the emission failed.
-  */
- extern int64_t emit                (uint32_t write_ptr, uint32_t write_len, uint32_t read_ptr, uint32_t read_len);
- 
- /**
-  * Retrieve the account the hook is running on.
-  * @param write_ptr A buffer of at least 20 bytes to write into.
-  * @param write_len The length of that buffer
-  * @return The number of bytes written into the buffer of a negative integer if an error occured.
-  */
- extern int64_t hook_account        (uint32_t write_ptr,  uint32_t write_len);
- 
- /**
-  * Retrieve the hash of the currently executing hook.
-  * @param write_ptr A buffer of at least 32 bytes to write into.
-  * @param write_len The length of that buffer
-  * @return The number of bytes written into the buffer of a negative integer if an error occured.
-  */
- extern int64_t hook_hash           (uint32_t write_ptr,  uint32_t write_len);
- 
- /**
-  * Retrive the currently recommended minimum fee for a transaction to succeed.
-  */
- extern int64_t fee_base            (void);
- 
- /**
-  * Retrieve the current ledger sequence number
-  */
- extern int64_t ledger_seq          (void);
- 
- extern int64_t ledger_last_hash    (uint32_t write_ptr,  uint32_t write_len);
- 
- /**
-  * Retrieve a nonce for use in an emitted transaction (or another task). Can be called repeatedly for multiple nonces.
-  * @param write_ptr A buffer of at least 32 bytes to write into.
-  * @param write_len The length of that buffer
-  * @return The number of bytes written into the buffer of a negative integer if an error occured.
-  */
- extern int64_t nonce               (uint32_t write_ptr,  uint32_t write_len);
- 
- 
- /**
-  * Slot functions have not been implemented yet and the api for them is subject to change
-  */
- 
- extern int64_t slot                (uint32_t write_ptr, uint32_t write_len, uint32_t slot);
- extern int64_t slot_clear          (uint32_t slot);
- extern int64_t slot_count          (uint32_t slot);
- extern int64_t slot_id             (uint32_t slot);
- extern int64_t slot_set            (uint32_t read_ptr,   uint32_t read_len, int32_t  slot);
- extern int64_t slot_size           (uint32_t slot);
- extern int64_t slot_subarray       (uint32_t parent_slot, uint32_t array_id, uint32_t new_slot);
- extern int64_t slot_subfield       (uint32_t parent_slot, uint32_t field_id, uint32_t new_slot);
- extern int64_t slot_type           (uint32_t slot, uint32_t flags);
- extern int64_t slot_float          (uint32_t slot);
- extern int64_t trace_slot          (uint32_t mread_ptr, uint32_t mread_len, uint32_t slot);
- extern int64_t otxn_slot           (uint32_t slot);
- 
- 
- /**
-  * In the hook's state key-value map, set the value for the key pointed at by kread_ptr.
-  * @param read_ptr A buffer containing the data to store
-  * @param read_len The length of the data
-  * @param kread_ptr A buffer containing the key
-  * @param kread_len The length of the key
-  * @return The number of bytes stored or a negative integer if an error occured
-  */
- extern int64_t state_set           (uint32_t read_ptr,   uint32_t read_len,
-                                     uint32_t kread_ptr,  uint32_t kread_len);
- 
- /**
-  * Retrieve a value from the hook's key-value map.
-  * @param write_ptr A buffer to write the state value into
-  * @param write_len The length of that buffer
-  * @param kread_ptr A buffer to read the state key from
-  * @param kread_len The length of that key
-  * @return The number of bytes written or a negative integer if an error occured.
-  */
- extern int64_t state               (uint32_t write_ptr,  uint32_t write_len,
-                                     uint32_t kread_ptr,  uint32_t kread_len);
+ extern int64_t state(uint32_t write_ptr,  uint32_t write_len, uint32_t kread_ptr,  uint32_t kread_len);
  
  /**
   * Retrieve a value from another hook's key-value map.
@@ -819,7 +621,6 @@ ArdublocklyServer.getHookMacroFile = function(){
   const Macro = `/**
   * These are helper macros for writing hooks, all of them are optional as is including hookmacro.h at all
   */
- 
  
  #ifndef HOOKMACROS_INCLUDED
  #define HOOKMACROS_INCLUDED 1
@@ -1304,18 +1105,18 @@ ArdublocklyServer.getHookMacroFile = function(){
          uint32_t src_tag = (src_tag_raw);\
          uint32_t cls = (uint32_t)ledger_seq();\
          hook_account(SBUF(acc));\
-         _01_02_ENCODE_TT                   (buf_out, ttPAYMENT                      );      /* uint16  | size   3 */ \
-         _02_02_ENCODE_FLAGS                (buf_out, tfCANONICAL                    );      /* uint32  | size   5 */ \
-         _02_03_ENCODE_TAG_SRC              (buf_out, src_tag                        );      /* uint32  | size   5 */ \
-         _02_04_ENCODE_SEQUENCE             (buf_out, 0                              );      /* uint32  | size   5 */ \
-         _02_14_ENCODE_TAG_DST              (buf_out, dest_tag                       );      /* uint32  | size   5 */ \
-         _02_26_ENCODE_FLS                  (buf_out, cls + 1                        );      /* uint32  | size   6 */ \
-         _02_27_ENCODE_LLS                  (buf_out, cls + 5                        );      /* uint32  | size   6 */ \
-         _06_01_ENCODE_DROPS_AMOUNT         (buf_out, drops_amount                   );      /* amount  | size   9 */ \
-         _06_08_ENCODE_DROPS_FEE            (buf_out, drops_fee                      );      /* amount  | size   9 */ \
-         _07_03_ENCODE_SIGNING_PUBKEY_NULL  (buf_out                                 );      /* pk      | size  35 */ \
-         _08_01_ENCODE_ACCOUNT_SRC          (buf_out, acc                            );      /* account | size  22 */ \
-         _08_03_ENCODE_ACCOUNT_DST          (buf_out, to_address                     );      /* account | size  22 */ \
+         _01_02_ENCODE_TT                   (buf_out, ttPAYMENT);      /* uint16  | size   3 */ \
+         _02_02_ENCODE_FLAGS                (buf_out, tfCANONICAL);      /* uint32  | size   5 */ \
+         _02_03_ENCODE_TAG_SRC              (buf_out, src_tag);      /* uint32  | size   5 */ \
+         _02_04_ENCODE_SEQUENCE             (buf_out, 0);      /* uint32  | size   5 */ \
+         _02_14_ENCODE_TAG_DST              (buf_out, dest_tag);      /* uint32  | size   5 */ \
+         _02_26_ENCODE_FLS                  (buf_out, cls + 1);      /* uint32  | size   6 */ \
+         _02_27_ENCODE_LLS                  (buf_out, cls + 5);      /* uint32  | size   6 */ \
+         _06_01_ENCODE_DROPS_AMOUNT         (buf_out, drops_amount);      /* amount  | size   9 */ \
+         _06_08_ENCODE_DROPS_FEE            (buf_out, drops_fee);      /* amount  | size   9 */ \
+         _07_03_ENCODE_SIGNING_PUBKEY_NULL  (buf_out);      /* pk      | size  35 */ \
+         _08_01_ENCODE_ACCOUNT_SRC          (buf_out, acc);      /* account | size  22 */ \
+         _08_03_ENCODE_ACCOUNT_DST          (buf_out, to_address);      /* account | size  22 */ \
          etxn_details((uint32_t)buf_out, 105);                                               /* emitdet | size 105 */ \
      }
  

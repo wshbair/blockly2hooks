@@ -37,7 +37,7 @@ goog.require('Blockly.Types');
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.serialization.HUE);
       this.setTooltip('Index into a xrpld serialized object and return the location and length of a subfield');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -59,7 +59,7 @@ goog.require('Blockly.Types');
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.serialization.HUE);
       this.setTooltip('Index into a xrpld serialized array and return the location and length of an index');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 //Emplace a field into an existing STObject at its canonical placement
@@ -92,7 +92,7 @@ goog.require('Blockly.Types');
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.serialization.HUE);
       this.setTooltip('Emplace a field into an existing STObject at its canonical placement');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -120,7 +120,7 @@ goog.require('Blockly.Types');
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.serialization.HUE);
       this.setTooltip('Remove a field from an STObject');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -139,6 +139,6 @@ goog.require('Blockly.Types');
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.serialization.HUE);
       this.setTooltip('Validate an STObject');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };

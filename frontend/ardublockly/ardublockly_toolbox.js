@@ -12,12 +12,6 @@
  
  Ardublockly.TOOLBOX_XML =
  '<xml>' +
- '  <sep></sep>' +
- '  <category id="catComms" name="Hooks Ready2Use">' +
- '    <block type="firewall"></block>' +
- '    <block type="accept"></block>' +
- '  </category>' +
- '  <sep></sep>' +
  '  <category id="catHooksTool" name="Essential">' +
  '    <block type="amount_to_drops"></block>' +
  '    <block type="hook_template">'+
@@ -87,11 +81,7 @@
  '      </value>' +
  '    </block>' +
  '    <block type="hook_account">'+
-'      <value name="ARG2">' +
- '        <block type="math_number">' +
- '          <field name="NUM">20</field>' +
- '        </block>' +
- '      </value>' +
+
  '    </block>' + 
  '    <block type="sfcodes"></block>' + 
  '  </category>' +
@@ -153,7 +143,7 @@
  '    <block type="sto_erase"></block>' +
  '  </category>' +
  '  <sep></sep>' +
- '  <category id="catHooksControl" name="Buffer Operations">' +
+ '  <category id="catBufferOperations" name="Buffer Operations">' +
  '    <block type="sbuf">'+
  '      <value name="SBUF">' +
  '        <block type="text">' +

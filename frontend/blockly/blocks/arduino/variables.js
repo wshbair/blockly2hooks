@@ -47,33 +47,7 @@ Blockly.Blocks['variables_set_type'] = {
 };
 
 
-
-
-
-
-Blockly.Blocks['string'] = {
-  init: function() {
-    this.appendValueInput("string_var")
-        .setCheck(null)
-        .appendField("string")
-        .appendField(new Blockly.FieldDropdown([["character", "char"]]), "type")
-        .appendField("name")
-        .appendField(new Blockly.FieldTextInput("mystring"), "mystring")
-        .appendField("length");
-    this.appendValueInput("length")
-        .setCheck(null)
-        .appendField("value");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(Blockly.Blocks.variables.HUE);
-    this.setTooltip('Define string');
-    this.setHelpUrl('http://www.example.com/');
-  }
-};
-
 ///////////////////////////////////
-
 Blockly.Blocks['define_get'] = {
   init: function() {
       this.setColour(160);
@@ -590,7 +564,7 @@ Blockly.Blocks['variables_pointer_declare'] = {
       this.setNextStatement(true, null);
       this.setColour(Blockly.Blocks.variables.HUE);
       this.setTooltip('pointer varaible');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
       this.contextMenuMsg_ = Blockly.Msg.VARIABLES_SET_CREATE_GET;
       this.contextMenuType_ = 'variables_pointer_get';
       this.tag = Blockly.Msg.TAG_VARIABLE_POINTER_DECLARE;

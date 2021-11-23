@@ -84,21 +84,6 @@ Blockly.Arduino['hook_template'] = function(block) {
   };
 
   Blockly.Arduino['buffer_equal'] = function(block) {
-    // Blockly.Arduino.addDeclaration('BUFFER_EQUAL_GUARD',"#define BUFFER_EQUAL_GUARD(output, buf1, buf1len, buf2, buf2len, n)\\"+
-    // "{\\"+
-    // "    output = ((buf1len) == (buf2len) ? 1 : 0);\\"+
-    // "    for (int x = 0; GUARDM( (buf2len) * (n), 1 ), x < (buf2len);\\"+
-    // "         ++x)\\"+
-    // "    {\\"+
-    // "        if ((buf1)[x] != (buf2)[x])\\"+
-    // "        {\\"+
-    // "            output = 0;\\"+
-    // "            break;\\"+
-    // "        }\\"+
-    // "    }\\"+
-    // "}")
-    // Blockly.Arduino.addDeclaration('buffer_equal', "#define BUFFER_EQUAL(output, buf1, buf2, compare_len) "+
-    // "BUFFER_EQUAL_GUARD(output, buf1, compare_len, buf2, compare_len, 1)")
     var value_equal = Blockly.Arduino.valueToCode(block, 'equal', Blockly.Arduino.ORDER_ATOMIC);
     var value_hook_accid = Blockly.Arduino.valueToCode(block, 'hook_accid', Blockly.Arduino.ORDER_ATOMIC);
     var value_account_field = Blockly.Arduino.valueToCode(block, 'account_field', Blockly.Arduino.ORDER_ATOMIC);
@@ -148,11 +133,10 @@ Blockly.Arduino['hook_template'] = function(block) {
   };
 
   Blockly.Arduino['hook_account'] = function(block) {
-    //Blockly.Arduino.addInclude('hook_account', 'extern int64_t hook_account (uint32_t write_ptr, uint32_t write_len);');
-    var value_arg1 = Blockly.Arduino.valueToCode(block, 'ARG1', Blockly.Arduino.ORDER_ATOMIC);
-    var value_arg2 = Blockly.Arduino.valueToCode(block, 'ARG2', Blockly.Arduino.ORDER_ATOMIC);
-    var code = 'hook_account('+value_arg1+','+value_arg2+');\n';
-    return code;
+    var value_var = Blockly.Arduino.valueToCode(block, 'VAR', Blockly.Arduino.ORDER_ATOMIC);
+    var code = 'hook_account('+value_var+')';
+    return [code, Blockly.Arduino.ORDER_NONE];
+
   };
 
   Blockly.Arduino['sfcodes'] = function(block) {
@@ -163,51 +147,12 @@ Blockly.Arduino['hook_template'] = function(block) {
   };
   
   Blockly.Arduino['amount_to_drops'] = function(block) {
-    // Blockly.Arduino.addDeclaration('AMOUNT_TO_DROPS', 
-    // "// returns an in64_t, negative if error, non-negative if valid drops\n"+
-    // "#define AMOUNT_TO_DROPS(amount_buffer)\\"+
-    // "(((amount_buffer)[0] >> 7) ? -2 : (\\"+
-    // "((((uint64_t)((amount_buffer)[0])) & 0xb00111111) << 56) +\\"+
-    // "(((uint64_t)((amount_buffer)[1])) << 48) +\\"+
-    // "(((uint64_t)((amount_buffer)[2])) << 40) +\\"+
-    // "(((uint64_t)((amount_buffer)[3])) << 32) +\\"+
-    // "(((uint64_t)((amount_buffer)[4])) << 24) +\\"+
-    // "(((uint64_t)((amount_buffer)[5])) << 16) +\\"+
-    // "(((uint64_t)((amount_buffer)[6])) <<  8) +\\"+
-    // "(((uint64_t)((amount_buffer)[7])))))"
-    // )
     var value_amount = Blockly.Arduino.valueToCode(block, 'AMOUNT', Blockly.Arduino.ORDER_ATOMIC);
     var code = 'AMOUNT_TO_DROPS('+value_amount+')';
     return [code, Blockly.Arduino.ORDER_NONE];
   };
   
   Blockly.Arduino['macro_prepare_payment_simple'] = function(block) {
-    // Blockly.Arduino.addDeclaration('prepare_payment_simple', 
-    // "#define PREPARE_PAYMENT_SIMPLE(buf_out_master, drops_amount_raw, drops_fee_raw, to_address, dest_tag_raw, src_tag_raw)\\"+
-    // "{\\"+
-    // "    uint8_t* buf_out = buf_out_master;\\"+
-    // "    uint8_t acc[20];\\"+
-    // "    uint64_t drops_amount = (drops_amount_raw);\\"+
-    // "    uint64_t drops_fee = (drops_fee_raw);\\"+
-    // "    uint32_t dest_tag = (dest_tag_raw);\\"+
-    // "    uint32_t src_tag = (src_tag_raw);\\"+
-    // "    uint32_t cls = (uint32_t)ledger_seq();\\"+
-    // "    hook_account(SBUF(acc));\\"+
-    // "    _01_02_ENCODE_TT                   (buf_out, ttPAYMENT );      /* uint16  | size   3 */ \\"+
-    // "    _02_02_ENCODE_FLAGS                (buf_out, tfCANONICAL);      /* uint32  | size   5 */ \\"+
-    // "    _02_03_ENCODE_TAG_SRC              (buf_out, src_tag);      /* uint32  | size   5 */ \\"+
-    // "    _02_04_ENCODE_SEQUENCE             (buf_out, 0);      /* uint32  | size   5 */ \\"+
-    // "    _02_14_ENCODE_TAG_DST              (buf_out, dest_tag);      /* uint32  | size   5 */ \\"+
-    // "    _02_26_ENCODE_FLS                  (buf_out, cls + 1);      /* uint32  | size   6 */ \\"+
-    // "    _02_27_ENCODE_LLS                  (buf_out, cls + 5);      /* uint32  | size   6 */ \\"+
-    // "    _06_01_ENCODE_DROPS_AMOUNT         (buf_out, drops_amount);      /* amount  | size   9 */ \\"+
-    // "    _06_08_ENCODE_DROPS_FEE            (buf_out, drops_fee);      /* amount  | size   9 */ \\"+
-    // "    _07_03_ENCODE_SIGNING_PUBKEY_NULL  (buf_out);      /* pk      | size  35 */ \\"+
-    // "    _08_01_ENCODE_ACCOUNT_SRC          (buf_out, acc);      /* account | size  22 */ \\"+
-    // "    _08_03_ENCODE_ACCOUNT_DST          (buf_out, to_address);      /* account | size  22 */ \\"+
-    // "    etxn_details((uint32_t)buf_out, 105); /* emitdet | size 105 */ \\"+
-    // "}"
-    // )
     var value_buf_out = Blockly.Arduino.valueToCode(block, 'buf_out', Blockly.Arduino.ORDER_ATOMIC);
     var value_drops_amount = Blockly.Arduino.valueToCode(block, 'drops_amount', Blockly.Arduino.ORDER_ATOMIC);
     var value_drops_fee = Blockly.Arduino.valueToCode(block, 'drops_fee', Blockly.Arduino.ORDER_ATOMIC);
@@ -215,5 +160,12 @@ Blockly.Arduino['hook_template'] = function(block) {
     var value_dest_tag = Blockly.Arduino.valueToCode(block, 'dest_tag', Blockly.Arduino.ORDER_ATOMIC);
     var value_src_tag = Blockly.Arduino.valueToCode(block, 'src_tag', Blockly.Arduino.ORDER_ATOMIC);
     var code = 'PREPARE_PAYMENT_SIMPLE('+value_buf_out+','+value_drops_amount+','+value_drops_fee+','+value_to_address+','+value_dest_tag+','+value_src_tag+');\n';
+    return code;
+  };
+
+  Blockly.Arduino['return_val'] = function(block) {
+    var value_var = Blockly.Arduino.valueToCode(block, 'VAR', Blockly.Arduino.ORDER_ATOMIC);
+    // TODO: Assemble Arduino into code variable.
+    var code = 'retrun('+value_var+');\n';
     return code;
   };

@@ -36,7 +36,7 @@ Ardublockly.injectBlockly = function(blocklyEl, toolboxXml, blocklyPath) {
   // The Toolbox menu language is edited directly from the XML nodes.
   Ardublockly.updateToolboxLanguage();
   Ardublockly.workspace = Blockly.inject(blocklyEl, {
-      collapse: true,
+      collapse: false,
       comments: true,
       css: true,
       disable: true,
@@ -214,7 +214,8 @@ Ardublockly.changeBlocklyArduinoBoard = function(newBoard) {
 /** Update the toolbox categories language. */
 Ardublockly.updateToolboxLanguage = function() {
   var categories = ['catLogic', 'catLoops', 'catMath', 'catText',
-                    'catVariables', 'catFunctions', 'catComms', 'catLists', 'catHooksControl'];
+                    'catVariables', 'catFunctions', 'catComms', 'catLists', 
+                    'catHooksControl',"catHooksTool","catMacro"];
   var categoryNodes = Ardublockly.xmlTree.getElementsByTagName('category');
   for (var i = 0, cat; cat = categoryNodes[i]; i++) {
     var catId = cat.getAttribute('id');

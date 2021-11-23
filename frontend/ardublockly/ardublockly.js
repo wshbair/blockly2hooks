@@ -17,7 +17,7 @@ Ardublockly.init = function() {
   // Inject Blockly into content_blocks and fetch additional blocks
   Ardublockly.injectBlockly(document.getElementById('content_blocks'),
                             Ardublockly.TOOLBOX_XML, '../blockly/');
-  Ardublockly.importExtraBlocks();
+  //Ardublockly.importExtraBlocks();
 
   Ardublockly.designJsInit();
   Ardublockly.initialiseIdeButtons();
@@ -815,3 +815,4 @@ Ardublockly.bindClick_ = function(el, func) {
   el.addEventListener('ontouchend', propagateOnce);
   el.addEventListener('click', propagateOnce);
 };
+

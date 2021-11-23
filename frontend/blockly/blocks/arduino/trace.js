@@ -40,7 +40,7 @@ Blockly.Blocks['trace'] = {
       this.setOutput(true, null);
       this.setColour(120);
       this.setTooltip('Write the contents of a buffer to the XRPLD trace log');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -62,7 +62,7 @@ Blockly.Blocks['trace'] = {
       this.setOutput(true, null);
       this.setColour(120);
       this.setTooltip('Write the contents of a slot to the XRPLD trace log');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -84,7 +84,7 @@ Blockly.Blocks['trace'] = {
       this.setOutput(true, null);
       this.setColour(120);
       this.setTooltip('Write an integer to the XRPLD trace log');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -105,7 +105,7 @@ Blockly.Blocks['trace'] = {
       this.setOutput(true, null);
       this.setColour(120);
       this.setTooltip('Write a XFL float to the XRPLD trace log');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 

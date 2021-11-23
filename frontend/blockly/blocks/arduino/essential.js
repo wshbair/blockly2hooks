@@ -31,7 +31,7 @@
           .appendField("hook()");
       this.appendStatementInput('LOOP_FUNC');
       this.setInputsInline(false);
-      this.setColour(330);
+      this.setColour(120);
       this.setTooltip("Block for defining the Hook cbak() and hook() functions");
       this.setHelpUrl('');
       this.contextMenu = false;
@@ -54,7 +54,7 @@
       this.setNextStatement(true, null);
       this.setColour( Blockly.Blocks.essential.HUE);
       this.setTooltip('GUARD function');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   }; 
 
@@ -125,7 +125,7 @@
       this.setNextStatement(true, null);
       this.setColour(Blockly.Blocks.essential.HUE);
       this.setTooltip('');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -139,7 +139,7 @@
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.essential.HUE);
       this.setTooltip('');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -194,7 +194,7 @@
       this.setNextStatement(true, null);
       this.setColour(Blockly.Blocks.essential.HUE);
       this.setTooltip('');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -207,7 +207,7 @@
       this.setOutput(true, null);
       this.setTooltip('');
       this.setColour(Blockly.Blocks.essential.HUE);
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   Blockly.Blocks['uint32_from_buf'] = {
@@ -219,7 +219,7 @@
       this.setOutput(true, null);
       this.setTooltip('');
       this.setColour(Blockly.Blocks.essential.HUE);
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -245,34 +245,27 @@
       this.setInputsInline(true);
       this.setColour(120);
       this.setTooltip('for loop');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
-
-
 
   Blockly.Blocks['hook_account'] = {
     init: function() {
-      this.appendDummyInput()
+      this.appendValueInput("VAR")
+          .setCheck(null)
           .appendField("hook_account");
-      this.appendValueInput("ARG1")
-          .setCheck(null);
-      this.appendValueInput("ARG2")
-          .setCheck("Number");
       this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
+      this.setOutput(true, null);
       this.setTooltip('');
-      this.setHelpUrl('');
       this.setColour(Blockly.Blocks.essential.HUE);
+      this.setHelpUrl('http://www.example.com/');
     }
   };
-
   Blockly.Blocks['sfcodes'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("select sfcodes")
-        .appendField(new Blockly.FieldDropdown([["sfAccount", "0x80001UL"], ["sfOwner", "0x80002UL"], ["sfDestination", "0x80003UL"]]), "VALUE");
+        .appendField(new Blockly.FieldDropdown([["sfAccount", "sfAccount"], ["sfOwner", "sfAccount"], ["sfDestination", "sfDestination"]]), "VALUE");
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setTooltip('');
@@ -328,6 +321,21 @@ Blockly.Blocks['macro_prepare_payment_simple'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('');
+    this.setHelpUrl('');
+    this.setColour(Blockly.Blocks.essential.HUE);
+
+  }
+};
+
+Blockly.Blocks['return_val'] = {
+  init: function() {
+    this.appendValueInput("VAR")
+        .setCheck(null)
+        .appendField("return");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Return value');
     this.setHelpUrl('');
     this.setColour(Blockly.Blocks.essential.HUE);
 

@@ -24,7 +24,7 @@ Blockly.Blocks['etxn_burden'] = {
       this.setOutput(true, null);
       this.setColour(330);
       this.setTooltip('Get the burden of a hypothetically emitted transaction');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -43,7 +43,7 @@ init: function() {
     this.setOutput(true, null);
     this.setColour(330);
     this.setTooltip('Produce an sfEmitDetails suitable for a soon-to-be emitted transaction');
-    this.setHelpUrl('http://www.example.com/');
+    this.setHelpUrl(' ');
 }
 };
 //Estimate the required fee for a txn to be emitted successfully
@@ -58,7 +58,7 @@ Blockly.Blocks['etxn_fee_base'] = {
       this.setOutput(true, null);
       this.setColour(330);
       this.setTooltip('Estimate the required fee for a txn to be emitted successfully');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl(' ');
     }
   };
 
@@ -74,7 +74,7 @@ init: function() {
     this.setOutput(true, null);
     this.setColour(330);
     this.setTooltip('Estimate the required fee for a txn to be emitted successfully');
-    this.setHelpUrl('http://www.example.com/');
+    this.setHelpUrl(' ');
 }
 };  
 
@@ -106,6 +106,6 @@ Blockly.Blocks['emit'] = {
       this.setOutput(true, null);
       this.setColour(330);
       this.setTooltip('Get the generation of a hypothetically emitted transaction');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl(' ');
     }
   };

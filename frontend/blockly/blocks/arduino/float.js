@@ -32,7 +32,7 @@ Blockly.Blocks.float.HUE = 195;
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Create a float from an exponent and mantissa');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   //Multiply two XFL numbers together
@@ -50,7 +50,7 @@ Blockly.Blocks.float.HUE = 195;
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Multiply two XFL numbers together');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   //Multiply an XFL floating point by a non-XFL numerator and denominator
@@ -74,7 +74,7 @@ Blockly.Blocks.float.HUE = 195;
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Multiply an XFL floating point by a non-XFL numerator and denominator');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   //Negate an XFL floating point number
@@ -89,7 +89,7 @@ Blockly.Blocks.float.HUE = 195;
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Negate an XFL floating point number');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   //Perform a comparison on two XFL floating point numbers
@@ -110,7 +110,7 @@ Blockly.Blocks.float.HUE = 195;
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Perform a comparison on two XFL floating point numbers');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -129,7 +129,7 @@ Blockly.Blocks.float.HUE = 195;
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Add two XFL numbers together');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   //Output an XFL as a serialized object
@@ -162,7 +162,7 @@ Blockly.Blocks.float.HUE = 195;
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Output an XFL as a serialized object');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   // Read a serialized amount into an XFL
@@ -180,7 +180,7 @@ Blockly.Blocks.float.HUE = 195;
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Read a serialized amount into an XFL');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -196,7 +196,7 @@ Blockly.Blocks.float.HUE = 195;
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Divide one by an XFL floating point number');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   //Divide an XFL by another XFL floating point number
@@ -214,7 +214,7 @@ Blockly.Blocks.float.HUE = 195;
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Divide an XFL by another XFL floating point number');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -227,7 +227,7 @@ Blockly.Blocks.float.HUE = 195;
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Return the number 1 represented in an XFL enclosing number');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   
@@ -244,7 +244,7 @@ Blockly.Blocks['float_exponent'] = {
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Get the exponent of an XFL enclosing number');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -260,7 +260,7 @@ Blockly.Blocks['float_mantissa'] = {
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Get the exponent of an XFL enclosing number');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -276,7 +276,7 @@ Blockly.Blocks['float_sign'] = {
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Get the sign of an XFL enclosing number');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -295,7 +295,7 @@ Blockly.Blocks['float_exponent_set'] = {
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Set the exponent of an XFL enclosing number');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -314,7 +314,7 @@ Blockly.Blocks['float_mantissa_set'] = {
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Set the mantissa of an XFL enclosing number');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -333,7 +333,7 @@ Blockly.Blocks['float_sign_set'] = {
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Set the sign of an XFL enclosing number');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -355,7 +355,7 @@ Blockly.Blocks['float_sign_set'] = {
       this.setOutput(true, null);
       this.setColour(Blockly.Blocks.float.HUE);
       this.setTooltip('Convert an XFL floating point into an integer (floor)');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 

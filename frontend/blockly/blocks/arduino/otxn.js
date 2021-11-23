@@ -24,7 +24,7 @@ goog.require('Blockly.Types');
       this.setOutput(true, null);
       this.setColour(315);
       this.setTooltip('Get the burden of the originating transaction');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -39,11 +39,11 @@ goog.require('Blockly.Types');
       this.appendValueInput("field_id")
           .setCheck(null)
           .appendField("field_id");
-      this.setInputsInline(false);
+      this.setInputsInline(true);
       this.setOutput(true, null);
       this.setColour(315);
       this.setTooltip('Serialize and output a field from the originating transaction');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -65,7 +65,7 @@ goog.require('Blockly.Types');
       this.setOutput(true, null);
       this.setColour(315);
       this.setTooltip('Output a field from the originating transaction as a human readable string');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -78,7 +78,7 @@ goog.require('Blockly.Types');
       this.setOutput(true, null);
       this.setColour(315);
       this.setTooltip('Get the generation of the originating transaction');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   
@@ -91,7 +91,7 @@ goog.require('Blockly.Types');
       this.setOutput(true, null);
       this.setColour(315);
       this.setTooltip('Get the Transaction Type of the originating transaction');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -110,7 +110,7 @@ goog.require('Blockly.Types');
       this.setOutput(true, null);
       this.setColour(315);
       this.setTooltip('Output the canonical hash of the originating transaction');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -126,7 +126,7 @@ goog.require('Blockly.Types');
       this.setOutput(true, null);
       this.setColour(315);
       this.setTooltip('Load the originating transaction into a slot');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 

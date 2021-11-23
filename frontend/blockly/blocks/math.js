@@ -620,6 +620,6 @@ Blockly.Blocks['math_post_inc_decrement'] = {
     this.setOutput(true, null);
     this.setColour(20);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
+    this.setHelpUrl('');
   }
 };

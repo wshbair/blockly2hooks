@@ -98,7 +98,6 @@ Ardublockly.LOCALISED_TEXT = {
   catText: "Text",
   catVariables: "Variables",
   catFunctions: "Functions",
-  catComms: "Ready2Go",
   catUtilities: 'Utilities',
   catSerialization: 'Serialization',
   catEmittedTransaction:'Emitted Transaction',
@@ -107,5 +106,10 @@ Ardublockly.LOCALISED_TEXT = {
   catSlot: 'Slot',
   catState:'State',
   catTrace:'Trace (Debug)',
-  catOriginatingTransaction: 'Originating Transaction'
+  catOriginatingTransaction: 'Originating Transaction',
+  catLists:'Lists/Arrays',
+  catHooksControl: 'Control',
+  catHooksTool: 'Basic Blocks',
+  catMacro: "Macro",
+  catBufferOperations: "Buffer Operations"
 };

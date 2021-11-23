@@ -168,19 +168,12 @@ Blockly.Arduino['variables_array_get'] = function(block) {
   var varName = Blockly.Arduino.variableDB_.getName(block.getFieldValue('VAR'),
       Blockly.Variables.NAME_TYPE);
    var length_1 = block.getFieldValue('LENGTH_1');
-  var length_2 = block.getFieldValue('LENGTH_2');
-  var length_3 = block.getFieldValue('LENGTH_3');
-
+ 
   // if length_1 is number
   if (isNaN(length_1) == false) {
       length_1 = (length_1 == '' ? -1 :length_1 * 1);
   }
-  if (isNaN(length_2) == false) {
-      length_2 = (length_2 == '' ? -1 :length_2 * 1);
-  }
-  if (isNaN(length_3) == false) {
-      length_3 = (length_3 == '' ? -1 : length_3 * 1);
-  }
+   
   // get array list
   var arrList = Blockly.Blocks.getWantedBlockArray('a');
 
@@ -188,39 +181,20 @@ Blockly.Arduino['variables_array_get'] = function(block) {
   var idxList = Blockly.Blocks.getIndexArray(arrList, varName);
 
   var code;
-  var isAvbNum1, isAvbNum2, isAvbNum3;
+  var isAvbNum1;
 
   isAvbNum1 = Blockly.Blocks.checkArrayIndex(length_1, idxList[0]);
-  isAvbNum2 = Blockly.Blocks.checkArrayIndex(length_2, idxList[1]);
-  isAvbNum3 = Blockly.Blocks.checkArrayIndex(length_3, idxList[2]);
 
   // index over -> msg
-  if ((isAvbNum1 == false && length_1 != -1) || (isAvbNum2 == false && length_2 != -1) || (isAvbNum3 == false && length_3 != -1)) {
+  if ((isAvbNum1 == false && length_1 != -1) ) {
       window.alert('index exceeded');
-      block.initIdx(isAvbNum1, isAvbNum2, isAvbNum3);
+      block.initIdx(isAvbNum1);
   }
 
-  else if (isAvbNum1 == true && isAvbNum2 == false && isAvbNum3 == false)
+  else if (isAvbNum1 == true )
       code = varName + '[' + length_1 + ']';
-  else if (isAvbNum1 == true && isAvbNum2 == true && isAvbNum3 == false)
-      code = varName + '[' + length_1 + ']' + '[' + length_2 + ']';
-  else if (isAvbNum1 == true && isAvbNum2 == true && isAvbNum3 == true)
-      code = varName + '[' + length_1 + ']' + '[' + length_2 + ']' + '[' + length_3 + ']';
-  else if (isAvbNum1 == false && isAvbNum2 == false && isAvbNum3 == false) {
-      var arrName = this.getFieldValue('VAR');
-      var arrIdxLength = Blockly.FieldVariableArray.getBlockIdxLength(arrName);
-      if (arrIdxLength == 1) {
-          code = varName + '[]';
-      }
-      else if (arrIdxLength == 2) {
-          code = varName + '[][]';
-      }
-      else {
-          code = varName + '[][][]';
-      }
-  }
   else
-      block.initIdx(isAvbNum1, isAvbNum2, isAvbNum3);
+      block.initIdx(isAvbNum1);
 
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
@@ -232,20 +206,13 @@ Blockly.Arduino['variables_array_set'] = function(block) {
   var varName = Blockly.Arduino.variableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
 
-   
-
   var length_1 = block.getFieldValue('LENGTH_1');
-  var length_2 = block.getFieldValue('LENGTH_2');
-  var length_3 = block.getFieldValue('LENGTH_3');
 
   // if no-input : regarded as -1 to distinguish with 0
   length_1 = (length_1 == '' ? -1 :length_1 * 1);
-  length_2 = (length_2 == '' ? -1 :length_2 * 1);
-  length_3 = (length_3 == '' ? -1 :length_3 * 1);
-
 
   // get array list
-  var arrList = Blockly.Blocks.getWantedBlockArray('a');
+  var arrList =  Blockly.Blocks.getWantedBlockArray('a');
 
   // get index of array from array list
   var idxList = Blockly.Blocks.getIndexArray(arrList, varName);
@@ -255,23 +222,17 @@ Blockly.Arduino['variables_array_set'] = function(block) {
    window.alert('Error, you have to enter the number in length');
    }
    else {*/
-  var isAvbNum1, isAvbNum2, isAvbNum3;
+  var isAvbNum1
 
   isAvbNum1 = Blockly.Blocks.checkArrayIndex(length_1, idxList[0]);
-  isAvbNum2 = Blockly.Blocks.checkArrayIndex(length_2, idxList[1]);
-  isAvbNum3 = Blockly.Blocks.checkArrayIndex(length_3, idxList[2]);
-
+ 
   // index over -> msg
-  if ((isAvbNum1 == false && length_1 != -1) || (isAvbNum2 == false && length_2 != -1) || (isAvbNum3 == false && length_3 != -1)) {
+  if ((isAvbNum1 == false && length_1 != -1)) {
       window.alert('인덱스 초과');
-      block.initIdx(isAvbNum1, isAvbNum2, isAvbNum3);
+      block.initIdx(isAvbNum1);
   }
   else if (isAvbNum1 == true && isAvbNum2 == false)
       code = varName + '[' + length_1 + ']' + ' = ' + argument0 + ';\n';
-  else if (isAvbNum1 == true && isAvbNum2 == true && isAvbNum3 == false)
-      code = varName + '[' + length_1 + ']' + '[' + length_2 + ']' + ' = ' + argument0 + ';\n';
-  else if (isAvbNum1 == true && isAvbNum2 == true && isAvbNum3 == true)
-      code = varName + '[' + length_1 + ']' + '[' + length_2 + ']' + '[' + length_3 + ']' + ' = ' + argument0 + ';\n';
   else
       block.initIdx(isAvbNum1, isAvbNum2, isAvbNum3);
 

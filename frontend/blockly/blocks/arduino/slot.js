@@ -33,7 +33,7 @@ Blockly.Blocks['slot'] = {
       this.setOutput(true, null);
       this.setColour(345);
       this.setTooltip('Serialize and output a slotted object');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   //Free up a currently occupied slot
@@ -48,7 +48,7 @@ Blockly.Blocks['slot'] = {
       this.setOutput(true, null);
       this.setColour(345);
       this.setTooltip('Free up a currently occupied slot');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   //Count the elements of an array object in a slot
@@ -63,7 +63,7 @@ Blockly.Blocks['slot'] = {
       this.setOutput(true, null);
       this.setColour(345);
       this.setTooltip('Count the elements of an array object in a slot');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   //Compute the canonical hash of the slotted object and return it
@@ -84,7 +84,7 @@ Blockly.Blocks['slot'] = {
       this.setOutput(true, null);
       this.setColour(345);
       this.setTooltip('Compute the canonical hash of the slotted object and return it');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   //Locate an object based on its keylet and place it into a slot
@@ -105,7 +105,7 @@ Blockly.Blocks['slot'] = {
       this.setOutput(true, null);
       this.setColour(345);
       this.setTooltip('Locate an object based on its keylet and place it into a slot');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
   //Compute the serialized size of an object in a slot
@@ -120,7 +120,7 @@ Blockly.Blocks['slot'] = {
       this.setOutput(true, null);
       this.setColour(345);
       this.setTooltip('Compute the serialized size of an object in a slot');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 //Index into a slotted array and assign a sub-object to another slot
@@ -141,7 +141,7 @@ Blockly.Blocks['slot_subarray'] = {
     this.setOutput(true, null);
     this.setColour(345);
     this.setTooltip('Index into a slotted array and assign a sub-object to another slot');
-    this.setHelpUrl('http://www.example.com/');
+    this.setHelpUrl('');
   }
 };
 
@@ -163,7 +163,7 @@ Blockly.Blocks['slot_subfield'] = {
       this.setOutput(true, null);
       this.setColour(345);
       this.setTooltip('Index into a slotted object and assign a sub-object to another slot');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -182,7 +182,7 @@ Blockly.Blocks['slot_type'] = {
       this.setOutput(true, null);
       this.setColour(345);
       this.setTooltip('Retrieve the field code of an object in a slot and, optionally, some other information');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 
@@ -198,6 +198,6 @@ Blockly.Blocks['slot_float'] = {
       this.setOutput(true, null);
       this.setColour(345);
       this.setTooltip('Parse the STI_AMOUNT in the specified slot and return it as an XFL enclosed number');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };

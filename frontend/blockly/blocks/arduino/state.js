@@ -23,44 +23,32 @@ Blockly.Blocks['state'] = {
       this.appendValueInput("write_ptr")
           .setCheck(null)
           .appendField("write_ptr");
-      this.appendValueInput("write_len")
-          .setCheck(null)
-          .appendField("write_len");
       this.appendValueInput("kread_ptr")
           .setCheck(null)
           .appendField("kread_ptr");
-      this.appendValueInput("kread_len")
-          .setCheck(null)
-          .appendField("kread_len");
       this.setInputsInline(true);
       this.setOutput(true, null);
       this.setColour(54);
       this.setTooltip('Retrieve the data pointed to by a Hook State key and write it to an output buffer');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
 //Set the Hook State for a given key and value
 Blockly.Blocks['state_set'] = {
 init: function() {
     this.appendDummyInput()
-        .appendField("state");
+        .appendField("state set");
     this.appendValueInput("read_ptr")
         .setCheck(null)
         .appendField("read_ptr");
-    this.appendValueInput("read_len")
-        .setCheck(null)
-        .appendField("read_len");
     this.appendValueInput("kread_ptr")
         .setCheck(null)
         .appendField("kread_ptr");
-    this.appendValueInput("kread_len")
-        .setCheck(null)
-        .appendField("kread_len");
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(54);
     this.setTooltip('Set the Hook State for a given key and value');
-    this.setHelpUrl('http://www.example.com/');
+    this.setHelpUrl('');
 }
 };
 //Retrieve the data pointed to, on another account, by a Hook State key and write it to an output buffer
@@ -71,25 +59,16 @@ Blockly.Blocks['state_foreign'] = {
       this.appendValueInput("write_ptr")
           .setCheck(null)
           .appendField("write_ptr");
-      this.appendValueInput("write_len")
-          .setCheck(null)
-          .appendField("write_len");
       this.appendValueInput("kread_ptr")
           .setCheck(null)
           .appendField("kread_ptr");
-      this.appendValueInput("kread_len")
-          .setCheck(null)
-          .appendField("kread_len");
       this.appendValueInput("aread_ptr")
           .setCheck(null)
           .appendField("aread_ptr");
-      this.appendValueInput("aread_len")
-          .setCheck(null)
-          .appendField("aread_len");
       this.setInputsInline(false);
       this.setOutput(true, null);
       this.setColour(54);
       this.setTooltip('Retrieve the data pointed to, on another account, by a Hook State key and write it to an output buffer');
-      this.setHelpUrl('http://www.example.com/');
+      this.setHelpUrl('');
     }
   };
