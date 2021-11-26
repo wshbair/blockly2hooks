@@ -136,7 +136,6 @@ Blockly.Arduino['hook_template'] = function(block) {
     var value_var = Blockly.Arduino.valueToCode(block, 'VAR', Blockly.Arduino.ORDER_ATOMIC);
     var code = 'hook_account('+value_var+')';
     return [code, Blockly.Arduino.ORDER_NONE];
-
   };
 
   Blockly.Arduino['hook_account_statment'] = function(block) {
@@ -158,7 +157,7 @@ Blockly.Arduino['hook_template'] = function(block) {
     return [code, Blockly.Arduino.ORDER_NONE];
   };
   
-  Blockly.Arduino['macro_prepare_payment_simple'] = function(block) {
+  Blockly.Arduino['prepare_payment_simple'] = function(block) {
     var value_buf_out = Blockly.Arduino.valueToCode(block, 'buf_out', Blockly.Arduino.ORDER_ATOMIC);
     var value_drops_amount = Blockly.Arduino.valueToCode(block, 'drops_amount', Blockly.Arduino.ORDER_ATOMIC);
     var value_drops_fee = Blockly.Arduino.valueToCode(block, 'drops_fee', Blockly.Arduino.ORDER_ATOMIC);
@@ -166,7 +165,7 @@ Blockly.Arduino['hook_template'] = function(block) {
     var value_dest_tag = Blockly.Arduino.valueToCode(block, 'dest_tag', Blockly.Arduino.ORDER_ATOMIC);
     var value_src_tag = Blockly.Arduino.valueToCode(block, 'src_tag', Blockly.Arduino.ORDER_ATOMIC);
     var code = 'PREPARE_PAYMENT_SIMPLE('+value_buf_out+','+value_drops_amount+','+value_drops_fee+','+value_to_address+','+value_dest_tag+','+value_src_tag+');\n';
-    return code;
+     return code;
   };
 
   Blockly.Arduino['return_val'] = function(block) {

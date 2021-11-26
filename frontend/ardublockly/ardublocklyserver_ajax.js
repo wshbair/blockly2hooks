@@ -338,7 +338,7 @@ ArdublocklyServer.setIdeOptions = function(ide_option, callback) {
  *     have one argument to receive the JSON response.
  */
 ArdublocklyServer.sendSketchToServer = function(code, callback) {
-    code = ArdublocklyServer.getHookApiFile()+ ArdublocklyServer.getSfCodesFile()+ ArdublocklyServer.getHookMacroFile() + code;
+    code = ArdublocklyServer.getHookApiFile()+ ArdublocklyServer.getSfCodesFile()+ ArdublocklyServer.getHookMacroFile()+ code;
     var inputString = encodeURIComponent(code).replace('%20', '+');
     var actionString = "c2wast&version=1";
     var optionsString = "-O3%20-std%3DC99";
@@ -424,14 +424,14 @@ ArdublocklyServer.getHookApiFile = function(){
  extern int64_t sto_emplace(uint32_t write_ptr, uint32_t write_len, uint32_t sread_ptr, uint32_t sread_len, uint32_t fread_ptr, uint32_t fread_len, uint32_t field_id);
  extern int64_t sto_erase(uint32_t write_ptr,  uint32_t write_len, uint32_t read_ptr,   uint32_t read_len, uint32_t field_id);
  extern int64_t util_keylet(uint32_t write_ptr, uint32_t write_len, uint32_t keylet_type, uint32_t a,uint32_t b, uint32_t c, uint32_t d, uint32_t e, uint32_t f);
- extern int64_t etxn_burden(void );
+ extern int64_t etxn_burden(void);
  extern int64_t etxn_details(uint32_t write_ptr,  uint32_t write_len);
  extern int64_t etxn_fee_base(uint32_t tx_byte_count);
  extern int64_t etxn_reserve(uint32_t count);
  extern int64_t etxn_generation(void);
  extern int64_t emit(uint32_t write_ptr, uint32_t write_len, uint32_t read_ptr, uint32_t read_len);
- extern int64_t hook_account(uint32_t write_ptr,  uint32_t write_len);
- extern int64_t hook_hash(uint32_t write_ptr,  uint32_t write_len);
+ extern int64_t hook_account(uint32_t write_ptr, uint32_t write_len);
+ extern int64_t hook_hash(uint32_t write_ptr, uint32_t write_len);
  extern int64_t fee_base(void);
  extern int64_t ledger_seq(void);
  extern int64_t ledger_last_hash(uint32_t write_ptr,  uint32_t write_len);
@@ -611,7 +611,7 @@ ArdublocklyServer.getHookApiFile = function(){
  #define COMPARE_EQUAL 1U
  #define COMPARE_LESS 2U
  #define COMPARE_GREATER 4U
-  
+
  #endif
  `;
  return header;
@@ -622,9 +622,7 @@ ArdublocklyServer.getHookMacroFile = function(){
   * These are helper macros for writing hooks, all of them are optional as is including hookmacro.h at all
   */
  
- #ifndef HOOKMACROS_INCLUDED
- #define HOOKMACROS_INCLUDED 1
- 
+  #include <stdint.h>
  // hook developers should use this guard macro, simply GUARD(<maximum iterations>)
  #define GUARD(maxiter) _g(__LINE__, (maxiter)+1)
  #define GUARDM(maxiter, n) _g(((__LINE__ << 16) + n), (maxiter)+1)
@@ -1091,7 +1089,7 @@ ArdublocklyServer.getHookMacroFile = function(){
      }
  
  #define _07_03_ENCODE_SIGNING_PUBKEY_NULL(buf_out )\
-     ENCODE_SIGNING_PUBKEY_NULL(buf_out );
+     ENCODE_SIGNING_PUBKEY_NULL(buf_out);
  
  
  #define PREPARE_PAYMENT_SIMPLE_SIZE 237
@@ -1143,9 +1141,7 @@ ArdublocklyServer.getHookMacroFile = function(){
          _08_01_ENCODE_ACCOUNT_SRC          (buf_out, acc                            );      /* account | size  22 */ \
          _08_03_ENCODE_ACCOUNT_DST          (buf_out, to_address                     );      /* account | size  22 */ \
          etxn_details((uint32_t)buf_out, 105);                                               /* emitdet | size 105 */ \
-     }
- #endif
- `;
+     }`;
 return Macro}
 
 ArdublocklyServer.getSfCodesFile = function(){

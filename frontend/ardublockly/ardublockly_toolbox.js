@@ -403,7 +403,7 @@
  '  </category>' +
  '  <sep></sep>' +
  '  <category id="catMacro" name="Marcos">' +
- '    <block type="macro_prepare_payment_simple">'+
+ '    <block type="prepare_payment_simple">'+
  '      <value name="buf_out"><block type="variables_get"></block></value>'+
  '      <value name="drops_amount"><block type="variables_get"></block></value>'+
  '      <value name="drops_fee"><block type="variables_get"></block></value>'+

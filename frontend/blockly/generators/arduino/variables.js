@@ -176,6 +176,7 @@ Blockly.Arduino['variables_array_get'] = function(block) {
    
   // get array list
   var arrList = Blockly.Blocks.getWantedBlockArray('a');
+ 
 
   // get index of array from array list
   var idxList = Blockly.Blocks.getIndexArray(arrList, varName);
@@ -251,3 +252,9 @@ Blockly.Arduino['variables_array_declare'] = function(block) {
   var code = varType + ' ' + varName + '[' + length_1 + '];\n';
   return code;
 };
+
+
+// Blockly.Blocks.getWantedBlockArray = function(a) {
+//   for (var b = Blockly.Variables.allVariables(), c = [], d = 0; d < b.length; d++) b[d][1] == a && c.push([b[d][0], b[d][1], b[d][2], b[d][3], b[d][4], b[d][5]]);
+//   return c
+// };

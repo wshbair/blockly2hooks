@@ -306,7 +306,7 @@ Blockly.Blocks['amount_to_drops'] = {
   }
 };
 
-Blockly.Blocks['macro_prepare_payment_simple'] = {
+Blockly.Blocks['prepare_payment_simple'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("PREPARE_PAYMENT_SIMPLE");
