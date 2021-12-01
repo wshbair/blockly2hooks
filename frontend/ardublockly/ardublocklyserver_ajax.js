@@ -341,7 +341,7 @@ ArdublocklyServer.sendSketchToServer = function(code, callback) {
     code = ArdublocklyServer.getHookApiFile()+ ArdublocklyServer.getSfCodesFile()+ ArdublocklyServer.getHookMacroFile()+ code;
     var inputString = encodeURIComponent(code).replace('%20', '+');
     var actionString = "c2wast&version=1";
-    var optionsString = "-O3%20-std%3DC99";
+    var optionsString = "-O0%20-std%3DC99";
     var command = "input=" + inputString + "&action=" + actionString + "&options=" + optionsString
     var xhr = new XMLHttpRequest();
     xhr.addEventListener("load", function () {

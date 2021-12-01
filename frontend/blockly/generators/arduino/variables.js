@@ -174,29 +174,29 @@ Blockly.Arduino['variables_array_get'] = function(block) {
       length_1 = (length_1 == '' ? -1 :length_1 * 1);
   }
    
-  // get array list
-  var arrList = Blockly.Blocks.getWantedBlockArray('a');
+  // // get array list
+  // var arrList = Blockly.Blocks.getWantedBlockArray('a');
  
 
-  // get index of array from array list
-  var idxList = Blockly.Blocks.getIndexArray(arrList, varName);
+  // // get index of array from array list
+  // var idxList = Blockly.Blocks.getIndexArray(arrList, varName);
 
-  var code;
-  var isAvbNum1;
+  // var code;
+  // var isAvbNum1;
 
-  isAvbNum1 = Blockly.Blocks.checkArrayIndex(length_1, idxList[0]);
+  // isAvbNum1 = Blockly.Blocks.checkArrayIndex(length_1, idxList[0]);
 
-  // index over -> msg
-  if ((isAvbNum1 == false && length_1 != -1) ) {
-      window.alert('index exceeded');
-      block.initIdx(isAvbNum1);
-  }
+  // // index over -> msg
+  // if ((isAvbNum1 == false && length_1 != -1) ) {
+  //     window.alert('index exceeded');
+  //     block.initIdx(isAvbNum1);
+  // }
 
-  else if (isAvbNum1 == true )
-      code = varName + '[' + length_1 + ']';
-  else
-      block.initIdx(isAvbNum1);
-
+  // else if (isAvbNum1 == true )
+  //     code = varName + '[' + length_1 + ']';
+  // else
+  //     block.initIdx(isAvbNum1);
+  var code = varName + '[' + length_1 + ']';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 

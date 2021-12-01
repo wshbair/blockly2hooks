@@ -236,31 +236,27 @@
     <div class="modal-content"> 
       <h5><i class="mdi-action-wallet-travel"></i><span class="translatable_settings"> Hook Deployment to XRPL Ledger</span></h5>
       <div class="modal_section">
-        <h6><i class="mdi-action-account-balance-wallet"></i> XRPL Wallet Address</h6>
+        <h6> XRPL Wallet Address</h6>
         <input type="text" id="xrpl_wallet_address" value="rGZfSDWpvyiko5i4v8TwLTpnEzAbVeYszV">
-      </div>
-      <div class="modal_section">
-        <span class="translatable_language">Hook Binary Wasm</span>
-        <textarea type="textarea" id="deploy_wasm_binary" class="language-css" style="min-height: 100px;" ></textarea>
-        <a id="setHook_transaction" class="btn waves-effect waves-light indigo">Generate SetHook Tx</a>
+        <a id="setHook_transaction" class="btn waves-effect waves-light light-blue darken-4">Generate SetHook Tx</a>
       </div>
       
       <div class="modal_section">
         <h6>XRPL SetHook Transaction</h6>
-        <textarea type="textarea" id="sethooktxjson" style="min-height: 150px;" ></textarea>
-        <a id="signSetHookTxbtn" class="btn waves-effect waves-light indigo">Sign and Publish</a>
+        <textarea type="textarea" id="sethooktxjson" style="min-height: 100px;" ></textarea>
+        <a id="signSetHookTxbtn" class="btn waves-effect waves-light light-blue darken-4">Sign and Publish</a>
       </div>
       <div class="modal_section">
-        <h6><b>Operation Result</b></h6>
+        <h6>Operation Result</h6>
          <textarea type="textarea" id="deploymentResult" style="min-height: 70px;"></textarea>
-         <a id="runtestBtn" class="btn waves-effect waves-light indigo">Run Test</a><br/><br/>
-         <a class="btn" target="_blank" href="https://hooks-testnet-explorer.xrpl-labs.com/rGZfSDWpvyiko5i4v8TwLTpnEzAbVeYszV"> View on Explorer</a>
+         <!-- <a id="runtestBtn" class="btn waves-effect waves-light light-blue darken-4">Run Test</a><br/><br/> -->
       </div>
 
     </div>
-    <div class="modal-footer blue darken-4">
+    <div class="modal-footer light-blue darken-4">
       <a href="#" class="waves-effect btn-flat modal-close white"><span class="translatable_return">Close</span></a>
     </div>
+
   </div>
   <!-- Settings: Displayed as a Materialize Modal -->
   <div id="settings_dialog" class="modal modal-fixed-footer">

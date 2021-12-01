@@ -110,6 +110,6 @@ Ardublockly.LOCALISED_TEXT = {
   catLists:'Lists/Arrays',
   catHooksControl: 'Control',
   catHooksTool: 'Basic Blocks',
-  catMacro: "Macro",
+  catMacro: "Hook Macro",
   catBufferOperations: "Buffer Operations"
 };

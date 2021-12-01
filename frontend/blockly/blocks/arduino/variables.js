@@ -674,12 +674,12 @@ Blockly.Blocks['variables_array_get'] = {
             .appendField(new Blockly.FieldTextInput('0'), 'LENGTH_1')
             .appendField(Blockly.Msg.VARIABLES_GET_TAIL);
 
-        this.setOutput(true, 'Array');
+        this.setOutput(true);
 
         this.setTooltip(Blockly.Msg.VARIABLES_GET_TOOLTIP);
         this.contextMenuMsg_ = Blockly.Msg.VARIABLES_GET_CREATE_SET;
         this.contextMenuType_ = 'variables_array_set';
-        this.tag = Blockly.Msg.TAG_VARIABLE_ARRAY_GET;
+        //this.tag = Blockly.Msg.TAG_VARIABLE_ARRAY_GET;
     },
     /**
      * Return all variables referenced by this block.
@@ -695,18 +695,18 @@ Blockly.Blocks['variables_array_get'] = {
     getPos: function(){
         return this.getRelativeToSurfaceXY().y;
     },
-    /**
-     * Notification that a variable is renaming.
-     * If the name matches one of this block's variables, rename it.
-     * @param {string} oldName Previous name of variable.
-     * @param {string} newName Renamed variable.
-     * @this Blockly.Block
-     */
-    renameVar: function(oldName, newName) {
-        if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
-            this.setFieldValue(newName, 'VAR');
-        }
-    },
+    // /**
+    //  * Notification that a variable is renaming.
+    //  * If the name matches one of this block's variables, rename it.
+    //  * @param {string} oldName Previous name of variable.
+    //  * @param {string} newName Renamed variable.
+    //  * @this Blockly.Block
+    //  */
+    // renameVar: function(oldName, newName) {
+    //     if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+    //         this.setFieldValue(newName, 'VAR');
+    //     }
+    // },
     /**
      * Add menu option to create getter/setter block for this setter/getter.
      * @param {!Array} options List of menu options to add to.

@@ -87,9 +87,9 @@ Ardublockly.bindActionFunctions = function() {
     Ardublockly.signPublishSetHookTx();
     });
   
-  Ardublockly.bindClick_('runtestBtn', function(){
-    Ardublockly.runAcceptTesting();
-  });
+  // Ardublockly.bindClick_('runtestBtn', function(){
+  //   Ardublockly.runAcceptTesting();
+  // });
 
   Ardublockly.bindClick_('button_ide_large', function() {
     Ardublockly.ideButtonLargeAction();

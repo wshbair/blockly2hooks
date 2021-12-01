@@ -60,21 +60,25 @@ Blockly.Arduino['hook_template'] = function(block) {
     return loopBranch;
   };
 
-  Blockly.Arduino['tracevar'] = function(block) {
-   // Blockly.Arduino.addInclude('trace_num','extern int64_t trace_num(uint32_t read_ptr,   uint32_t read_len,   int64_t number);')
-   // Blockly.Arduino.addDeclaration('TRACEVAR','#define TRACEVAR(v) trace_num((uint32_t)(#v), (uint32_t)(sizeof(#v)), (int64_t)v)');
-   // Blockly.Arduino.addInclude('trace', 'extern int64_t trace(uint32_t mread_ptr, uint32_t mread_len,uint32_t dread_ptr, uint32_t dread_len,   uint32_t as_hex);')
+  Blockly.Arduino['TRACEVAR'] = function(block) {
     var value_tracevar = Blockly.Arduino.valueToCode(block, 'TRACEVAR', Blockly.Arduino.ORDER_ATOMIC);
     var code = 'TRACEVAR('+value_tracevar+');\n';
     return code;
   };
+
   Blockly.Arduino['TRACESTR'] = function(block) {
-    //Blockly.Arduino.addDeclaration('TRACESTR','#define TRACESTR(v) trace((uint32_t)(#v), (uint32_t)(sizeof(#v)), (uint32_t)(v), sizeof(v), 0)');
-    //Blockly.Arduino.addInclude('trace', 'extern int64_t trace(uint32_t mread_ptr, uint32_t mread_len,uint32_t dread_ptr, uint32_t dread_len, uint32_t as_hex);')
-    var msg = block.getTitleValue('TEXT');
-    var code = 'TRACESTR("'+msg+'");\n';
+    var value_tracevar = Blockly.Arduino.valueToCode(block, 'TRACESTR', Blockly.Arduino.ORDER_ATOMIC);
+    var code = 'TRACESTR('+value_tracevar+');\n';
     return code;
   };
+
+  // Blockly.Arduino['TRACESTR'] = function(block) {
+  //   //Blockly.Arduino.addDeclaration('TRACESTR','#define TRACESTR(v) trace((uint32_t)(#v), (uint32_t)(sizeof(#v)), (uint32_t)(v), sizeof(v), 0)');
+  //   //Blockly.Arduino.addInclude('trace', 'extern int64_t trace(uint32_t mread_ptr, uint32_t mread_len,uint32_t dread_ptr, uint32_t dread_len, uint32_t as_hex);')
+  //   var msg = block.getTitleValue('TEXT');
+  //   var code = 'TRACESTR("'+msg+'");\n';
+  //   return code;
+  // };
 
   Blockly.Arduino['sbuf'] = function(block) {
     //Blockly.Arduino.addDeclaration('sbuf','#define SBUF(str) (uint32_t)(str), sizeof(str)')
@@ -146,7 +150,6 @@ Blockly.Arduino['hook_template'] = function(block) {
 
   Blockly.Arduino['sfcodes'] = function(block) {
     var dropdown_value = block.getFieldValue('VALUE');
-    console.log(dropdown_value)
     var code = dropdown_value;
     return [code, Blockly.Arduino.ORDER_NONE];
   };

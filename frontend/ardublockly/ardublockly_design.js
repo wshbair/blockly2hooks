@@ -326,7 +326,6 @@ Ardublockly.openDeployModal = function() {
     in_duration: 200,
     out_duration: 250
   });
-  $('#deploy_wasm_binary').val($('#wasmoutput').text())
   $('#deploymentResult').val('')
 
 
@@ -411,8 +410,7 @@ Ardublockly.arduinoIdeOutput = function(bodyEl) {
     downloadlink.download = document.getElementById('sketch_name').value+".wasm"
 
     //Attach the action to deploy button and clean Model feilds
-    document.getElementById("deploy_wasm_binary").value=""
-    document.getElementById("sethooktxjson").value=""
+     document.getElementById("sethooktxjson").value=""
     document.getElementById("deploymentResult").value=""
     document.getElementById("button_deploy").classList.remove("disabled")
     

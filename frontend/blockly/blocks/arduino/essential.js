@@ -101,21 +101,35 @@
     }
   };
 
+  // Blockly.Blocks['TRACESTR'] = {
+  //   // Text value.
+  //   init: function() {
+  //     this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+  //     this.setColour(Blockly.Blocks.essential.HUE );
+  //     this.appendDummyInput()
+  //         .appendTitle('TRACESTR:')
+  //         .appendTitle(new Blockly.FieldTextInput(''), 'TEXT');
+  //     this.setPreviousStatement(true);
+  //     this.setNextStatement(true);
+  //     this.setTooltip(Blockly.Msg.TEXT_TEXT_TOOLTIP);
+  //   }
+  // };
+  
   Blockly.Blocks['TRACESTR'] = {
-    // Text value.
     init: function() {
-      this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
-      this.setColour(Blockly.Blocks.essential.HUE );
-      this.appendDummyInput()
-          .appendTitle('TRACESTR:')
-          .appendTitle(new Blockly.FieldTextInput(''), 'TEXT');
-      this.setPreviousStatement(true);
-      this.setNextStatement(true);
-      this.setTooltip(Blockly.Msg.TEXT_TEXT_TOOLTIP);
+      this.appendValueInput("TRACESTR")
+          .setCheck(null)
+          .appendField("TRACESTR");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(Blockly.Blocks.essential.HUE);
+      this.setTooltip('');
+      this.setHelpUrl('');
     }
   };
-
-  Blockly.Blocks['tracevar'] = {
+  
+  Blockly.Blocks['TRACEVAR'] = {
     init: function() {
       this.appendValueInput("TRACEVAR")
           .setCheck(null)
@@ -186,7 +200,7 @@
   Blockly.Blocks['clearbuf'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("CLEARBUF");
+          .appendField("Clear Buffer");
       this.appendValueInput("buffer")
           .setCheck(null);
       this.setInputsInline(true);
@@ -282,7 +296,7 @@
   init: function() {
     this.appendDummyInput()
         .appendField("select sfcodes")
-        .appendField(new Blockly.FieldDropdown([["sfAccount", "sfAccount"], ["sfOwner", "sfAccount"], ["sfDestination", "sfDestination"]]), "VALUE");
+        .appendField(new Blockly.FieldDropdown([["sfAccount", "sfAccount"], ["sfOwner", "sfOwner"], ["sfDestination", "sfDestination"],["sfAmount","sfAmount"]]), "VALUE");
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setTooltip('');
@@ -296,10 +310,10 @@ Blockly.Blocks['amount_to_drops'] = {
   init: function() {
     this.appendValueInput("AMOUNT")
         .setCheck(null)
-        .appendField("AMOUNT_TO_DROPS");
+        .appendField("amount to drops");
     this.setInputsInline(true);
     this.setOutput(true, null);
-    this.setTooltip('');
+    this.setTooltip('convert amount to dropx');
     this.setHelpUrl('');
     this.setColour(Blockly.Blocks.essential.HUE);
 
@@ -309,7 +323,7 @@ Blockly.Blocks['amount_to_drops'] = {
 Blockly.Blocks['prepare_payment_simple'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("PREPARE_PAYMENT_SIMPLE");
+        .appendField("prepare payment simple");
     this.appendValueInput("buf_out")
         .setCheck(null)
         .setAlign(Blockly.ALIGN_RIGHT)
