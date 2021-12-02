@@ -15,6 +15,9 @@ goog.provide('Blockly.Blocks.otxn');
 goog.require('Blockly.Blocks');
 goog.require('Blockly.Types');
 
+ /** Common HSV hue for all blocks in this category. */
+ Blockly.Blocks.otxn.HUE = 250;
+
  //Get the burden of the originating transaction
  Blockly.Blocks['otxn_burden'] = {
     init: function() {
@@ -22,7 +25,7 @@ goog.require('Blockly.Types');
           .appendField("otxn_burden");
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour(315);
+      this.setColour(Blockly.Blocks.otxn.HUE);
       this.setTooltip('Get the burden of the originating transaction');
       this.setHelpUrl('');
     }
@@ -41,7 +44,7 @@ goog.require('Blockly.Types');
           .appendField("field_id");
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour(315);
+      this.setColour(Blockly.Blocks.otxn.HUE);
       this.setTooltip('Serialize and output a field from the originating transaction');
       this.setHelpUrl('');
     }
@@ -63,7 +66,7 @@ goog.require('Blockly.Types');
           .appendField("field_id");
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour(315);
+      this.setColour(Blockly.Blocks.otxn.HUE);
       this.setTooltip('Output a field from the originating transaction as a human readable string');
       this.setHelpUrl('');
     }
@@ -76,7 +79,7 @@ goog.require('Blockly.Types');
           .appendField("otxn_generation");
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour(315);
+      this.setColour(Blockly.Blocks.otxn.HUE);
       this.setTooltip('Get the generation of the originating transaction');
       this.setHelpUrl('');
     }
@@ -89,7 +92,7 @@ goog.require('Blockly.Types');
           .appendField("otxn_type");
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour(315);
+      this.setColour(Blockly.Blocks.otxn.HUE);
       this.setTooltip('Get the Transaction Type of the originating transaction');
       this.setHelpUrl('');
     }
@@ -108,7 +111,7 @@ goog.require('Blockly.Types');
           .appendField("write_len");
       this.setInputsInline(false);
       this.setOutput(true, null);
-      this.setColour(315);
+      this.setColour(Blockly.Blocks.otxn.HUE);
       this.setTooltip('Output the canonical hash of the originating transaction');
       this.setHelpUrl('');
     }
@@ -124,10 +127,8 @@ goog.require('Blockly.Types');
           .appendField("slot_no");
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour(315);
+      this.setColour(Blockly.Blocks.otxn.HUE);
       this.setTooltip('Load the originating transaction into a slot');
       this.setHelpUrl('');
     }
-  };
-
-  
+  };  

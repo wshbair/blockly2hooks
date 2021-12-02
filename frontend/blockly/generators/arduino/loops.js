@@ -182,3 +182,16 @@ Blockly.Arduino['controls_flow_statements'] = function(block) {
   }
   throw 'Unknown flow statement.';
 };
+
+Blockly.Arduino['loops_for'] = function(block) {
+  var variable_var0 = Blockly.Arduino.variableDB_.getName(block.getFieldValue('var0'), Blockly.Variables.NAME_TYPE);
+  var value_arg0 = Blockly.Arduino.valueToCode(block, 'arg0', Blockly.Arduino.ORDER_ATOMIC);
+  var value_arg1 = Blockly.Arduino.valueToCode(block, 'arg1', Blockly.Arduino.ORDER_ATOMIC);
+  var value_arg2 = Blockly.Arduino.valueToCode(block, 'arg2', Blockly.Arduino.ORDER_ATOMIC);
+  var statements_name = Blockly.Arduino.statementToCode(block, 'NAME');
+
+  var code = 'for (int ' + variable_var0 + ' = ' + value_arg0 + '; GUARD('+value_arg1+'),' +
+  variable_var0 + ' <' + value_arg1 + '; ++'+variable_var0;
+  code += ') {\n' + statements_name + '}\n';
+  return code;
+};

@@ -51,45 +51,37 @@
 //Hook API Categogry
 /////////////////////////////////////////////////////////////////////// 
 '  <category id="catHookAPI" name="Hook API">'+  
-//Hook account category ........................................../ 
-'  <category id="catAccount" name="Account">'+ 
-'    <block type="hook_account">'+
-'    </block>' + 
-'    <block type="hook_account_statment"></block>' + 
-'  </category>'+  
 //Hook Control category ........................................../ 
 '  <category id="catHooksControl" name="Control">' +  
 '    <block type="control_accept">'+
 '     <value name="read_ptr">' +
-'        <block type="text">' +
-'          <field name="TEXT">Success</field>' +
-'        </block>' +
-'      </value>' +
-'     <value name="read_len">' +
-'        <block type="math_number">' +
-'          <field name="NUM">20</field>' +
+'        <block type="sbuf">' +
+'           <value name="SBUF">' +
+'               <block type="text">' +
+'                <field name="TEXT">Accepted!</field>' +
+'                </block>' +
+'           </value>' +
 '        </block>' +
 '      </value>' +
 '     <value name="error_code">' +
 '        <block type="math_number">' +
-'          <field name="NUM">100</field>' +
+'          <field name="NUM">1</field>' +
 '        </block>' +
 '      </value>' +
 '    </block>' +
 '    <block type="control_rollback">'+
 '     <value name="read_ptr">' +
-'        <block type="text">' +
-'          <field name="TEXT">Rejected!</field>' +
-'        </block>' +
-'      </value>' +
-'     <value name="read_len">' +
-'        <block type="math_number">' +
-'          <field name="NUM">9</field>' +
-'        </block>' +
+'        <block type="sbuf">' +
+'           <value name="SBUF">' +
+'               <block type="text">' +
+'                <field name="TEXT">Rejected!</field>' +
+'                </block>' +
+'           </value>' +
+'        </block>' +        
 '      </value>' +
 '     <value name="error_code">' +
 '        <block type="math_number">' +
-'          <field name="NUM">100</field>' +
+'          <field name="NUM">2</field>' +
 '        </block>' +
 '      </value>' +
 '    </block>' +
@@ -131,7 +123,7 @@
 '    </block>' +
 '  </category>' +
 '  <sep></sep>' +
-//Hook Originating Transaction category ........................................../ 
+//Originating Transaction category ........................................../ 
 '  <category id="catOriginatingTransaction" name="Originating Transaction">' + 
 '    <block type="otxn_burden"></block>' +
 '    <block type="otxn_field"></block>' +
@@ -183,7 +175,24 @@
 '  <sep></sep>' +
 //Ledger category ........................................../ 
 '  <category id="catLedger" name="Ledger">' +
-'    <block type="hook_account"></block>' +
+'    <block type="hook_account">'+
+'     <value name="VAR">' +
+'        <block type="sbuf">' +
+'           <value name="SBUF">' +
+'                <block type="variables_get"></block>'+
+'           </value>' +
+'        </block>' +
+'      </value>' +
+'    </block>' + 
+'    <block type="hook_account_statment">'+
+'     <value name="VAR">' +
+'        <block type="sbuf">' +
+'           <value name="SBUF">' +
+'                <block type="variables_get"></block>'+
+'           </value>' +
+'        </block>' +
+'      </value>' +
+'    </block>' + 
 '    <block type="hook_hash"></block>' +
 '    <block type="ledger_last_hash"></block>' +
 '    <block type="nonce"></block>' +
@@ -243,6 +252,7 @@
 // Macro
 /////////////////////////////////////////////////////////////////////// 
 '  <category id="catMacro" name="Hook Macro">' +
+'  <category id="catMacroGeneral" name="General">' +
 '    <block type="prepare_payment_simple">'+
 '      <value name="buf_out"><block type="variables_get"></block></value>'+
 '      <value name="drops_amount"><block type="variables_get"></block></value>'+
@@ -252,18 +262,21 @@
 '      <value name="src_tag"><block type="math_number"><field name="NUM">0</field></block></value>' +
 '    </block>' +
 '    <block type="amount_to_drops"><value name="AMOUNT"><block type="variables_get"></block></value></block>' +
+
+'    <block type="guard">'+
+'     <value name="arg1">' +
+'        <block type="math_number">' +
+'          <field name="NUM">1</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
+'  </category>' +
+// Buffer Macros
+'  <category id="catMacroGeneral" name="Buffer">' +
 '    <block type="sbuf">'+
 '      <value name="SBUF">' +
 '        <block type="text">' +
 '          <field name="TEXT"></field>' +
-'        </block>' +
-'      </value>' +
-'    </block>' +
-'    <block type="TRACEVAR"><value name="TRACEVAR"><block type="variables_get"></block></value></block>' +
-'    <block type="TRACESTR">'+
-'      <value name="TRACESTR">' +
-'        <block type="text">' +
-'          <field name="TEXT">String</field>' +
 '        </block>' +
 '      </value>' +
 '    </block>' +
@@ -279,15 +292,39 @@
 '    </block>' +
 '    <block type="clearbuf"><value name="buffer"><block type="variables_get"></block></value></block>' +
 '    <block type="sub_offset"></block>' + 
-'    <block type="uint32_from_buf"></block>' + 
-'    <block type="guard">'+
-'     <value name="arg1">' +
-'        <block type="math_number">' +
-'          <field name="NUM">1</field>' +
+'    <block type="uint32_from_buf"></block>' +
+'    <block type="buffer_equal_str"></block>' +
+'    <block type="uint16_to_buf"></block>' +
+'    <block type="uint16_from_buf"></block>' +
+'    <block type="uint32_to_buf"></block>' +
+'    <block type="uint32_from_buf"></block>' +
+'    <block type="uint64_to_buf"></block>' +
+'    <block type="uint64_from_buf"></block>' +
+'    <block type="macro_define"></block>' +
+
+'  </category>' +
+//Trace macro
+'  <category id="catMacroGeneral" name="Trace">' +
+'    <block type="TRACEVAR"><value name="TRACEVAR"><block type="variables_get"></block></value></block>' +
+'    <block type="TRACESTR">'+
+'      <value name="TRACESTR">' +
+'        <block type="text">' +
+'          <field name="TEXT">String</field>' +
 '        </block>' +
 '      </value>' +
 '    </block>' +
+'    <block type="TRACEHEX"></block>' +
+'    <block type="TRACEXFL"></block>' +
 '  </category>' +
+
+
+
+
+
+
+'  </category>' +
+'  <sep></sep>' +
+
 /////////////////////////////////////////////////////////////////////// 
 // Logic Category
 /////////////////////////////////////////////////////////////////////// 
@@ -407,7 +444,6 @@
  '    <block type="variables_set_type"></block>' +
  '    <block type="variables_pointer_declare"></block>'+
  '    <block type="variables_pointer_set"></block>'+
-
  '  </category>' +
  '  <sep></sep>' +
 /////////////////////////////////////////////////////////////////////// 
@@ -415,9 +451,8 @@
 /////////////////////////////////////////////////////////////////////// 
  '  <category id="catLists" name="Lists">' +
  '    <block type="variables_array_declare"></block>'+
-+'    <block type="variables_array_get"></block>'+
+'    <block type="variables_array_get"></block>'+
 '    <block type="variables_get"></block>' +
-
  '  </category>' +
  '  <sep></sep>' +
  '</xml>';

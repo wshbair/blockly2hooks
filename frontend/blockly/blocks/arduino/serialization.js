@@ -17,7 +17,7 @@ goog.require('Blockly.Types');
 
  
  /** Common HSV hue for all blocks in this category. */
- Blockly.Blocks.serialization.HUE = 195;
+ Blockly.Blocks.serialization.HUE = 350;
  
  //Index into a xrpld serialized object and return the location and length of a subfield
  Blockly.Blocks['sto_subfield'] = {

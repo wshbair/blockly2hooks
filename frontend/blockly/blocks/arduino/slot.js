@@ -14,7 +14,11 @@
 goog.provide('Blockly.Blocks.slot'); 
 goog.require('Blockly.Blocks');
 goog.require('Blockly.Types');
+
  
+/** Common HSV hue for all blocks in this category. */
+Blockly.Blocks.slot.HUE = 150;
+
 //Serialize and output a slotted object
 Blockly.Blocks['slot'] = {
     init: function() {

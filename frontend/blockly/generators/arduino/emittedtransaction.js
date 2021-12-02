@@ -30,15 +30,14 @@ Blockly.Arduino['etxn_fee_base'] = function(block) {
     var code = 'etxn_fee_base('+value_tx_byte_count+')';
     return [code, Blockly.Arduino.ORDER_NONE];
   };
-
+  
 Blockly.Arduino['etxn_reserve'] = function(block) {
-    var value_count = Blockly.Arduino.valueToCode(block, 'count', Blockly.Arduino.ORDER_ATOMIC);
-    var code = 'etxn_reserve('+value_count+')';
-    return [code, Blockly.Arduino.ORDER_NONE];
-    };  
+  var value_num = Blockly.Arduino.valueToCode(block, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
+  var code = 'etxn_reserve('+value_num+');\n';
+  return code;
+};
 
 Blockly.Arduino['emit'] = function(block) {
-  //Blockly.Arduino.addInclude('emit','extern int64_t emit (uint32_t write_ptr, uint32_t write_len, uint32_t read_ptr, uint32_t read_len);')
     var value_read_ptr = Blockly.Arduino.valueToCode(block, 'read_ptr', Blockly.Arduino.ORDER_ATOMIC);
     var value_write_ptr = Blockly.Arduino.valueToCode(block, 'write_ptr', Blockly.Arduino.ORDER_ATOMIC);
     var code = 'emit('+value_write_ptr+','+value_read_ptr+');\n';

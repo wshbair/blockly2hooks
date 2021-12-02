@@ -16,24 +16,7 @@ goog.require('Blockly.Blocks');
 goog.require('Blockly.Types');
 
 Blockly.Blocks.ledger.HUE = 240;
-//Retreive the 20 byte Account ID the Hook is executing on
-Blockly.Blocks['hook_account'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("hook_account");
-      this.appendValueInput("write_ptr")
-          .setCheck(null)
-          .appendField("write_ptr");
-      this.appendValueInput("write_len")
-          .setCheck(null)
-          .appendField("write_len");
-      this.setInputsInline(true);
-      this.setOutput(true, null);
-      this.setColour(Blockly.Blocks.ledger.HUE);
-      this.setTooltip('Retreive the 20 byte Account ID the Hook is executing on');
-      this.setHelpUrl('');
-    }
-  };
+ 
   //Retreive the 32 byte namespace biased SHA512H of the currently executing Hook
   Blockly.Blocks['hook_hash'] = {
     init: function() {
@@ -113,3 +96,34 @@ Blockly.Blocks['hook_account'] = {
       this.setHelpUrl('');
     }
   };
+
+  //Retreive the 20 byte Account ID the Hook is executing on
+  Blockly.Blocks['hook_account'] = {
+    init: function() {
+      this.appendValueInput("VAR")
+          .setCheck(null)
+          .appendField("hook_account");
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setTooltip('Retreive the 20 byte Account ID the Hook is executing on');
+      this.setColour(Blockly.Blocks.ledger.HUE);
+      this.setHelpUrl('');
+    }
+  };
+
+  //Retreive the 20 byte Account ID the Hook is executing on
+  Blockly.Blocks['hook_account_statment'] = {
+    init: function() {
+      this.appendValueInput("VAR")
+          .setCheck(null)
+          .appendField("Hook account");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setTooltip('Retreive the 20 byte Account ID the Hook is executing on');
+      this.setHelpUrl('');
+      this.setColour(Blockly.Blocks.ledger.HUE);
+
+    }
+  };
+

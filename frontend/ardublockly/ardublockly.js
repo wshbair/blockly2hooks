@@ -314,6 +314,7 @@ Ardublockly.loadUserXmlFile = function() {
     var reader = new FileReader();
     reader.onload = function() {
       var success = Ardublockly.replaceBlocksfromXml(reader.result);
+      console.log(success)
       if (success) {
         Ardublockly.renderContent();
         Ardublockly.sketchNameSet(filename);

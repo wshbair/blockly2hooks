@@ -13,12 +13,7 @@
  goog.provide('Blockly.Arduino.ledger'); 
  goog.require('Blockly.Arduino');
 
- Blockly.Arduino['hook_account'] = function(block) {
-    var value_write_ptr = Blockly.Arduino.valueToCode(block, 'write_ptr', Blockly.Arduino.ORDER_ATOMIC);
-    var value_write_len = Blockly.Arduino.valueToCode(block, 'write_len', Blockly.Arduino.ORDER_ATOMIC);
-    var code = 'hook_account('+value_write_ptr+','+value_write_len+')';
-    return [code, Blockly.Arduino.ORDER_NONE];
-  };
+ 
 
   Blockly.Arduino['hook_hash'] = function(block) {
     var value_write_ptr = Blockly.Arduino.valueToCode(block, 'write_ptr', Blockly.Arduino.ORDER_ATOMIC);
@@ -52,3 +47,14 @@
     return [code, Blockly.Arduino.ORDER_NONE];
   };
   
+  Blockly.Arduino['hook_account'] = function(block) {
+    var value_var = Blockly.Arduino.valueToCode(block, 'VAR', Blockly.Arduino.ORDER_ATOMIC);
+    var code = 'hook_account('+value_var+')';
+    return [code, Blockly.Arduino.ORDER_NONE];
+  };
+
+  Blockly.Arduino['hook_account_statment'] = function(block) {
+    var value_var = Blockly.Arduino.valueToCode(block, 'VAR', Blockly.Arduino.ORDER_ATOMIC);
+    var code = 'hook_account('+value_var+');\n';
+    return code;
+  };

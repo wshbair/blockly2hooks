@@ -17,7 +17,7 @@
  
  
  /** Common HSV hue for all blocks in this category. */
- Blockly.Blocks.essential.HUE = 230;
+ Blockly.Blocks.essential.HUE = 120;
     /**
      * Block for defining the Hook cbak() and hook() functions.
      * @this Blockly.Block
@@ -31,7 +31,7 @@
           .appendField("hook()");
       this.appendStatementInput('LOOP_FUNC');
       this.setInputsInline(false);
-      this.setColour(120);
+      this.setColour( Blockly.Blocks.essential.HUE);
       this.setTooltip("Block for defining the Hook cbak() and hook() functions");
       this.setHelpUrl('');
       this.contextMenu = false;
@@ -43,20 +43,7 @@
   };
   
 
- Blockly.Blocks['guard'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("GUARD");
-      this.appendValueInput("arg1")
-          .setCheck(null);
-      this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour( Blockly.Blocks.essential.HUE);
-      this.setTooltip('GUARD function');
-      this.setHelpUrl('');
-    }
-  }; 
+
 
   Blockly.Blocks['_g_function'] = {
     init: function() {
@@ -101,272 +88,181 @@
     }
   };
 
-  // Blockly.Blocks['TRACESTR'] = {
-  //   // Text value.
-  //   init: function() {
-  //     this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
-  //     this.setColour(Blockly.Blocks.essential.HUE );
-  //     this.appendDummyInput()
-  //         .appendTitle('TRACESTR:')
-  //         .appendTitle(new Blockly.FieldTextInput(''), 'TEXT');
-  //     this.setPreviousStatement(true);
-  //     this.setNextStatement(true);
-  //     this.setTooltip(Blockly.Msg.TEXT_TEXT_TOOLTIP);
-  //   }
-  // };
-  
-  Blockly.Blocks['TRACESTR'] = {
-    init: function() {
-      this.appendValueInput("TRACESTR")
-          .setCheck(null)
-          .appendField("TRACESTR");
-      this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(Blockly.Blocks.essential.HUE);
-      this.setTooltip('');
-      this.setHelpUrl('');
-    }
-  };
-  
-  Blockly.Blocks['TRACEVAR'] = {
-    init: function() {
-      this.appendValueInput("TRACEVAR")
-          .setCheck(null)
-          .appendField("TRACEVAR");
-      this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(Blockly.Blocks.essential.HUE);
-      this.setTooltip('');
-      this.setHelpUrl('');
-    }
-  };
-
-  Blockly.Blocks['sbuf'] = {
-    init: function() {
-      this.appendValueInput("SBUF")
-          .setCheck(null)
-          .appendField("SBUF")
-      this.appendDummyInput()
-      this.setInputsInline(true);
-      this.setOutput(true, null);
-      this.setColour(Blockly.Blocks.essential.HUE);
-      this.setTooltip('');
-      this.setHelpUrl('');
-    }
-  };
-
-  Blockly.Blocks['buffer_equal'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("Buffer equal");
-      this.appendValueInput("equal")
-          .setCheck(null)
-          .appendField("output");
-      this.appendValueInput("hook_accid")
-          .setCheck(null)
-          .appendField("hook_accid");
-      this.appendValueInput("account_field")
-          .setCheck(null)
-          .appendField("account_field");
-      this.appendValueInput("length")
-          .setCheck(null)
-          .appendField("length");
-      this.setInputsInline(true);
-      this.setColour(Blockly.Blocks.essential.HUE);
-      this.setTooltip('');
-      this.setHelpUrl('');
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-    }
-  };
-//Before we start calling hook-api functions we should tell the hook how many tx we intend to create
-  Blockly.Blocks['etxn_reserve'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("etxn_reserve");
-      this.appendValueInput("NUM")
-          .setCheck(null);
-      this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(Blockly.Blocks.essential.HUE);
-      this.setTooltip('Before we start calling hook-api functions we should tell the hook how many tx we intend to create');
-      this.setHelpUrl('');
-    }
-  };
-
-  Blockly.Blocks['clearbuf'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("Clear Buffer");
-      this.appendValueInput("buffer")
-          .setCheck(null);
-      this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(Blockly.Blocks.essential.HUE);
-      this.setTooltip('');
-      this.setHelpUrl('');
-    }
-  };
-
-  Blockly.Blocks['sub_offset'] = {
-    init: function() {
-      this.appendValueInput("SUB_OFFSET")
-          .setCheck(null)
-          .appendField("SUB_OFFSET");
-      this.setInputsInline(true);
-      this.setOutput(true, null);
-      this.setTooltip('');
-      this.setColour(Blockly.Blocks.essential.HUE);
-      this.setHelpUrl('');
-    }
-  };
-  Blockly.Blocks['uint32_from_buf'] = {
-    init: function() {
-      this.appendValueInput("buffer_input")
-          .setCheck(null)
-          .appendField("UINT32_FROM_BUF");
-      this.setInputsInline(true);
-      this.setOutput(true, null);
-      this.setTooltip('');
-      this.setColour(Blockly.Blocks.essential.HUE);
-      this.setHelpUrl('');
-    }
-  };
-
-  Blockly.Blocks['loops_for'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("count with")
-          .appendField(new Blockly.FieldTextInput("i"), "var0")
-          .appendField("from");
-      this.appendValueInput("arg0")
-          .setCheck(null);
-      this.appendDummyInput()
-          .appendField("to");
-      this.appendValueInput("arg1")
-          .setCheck(null);
-      this.appendDummyInput()
-          .appendField("by");
-      this.appendValueInput("arg2")
-          .setCheck(null);
-      this.appendStatementInput("NAME")
-          .setCheck(null)
-          .appendField("do");
-      this.setInputsInline(true);
-      this.setColour(120);
-      this.setTooltip('for loop');
-      this.setHelpUrl('');
-    }
-  };
-
-  Blockly.Blocks['hook_account'] = {
-    init: function() {
-      this.appendValueInput("VAR")
-          .setCheck(null)
-          .appendField("hook_account");
-      this.setInputsInline(true);
-      this.setOutput(true, null);
-      this.setTooltip('');
-      this.setColour(Blockly.Blocks.essential.HUE);
-      this.setHelpUrl('');
-    }
-  };
-
-
-  Blockly.Blocks['hook_account_statment'] = {
-    init: function() {
-      this.appendValueInput("VAR")
-          .setCheck(null)
-          .appendField("Hook account");
-      this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setTooltip('');
-      this.setHelpUrl('');
-      this.setColour(Blockly.Blocks.essential.HUE);
-
-    }
-  };
-
   Blockly.Blocks['sfcodes'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("select sfcodes")
-        .appendField(new Blockly.FieldDropdown([["sfAccount", "sfAccount"], ["sfOwner", "sfOwner"], ["sfDestination", "sfDestination"],["sfAmount","sfAmount"]]), "VALUE");
+        .appendField("Select sfcodes")
+        .appendField(new Blockly.FieldDropdown(
+          [["sfInvalid","sfInvalid"],  
+          ["sfGeneric","sfGeneric"],
+          ["sfLedgerEntry","sfLedgerEntry"],
+          ["sfTransaction","sfTransaction"], 
+          ["sfValidation","sfValidation" ], 
+          ["sfMetadata","sfMetadata"],
+          ["sfHash","sfHash"],
+          ["sfIndex","sfIndex"],
+          ["sfCloseResolution","sfCloseResolution"],
+          ["sfMethod","sfMethod"],
+          ["sfTransactionResult","sfTransactionResult"],
+          ["sfTickSize","sfTickSize"],
+          ["sfUNLModifyDisabling","sfUNLModifyDisabling"],
+          ["sfLedgerEntryType","sfLedgerEntryType"],
+          ["sfTransactionType","sfTransactionType"],
+          ["sfSignerWeight","sfSignerWeight"],
+          ["sfVersion","sfVersion"],
+          ["sfFlags","sfFlags"],
+          ["sfSourceTag","sfSourceTag"],
+          ["sfSequence","sfSequence"],
+          ["sfPreviousTxnLgrSeq","sfPreviousTxnLgrSeq"],
+          ["sfLedgerSequence","sfLedgerSequence"],
+          ["sfCloseTime","sfCloseTime"],
+          ["sfParentCloseTime","sfParentCloseTime"],
+          ["sfSigningTime","sfSigningTime"],
+          ["sfExpiration","sfExpiration"],
+          ["sfTransferRate","sfTransferRate"],
+          ["sfWalletSize","sfWalletSize"],
+          ["sfOwnerCount","sfOwnerCount"],
+          ["sfDestinationTag","sfDestinationTag"],
+          ["sfHighQualityIn","sfHighQualityIn"],
+          ["sfHighQualityOut","sfHighQualityOut"],
+          ["sfLowQualityIn","sfLowQualityIn"],
+          ["sfLowQualityOut","sfLowQualityOut"],
+         ["sfQualityIn","sfQualityIn"],
+         ["sfQualityOut","sfQualityOut"],
+         ["sfStampEscrow","sfStampEscrow"],
+         ["sfBondAmount","sfBondAmount"],
+         ["sfLoadFee","sfLoadFee"],
+         ["sfOfferSequence","sfOfferSequence"],
+         ["sfFirstLedgerSequence","sfFirstLedgerSequence"], 
+         ["sfLastLedgerSequence","sfLastLedgerSequence"],
+         ["sfTransactionIndex","sfTransactionIndex"],
+         ["[sfOperationLimit","sfOperationLimit"], 
+         ["sfReferenceFeeUnits","sfReferenceFeeUnits"], 
+         ["sfReserveBase","sfReserveBase"],
+         ["sfReserveIncrement","sfReserveIncrement"],
+         ["sfSetFlag","sfSetFlag" ],
+         ["sfClearFlag","sfClearFlag" ],
+         ["sfSignerQuorum","sfSignerQuorum"], 
+         ["sfCancelAfter","sfCancelAfter"],
+         ["sfFinishAfter","sfFinishAfter"],
+         ["sfSignerListID","sfSignerListID"],
+         ["sfSettleDelay","sfSettleDelay"],
+         ["sfHookStateCount","sfHookStateCount"],
+         ["sfHookReserveCount","sfHookReserveCount"], 
+         ["sfHookDataMaxSize","sfHookDataMaxSize"],
+         ["sfEmitGeneration","sfEmitGeneration"],
+         ["sfIndexNext","sfIndexNext"],
+         ["sfIndexPrevious",""],
+         ["sfBookNode","sfBookNode"],
+         ["sfOwnerNode","sfOwnerNode"],
+         ["sfBaseFee","sfBaseFee"],
+         ["sfExchangeRate","sfExchangeRate"],
+         ["sfLowNode","sfLowNode"],
+         ["sfHighNode","sfHighNode"],
+         ["sfDestinationNode","sfDestinationNode"],
+         ["sfCookie","sfCookie"],
+         ["sfServerVersion","sfServerVersion"],
+         ["sfEmitBurden","sfEmitBurden"],
+         ["sfHookOn","sfHookOn"],
+         ["sfEmailHash","sfEmailHash"], 
+         ["sfTakerPaysCurrency","sfTakerPaysCurrency"],
+         ["sfTakerPaysIssuer","sfTakerPaysIssuer"],
+         ["sfTakerGetsCurrency","sfTakerGetsCurrency"],
+         ["sfTakerGetsIssuer","sfTakerGetsIssuer"],
+         ["sfLedgerHash","sfLedgerHash"],
+         ["sfParentHash","sfParentHash"],
+         ["sfTransactionHash","sfTransactionHash"],
+         ["sfAccountHash","sfAccountHash"],
+         ["sfPreviousTxnID","sfPreviousTxnID"], 
+         ["sfLedgerIndex","sfLedgerIndex"],
+         ["sfWalletLocator","sfWalletLocator"], 
+         ["sfRootIndex","sfRootIndex"],
+         ["sfAccountTxnID","sfAccountTxnID"],
+         ["sfEmitParentTxnID","sfEmitParentTxnID"],
+         ["sfEmitNonce","sfEmitNonce"],
+         ["sfBookDirectory","sfBookDirectory"],
+         ["sfInvoiceID","sfInvoiceID"],
+         ["sfNickname","sfNickname"],
+         ["sfAmendment","sfAmendment"],
+         ["sfTicketID","sfTicketID"],
+         ["sfDigest","sfDigest"],
+         ["sfPayChannel","sfPayChannel"], 
+         ["sfConsensusHash","sfConsensusHash"],
+         ["sfCheckID","sfCheckID"],
+         ["sfValidatedHash","sfValidatedHash"],
+         ["sfAmount","sfAmount"],
+         ["sfBalance","sfBalance"],
+         ["sfLimitAmount"], 
+         ["sfTakerPays","sfTakerPays"],
+         ["sfTakerGets","sfTakerGets"], 
+         ["sfLowLimit","sfLowLimit"],
+         ["sfHighLimit","sfHighLimit"],
+         ["sfFee","sfFee"],
+         ["sfSendMax","sfSendMax"], 
+         ["sfDeliverMin","sfDeliverMin" ],
+         ["sfMinimumOffer","sfMinimumOffer" ],
+         ["sfRippleEscrow","sfRippleEscrow" ],
+         ["sfDeliveredAmount","sfDeliveredAmount"], 
+         ["sfPublicKey","sfPublicKey"],
+         ["sfMessageKey","sfMessageKey"],
+         ["sfSigningPubKey","sfSigningPubKey"], 
+         ["sfTxnSignature","sfTxnSignature"],
+         ["sfSignature","sfSignature"],
+         ["sfDomain","sfDomain"],
+         ["sfFundCode","sfFundCode" ],
+         ["sfRemoveCode","sfRemoveCode"],
+         ["sfExpireCode","sfExpireCode"],
+         ["sfCreateCode","sfCreateCode"],
+         ["sfMemoType","sfMemoType"],
+         ["sfMemoData","sfMemoData"],
+         ["sfMemoFormat","sfMemoFormat"],
+         ["sfFulfillment","sfFulfillment"],
+         ["sfCondition","sfCondition"],
+         ["sfMasterSignature","sfMasterSignature"],
+         ["sfUNLModifyValidator","sfUNLModifyValidator"],
+         ["sfNegativeUNLToDisable","sfNegativeUNLToDisable"],
+         ["sfNegativeUNLToReEnable","sfNegativeUNLToReEnable"],
+         ["sfHookData","sfHookData"],
+         ["sfAccount","sfAccount"],
+         ["sfOwner","sfOwner"],
+         ["sfDestination","sfDestination"],
+         ["sfIssuer","sfIssuer"],
+         ["sfAuthorize","sfAuthorize"],
+         ["sfUnauthorize","sfUnauthorize"],
+         ["sfTarget","sfTarget"],
+         ["sfRegularKey","sfRegularKey"],
+         ["sfPaths","sfPaths"],
+         ["sfIndexes","sfIndexes"],
+         ["sfHashes","sfHashes"],
+         ["sfAmendments","sfAmendments"],
+         ["sfTransactionMetaData","sfTransactionMetaData"],
+         ["sfCreatedNode","sfCreatedNode"],
+         ["sfDeletedNode","sfDeletedNode"],
+         ["sfModifiedNode","sfModifiedNode" ],
+         ["sfPreviousFields","sfPreviousFields"], 
+         ["sfFinalFields","sfFinalFields"],
+         ["sfNewFields","sfNewFields" ],
+         ["sfTemplateEntry","sfTemplateEntry"],
+         ["sfMemo","sfMemo"],
+         ["sfSignerEntry","sfSignerEntry"],
+         ["sfEmitDetails","sfEmitDetails"],
+         ["sfSigner","sfSigner"],
+         ["sfMajority","sfMajority"],
+         ["sfNegativeUNLEntry","sfNegativeUNLEntry"],
+         ["sfSigningAccounts","sfSigningAccounts"],
+         ["sfSigners","sfSigners"],
+         ["sfSignerEntries","sfSignerEntries"],
+         ["sfTemplate","sfTemplate"],
+         ["sfNecessary","sfNecessary"],
+         ["sfSufficient","sfSufficient"],
+         ["sfAffectedNodes","sfAffectedNodes"],
+         ["sfMemos","sfMemos"],
+         ["sfMajorities","sfMajorities"],
+         ["sfNegativeUNL","sfNegativeUNL"]]
+        ), "VALUE");
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setTooltip('');
-    this.setHelpUrl('');
-    this.setColour(Blockly.Blocks.essential.HUE);
-
-  }
-};
-
-Blockly.Blocks['amount_to_drops'] = {
-  init: function() {
-    this.appendValueInput("AMOUNT")
-        .setCheck(null)
-        .appendField("amount to drops");
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setTooltip('convert amount to dropx');
-    this.setHelpUrl('');
-    this.setColour(Blockly.Blocks.essential.HUE);
-
-  }
-};
-
-Blockly.Blocks['prepare_payment_simple'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("prepare payment simple");
-    this.appendValueInput("buf_out")
-        .setCheck(null)
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("buf_out");
-    this.appendValueInput("drops_amount")
-        .setCheck(null)
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("drops_amount");
-    this.appendValueInput("drops_fee")
-        .setCheck(null)
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("drops_fee");
-    this.appendValueInput("to_address")
-        .setCheck(null)
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("to_address");
-    this.appendValueInput("dest_tag")
-        .setCheck(null)
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("dest_tag");
-    this.appendValueInput("src_tag")
-        .setCheck(null)
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("src_tag");
-    this.setInputsInline(false);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setTooltip('');
-    this.setHelpUrl('');
-    this.setColour(Blockly.Blocks.essential.HUE);
-
-  }
-};
-
-Blockly.Blocks['return_val'] = {
-  init: function() {
-    this.appendValueInput("VAR")
-        .setCheck(null)
-        .appendField("return");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setTooltip('Return value');
     this.setHelpUrl('');
     this.setColour(Blockly.Blocks.essential.HUE);
 

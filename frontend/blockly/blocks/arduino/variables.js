@@ -17,7 +17,7 @@ goog.require('Blockly.Types');
 
 
 /** Common HSV hue for all blocks in this category. */
-Blockly.Blocks.variables.HUE = 330;
+Blockly.Blocks.variables.HUE = 300;
 
 Blockly.Blocks['variables_set_type'] = {
   /**
@@ -50,7 +50,7 @@ Blockly.Blocks['variables_set_type'] = {
 ///////////////////////////////////
 Blockly.Blocks['define_get'] = {
   init: function() {
-      this.setColour(160);
+      this.setColour(Blockly.Blocks.variables.HUE);
       this.appendDummyInput()
           .appendField(Blockly.Msg.DEFINE_GET_TITLE)
           .appendField(new Blockly.FieldVariableDefine(Blockly.Msg.SELECT_MENU, null, this), 'VAR')
@@ -113,7 +113,7 @@ Blockly.Blocks['define_get'] = {
 
 Blockly.Blocks['define_declare'] = {
   init: function() {
-      this.setColour(160);
+      this.setColour(Blockly.Blocks.variables.HUE);
       var name = Blockly.Procedures.findLegalName(
           Blockly.Msg.DEFINE_DECLARE_DEFAULT_NAME, this);
          
@@ -411,7 +411,7 @@ Blockly.Blocks['variables_pointer_get'] = {
    * @this Blockly.Block
    */
   init: function() {
-      this.setColour(25);
+      this.setColour(Blockly.Blocks.variables.HUE);
       this.appendDummyInput()
           .appendField(Blockly.Msg.POINTER_GET_TITLE)
           .appendField(new Blockly.FieldVariable(

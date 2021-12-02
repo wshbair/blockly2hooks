@@ -125,6 +125,7 @@ Ardublockly.replaceBlocksfromXml = function(blocksXml) {
   try {
     xmlDom = Blockly.Xml.textToDom(blocksXml);
   } catch (e) {
+    console.log(e)
     return false;
   }
   Ardublockly.workspace.clear();
@@ -144,6 +145,7 @@ Ardublockly.loadBlocksfromXmlDom = function(blocksXmlDom) {
   try {
     Blockly.Xml.domToWorkspace(blocksXmlDom, Ardublockly.workspace);
   } catch (e) {
+    console.log(e)
     return false;
   }
   return true;

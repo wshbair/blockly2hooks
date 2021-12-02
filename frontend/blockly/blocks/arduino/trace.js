@@ -1,20 +1,17 @@
-/**
- * @license Licensed under the Apache License, Version 2.0 (the "License"):
- *          http://www.apache.org/licenses/LICENSE-2.0
- */
 
 /**
- * @fileoverview Slot functions
+ * @fileoverview Trace functions
  *     https://xrpl-hooks.readme.io/reference/hook
  *     ToDo add proper Type check
  */
 
- 'use strict';
+'use strict';
 
 goog.provide('Blockly.Blocks.trace'); 
 goog.require('Blockly.Blocks');
 goog.require('Blockly.Types');
 
+ /** Common HSV hue for all blocks in this category. */
 
 //Write the contents of a buffer to the XRPLD trace log
 Blockly.Blocks['trace'] = {
@@ -38,7 +35,7 @@ Blockly.Blocks['trace'] = {
           .appendField("as_hex");
       this.setInputsInline(false);
       this.setOutput(true, null);
-      this.setColour(120);
+      this.setColour(25);
       this.setTooltip('Write the contents of a buffer to the XRPLD trace log');
       this.setHelpUrl('');
     }
@@ -60,7 +57,7 @@ Blockly.Blocks['trace'] = {
           .appendField("slot_no");
       this.setInputsInline(false);
       this.setOutput(true, null);
-      this.setColour(120);
+      this.setColour(25);
       this.setTooltip('Write the contents of a slot to the XRPLD trace log');
       this.setHelpUrl('');
     }
@@ -82,7 +79,7 @@ Blockly.Blocks['trace'] = {
           .appendField("number");
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour(120);
+      this.setColour(25);
       this.setTooltip('Write an integer to the XRPLD trace log');
       this.setHelpUrl('');
     }
@@ -103,7 +100,7 @@ Blockly.Blocks['trace'] = {
           .appendField("float1");
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour(120);
+      this.setColour(25);
       this.setTooltip('Write a XFL float to the XRPLD trace log');
       this.setHelpUrl('');
     }

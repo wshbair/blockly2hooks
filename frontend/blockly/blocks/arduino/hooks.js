@@ -9,7 +9,7 @@
  *
  */
  'use strict';
-
+//unused
  goog.provide('Blockly.Blocks.hooks');
  
  goog.require('Blockly.Blocks');
