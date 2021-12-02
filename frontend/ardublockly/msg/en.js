@@ -107,7 +107,7 @@ Ardublockly.LOCALISED_TEXT = {
   catState:'State',
   catTrace:'Trace (Debug)',
   catOriginatingTransaction: 'Originating Transaction',
-  catLists:'Lists/Arrays',
+  catLists:'Arrays',
   catHooksControl: 'Control',
   catHooksTool: 'Basic Blocks',
   catMacro: "Hook Macro",

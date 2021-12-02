@@ -324,7 +324,29 @@
 
 '  </category>' +
 '  <sep></sep>' +
-
+/////////////////////////////////////////////////////////////////////// 
+// Variables
+/////////////////////////////////////////////////////////////////////// 
+'  <category id="catVariables" name="Variables">' +
+'    <block type="variables_declare">'+
+'      <value name="VALUE">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
+'    <block type="variables_get"></block>' +
+'    <block type="variables_set">' +
+'      <value name="VALUE">' +
+'        <block type="variables_set_type"></block>' +
+'      </value>' +
+'    </block>' +
+'    <block type="variables_set_type"></block>' +
+'    <block type="variables_pointer_declare"></block>'+
+'    <block type="variables_pointer_set"></block>'+
+'    <block type="text"></block>' +
+'  </category>' +
+'  <sep></sep>' +
 /////////////////////////////////////////////////////////////////////// 
 // Logic Category
 /////////////////////////////////////////////////////////////////////// 
@@ -361,6 +383,15 @@
  '    <block type="controls_flow_statements"></block>' +
  '  </category>' +
  '  <sep></sep>' +
+ /////////////////////////////////////////////////////////////////////// 
+// List and Array
+/////////////////////////////////////////////////////////////////////// 
+'  <category id="catLists" name="Lists">' +
+'    <block type="variables_array_declare"></block>'+
+'    <block type="variables_array_get"></block>'+
+'    <block type="variables_get"></block>' +
+'  </category>' +
+'  <sep></sep>' +
  ///////////////////////////////////////////////////////////////////////
  // Math Categorty 
 /////////////////////////////////////////////////////////////////////// 
@@ -409,51 +440,7 @@
  '    <block type="base_map"></block>' +
  '  </category>' +
  '  <sep></sep>' +
-/////////////////////////////////////////////////////////////////////// 
-// Text 
-/////////////////////////////////////////////////////////////////////// 
- '  <category id="catText" name="Text">' +
- '    <block type="text"></block>' +
- '    <block type="text_join"></block>' +
- '    <block type="text_append">' +
- '      <value name="TEXT">' +
- '        <block type="text"></block>' +
- '      </value>' +
- '    </block>' +
- '    <block type="text_length"></block>' +
- '    <block type="text_isEmpty"></block>' +
-  '  </category>' +
- '  <sep></sep>' +
-/////////////////////////////////////////////////////////////////////// 
-// Variables
-/////////////////////////////////////////////////////////////////////// 
- '  <category id="catVariables" name="Variables">' +
- '    <block type="variables_declare">'+
- '      <value name="VALUE">' +
- '        <block type="math_number">' +
- '          <field name="NUM">0</field>' +
- '        </block>' +
- '      </value>' +
- '    </block>' +
- '    <block type="variables_get"></block>' +
- '    <block type="variables_set">' +
- '      <value name="VALUE">' +
- '        <block type="variables_set_type"></block>' +
- '      </value>' +
- '    </block>' +
- '    <block type="variables_set_type"></block>' +
- '    <block type="variables_pointer_declare"></block>'+
- '    <block type="variables_pointer_set"></block>'+
- '  </category>' +
- '  <sep></sep>' +
-/////////////////////////////////////////////////////////////////////// 
-// List and Array
-/////////////////////////////////////////////////////////////////////// 
- '  <category id="catLists" name="Lists">' +
- '    <block type="variables_array_declare"></block>'+
-'    <block type="variables_array_get"></block>'+
-'    <block type="variables_get"></block>' +
- '  </category>' +
- '  <sep></sep>' +
+
+
  '</xml>';
  
