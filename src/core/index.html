@@ -1,0 +1,374 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#00878F">
+  <link rel="icon" href="img/favicon.ico">
+  <title class="translatable_title">Blockly2Hook | Hooks Kit </title>
+
+  <!-- Materialize, Prettify, and Blockly2hook CSS -->
+  <link rel="stylesheet" href="materialize/materialize.css" media="screen,projection">
+  <link rel="stylesheet" href="prettify/arduino.css">
+  <link rel="stylesheet" href="Blockly2hook.css" media="screen,projection">
+
+
+  <!-- Blockly2hook - These three files contain the compress version -->
+  <script src="../blockly/blockly_uncompressed.js"></script>
+  <script src="../blockly/blocks_compressed.js"></script>
+  <script src="../blockly/arduino_compressed.js"></script>
+    
+  <!-- Default language js files, user selection appended to head on load -->
+  <script src="../blockly/msg/js/en.js"></script>
+  <script src="msg/en.js"></script>
+</head>
+
+<body>
+  <div class="ribbon ribbon-top-right"><span>Beta</span></div>
+  <!-- Horizontal Navigation bar -->
+  <nav class="nav-fixed block2hook_blue">
+    <div class="nav-wrapper container">
+      <a class="show-on-large button-collapse" href="#" data-activates="slide-out" id="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      <a id="logo-container" class="brand-logo">
+        <span class="app_title translatable_title">Blockly2Hooks</span>
+        <!-- Hooks name editable text field -->
+        <span class="sketch_name_wrapper">
+          <i class="mdi-image-edit sketch_name_icon"></i>
+          <input id="sketch_name" class="sketch_name" type="text">
+        </span>
+      </a>
+      <!-- Horizontal Navbar links only shown on large resolutions -->
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="default.html" ><span class="translatable_open">Home</span><i class="mdi-action-home left"></i></a></li>
+        <li><a href="#" id="button_catalog" ><span class="translatable_open">Hooks Catalog</span><i class="mdi-av-play-shopping-bag left"></i></a></li>
+        <li><a href="#" id="button_load"><span class="translatable_open">Open</span><i class="mdi-file-folder-open left"></i></a></li>
+        <li><a href="#" id="button_save"><span class="translatable_save">Save</span><i class="mdi-content-save left"></i></a></li>
+        <li><a href="#" id="button_delete"><span class="translatable_deleteAll">Delete All</span><i class="mdi-action-delete left"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Sidebar navigation -->
+  <ul id="slide-out" class="side-nav">
+     <li class="no-padding">
+      <ul>
+        <li id="menu_load"><a href="#"><span class="translatable_open">Open</span><i class="mdi-file-file-upload left"></i></a></li>
+        <li id="menu_save"><a href="#"><span class="translatable_save">Save</span><i class="mdi-content-save left"></i></a></li>
+        <li id="menu_delete"><a href="#"><span class="translatable_deleteAll">Delete All</span><i class="mdi-action-delete left"></i></a></li>
+       </ul>
+    <li class="no-padding">
+      <ul class="collapsible collapsible-accordion">
+        <li>
+          <div class="collapsible-header"><span class="translatable_examples">Hooks Catalog</span><i class="mdi-navigation-arrow-drop-down"></i></div>
+          <div class="collapsible-body">
+            <ul>
+              <li id="menu_button_loadaccepthook"><a href="#!">Accept hook</a></li>
+              <li id="menu_button_loaddoublehook"><a href="#!"> Double hook</a></li>
+              <li id="menu_button_loadcarbonhook"><a href="#!">Carbon Hook</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li class="no-padding side-menu-end">&nbsp;</li>
+  </ul>
+
+  <!-- Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l8" style="position:relative">
+        <!-- Toolbox visibility button -->
+        <a id="button_toggle_toolbox" class="waves-effect waves-light btn-flat button_toggle_toolbox_off" style="display: none"><i id="button_toggle_toolbox_icon" class="mdi-action-visibility-off"></i></a>
+        <!-- Hook action buttons -->
+        <div id="ide_buttons_wrapper">
+          <!-- <a id="button_ide_left" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half block2hook_yellow"><i id="button_ide_left_icon" class="mdi-action-open-in-browser"></i></a> -->
+          <a id="button_deploy" class="btn-floating btn-large waves-effect waves-light green disabled"><i id="button_ide_middle_icon" class="mdi-action-launch"></i></a>
+          <a id="button_ide_large" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half block2hook_orange"><i id="button_ide_large_icon" class="mdi-av-play-arrow"></i></a>
+          <div id="button_ide_large_spinner" class="preloader-wrapper active ide_loader" style="display:none">
+            <div class="spinner-layer spinner-orange">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+            <div class="spinner-layer spinner-dark-teal">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+            <div class="spinner-layer spinner-yellow">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+            <div class="spinner-layer spinner-light-teal">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Blockly Panel -->
+        <div class="card-panel white" style="padding: 0">
+          <div id="blocks_panel" class="content blocks_panel_large">
+            <div id="content_blocks" class="content z-depth-1"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m12 l4">
+        <ul class="collapsible z-depth-1" data-collapsible="accordion">
+          <li>
+            <div class="collapsible-header active">
+              <i class="mdi-hardware-desktop-mac"></i>              
+              <span class="translatable_arduinoSourceCode">Hook Source Code</span> 
+
+            </div>
+            <!-- <div class="collapsible-body" contenteditable="true"> -->
+            <div class="collapsible-body" >
+              <pre id="content_hook" class="content content_height_transition content_hook_large">
+
+                
+              </pre>
+              
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header" id="xml_collapsible_header">
+              <i class="mdi-device-dvr"></i>
+              <span class="translatable_blocksXml">XML Blocks Code</span>
+            </div>
+            <div class="collapsible-body" style="position:relative" id="xml_collapsible_body">
+              <a class="btn-floating btn-large waves-effect waves-light block2hook_blue z-depth-1-half" id="button_load_xml"><i class="mdi-action-extension"></i></a>
+              <textarea id="content_xml" class="content content_height_transition content_xml_large" wrap="soft"></textarea>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+  <!-- IDE Output content -->
+  <div class="ide_output_wrapper">
+    <ul class="collapsible ide_output_collapsible" data-collapsible="expandable">
+      <li>
+        <div id="ide_output_collapsible_header" class="collapsible-header ide_output_header_normal">
+          <i class="mdi-action-exit-to-app"></i>  
+          <span class="translatable_arduinoOpMainTitle">WASM Compilation Output</span>
+        </div>
+        <div id="wazen" class="collapsible-body">
+          <div class="row" style="background-color: beige;">
+            <div class="col s12 m12 l6" style="position:relative">
+              <h6>WASM Text <a href="">Download</a> </h6>
+              <div id="content_ide_output" class="content"></div>
+
+            </div>
+            <div class="col s12 m12 l6">
+              <h6>WASM Binary <a id="downloadLink" href="">Download</a> 
+              </h6>
+
+              <div id="wasmoutput" class="content"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="ide_output_spacer"></div>
+
+  <!-- Deploy: Displayed as a Materialize Modal -->
+  <div id="deploy_dialog" class="modal">
+    <div class="modal-content"> 
+      <h5><i class="mdi-action-wallet-travel"></i><span class="translatable_settings"> Hook Deployment to XRPL Ledger</span></h5>
+      <div class="modal_section">
+        <h6> XRPL Wallet Address</h6>
+        <input type="text" class="validate" id="xrpl_wallet_address" value="rGZfSDWpvyiko5i4v8TwLTpnEzAbVeYszV">
+        <a id="setHook_transaction" class="btn waves-effect waves-light light-blue darken-4">Generate SetHook Tx</a>
+      </div>
+      
+      <div class="modal_section">
+        <h6>XRPL SetHook Transaction</h6>
+        <textarea type="textarea" id="sethooktxjson" style="min-height: 100px;" ></textarea>
+        <a id="signSetHookTxbtn" class="btn waves-effect waves-light light-blue darken-4">Sign and Publish</a>
+      </div>
+      <div class="modal_section">
+        <h6>Operation Result</h6>
+         <textarea type="textarea" id="deploymentResult" style="min-height: 70px;"></textarea>
+         <!-- <a id="runtestBtn" class="btn waves-effect waves-light light-blue darken-4">Run Test</a><br/><br/> -->
+      </div>
+
+    </div>
+    <div class="modal-footer light-blue darken-4">
+      <a href="#" class="waves-effect btn-flat modal-close white"><span class="translatable_return">Close</span></a>
+    </div>
+
+  </div>
+
+
+<!-- Hook Catalog Modal -->
+<div id="hookcatalog_dialog" class="modal">
+  <div class="modal-content"> 
+    <h5><i class="mdi-action-wallet-travel"></i><span class="translatable_settings"> XRPL Hook Catalog</span></h5>
+    <div class="card-panel">
+      <div class="row">
+          <div class="col s4">
+              <div class="center promo promo-example">
+                  <i class="mdi-action-thumb-up large"></i>
+                  <p class="flow-text">Accept Hook</p>
+                  <p class="light center">This hook minumin hook, so it just accepts any transaction coming through it.</p>
+                  <a id="button_loadaccepthook" class="btn waves-effect waves-light block2hook_blue">Load</a>
+              </div>
+          </div>
+          <div class="col s4">
+              <div class="center promo promo-example">
+                  <i class="mdi-image-filter-2 large"></i>
+                  <p class="flow-text">Doubler Hook</p>
+                  <p class="light center">(Joke test)This hook that doubles incoming XRP payments and sends it back</p>
+                  <a id="button_loaddoublehook" class="btn waves-effect waves-light block2hook_blue">Load</a>
+              </div>
+          </div>
+          <div class="col s4">
+              <div class="center promo promo-example">
+                  <i class="mdi-editor-attach-money large"></i>
+                  <p class="flow-text">Carbon Hook</p>
+                  <p class="light center">This hook causes the account to send a 1% carbon-offset txn each time another txn is sent from the account.</p>
+                  <a id="button_loadcarbonhook" class="btn waves-effect waves-light block2hook_blue">Load</a>
+              </div>
+          </div>
+      </div>
+  </div>
+    
+ 
+
+  </div>
+  <div class="modal-footer light-blue darken-4">
+    <a href="#" class="waves-effect btn-flat modal-close white"><span class="translatable_return">Close</span></a>
+  </div>
+
+</div>
+
+
+  <!-- Settings: Displayed as a Materialize Modal -->
+  <div id="settings_dialog" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4><span class="translatable_settings">Settings</span></h4>
+      <div class="modal_section">
+        <label><span class="translatable_compilerLocation">Compiler Location</span>:</label>
+        <input type="text" id="settings_compiler_location">
+      </div>
+      <div class="modal_section">
+        <label><span class="translatable_sketchFolder">Sketch Folder</span>:</label>
+        <input type="text" id="settings_sketch_location">
+      </div>
+      <div class="modal_section">
+        <label><span class="translatable_arduinoBoard">Arduino Board</span>:</label>
+        <select name="settings_board" id="board">
+          <option value="uno" class="translatable_arduinoBoardDefault">Arduino Board unknown</option>
+        </select>
+      </div>
+      <div class="modal_section">
+        <label><span class="translatable_comPort">COM Port<span>:</label>
+        <select name="settings_serial" id="serial_port">
+          <option value="COMX" class="translatable_comPortDefault">COM Port unknown</option>
+        </select>
+      </div>
+      <div class="modal_section">
+        <label><span class="translatable_defaultIdeButton">Default IDE button</span>:</label>
+        <select name="settings_ide" id="ide_settings">
+          <option value="verify" class="translatable_defaultIdeButtonDefault">IDE options unknown</option>
+        </select>
+      </div>
+      <div class="modal_section">
+        <label><span class="translatable_language">Language</span>:</label>
+        <select name="settings_language" id="language"></select>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="waves-effect btn-flat modal-close"><span class="translatable_return">Return</span></a>
+    </div>
+  </div>
+
+ 
+  <!-- General Alert: Content is loaded using JavaScript to display alerts -->
+  <div id="gen_alert" class="modal modal_small modal-fixed-footer">
+    <div class="modal-content">
+      <h5 id="gen_alert_title">Empty Alert</h4>
+      <p><span id="gen_alert_body">Empty alert text</span></p>
+    </div>
+    <div class="modal-footer">
+      <a id="gen_alert_ok_link" href="#" class="waves-effect btn-flat modal-close"><span class="translatable_okay">Okay</span></a>
+      <a id="gen_alert_cancel_link" href="#" class="waves-effect btn-flat modal-close"><span class="translatable_cancel">Cancel</span></a>
+    </div>
+  </div>
+
+  <!-- Prompt: Content is loaded using JavaScript to display input prompt -->
+  <div id="gen_prompt" class="modal modal_small modal-fixed-footer">
+    <div class="modal-content">
+      <p><span id="gen_prompt_message">Prompt message</span></p>
+      <p><input id="gen_prompt_input" value="test" /></p>
+    </div>
+    <div class="modal-footer">
+      <a id="gen_prompt_ok_link" href="#" class="waves-effect btn-flat modal-close"><span class="translatable_okay">Okay</span></a>
+      <a id="gen_prompt_cancel_link" href="#" class="waves-effect btn-flat modal-close"><span class="translatable_cancel">Cancel</span></a>
+    </div>
+  </div>
+
+  <!-- Local Modal to be shown if Blockly2hook Server is not running. -->
+  <div id="not_running_dialog" class="modal">
+    <div class="modal-content">
+      <div>
+        <h4 id="gen_alert_title"><span class="translatable_noServerTitle">Server is down :(</span></h4>
+      </div>
+      <div class="translatable_noServerBody">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a id="gen_alert_ok_link" href="#" class="waves-effect btn-flat modal-close"><span class="translatable_okay">Okay</span></a>
+    </div>
+  </div>
+
+  <!-- Desktop version of Blockly2hook JS, needs to be loaded first. -->
+  <script src="Blockly2hook_desktop.js"></script>
+  <!-- jQuery and Materialize JS -->
+  <script src="js_libs/jquery-2.1.3.min.js"></script>
+  <script src="materialize/materialize.js"></script>
+  <!-- FileSaver JS -->
+  <script src="js_libs/FileSaver.min.js"></script>
+  <!-- JS Diff -->
+  <script src="js_libs/diff.js"></script>
+  <!-- Prettify JS -->
+  <script src="prettify/prettify.js"></script>
+  <!-- Blockly2hook app -->
+  <script src="Blockly2hookserver_ajax.js"></script>
+  <script src="Blockly2hook_lang.js"></script>
+  <script src="Blockly2hook_design.js"></script>
+  <script src="Blockly2hook_toolbox.js"></script>
+  <script src="Blockly2hook_blockly.js"></script>
+  <script src="Blockly2hook.js"></script>
+  <script>
+    window.addEventListener('load', function load(event) {
+      window.removeEventListener('load', load, false);
+      Blockly2hook.init();
+    });
+  </script>
+
+<!-- <script src="src-min/ace.js" type="text/javascript" charset="utf-8"></script> -->
+ 
+  
+</body>
+</html>

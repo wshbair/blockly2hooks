@@ -1,0 +1,648 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="hook_template" id="^aNJRHFS0EOI~6R_yTfP" x="83" y="115">
+    <statement name="LOOP_FUNC">
+      <block type="variables_array_declare" id="@UOu~Du;bG9*T#-7XUmD">
+        <field name="TYPES">uint8_t</field>
+        <field name="VAR">hook_accid</field>
+        <field name="LENGTH_1">20</field>
+        <next>
+          <block type="controls_if" id="wXTUN6P7!S3HC;%xg1h9">
+            <value name="IF0">
+              <block type="logic_compare" id=")~@+fNXqD}6d/j*vP/N+">
+                <field name="OP">LT</field>
+                <value name="A">
+                  <block type="hook_account" id="{Mzq+yf-v5[t-q[tL|p#">
+                    <value name="VAR">
+                      <block type="sbuf" id="yrD_8Lt)MJez6[9TOQ)}">
+                        <value name="SBUF">
+                          <block type="variables_pointer_get" id="WYyC^!b{wH/Bz=(}Y/C.">
+                            <field name="VAR">hook_accid</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="@4U%R;yP[Wn9=w))94YJ">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="control_rollback" id="GS}1I7N+STd5d(*sJ-N|">
+                <value name="read_ptr">
+                  <block type="sbuf" id="qzPP#0_g6mCE#IB]CxD=">
+                    <value name="SBUF">
+                      <block type="text" id="9q1y;QXAF^_-^oxKEc?!">
+                        <field name="TEXT">Doubler: Could not fetch hook account id.</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="error_code">
+                  <block type="math_number" id="^^%kmuQ4c`F4Ht(cJQK|">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="variables_array_declare" id="8dLz]S[4H6jzroFoP,cU">
+                <field name="TYPES">uint8_t</field>
+                <field name="VAR">account_field</field>
+                <field name="LENGTH_1">20</field>
+                <next>
+                  <block type="variables_declare" id="B+kTib`ELk569EerZy5Z">
+                    <field name="TYPES">int32_t</field>
+                    <field name="VAR">account_field_len</field>
+                    <value name="VALUE">
+                      <block type="otxn_field" id=":tcn2uXHtSF=}~-ekA1I">
+                        <value name="write_ptr">
+                          <block type="sbuf" id="GRiA[.s@O#29AQ~qLGGn">
+                            <value name="SBUF">
+                              <block type="variables_pointer_get" id="Cc6Y#eYuPnhLvMcN:g~Y">
+                                <field name="VAR">account_field</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="field_id">
+                          <block type="sfcodes" id=".6g`cmVNjRgC{al^kqqo">
+                            <field name="VALUE">sfAccount</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_declare" id="xq_+O88*/?d_N{j-]2C=">
+                        <field name="TYPES">int</field>
+                        <field name="VAR">equal</field>
+                        <value name="VALUE">
+                          <block type="math_number" id="p1*?jk#hk=|+*!IXCEgy">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="buffer_equal" id="+IMGEwt+`W!#^wnm~%wb">
+                            <value name="equal">
+                              <block type="variables_get" id="Hzu3~2LA;;xL_X0I7a!w">
+                                <field name="VAR">equal</field>
+                              </block>
+                            </value>
+                            <value name="hook_accid">
+                              <block type="variables_get" id="t4Z!b/5LP3k6,}vmg.6w">
+                                <field name="VAR">hook_accid</field>
+                              </block>
+                            </value>
+                            <value name="account_field">
+                              <block type="variables_get" id="ySVxUTN5.}iep}-/:%k*">
+                                <field name="VAR">account_field</field>
+                              </block>
+                            </value>
+                            <value name="length">
+                              <block type="math_number" id="iS[-i/?Hti]q~HTO.MJ*">
+                                <field name="NUM">20</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="controls_if" id="WzG!m-#x%MwT3bEKfL6u">
+                                <value name="IF0">
+                                  <block type="variables_get" id="i[^;u1*k2T5Cbbez:,qG">
+                                    <field name="VAR">equal</field>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="control_accept" id="/igNC0bkINYGF%0%l1]M">
+                                    <value name="read_ptr">
+                                      <block type="sbuf" id="=cg]_KA;3Dx]q33FXBdg">
+                                        <value name="SBUF">
+                                          <block type="text" id="P#*^{jVeTwNNA:_cX3~=">
+                                            <field name="TEXT">Outgoing transaction. Passing.</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="error_code">
+                                      <block type="math_number" id="ttns+F+N?R:w{^pPtW~V">
+                                        <field name="NUM">2</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="variables_array_declare" id=";H;|Jcz,4-n4+AtaoZI)">
+                                    <field name="TYPES">uint8_t</field>
+                                    <field name="VAR">digest</field>
+                                    <field name="LENGTH_1">96</field>
+                                    <next>
+                                      <block type="controls_if" id="OJWn,5F.#YE`-8mGSFJy">
+                                        <value name="IF0">
+                                          <block type="logic_compare" id="=QlUy.bM}cn^]WYMlgz*">
+                                            <field name="OP">NEQ</field>
+                                            <value name="A">
+                                              <block type="ledger_last_hash" id="gr[cyWJxdcRt)SCro8+i">
+                                                <value name="write_ptr">
+                                                  <block type="variables_pointer_get" id="jzZpRc[qX)rx/P|v(;+:">
+                                                    <field name="VAR">digest</field>
+                                                  </block>
+                                                </value>
+                                                <value name="write_len">
+                                                  <block type="math_number" id="H,r-yoEbqi2C;,5uE)W}">
+                                                    <field name="NUM">32</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number" id="c,qBH(jy,ty){IMc4%x7">
+                                                <field name="NUM">32</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <statement name="DO0">
+                                          <block type="control_rollback" id="bRYaIZKB.gS-nD5?mBd4">
+                                            <value name="read_ptr">
+                                              <block type="sbuf" id="V=Dmuz*yX%p2XVoH`ky[">
+                                                <value name="SBUF">
+                                                  <block type="text" id="S:Lm2DmthS?rmA%w??v?">
+                                                    <field name="TEXT">Doubler: Failed to fetch last closed ledger.</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="error_code">
+                                              <block type="math_number" id="diNEdd,!m0cyti]mTEDT">
+                                                <field name="NUM">3</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </statement>
+                                        <next>
+                                          <block type="variables_array_declare" id="*83[ik!,MNb+OL}m]v[-">
+                                            <field name="TYPES">uint8_t</field>
+                                            <field name="VAR">key</field>
+                                            <field name="LENGTH_1">32</field>
+                                            <next>
+                                              <block type="variables_declare" id="OUGRn/AWhb9Esc{w83O.">
+                                                <field name="TYPES">int</field>
+                                                <field name="VAR">myvariable</field>
+                                                <value name="VALUE">
+                                                  <block type="state" id="(l0^x9FJQR!tU,[*lNZm">
+                                                    <value name="write_ptr">
+                                                      <block type="sbuf" id="uSTijp*):A)wY%gL%AFR">
+                                                        <value name="SBUF">
+                                                          <block type="variables_pointer_get" id="7f;cb/o#..phE?JQg6a)">
+                                                            <field name="VAR">digest</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="kread_ptr">
+                                                      <block type="sbuf" id="rTD|6)M{l2Lo)4h3|msk">
+                                                        <value name="SBUF">
+                                                          <block type="variables_pointer_get" id="NE#}kOYjl~C|@(iXv|s|">
+                                                            <field name="VAR">key</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="variables_declare" id="Q+0hbs^;F{[b[W{Olsav">
+                                                    <field name="TYPES">int</field>
+                                                    <field name="VAR">temp2</field>
+                                                    <value name="VALUE">
+                                                      <block type="nonce" id="KNBUK#7D]Fx4h9--E_v:">
+                                                        <value name="write_ptr">
+                                                          <block type="math_arithmetic" id="6eAR7NH,c1;+X8rPL5;V">
+                                                            <field name="OP">ADD</field>
+                                                            <value name="A">
+                                                              <block type="math_number" id="w}T9Nc19n7OMZfER~~R7">
+                                                                <field name="NUM">96</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="math_number" id="uMk%JCQ~@J1b`)F[nRE`">
+                                                                <field name="NUM">32</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="write_len">
+                                                          <block type="math_number" id="HIDZ.a}+AL1~_)gAvQ~2">
+                                                            <field name="NUM">32</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="variables_array_declare" id="3,7Vs;Tn6kbpZ)ArcRS-">
+                                                        <field name="TYPES">uint8_t</field>
+                                                        <field name="VAR">hash</field>
+                                                        <field name="LENGTH_1">32</field>
+                                                        <next>
+                                                          <block type="controls_if" id="scFQ%sqB1o847{aTHEoS">
+                                                            <value name="IF0">
+                                                              <block type="logic_compare" id="y3_PKpd;}M,OIHn^o.kM">
+                                                                <field name="OP">NEQ</field>
+                                                                <value name="A">
+                                                                  <block type="util_sha512h" id="j?VtB/)/c|(.G(up(3Wx">
+                                                                    <value name="write_ptr">
+                                                                      <block type="sbuf" id="=^8G_qq/6+Q}:ria5g}H">
+                                                                        <value name="SBUF">
+                                                                          <block type="variables_pointer_get" id="xiWpYS#=1AVV;4NHU6P{">
+                                                                            <field name="VAR">hash</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="read_ptr">
+                                                                      <block type="sbuf" id="PH_`3Or{/gjJD]9=,H_H">
+                                                                        <value name="SBUF">
+                                                                          <block type="variables_pointer_get" id="FQ@}7PBU2#LWsIcWYK~.">
+                                                                            <field name="VAR">digest</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="B">
+                                                                  <block type="math_number" id="A,MXc[iAV6@yy6Qy5HX*">
+                                                                    <field name="NUM">32</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="DO0">
+                                                              <block type="control_rollback" id=",9a%Ivo%T_*1TOx`[vwz">
+                                                                <value name="read_ptr">
+                                                                  <block type="sbuf" id="`3.|V9%p%fv[^|USgOU)">
+                                                                    <value name="SBUF">
+                                                                      <block type="text" id="iHTuU(FqCK[7ML8SCJL{">
+                                                                        <field name="TEXT">Doubler: Could not compute digest for coin flip.</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="error_code">
+                                                                  <block type="math_number" id="sXo(6dLb^+uyV4d,9TN?">
+                                                                    <field name="NUM">4</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </statement>
+                                                            <next>
+                                                              <block type="controls_if" id="[j4+|YwvK*gPL5{/ryaN">
+                                                                <value name="IF0">
+                                                                  <block type="logic_compare" id="GEhX,zMsm2Wr1rsLhd*~">
+                                                                    <field name="OP">NEQ</field>
+                                                                    <value name="A">
+                                                                      <block type="state_set" id="9:k=us9C}pJIxEzD~{N!">
+                                                                        <value name="read_ptr">
+                                                                          <block type="sbuf" id="H-9,F01U^iErb5g2Y4}z">
+                                                                            <value name="SBUF">
+                                                                              <block type="variables_pointer_get" id="/VohWbF~gQH^X?][[I6g">
+                                                                                <field name="VAR">hash</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="kread_ptr">
+                                                                          <block type="sbuf" id="D][B9M3,+I?KOFUvd,B)">
+                                                                            <value name="SBUF">
+                                                                              <block type="variables_pointer_get" id="5(?)tYX7Gp/+g*BXw-kw">
+                                                                                <field name="VAR">key</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="B">
+                                                                      <block type="math_number" id="?C~rNrM-PyjkIpy2Ywx-">
+                                                                        <field name="NUM">32</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <statement name="DO0">
+                                                                  <block type="control_rollback" id="!Jwy2L!pAR%4L-hkm~zH">
+                                                                    <value name="read_ptr">
+                                                                      <block type="sbuf" id="azS}AY[IrC|^F~OfLC*/">
+                                                                        <value name="SBUF">
+                                                                          <block type="text" id="THX?U4c{}!KX_2f4KIUY">
+                                                                            <field name="TEXT">Doubler: Could not set state.</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="error_code">
+                                                                      <block type="math_number" id="Yi;}i(GpVz0fyJK9oBjg">
+                                                                        <field name="NUM">5</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </statement>
+                                                                <next>
+                                                                  <block type="controls_if" id="^#Z8#V:+7P+YgsXeC|-6">
+                                                                    <value name="IF0">
+                                                                      <block type="logic_compare" id="XHXwnmq.*XK^D)L1+EjZ">
+                                                                        <field name="OP">LT</field>
+                                                                        <value name="A">
+                                                                          <block type="math_modulo" id="JlA.^#xnK8_I:T_h7=D%">
+                                                                            <value name="DIVIDEND">
+                                                                              <block type="variables_array_get" id="]}ewzg{Gva5oQg=j[Qk?">
+                                                                                <field name="VAR">hash</field>
+                                                                                <field name="LENGTH_1">0</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="DIVISOR">
+                                                                              <block type="math_number" id="WOBco?fo%.tj(~!BYeAV">
+                                                                                <field name="NUM">10</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="B">
+                                                                          <block type="math_number" id="O,Y#EvHk_Hr,;TE_p+Pa">
+                                                                            <field name="NUM">6</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                    <statement name="DO0">
+                                                                      <block type="control_accept" id="ucj=XqJ3RYQTwa}%!Q{l">
+                                                                        <value name="read_ptr">
+                                                                          <block type="sbuf" id="/T)[3rd*(;E~.GF~t33T">
+                                                                            <value name="SBUF">
+                                                                              <block type="text" id="X~5(U1ej2:XjMIKKQ-T7">
+                                                                                <field name="TEXT">Doubler: Tails, you lose. Om nom nom xrp.</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="error_code">
+                                                                          <block type="math_number" id="46pW7thxJs48?=)d-lI]">
+                                                                            <field name="NUM">4</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </statement>
+                                                                    <next>
+                                                                      <block type="etxn_reserve" id="4Q4@Dj9YfdNV+J+l1kAK">
+                                                                        <value name="NUM">
+                                                                          <block type="math_number" id="WvD-L#o{GcrFd*vMQW6a">
+                                                                            <field name="NUM">1</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="variables_array_declare" id="2eKI0Mq(Qgx`WUu@uM7(">
+                                                                            <field name="TYPES">unsigned char</field>
+                                                                            <field name="VAR">amount_buffer</field>
+                                                                            <field name="LENGTH_1">48</field>
+                                                                            <next>
+                                                                              <block type="variables_declare" id="I027G0pFlg0t4T_@OxX;">
+                                                                                <field name="TYPES">int64_t</field>
+                                                                                <field name="VAR">amount_len</field>
+                                                                                <value name="VALUE">
+                                                                                  <block type="otxn_field" id="xVZx{062uta)F8idkBe0">
+                                                                                    <value name="write_ptr">
+                                                                                      <block type="sbuf" id="IQykJ;B:7jV[_120+kKX">
+                                                                                        <value name="SBUF">
+                                                                                          <block type="variables_pointer_get" id="D%4Z(#6R(LEof/@|iI@;">
+                                                                                            <field name="VAR">amount_buffer</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <value name="field_id">
+                                                                                      <block type="sfcodes" id="P[C;G97VGJ0riF07ckLl">
+                                                                                        <field name="VALUE">sfAmount</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <next>
+                                                                                  <block type="variables_declare" id="g;PA8d|w~USnKf|;E|x[">
+                                                                                    <field name="TYPES">int64_t</field>
+                                                                                    <field name="VAR">drops_to_send</field>
+                                                                                    <value name="VALUE">
+                                                                                      <block type="math_arithmetic" id="SSd%bScX9a%8RiI)quz%">
+                                                                                        <field name="OP">MULTIPLY</field>
+                                                                                        <value name="A">
+                                                                                          <block type="amount_to_drops" id="DMTjp!jDD)VT9k~kVUG=">
+                                                                                            <value name="AMOUNT">
+                                                                                              <block type="variables_get" id="Fi^QT)1Atg!x}53`iU/+">
+                                                                                                <field name="VAR">amount_buffer</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <value name="B">
+                                                                                          <block type="math_number" id="dcfBuXmTXVTK}T2Mi4^`">
+                                                                                            <field name="NUM">2</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <next>
+                                                                                      <block type="controls_if" id=":#DY33l%wVj_|AdR3E4m">
+                                                                                        <value name="IF0">
+                                                                                          <block type="logic_compare" id="6gB|[WmOF8Kc`ehl0o#d">
+                                                                                            <field name="OP">NEQ</field>
+                                                                                            <value name="A">
+                                                                                              <block type="variables_get" id="MV+N1;T3*Ru{l`1Mx!G%">
+                                                                                                <field name="VAR">amount_len</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                            <value name="B">
+                                                                                              <block type="math_number" id="TArhY%(;rOFDK`.o?2GD">
+                                                                                                <field name="NUM">8</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <statement name="DO0">
+                                                                                          <block type="control_rollback" id=".@8U=ti3V6qP?%Ju92b*">
+                                                                                            <value name="read_ptr">
+                                                                                              <block type="sbuf" id="#yCR3aPH-Dp^PM.[5#Tj">
+                                                                                                <value name="SBUF">
+                                                                                                  <block type="text" id="3OQB~bJhUY8oGct=d/^A">
+                                                                                                    <field name="TEXT">Doubler: Rejecting incoming non-XRP transaction</field>
+                                                                                                  </block>
+                                                                                                </value>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                            <value name="error_code">
+                                                                                              <block type="math_number" id="8jetTi#P-SN,F,/;y-4M">
+                                                                                                <field name="NUM">5</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                          </block>
+                                                                                        </statement>
+                                                                                        <next>
+                                                                                          <block type="variables_declare" id="*Fct)R!Kboz3A!W?sU9a">
+                                                                                            <field name="TYPES">int64_t</field>
+                                                                                            <field name="VAR">fee_base</field>
+                                                                                            <value name="VALUE">
+                                                                                              <block type="etxn_fee_base" id="[8RQA9-]p/[RigSg!|p(">
+                                                                                                <value name="tx_byte_count">
+                                                                                                  <block type="math_number" id="h@coMfV0Q;W6Ga}P_-Z?">
+                                                                                                    <field name="NUM">137</field>
+                                                                                                  </block>
+                                                                                                </value>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                            <next>
+                                                                                              <block type="variables_array_declare" id="#3fb4PGE!ZAJjg|JL3gh">
+                                                                                                <field name="TYPES">uint8_t</field>
+                                                                                                <field name="VAR">tx</field>
+                                                                                                <field name="LENGTH_1">137</field>
+                                                                                                <next>
+                                                                                                  <block type="prepare_payment_simple" id="F%IgvjyTjD5=OU)%N|;4">
+                                                                                                    <value name="buf_out">
+                                                                                                      <block type="variables_get" id="E0ujgVfs66-b1q-:Vz2#">
+                                                                                                        <field name="VAR">tx</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="drops_amount">
+                                                                                                      <block type="variables_get" id="55rN7W`*_j]5_}5vbp8q">
+                                                                                                        <field name="VAR">drops_to_send</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="drops_fee">
+                                                                                                      <block type="variables_get" id="4[;ztTUb6sNQ!Cw)HsT]">
+                                                                                                        <field name="VAR">fee_base</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="to_address">
+                                                                                                      <block type="variables_get" id="9Xxyj,.ObiwPrMW]ZtAi">
+                                                                                                        <field name="VAR">account_field</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="dest_tag">
+                                                                                                      <block type="math_number" id="_hus5m%z5N]%9#M?ygMb">
+                                                                                                        <field name="NUM">0</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="src_tag">
+                                                                                                      <block type="math_number" id="QRo:vKAR2uOtWr#7s[Qm">
+                                                                                                        <field name="NUM">0</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <next>
+                                                                                                      <block type="variables_array_declare" id="H=t#-p;P1dGyRb1k*;A#">
+                                                                                                        <field name="TYPES">uint8_t</field>
+                                                                                                        <field name="VAR">emithash</field>
+                                                                                                        <field name="LENGTH_1">32</field>
+                                                                                                        <next>
+                                                                                                          <block type="emit" id="C*,Jw`sg5H=}1z=RvVw_">
+                                                                                                            <value name="write_ptr">
+                                                                                                              <block type="sbuf" id="t/gIOWrfCQ69=fJC)qwc">
+                                                                                                                <value name="SBUF">
+                                                                                                                  <block type="variables_pointer_get" id="aR]]-lm1}]T#iOB3UN=V">
+                                                                                                                    <field name="VAR">emithash</field>
+                                                                                                                  </block>
+                                                                                                                </value>
+                                                                                                              </block>
+                                                                                                            </value>
+                                                                                                            <value name="read_ptr">
+                                                                                                              <block type="sbuf" id="k-)7j|A{,e:oSS2_ZX!]">
+                                                                                                                <value name="SBUF">
+                                                                                                                  <block type="variables_pointer_get" id="k{(.KjV8Y8}8~lvI^^@M">
+                                                                                                                    <field name="VAR">tx</field>
+                                                                                                                  </block>
+                                                                                                                </value>
+                                                                                                              </block>
+                                                                                                            </value>
+                                                                                                            <next>
+                                                                                                              <block type="control_accept" id="gx2D)qi*G=]mR1TK-Lm5">
+                                                                                                                <value name="read_ptr">
+                                                                                                                  <block type="sbuf" id="DF1:oVZ!A#Qw-mhBMJQq">
+                                                                                                                    <value name="SBUF">
+                                                                                                                      <block type="text" id="3`2#-D@`c0jkTk10-kXG">
+                                                                                                                        <field name="TEXT">Doubler: Heads, you won! Funds emitted!</field>
+                                                                                                                      </block>
+                                                                                                                    </value>
+                                                                                                                  </block>
+                                                                                                                </value>
+                                                                                                                <value name="error_code">
+                                                                                                                  <block type="math_number" id="W(tn}70(SsY}V%kp7uV#">
+                                                                                                                    <field name="NUM">0</field>
+                                                                                                                  </block>
+                                                                                                                </value>
+                                                                                                                <next>
+                                                                                                                  <block type="_g_function" id="(MriLY*5DFAh:j{x)*}e">
+                                                                                                                    <value name="arg1">
+                                                                                                                      <block type="math_number" id="y2QUXz*__Hq3miqRITe@">
+                                                                                                                        <field name="NUM">1</field>
+                                                                                                                      </block>
+                                                                                                                    </value>
+                                                                                                                    <value name="arg2">
+                                                                                                                      <block type="math_number" id="bNX20A.B^BTne{+HStII">
+                                                                                                                        <field name="NUM">1</field>
+                                                                                                                      </block>
+                                                                                                                    </value>
+                                                                                                                  </block>
+                                                                                                                </next>
+                                                                                                              </block>
+                                                                                                            </next>
+                                                                                                          </block>
+                                                                                                        </next>
+                                                                                                      </block>
+                                                                                                    </next>
+                                                                                                  </block>
+                                                                                                </next>
+                                                                                              </block>
+                                                                                            </next>
+                                                                                          </block>
+                                                                                        </next>
+                                                                                      </block>
+                                                                                    </next>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

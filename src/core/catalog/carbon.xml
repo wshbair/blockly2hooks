@@ -1,0 +1,488 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="hook_template" id="AlN.Xaic58]qjT-Wk|lK" x="9" y="63">
+    <statement name="LOOP_FUNC">
+      <block type="TRACESTR" id="#Hvu/s@QGs~xdte+K6{*">
+        <value name="TRACESTR">
+          <block type="text" id=",,:PgXD}XijLY#?{aJwM">
+            <field name="TEXT">Carbon: started</field>
+          </block>
+        </value>
+        <next>
+          <block type="etxn_reserve" id="zpp0G(dI/LU):3lUm=WH">
+            <value name="NUM">
+              <block type="math_number" id="%#PgZJHFzB{-R#+.+_N3">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_array_declare" id="B/M:JjZ2gtBgAToFkN]]">
+                <field name="TYPES">unsigned char</field>
+                <field name="VAR">hook_accid</field>
+                <field name="LENGTH_1">20</field>
+                <next>
+                  <block type="hook_account_statment" id="qVC8JBk*I@!F+!!MZ2BA">
+                    <value name="VAR">
+                      <block type="sbuf" id="DGXSrx~!wbBixv!c1#IT">
+                        <value name="SBUF">
+                          <block type="variables_set_type" id="`)E1F%@oNYNBkZ_12@xr">
+                            <field name="VARIABLE_SETTYPE_TYPE">int32_t</field>
+                            <value name="VARIABLE_SETTYPE_INPUT">
+                              <block type="variables_pointer_get" id="6RN^9uPU-+cpWR7a543X">
+                                <field name="VAR">hook_accid</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_array_declare" id="MIyW8:X5X{`}uBYY=f8~">
+                        <field name="TYPES">uint8_t</field>
+                        <field name="VAR">account_field</field>
+                        <field name="LENGTH_1">20</field>
+                        <next>
+                          <block type="variables_declare" id="VI]}]dNP@6qt=quRe~fX">
+                            <field name="TYPES">int32_t</field>
+                            <field name="VAR">account_field_len</field>
+                            <value name="VALUE">
+                              <block type="otxn_field" id="lZk{i{6n`jPVp.8nPKp9">
+                                <value name="write_ptr">
+                                  <block type="sbuf" id="a!z!A]%xRGUSSKi2!Ub:">
+                                    <value name="SBUF">
+                                      <block type="variables_pointer_get" id="q3ia(#`aWI]?,!gUDUA=">
+                                        <field name="VAR">account_field</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="field_id">
+                                  <block type="sfcodes" id="1vd`4@F~J4TXzIcG+/r|">
+                                    <field name="VALUE">sfAccount</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="TRACEVAR" id="pc=0AjWr*e=}fz1A/t!I">
+                                <value name="TRACEVAR">
+                                  <block type="variables_get" id="Z1FeZI)b4;_-OYm+^W~}">
+                                    <field name="VAR">account_field_len</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="controls_if" id="hG~@nk,t:[w6-WKgS:?e">
+                                    <value name="IF0">
+                                      <block type="logic_compare" id="StyZe`{!jQ2)_I=Ngj:R">
+                                        <field name="OP">LT</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="+j`HtOx0gNH_G2FNBfEb">
+                                            <field name="VAR">account_field_len</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="jm-sIpCzvQwgCo(3A8T6">
+                                            <field name="NUM">20</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="control_rollback" id="-m`W6YP,z9ij0f%Bl]12">
+                                        <value name="read_ptr">
+                                          <block type="sbuf" id=",mGGQGHmBK_Ub+erByXt">
+                                            <value name="SBUF">
+                                              <block type="text" id="MmK35T]}/=X*)_?*{A%9">
+                                                <field name="TEXT">Carbon: sfAccount field missing!!!</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="error_code">
+                                          <block type="math_number" id="g-#9p_?@zPiBpM+7:5?2">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </statement>
+                                    <next>
+                                      <block type="variables_declare" id="-O-`Llyb%V7@?z/KRI7)">
+                                        <field name="TYPES">int</field>
+                                        <field name="VAR">equal</field>
+                                        <value name="VALUE">
+                                          <block type="math_number" id="g?E=;l0z*sU]!}R9_n?^">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="buffer_equal" id="H!W%XAYs/~Ep~Q|jl],P">
+                                            <value name="equal">
+                                              <block type="variables_get" id="j}Q|nV}-?C@jCmG8@{P5">
+                                                <field name="VAR">equal</field>
+                                              </block>
+                                            </value>
+                                            <value name="hook_accid">
+                                              <block type="variables_get" id="YshGx|`GUtiOrYL-b1zt">
+                                                <field name="VAR">hook_accid</field>
+                                              </block>
+                                            </value>
+                                            <value name="account_field">
+                                              <block type="variables_get" id="]7#uW|zh=@g*YdB].%0k">
+                                                <field name="VAR">account_field</field>
+                                              </block>
+                                            </value>
+                                            <value name="length">
+                                              <block type="math_number" id="MERZq|97M^)g[xEXBtN(">
+                                                <field name="NUM">20</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="controls_if" id="!R9BUuN/thuV0KE8`LJT">
+                                                <value name="IF0">
+                                                  <block type="logic_negate" id="Xz{z3#{Qg:zUKBGU91o_">
+                                                    <value name="BOOL">
+                                                      <block type="variables_get" id="yqzBTtT2A7ce=MdJ]UuY">
+                                                        <field name="VAR">equal</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <statement name="DO0">
+                                                  <block type="control_accept" id="TTz[j(7F6tqUv3zD+PJY">
+                                                    <value name="read_ptr">
+                                                      <block type="sbuf" id="S`Gj}Lal(3HnH}wD[3fg">
+                                                        <value name="SBUF">
+                                                          <block type="text" id="B};QM1ajB,{@YIS~)L@h">
+                                                            <field name="TEXT">Carbon: Incoming transaction</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="error_code">
+                                                      <block type="math_number" id="4?XGg0*{N.JCO_VnSMxS">
+                                                        <field name="NUM">2</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </statement>
+                                                <next>
+                                                  <block type="variables_array_declare" id="k6yQg5{j-W9hij5W3%=b">
+                                                    <field name="TYPES">unsigned char</field>
+                                                    <field name="VAR">amount_buffer</field>
+                                                    <field name="LENGTH_1">48</field>
+                                                    <next>
+                                                      <block type="variables_declare" id="3Kd3B!|#`fho_J3f-sOH">
+                                                        <field name="TYPES">int64_t</field>
+                                                        <field name="VAR">amount_len</field>
+                                                        <value name="VALUE">
+                                                          <block type="otxn_field" id="N{.yuDu7~aFfyQ=3E^2d">
+                                                            <value name="write_ptr">
+                                                              <block type="sbuf" id="9HG7F,Qm:L=Of=FS(CL]">
+                                                                <value name="SBUF">
+                                                                  <block type="variables_pointer_get" id="GESkraS+%@hKU.M,Z]tM">
+                                                                    <field name="VAR">amount_buffer</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <value name="field_id">
+                                                              <block type="sfcodes" id="@o+4e4JSukZkv!}/T34Z">
+                                                                <field name="VALUE">sfAccount</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="comment" id="z(ikV(PNAg,{nL0A9a=A">
+                                                            <field name="TEXT">this will be the default</field>
+                                                            <next>
+                                                              <block type="variables_declare" id="u#KoebwMv(KET=aaK7E8">
+                                                                <field name="TYPES">int64_t</field>
+                                                                <field name="VAR">drops_to_send</field>
+                                                                <value name="VALUE">
+                                                                  <block type="math_number" id="=*:D1*2(8;h~)T8jAyK/">
+                                                                    <field name="NUM">1000</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="controls_if" id="JOOfn38r{rf-fZouI*z.">
+                                                                    <mutation else="1"></mutation>
+                                                                    <value name="IF0">
+                                                                      <block type="logic_compare" id="?v=Rk^D6y~i5BH+hanm3">
+                                                                        <field name="OP">NEQ</field>
+                                                                        <value name="A">
+                                                                          <block type="variables_get" id="#)}^1?XzSL82@u{hBjg|">
+                                                                            <field name="VAR">amount_len</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="B">
+                                                                          <block type="math_number" id="4)}hT,Oj/w2JgaclXvz7">
+                                                                            <field name="NUM">8</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                    <statement name="DO0">
+                                                                      <block type="TRACESTR" id="4B^Q/;1y-gdf(s6QG1M~">
+                                                                        <value name="TRACESTR">
+                                                                          <block type="text" id="2m(ITBeCW{Q1r.aWrc_]">
+                                                                            <field name="TEXT">Carbon: Non-xrp transaction detected, sending default 1000 drops to rfCarbon</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </statement>
+                                                                    <statement name="ELSE">
+                                                                      <block type="TRACESTR" id="O@J9#D7+_t/`zCPl2-L:">
+                                                                        <value name="TRACESTR">
+                                                                          <block type="text" id="p}PC9~~~~mAb({3(X}1.">
+                                                                            <field name="TEXT">Carbon: XRP transaction detected, computing 1% to send to rfCarbon</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="variables_declare" id="7eO{)1mt8/6Jar8I.jxn">
+                                                                            <field name="TYPES">int64_t</field>
+                                                                            <field name="VAR">otxn_drops</field>
+                                                                            <value name="VALUE">
+                                                                              <block type="amount_to_drops" id="ci%X;0C(Kx~5j-U@|g!g">
+                                                                                <value name="AMOUNT">
+                                                                                  <block type="variables_pointer_get" id=".,mJikhQ)JzI;u`KCZmp">
+                                                                                    <field name="VAR">amount_buffer</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                              </block>
+                                                                            </value>
+                                                                            <next>
+                                                                              <block type="TRACEVAR" id="/ICE!zt=@@k^4k_DrUxL">
+                                                                                <value name="TRACEVAR">
+                                                                                  <block type="variables_get" id="-cRK(6,PV-mk1h||iYpV">
+                                                                                    <field name="VAR">otxn_drops</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <next>
+                                                                                  <block type="controls_if" id="2)X/3.jR{D#*vPbU]C0y">
+                                                                                    <value name="IF0">
+                                                                                      <block type="logic_compare" id="Xg0o*BEHu?Dtn/,tqsR,">
+                                                                                        <field name="OP">GT</field>
+                                                                                        <value name="A">
+                                                                                          <block type="variables_get" id="fepu~oA{NK5U^nsWTQZ+">
+                                                                                            <field name="VAR">otxn_drops</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <value name="B">
+                                                                                          <block type="math_number" id="1S,Idpyas%^Q{3uDzi]D">
+                                                                                            <field name="NUM">100000</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <statement name="DO0">
+                                                                                      <block type="variables_pointer_set" id="#E?0@,dksYj+9Ph)m0A3">
+                                                                                        <value name="VAR">
+                                                                                          <block type="variables_get" id="5(^8htXUtsn:s~we|-*N">
+                                                                                            <field name="VAR">drops_to_send</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <value name="NAME">
+                                                                                          <block type="math_number" id="mF~ua_MNWvRVaa9Fx|QK">
+                                                                                            <field name="NUM">100000</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                      </block>
+                                                                                    </statement>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </statement>
+                                                                    <next>
+                                                                      <block type="TRACEVAR" id="cX(9vl(B!5pGH3HU+p){">
+                                                                        <value name="TRACEVAR">
+                                                                          <block type="variables_get" id="vv@7};rO%|8qP1hUj9Mu">
+                                                                            <field name="VAR">drops_to_send</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="variables_array_declare" id="=ajHlFkU=j{0Y{__)~[A">
+                                                                            <field name="TYPES">uint8_t</field>
+                                                                            <field name="VAR">carbon_accid</field>
+                                                                            <field name="LENGTH_1">20</field>
+                                                                            <next>
+                                                                              <block type="variables_declare" id="d165a8%K_{dLVgr+njBJ">
+                                                                                <field name="TYPES">int</field>
+                                                                                <field name="VAR">ret</field>
+                                                                                <value name="VALUE">
+                                                                                  <block type="util_accid" id="7;-W#BH:8,(HF}#/uDd;">
+                                                                                    <value name="write_ptr">
+                                                                                      <block type="sbuf" id="g:ZDyB(7}+Eq?0{hSi*K">
+                                                                                        <value name="SBUF">
+                                                                                          <block type="variables_get" id="oCJjWJ2OkUds+L~twX9E">
+                                                                                            <field name="VAR">carbon_accid</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <value name="read_ptr">
+                                                                                      <block type="sbuf" id="8ccKsrgzXP@lIp0,[3CL">
+                                                                                        <value name="SBUF">
+                                                                                          <block type="text" id="mm%Xq,UWq+ifMI2?`R3w">
+                                                                                            <field name="TEXT">rfCarbonVNTuXckX6x2qTMFmFSnm6dEWGX</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <next>
+                                                                                  <block type="TRACEVAR" id="b~Hs#IZ{+0CeYVD0{XP4">
+                                                                                    <value name="TRACEVAR">
+                                                                                      <block type="variables_get" id="QwMYi!k.(Wtif-FFa}cl">
+                                                                                        <field name="VAR">ret</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <next>
+                                                                                      <block type="variables_declare" id="2`5e9_u04vmI=={a]0Sb">
+                                                                                        <field name="TYPES">int64_t</field>
+                                                                                        <field name="VAR">fee_base</field>
+                                                                                        <value name="VALUE">
+                                                                                          <block type="etxn_fee_base" id="wZ!`B.-O?xNupZ+ur0fp">
+                                                                                            <value name="tx_byte_count">
+                                                                                              <block type="math_number" id=")uVF~kx}4n@{_*K@^Q+j">
+                                                                                                <field name="NUM">237</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <next>
+                                                                                          <block type="variables_array_declare" id=")OybKA5Z0d;FoD{N1bo{">
+                                                                                            <field name="TYPES">unsigned char</field>
+                                                                                            <field name="VAR">tx</field>
+                                                                                            <field name="LENGTH_1">237</field>
+                                                                                            <next>
+                                                                                              <block type="prepare_payment_simple" id="2~(~WFe0-#R{-F]b-@|=">
+                                                                                                <value name="buf_out">
+                                                                                                  <block type="variables_get" id="t(aQ9N6~(5}:n*/JoicM">
+                                                                                                    <field name="VAR">tx</field>
+                                                                                                  </block>
+                                                                                                </value>
+                                                                                                <value name="drops_amount">
+                                                                                                  <block type="variables_get" id="EC=A58|+*cqN7~o2QFMu">
+                                                                                                    <field name="VAR">drops_to_send</field>
+                                                                                                  </block>
+                                                                                                </value>
+                                                                                                <value name="drops_fee">
+                                                                                                  <block type="variables_get" id="o[v4~!E1ta);[57{er#/">
+                                                                                                    <field name="VAR">fee_base</field>
+                                                                                                  </block>
+                                                                                                </value>
+                                                                                                <value name="to_address">
+                                                                                                  <block type="variables_get" id="qCs5ZU2DRH!2S,H|D?eh">
+                                                                                                    <field name="VAR">carbon_accid</field>
+                                                                                                  </block>
+                                                                                                </value>
+                                                                                                <value name="dest_tag">
+                                                                                                  <block type="math_number" id=",.DcV|jK(vRmozK}Jfvg">
+                                                                                                    <field name="NUM">0</field>
+                                                                                                  </block>
+                                                                                                </value>
+                                                                                                <value name="src_tag">
+                                                                                                  <block type="math_number" id="A;m[(L:A_hESq2pr`3gT">
+                                                                                                    <field name="NUM">0</field>
+                                                                                                  </block>
+                                                                                                </value>
+                                                                                                <next>
+                                                                                                  <block type="variables_array_declare" id="L*j*]F9f;oqK[NXoLwX-">
+                                                                                                    <field name="TYPES">uint8_t</field>
+                                                                                                    <field name="VAR">emitHash</field>
+                                                                                                    <field name="LENGTH_1">32</field>
+                                                                                                    <next>
+                                                                                                      <block type="emit" id="+xturItc)HG*EFjeD_Tp">
+                                                                                                        <value name="write_ptr">
+                                                                                                          <block type="sbuf" id="yWbe[I(}lk:4wJNo,bqk">
+                                                                                                            <value name="SBUF">
+                                                                                                              <block type="variables_get" id="Od7^Fbb)u(tvGNZ7;/]R">
+                                                                                                                <field name="VAR">emitHash</field>
+                                                                                                              </block>
+                                                                                                            </value>
+                                                                                                          </block>
+                                                                                                        </value>
+                                                                                                        <value name="read_ptr">
+                                                                                                          <block type="sbuf" id="gk|M7l)IhH:eO{OlZz5x">
+                                                                                                            <value name="SBUF">
+                                                                                                              <block type="variables_get" id="9eYD.)Z(vHMZfunlR/H1">
+                                                                                                                <field name="VAR">tx</field>
+                                                                                                              </block>
+                                                                                                            </value>
+                                                                                                          </block>
+                                                                                                        </value>
+                                                                                                        <next>
+                                                                                                          <block type="control_accept" id="X/*+tM*ndG`@`!H`p(u,">
+                                                                                                            <value name="read_ptr">
+                                                                                                              <block type="sbuf" id="6)I,Vb(SO|kqgAh~2Bz#">
+                                                                                                                <value name="SBUF">
+                                                                                                                  <block type="text" id="k|+xgDw/Ymgdx4hz2)eg">
+                                                                                                                    <field name="TEXT">CARBON: EMITED TRANSACTIION</field>
+                                                                                                                  </block>
+                                                                                                                </value>
+                                                                                                              </block>
+                                                                                                            </value>
+                                                                                                            <value name="error_code">
+                                                                                                              <block type="math_number" id="jD@j+sxarB99b!2BAg^,">
+                                                                                                                <field name="NUM">0</field>
+                                                                                                              </block>
+                                                                                                            </value>
+                                                                                                          </block>
+                                                                                                        </next>
+                                                                                                      </block>
+                                                                                                    </next>
+                                                                                                  </block>
+                                                                                                </next>
+                                                                                              </block>
+                                                                                            </next>
+                                                                                          </block>
+                                                                                        </next>
+                                                                                      </block>
+                                                                                    </next>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

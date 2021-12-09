@@ -1,0 +1,4 @@
+
+sudo docker exec -it 17d35010e287 bash
+tail -f log | grep -a rGZfSDWpvyiko5i4v8TwLTpnEzAbVeYszV
+https://www.jq22.com/demo/Materialize201705231801/css-color.html

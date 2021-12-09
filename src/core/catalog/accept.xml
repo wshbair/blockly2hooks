@@ -1,0 +1,45 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="hook_template" id="3#*2D)}ZXbRdnSaC5Ci@" x="9" y="3">
+    <statement name="LOOP_FUNC">
+      <block type="TRACESTR" id="@Y%R18gvYQ6|SH-hBcdW">
+        <value name="TRACESTR">
+          <block type="text" id="dMZfWQI[#4;2MB#6Eu}Z">
+            <field name="TEXT">Accept.c: Called.</field>
+          </block>
+        </value>
+        <next>
+          <block type="control_accept" id="[=Xnn-h=dHusJG~g+8ry">
+            <value name="read_ptr">
+              <block type="sbuf" id="]xuE+B,jDgdWla-CCg5T">
+                <value name="SBUF">
+                  <block type="text" id="[4Xkk;dHasl@FEw8}ty=">
+                    <field name="TEXT">Accepted!</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="error_code">
+              <block type="math_number" id="SyWtG/ijnhM,`QDjMB9*">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="_g_function" id="%sy5aF+,yS/wsT{DUgA4">
+                <value name="arg1">
+                  <block type="math_number" id="G[f+Y:Sji)KLNA7Bqbn:">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="arg2">
+                  <block type="math_number" id="/WOgN4/7#,0#ZH]I6fyC">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
