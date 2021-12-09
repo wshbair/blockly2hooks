@@ -1,4 +1,4 @@
-# Blockly2Hooks  
+# Blockly2Hooks - Beta version 
 
 ## Features
 * Generates XRPL Hook code with visual drag-and-drop blocks
@@ -27,6 +27,7 @@ Note: no need to install the moudles, since it has been already inegrated.
 
 Open the browser using [http://localhost:3000/](http://localhost:3000/)
 
+![Blockly2Hook]( blockly2hook_shot.png)
 
 
 ### Credits
