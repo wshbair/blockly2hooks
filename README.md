@@ -1,15 +1,7 @@
-# Blockly2Hooks - Beta version 
-
-## Features
-* Generates XRPL Hook code with visual drag-and-drop blocks
-* Compile the genrate c code in to WASM form
-* Deploy the complied Hook to XRPL Hook testnet network
-* Works on Windows / Linux / Mac OS X
-
-
-## Getting Started with Blockly2Hooks
-
-Blockly has many resources for learning how to use the library. Start at our [Google Developers Site](https://developers.google.com/blockly) to read the documentation on how to get started, configure Blockly, and integrate it into your application. The developers site also contains links to:
+# Blockly2Hooks (Beta version)
+ A platform for developing visually XRPL hooks smart contract using Blockly. We have integrated many features such as generating XRPL Hook code with visual drag-and-drop blocks, compile the genrate c code in to WASM form. Also, we have inegrated the deploymnet function so user can deploy the complied Hook to XRPL Hook testnet network.
+ 
+ We build our the hooks block based on the offical documentation of the XRPL Hook [https://xrpl-hooks.readme.io/](https://xrpl-hooks.readme.io/)
 
 ### Getting Started 
 
@@ -29,9 +21,14 @@ Open the browser using [http://localhost:3000/](http://localhost:3000/)
 
 ![Blockly2Hook]( blockly2hook_shot.png)
 
+### XRPL Hooks Examples
+The plaftom has been integrated with some hooks for testing. More example can be found on [https://github.com/XRPL-Labs/xrpld-hooks/tree/hooks-ssvm/hook-api-examples](https://github.com/XRPL-Labs/xrpld-hooks/tree/hooks-ssvm/hook-api-examples)
 
 ### Credits
-This project has been inspired and built using  by [Ardublockly][1].
+This project has been inspired and built using by [Ardublockly][1], we have modified, extend and adapt it to fit the XRPL Hooks development. 
+
+### Funds
+This project has been funded by the XRPL grant program 2021 [https://xrplgrants.org/grantees](https://xrplgrants.org/grantees)
 
 
 [1]: https://github.com/carlosperate/ardublockly
