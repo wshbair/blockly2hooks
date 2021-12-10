@@ -23,18 +23,7 @@ app.use(express.static(__dirname+'/core/catalog'))
 //------------------------------------------------------------------------------
 //const api = new RippleAPI({server: 'ws://localhost:6006'});
 const api = new RippleAPI({server: 'wss://hooks-testnet.xrpl-labs.com'});
-
 const secret  = "shGfbDdPJ1Qim3MSAizyRdZK4NSFQ";     //hook account secret (this account will receive money from /test)
-//const address = keypairs.deriveAddress(keypairs.deriveKeypair(secret).publicKey) //hook account address (this account will receive money from /test)
-//console.log("Hook address: " + address);
-
-//for /test route
-// const sender_secret  = "snYybavZsffNL3xr2vGjK8ULmocyL"     // address: r4aSwkyLSeb2Qypy62Uf4An5ywgvS33qc8
-// const sender_address = keypairs.deriveAddress(keypairs.deriveKeypair(sender_secret).publicKey)
-// const amount = BigInt(10) * 1000000n
-// console.log("Test sender address: " + sender_address);
-// console.log("Test amount to send: " + amount + "drops");
-
 
 //------------------------------------------------------------------------------
 // Create SetHook Transaction 
@@ -126,8 +115,4 @@ app.listen(port, () => {
   console.log(`Blockly2Hook Server`)
   console.log("***********************************")  
   console.log("> Path : " + `http://localhost:${port}`)
-
 })
-
-
-
