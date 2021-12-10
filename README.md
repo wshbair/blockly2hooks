@@ -1,6 +1,8 @@
 ![logo](logo.svg)
-# Blockly2Hooks (Beta version)
-A platform for developing visually XRPL hooks smart contract using Blockly. We have integrated many features such as generating XRPL Hook C code with visual drag-and-drop blocks and compiling hook code into WASM. Also, we have integrated the deployment to the XRPL Hook testnet network.
+### Blockly2Hooks
+A platform for developing visually XRPL hooks smart contract using [Blockly][2] from Google. 
+The paltform helps users to develop XRPL Hook using visual drag-and-drop blocks. Also it compiles the hook code into WASM format.
+We have integrated also the deployment function to the XRPL Hook testnet network.
 
 We build our the hooks block based on the official documentation of the XRPL Hook [https://xrpl-hooks.readme.io/](https://xrpl-hooks.readme.io/)
 
@@ -34,4 +36,5 @@ This project has been funded by the XRPL grant program 2021
 
 
 [1]: https://github.com/carlosperate/ardublockly
+[2]: https://developers.google.com/blockly 
  
