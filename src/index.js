@@ -37,7 +37,7 @@ app.post('/hook/create/sethook_tx', (req, res) => {
 
     // SetHook transaction preparation 
     let tx = { Account: walletAddress, TransactionType: "SetHook", CreateCode: binary, HookOn: '0000000000000000'}
-    console.log(">> Request to create SetHook")
+    console.log(">> Create SetHook Transaction")
     // Connent to Ripple API 
     api.connect().then(() => {
         api.prepareTransaction(tx).then((result)=>{
@@ -46,14 +46,13 @@ app.post('/hook/create/sethook_tx', (req, res) => {
         })
     });
     api.on('error', (errorCode, errorMessage) => { res.json({errorCode : errorMessage})});
-
 })
 
 //------------------------------------------------------------------------------
 // Sign and Publish the SetHook Transaction 
 //------------------------------------------------------------------------------
 app.post('/hook/sign/publish',(req,res) =>{
-    console.log(">> Request to sign and publish SetHook")
+    console.log(">>Sign and publish SetHook request")
     //Get the SetHook transaction 
     const setHookTxJson = JSON.parse(req.body.setHookTx)
     // Connent to Ripple API 
@@ -65,7 +64,6 @@ app.post('/hook/sign/publish',(req,res) =>{
         }).catch ( e=> { console.log(e) });
     });
     api.on('error', (errorCode, errorMessage) => { res.json({errorCode : errorMessage})});
-
 })
 
 //------------------------------------------------------------------------------
