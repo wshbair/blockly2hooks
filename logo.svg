@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg18279"
+   inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
+   sodipodi:docname="logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview18281"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.63517817"
+     inkscape:cx="397.52626"
+     inkscape:cy="561.25984"
+     inkscape:window-width="1680"
+     inkscape:window-height="935"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs18276" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path906"
+       d="m 47.046314,5.5555291 c -1.774566,-0.00146 -3.213669,1.4376397 -3.212206,3.212207 V 36.474573 c -0.0016,1.774568 1.43764,3.213669 3.212206,3.212206 h 1.250571 c 0.616696,2.31294 2.710855,3.922672 5.104598,3.923792 2.392204,-0.003 4.484164,-1.612337 5.100463,-3.923792 h 1.28106 39.615152 c 1.169002,0 2.320402,-0.965555 2.116662,-2.116667 V 7.6721958 L 99.398158,5.5555291 Z"
+       style="fill:#43cde6;fill-opacity:1;stroke-width:0.264583"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccssccc"
+       inkscape:export-filename="/Users/wazenshbair/SnT/Scratch2Hook/path906.png"
+       inkscape:export-xdpi="75.110001"
+       inkscape:export-ydpi="75.110001" />
+    <path
+       id="path906-9"
+       d="m 142.06729,39.673555 c 1.77457,0.0013 3.21367,-1.43764 3.21221,-3.212208 V 8.7545117 c 0.002,-1.7745683 -1.43764,-3.2136688 -3.21221,-3.2122054 -9.16734,0.01319 -9.25155,0 -12.73669,0 H 95.007114 c 0.288452,4.8847597 0.288452,30.0201767 0,34.1312487 z"
+       style="fill:#4285f4;stroke-width:0.264583"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccc"
+       inkscape:export-filename="/Users/wazenshbair/SnT/Scratch2Hook/path906.png"
+       inkscape:export-xdpi="75.110001"
+       inkscape:export-ydpi="75.110001" />
+    <text
+       xml:space="preserve"
+       style="font-size:14.1111px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="47.269474"
+       y="27.210314"
+       id="text1918"
+       inkscape:export-filename="/Users/wazenshbair/SnT/Scratch2Hook/path906.png"
+       inkscape:export-xdpi="75.110001"
+       inkscape:export-ydpi="75.110001"><tspan
+         sodipodi:role="line"
+         id="tspan1916"
+         x="47.269474"
+         y="27.210314"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1111px;font-family:'DIN Alternate';-inkscape-font-specification:'DIN Alternate';fill:#ffffff;stroke-width:0.264583">Blockly</tspan></text>
+    <path
+       sodipodi:nodetypes="ccccccc"
+       inkscape:connector-curvature="0"
+       id="path908"
+       d="m 96.750774,19.607385 -4.400248,-2.48667 c -0.634302,-0.357915 -1.419292,0.09954 -1.420585,0.827856 v 10.747665 c 0.0013,0.72831 0.786286,1.18577 1.420585,0.827855 l 4.400248,-2.487187 c 5.423956,-2.851504 2.778125,-8.143171 0,-7.429519 z"
+       style="fill:#4285f4;fill-opacity:1;stroke-width:0.264583"
+       inkscape:export-filename="/Users/wazenshbair/SnT/Scratch2Hook/path906.png"
+       inkscape:export-xdpi="75.110001"
+       inkscape:export-ydpi="75.110001" />
+    <text
+       xml:space="preserve"
+       style="font-size:14.1111px;line-height:1.25;font-family:sans-serif;word-spacing:0px;fill:#ffffff;stroke-width:0.264583"
+       x="97.537933"
+       y="27.440134"
+       id="text5393"
+       inkscape:export-filename="/Users/wazenshbair/SnT/Scratch2Hook/path906.png"
+       inkscape:export-xdpi="75.110001"
+       inkscape:export-ydpi="75.110001"><tspan
+         sodipodi:role="line"
+         id="tspan5391"
+         x="97.537933"
+         y="27.440134"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1111px;font-family:'DIN Alternate';-inkscape-font-specification:'DIN Alternate';fill:#ffffff;stroke-width:0.264583">HOOKS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="129.16223"
+       y="15.718733"
+       id="text14418"
+       inkscape:export-filename="/Users/wazenshbair/SnT/Scratch2Hook/path906.png"
+       inkscape:export-xdpi="75.110001"
+       inkscape:export-ydpi="75.110001"><tspan
+         sodipodi:role="line"
+         id="tspan14416"
+         x="129.16223"
+         y="15.718733"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.9389px;font-family:'DIN Alternate';-inkscape-font-specification:'DIN Alternate';fill:#ffffff;stroke-width:0.264583">XRPL</tspan></text>
+  </g>
+</svg>
