@@ -1,0 +1,26 @@
+{
+  "name": "blockly2hook",
+  "version": "0.0.1",
+  "description": "blockly2hook",
+  "license": "MIT",
+  "repository": "",
+  "author": "Wazen Shbair",
+  "keywords": [
+    ""
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "start": "node src/index.js"
+    },
+  "devDependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "ripple-lib": "^1.10.0"
+  }
+  
+}
