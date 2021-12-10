@@ -4,60 +4,16 @@
 <meta charset="utf-8">
 <title>Blockly Playground</title>
 <script src="../blockly_uncompressed.js"></script>
-<script src="../generators/arduino.js"></script>
-<script src="../generators/arduino/logic.js"></script>
-<script src="../generators/arduino/loops.js"></script>
-<script src="../generators/arduino/math.js"></script>
-<script src="../generators/arduino/text.js"></script>
-<script src="../generators/arduino/lists.js"></script>
-<script src="../generators/arduino/colour.js"></script>
-<script src="../generators/arduino/variables.js"></script>
-<script src="../generators/arduino/procedures.js"></script>
-<script src="../generators/javascript.js"></script>
-<script src="../generators/javascript/logic.js"></script>
-<script src="../generators/javascript/loops.js"></script>
-<script src="../generators/javascript/math.js"></script>
-<script src="../generators/javascript/text.js"></script>
-<script src="../generators/javascript/lists.js"></script>
-<script src="../generators/javascript/colour.js"></script>
-<script src="../generators/javascript/variables.js"></script>
-<script src="../generators/javascript/procedures.js"></script>
-<script src="../generators/python.js"></script>
-<script src="../generators/python/logic.js"></script>
-<script src="../generators/python/loops.js"></script>
-<script src="../generators/python/math.js"></script>
-<script src="../generators/python/text.js"></script>
-<script src="../generators/python/lists.js"></script>
-<script src="../generators/python/colour.js"></script>
-<script src="../generators/python/variables.js"></script>
-<script src="../generators/python/procedures.js"></script>
-<script src="../generators/php.js"></script>
-<script src="../generators/php/logic.js"></script>
-<script src="../generators/php/loops.js"></script>
-<script src="../generators/php/math.js"></script>
-<script src="../generators/php/text.js"></script>
-<script src="../generators/php/lists.js"></script>
-<script src="../generators/php/colour.js"></script>
-<script src="../generators/php/variables.js"></script>
-<script src="../generators/php/procedures.js"></script>
-<script src="../generators/lua.js"></script>
-<script src="../generators/lua/logic.js"></script>
-<script src="../generators/lua/loops.js"></script>
-<script src="../generators/lua/math.js"></script>
-<script src="../generators/lua/text.js"></script>
-<script src="../generators/lua/lists.js"></script>
-<script src="../generators/lua/colour.js"></script>
-<script src="../generators/lua/variables.js"></script>
-<script src="../generators/lua/procedures.js"></script>
-<script src="../generators/dart.js"></script>
-<script src="../generators/dart/logic.js"></script>
-<script src="../generators/dart/loops.js"></script>
-<script src="../generators/dart/math.js"></script>
-<script src="../generators/dart/text.js"></script>
-<script src="../generators/dart/lists.js"></script>
-<script src="../generators/dart/colour.js"></script>
-<script src="../generators/dart/variables.js"></script>
-<script src="../generators/dart/procedures.js"></script>
+<script src="../generators/xrplhook.js"></script>
+<script src="../generators/xrplhook/logic.js"></script>
+<script src="../generators/xrplhook/loops.js"></script>
+<script src="../generators/xrplhook/math.js"></script>
+<script src="../generators/xrplhook/text.js"></script>
+<script src="../generators/xrplhook/lists.js"></script>
+<script src="../generators/xrplhook/colour.js"></script>
+<script src="../generators/xrplhook/variables.js"></script>
+<script src="../generators/xrplhook/procedures.js"></script>
+ 
 <script src="../msg/messages.js"></script>
 <script src="../blocks/logic.js"></script>
 <script src="../blocks/loops.js"></script>
@@ -582,17 +538,8 @@ h1 {
     &nbsp;
     <input type="button" value="Import from XML" onclick="fromXml()" id="import">
     <br>
-    <input type="button" value="To Arduino" onclick="toCode('Arduino')">
+    <input type="button" value="To xrplhook" onclick="toCode('xrplhook')">
     &nbsp;
-    <input type="button" value="To JavaScript" onclick="toCode('JavaScript')">
-    &nbsp;
-    <input type="button" value="To Python" onclick="toCode('Python')">
-    &nbsp;
-    <input type="button" value="To PHP" onclick="toCode('PHP')">
-    &nbsp;
-    <input type="button" value="To Lua" onclick="toCode('Lua')">
-    &nbsp;
-    <input type="button" value="To Dart" onclick="toCode('Dart')">
     <br>
     <textarea id="importExport" style="width: 26%; height: 12em"
       onchange="taChange();" onkeyup="taChange()"></textarea>

@@ -147,7 +147,7 @@ Blockly2hookServer.jsonToHtmlDropdown = function(jsonObj) {
 };
 
 /**
- * Sends a string to the Blockly2hook Server for a the Arduino sketch folder.
+ * Sends a string to the Blockly2hook Server for a the xrplhook sketch folder.
  * @param {!string} new_path New Sketch location path..
  * @param {!function} callback Callback function for the server request, must
  *     have one argument to receive the JSON response.
@@ -187,7 +187,7 @@ Blockly2hookServer.setIdeOptions = function(ide_option, callback) {
 
 /**
  * Sends the Hook code to the remote compiler
- * @param {!string} code Arduino code in a single string format.
+ * @param {!string} code xrplhook code in a single string format.
  * @param {!function} callback Callback function for the server request, must
  *     have one argument to receive the JSON response.
  */

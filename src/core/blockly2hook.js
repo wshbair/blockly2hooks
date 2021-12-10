@@ -321,7 +321,7 @@ Blockly2hook.saveXmlFile = function() {
 };
 
 /**
- * Creates an Arduino Sketch file containing the Arduino code generated from
+ * Creates an xrplhook Sketch file containing the xrplhook code generated from
  * the Blockly workspace and prompts the users to save it into their local file
  * system.
  */
@@ -373,7 +373,7 @@ Blockly2hook.setCompilerLocationHtml = function(newEl) {
   var compLocIp = document.getElementById('settings_compiler_location');
   if (compLocIp != null) {
     compLocIp.value = newEl.value || compLocIp.value ||
-        'Please enter the location of the Arduino IDE executable';
+        'Please enter the location of the xrplhook IDE executable';
     compLocIp.style.cssText = newEl.style.cssText;
   }
 };
@@ -389,7 +389,7 @@ Blockly2hook.setSketchLocationHtml = function(newEl) {
   var sketchLocIp = document.getElementById('settings_sketch_location');
   if (sketchLocIp != null) {
     sketchLocIp.value = newEl.value || sketchLocIp.value ||
-        'Please enter a folder to store the Arduino Sketch';
+        'Please enter a folder to store the xrplhook Sketch';
     sketchLocIp.style.cssText = newEl.style.cssText;
   }
 };
@@ -455,7 +455,7 @@ Blockly2hook.sendCode = function() {
    */
   var sendCodeReturn = function(jsonObj, error) {
     Blockly2hook.largeIdeButtonSpinner(false);
-    Blockly2hook.arduinoIdeOutput(jsonObj);
+    Blockly2hook.xrplhookIdeOutput(jsonObj);
     if(!error)
     {
       document.getElementById("button_deploy").classList.remove("disabled")
@@ -490,7 +490,7 @@ Blockly2hook.XmlTextareaToBlocks = function() {
  * @type {!String}
  * @private
  */
-Blockly2hook.PREV_ARDUINO_CODE_ = 'int64_t cbak(int64_t reserved) {\n\n return 0;}\n\n\n int64_t hook(int64_t reserved) {\n\n return 0;}';
+Blockly2hook.PREV_xrplhook_CODE_ = 'int64_t cbak(int64_t reserved) {\n\n return 0;}\n\n\n int64_t hook(int64_t reserved) {\n\n return 0;}';
 
 /**
  * Populate the Hook Code and Blocks XML panels with content generated from
@@ -499,8 +499,8 @@ Blockly2hook.PREV_ARDUINO_CODE_ = 'int64_t cbak(int64_t reserved) {\n\n return 0
 Blockly2hook.renderContent = function() {
   // Render Hook Code with latest change highlight and syntax highlighting
   var hookCode = Blockly2hook.generateHookCode();
-  if (hookCode !== Blockly2hook.PREV_ARDUINO_CODE_) {
-    var diff = JsDiff.diffWords(Blockly2hook.PREV_ARDUINO_CODE_, hookCode);
+  if (hookCode !== Blockly2hook.PREV_xrplhook_CODE_) {
+    var diff = JsDiff.diffWords(Blockly2hook.PREV_xrplhook_CODE_, hookCode);
     var resultStringArray = [];
     for (var i = 0; i < diff.length; i++) {
       if (!diff[i].removed) {
@@ -517,7 +517,7 @@ Blockly2hook.renderContent = function() {
     document.getElementById('content_hook').innerHTML =
         prettyPrintOne(resultStringArray.join(''), 'cpp', false);
         
-    Blockly2hook.PREV_ARDUINO_CODE_ = hookCode;
+    Blockly2hook.PREV_xrplhook_CODE_ = hookCode;
   }
 
   // Generate plain XML into element

@@ -4,35 +4,35 @@
  */
 
 /**
- * @fileoverview Generating Arduino code for the logic blocks.
+ * @fileoverview Generating xrplhook code for the logic blocks.
  */
 'use strict';
 
-goog.provide('Blockly.Arduino.logic');
+goog.provide('Blockly.xrplhook.logic');
 
-goog.require('Blockly.Arduino');
+goog.require('Blockly.xrplhook');
 
 
 /**
  * Code generator to create if/if else/else statement.
- * Arduino code: loop { if (X)/else if ()/else { X } }
+ * xrplhook code: loop { if (X)/else if ()/else { X } }
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {string} Completed code.
  */
-Blockly.Arduino['controls_if'] = function(block) {
+Blockly.xrplhook['controls_if'] = function(block) {
   var n = 0;
-  var argument = Blockly.Arduino.valueToCode(block, 'IF' + n,
-      Blockly.Arduino.ORDER_NONE) || 'false';
-  var branch = Blockly.Arduino.statementToCode(block, 'DO' + n);
+  var argument = Blockly.xrplhook.valueToCode(block, 'IF' + n,
+      Blockly.xrplhook.ORDER_NONE) || 'false';
+  var branch = Blockly.xrplhook.statementToCode(block, 'DO' + n);
   var code = 'if (' + argument + ') {\n' + branch + '}';
   for (n = 1; n <= block.elseifCount_; n++) {
-    argument = Blockly.Arduino.valueToCode(block, 'IF' + n,
-        Blockly.Arduino.ORDER_NONE) || 'false';
-    branch = Blockly.Arduino.statementToCode(block, 'DO' + n);
+    argument = Blockly.xrplhook.valueToCode(block, 'IF' + n,
+        Blockly.xrplhook.ORDER_NONE) || 'false';
+    branch = Blockly.xrplhook.statementToCode(block, 'DO' + n);
     code += ' else if (' + argument + ') {\n' + branch + '}';
   }
   if (block.elseCount_) {
-    branch = Blockly.Arduino.statementToCode(block, 'ELSE');
+    branch = Blockly.xrplhook.statementToCode(block, 'ELSE');
     code += ' else {\n' + branch + '}';
   }
   return code + '\n';
@@ -40,11 +40,11 @@ Blockly.Arduino['controls_if'] = function(block) {
 
 /**
  * Code generator for the comparison operator block.
- * Arduino code: loop { X operator Y }
+ * xrplhook code: loop { X operator Y }
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {array} Completed code with order of operation.
  */
-Blockly.Arduino['logic_compare'] = function(block) {
+Blockly.xrplhook['logic_compare'] = function(block) {
   var OPERATORS = {
     'EQ': '==',
     'NEQ': '!=',
@@ -55,25 +55,25 @@ Blockly.Arduino['logic_compare'] = function(block) {
   };
   var operator = OPERATORS[block.getFieldValue('OP')];
   var order = (operator == '==' || operator == '!=') ?
-      Blockly.Arduino.ORDER_EQUALITY : Blockly.Arduino.ORDER_RELATIONAL;
-  var argument0 = Blockly.Arduino.valueToCode(block, 'A', order) || '0';
-  var argument1 = Blockly.Arduino.valueToCode(block, 'B', order) || '0';
+      Blockly.xrplhook.ORDER_EQUALITY : Blockly.xrplhook.ORDER_RELATIONAL;
+  var argument0 = Blockly.xrplhook.valueToCode(block, 'A', order) || '0';
+  var argument1 = Blockly.xrplhook.valueToCode(block, 'B', order) || '0';
   var code = argument0 + ' ' + operator + ' ' + argument1;
   return [code, order];
 };
 
 /**
  * Code generator for the logic operator block.
- * Arduino code: loop { X operator Y }
+ * xrplhook code: loop { X operator Y }
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {array} Completed code with order of operation.
  */
-Blockly.Arduino['logic_operation'] = function(block) {
+Blockly.xrplhook['logic_operation'] = function(block) {
   var operator = (block.getFieldValue('OP') == 'AND') ? '&&' : '||';
-  var order = (operator == '&&') ? Blockly.Arduino.ORDER_LOGICAL_AND :
-      Blockly.Arduino.ORDER_LOGICAL_OR;
-  var argument0 = Blockly.Arduino.valueToCode(block, 'A', order) || 'false';
-  var argument1 = Blockly.Arduino.valueToCode(block, 'B', order) || 'false';
+  var order = (operator == '&&') ? Blockly.xrplhook.ORDER_LOGICAL_AND :
+      Blockly.xrplhook.ORDER_LOGICAL_OR;
+  var argument0 = Blockly.xrplhook.valueToCode(block, 'A', order) || 'false';
+  var argument1 = Blockly.xrplhook.valueToCode(block, 'B', order) || 'false';
   if (!argument0 && !argument1) {
     // If there are no arguments, then the return value is false.
     argument0 = 'false';
@@ -94,55 +94,55 @@ Blockly.Arduino['logic_operation'] = function(block) {
 
 /**
  * Code generator for the logic negate operator.
- * Arduino code: loop { !X }
+ * xrplhook code: loop { !X }
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {array} Completed code with order of operation.
  */
-Blockly.Arduino['logic_negate'] = function(block) {
-  var order = Blockly.Arduino.ORDER_UNARY_PREFIX;
-  var argument0 = Blockly.Arduino.valueToCode(block, 'BOOL', order) || 'false';
+Blockly.xrplhook['logic_negate'] = function(block) {
+  var order = Blockly.xrplhook.ORDER_UNARY_PREFIX;
+  var argument0 = Blockly.xrplhook.valueToCode(block, 'BOOL', order) || 'false';
   var code = '!' + argument0;
   return [code, order];
 };
 
 /**
  * Code generator for the boolean values true and false.
- * Arduino code: loop { true/false }
+ * xrplhook code: loop { true/false }
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {array} Completed code with order of operation.
  */
-Blockly.Arduino['logic_boolean'] = function(block) {
+Blockly.xrplhook['logic_boolean'] = function(block) {
   var code = (block.getFieldValue('BOOL') == 'TRUE') ? 'true' : 'false';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
+  return [code, Blockly.xrplhook.ORDER_ATOMIC];
 };
 
 /**
  * Code generator for the null value.
- * Arduino code: loop { X ? Y : Z }
+ * xrplhook code: loop { X ? Y : Z }
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {array} Completed code with order of operation.
  */
-Blockly.Arduino['logic_null'] = function(block) {
+Blockly.xrplhook['logic_null'] = function(block) {
   var code = 'NULL';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
+  return [code, Blockly.xrplhook.ORDER_ATOMIC];
 };
 
 /**
  * Code generator for the ternary operator.
- * Arduino code: loop { NULL }
+ * xrplhook code: loop { NULL }
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {array} Completed code with order of operation.
  *
  * TODO: Check types of THEN and ELSE blocks and add warning to this block if
  *       they are different from each other.
  */
-Blockly.Arduino['logic_ternary'] = function(block) {
-  var valueIf = Blockly.Arduino.valueToCode(block, 'IF',
-      Blockly.Arduino.ORDER_CONDITIONAL) || 'false';
-  var valueThen = Blockly.Arduino.valueToCode(block, 'THEN',
-      Blockly.Arduino.ORDER_CONDITIONAL) || 'null';
-  var valueElse = Blockly.Arduino.valueToCode(block, 'ELSE',
-      Blockly.Arduino.ORDER_CONDITIONAL) || 'null';
+Blockly.xrplhook['logic_ternary'] = function(block) {
+  var valueIf = Blockly.xrplhook.valueToCode(block, 'IF',
+      Blockly.xrplhook.ORDER_CONDITIONAL) || 'false';
+  var valueThen = Blockly.xrplhook.valueToCode(block, 'THEN',
+      Blockly.xrplhook.ORDER_CONDITIONAL) || 'null';
+  var valueElse = Blockly.xrplhook.valueToCode(block, 'ELSE',
+      Blockly.xrplhook.ORDER_CONDITIONAL) || 'null';
   var code = valueIf + ' ? ' + valueThen + ' : ' + valueElse;
-  return [code, Blockly.Arduino.ORDER_CONDITIONAL];
+  return [code, Blockly.xrplhook.ORDER_CONDITIONAL];
 };

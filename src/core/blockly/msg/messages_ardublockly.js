@@ -35,30 +35,30 @@ goog.require('Blockly.Msg');
 /**
  * Blockly2hook Types
  */
-/// Arduino Types - Character C type char
+/// xrplhook Types - Character C type char
 Blockly.Msg.ARD_TYPE_CHAR = 'Character';
-/// Arduino Types - Text C type String
+/// xrplhook Types - Text C type String
 Blockly.Msg.ARD_TYPE_TEXT = 'Text';
-/// Arduino Types - Boolean type
+/// xrplhook Types - Boolean type
 Blockly.Msg.ARD_TYPE_BOOL = 'Boolean';
-/// Arduino Types - Short number C type char
+/// xrplhook Types - Short number C type char
 Blockly.Msg.ARD_TYPE_SHORT = 'Short Number';
-/// Arduino Types - Number C type integer
+/// xrplhook Types - Number C type integer
 Blockly.Msg.ARD_TYPE_NUMBER = 'Number';
-/// Arduino Types - Large number C type long integer
+/// xrplhook Types - Large number C type long integer
 Blockly.Msg.ARD_TYPE_LONG = 'Large Number';
-/// Arduino Types - Decimal number C type floating point
+/// xrplhook Types - Decimal number C type floating point
 Blockly.Msg.ARD_TYPE_DECIMAL = 'Decimal';
-/// Arduino Types - Array
+/// xrplhook Types - Array
 Blockly.Msg.ARD_TYPE_ARRAY = 'Array';
-/// Arduino Types - Null C type void
+/// xrplhook Types - Null C type void
 Blockly.Msg.ARD_TYPE_NULL = 'Null';
-/// Arduino Types - Undefined type
+/// xrplhook Types - Undefined type
 Blockly.Msg.ARD_TYPE_UNDEF = 'Undefined';
-/// Arduino Types - Place holder value, indicates block with type not connected
+/// xrplhook Types - Place holder value, indicates block with type not connected
 Blockly.Msg.ARD_TYPE_CHILDBLOCKMISSING = 'ChildBlockMissing';
 
-/// Arduino Blocks
+/// xrplhook Blocks
 Blockly.Msg.ARD_HIGH = 'HIGH';
 Blockly.Msg.ARD_LOW = 'LOW';
 Blockly.Msg.ARD_ANALOGREAD = 'read analog pin#';
@@ -72,7 +72,7 @@ Blockly.Msg.ARD_DIGITALWRITE = 'set digitial pin#';
 Blockly.Msg.ARD_WRITE_TO = 'to';
 Blockly.Msg.ARD_DIGITALWRITE_TIP = 'Write digital value HIGH or LOW to a specific Port';
 Blockly.Msg.ARD_BUILTIN_LED = 'set built-in LED';
-Blockly.Msg.ARD_BUILTIN_LED_TIP = 'Light on or off for the built-in LED of the Arduino';
+Blockly.Msg.ARD_BUILTIN_LED_TIP = 'Light on or off for the built-in LED of the xrplhook';
 Blockly.Msg.ARD_DEFINE = 'Define';
 Blockly.Msg.ARD_TONE_PIN = 'Tone PIN#';
 Blockly.Msg.ARD_TONE_FREQ = 'frequency';
@@ -143,9 +143,9 @@ Blockly.Msg.ARD_TIME_DELAY_TIP = 'Wait specific time in milliseconds';
 Blockly.Msg.ARD_TIME_DELAY_MICROS = 'microseconds';
 Blockly.Msg.ARD_TIME_DELAY_MICRO_TIP = 'Wait specific time in microseconds';
 Blockly.Msg.ARD_TIME_MILLIS = 'current elapsed Time (milliseconds)';
-Blockly.Msg.ARD_TIME_MILLIS_TIP = 'Returns the number of milliseconds since the Arduino board began running the current program. Has to be stored in a positive long integer';
+Blockly.Msg.ARD_TIME_MILLIS_TIP = 'Returns the number of milliseconds since the xrplhook board began running the current program. Has to be stored in a positive long integer';
 Blockly.Msg.ARD_TIME_MICROS = 'current elapsed Time (microseconds)';
-Blockly.Msg.ARD_TIME_MICROS_TIP = 'Returns the number of microseconds since the Arduino board began running the current program. Has to be stored in a positive long integer';
+Blockly.Msg.ARD_TIME_MICROS_TIP = 'Returns the number of microseconds since the xrplhook board began running the current program. Has to be stored in a positive long integer';
 Blockly.Msg.ARD_TIME_INF = 'wait forever (end program)';
 Blockly.Msg.ARD_TIME_INF_TIP = 'Wait indefinitely, stopping the program.';
 Blockly.Msg.ARD_VAR_AS = 'as';

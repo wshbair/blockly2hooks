@@ -16,8 +16,8 @@ Blockly2hook.LOCALISED_TEXT = {
   compilerLocationDefault: "Путь к компилятору по умолчанию",
   sketchFolder: "Папка со скетчами",
   sketchFolderDefault: "Папка со скетчами по умолчанию",
-  arduinoBoard: "Плата Arduino",
-  arduinoBoardDefault: "Плата Arduino по умолчанию",
+  xrplhookBoard: "Плата xrplhook",
+  xrplhookBoardDefault: "Плата xrplhook по умолчанию",
   comPort: "COM Порт",
   comPortDefault: "COM Порт по умолчанию",
   defaultIdeButton: "Кнопка IDE по умолчанию",
@@ -25,33 +25,33 @@ Blockly2hook.LOCALISED_TEXT = {
   language: "Язык",
   languageDefault: "Язык по умолчанию",
   sketchName: "Название скетча",
-  /* Arduino console output */
-  arduinoOpMainTitle: "Сообщения Arduino IDE",
-  arduinoOpWaiting: "Ждем сообщений от Arduino IDE...",
-  arduinoOpUploadedTitle: "Скетч успешно загружен",
-  arduinoOpVerifiedTitle: "Скетч успешно скомпилирован",
-  arduinoOpOpenedTitle: "Скетч был открыт в Arduino IDE",
-  arduinoOpOpenedBody: "Скетч должен быть загружен в Arduino IDE.",
-  arduinoOpErrorUpVerTitle: "Компиляция или загрузка провалились",
-  arduinoOpErrorSketchTitle: "Скетч не найден",
-  arduinoOpErrorFlagTitle: "Неправильный аргумент командной строки",
-  arduinoOpErrorFlagPrefTitle: "Preference passed to 'get-pref' flag does not exist",
-  arduinoOpErrorIdeDirTitle: "Невозможно найти Arduino IDE",
-  arduinoOpErrorIdeDirBody: "Не задан путь к компилятору.<br>" +
+  /* xrplhook console output */
+  xrplhookOpMainTitle: "Сообщения xrplhook IDE",
+  xrplhookOpWaiting: "Ждем сообщений от xrplhook IDE...",
+  xrplhookOpUploadedTitle: "Скетч успешно загружен",
+  xrplhookOpVerifiedTitle: "Скетч успешно скомпилирован",
+  xrplhookOpOpenedTitle: "Скетч был открыт в xrplhook IDE",
+  xrplhookOpOpenedBody: "Скетч должен быть загружен в xrplhook IDE.",
+  xrplhookOpErrorUpVerTitle: "Компиляция или загрузка провалились",
+  xrplhookOpErrorSketchTitle: "Скетч не найден",
+  xrplhookOpErrorFlagTitle: "Неправильный аргумент командной строки",
+  xrplhookOpErrorFlagPrefTitle: "Preference passed to 'get-pref' flag does not exist",
+  xrplhookOpErrorIdeDirTitle: "Невозможно найти xrplhook IDE",
+  xrplhookOpErrorIdeDirBody: "Не задан путь к компилятору.<br>" +
                             "Задайте путь в настройках.",
-  arduinoOpErrorIdeOptionTitle: "Что нам нужно сделать с этим Скетчем?",
-  arduinoOpErrorIdeOptionBody: "Параметры запуска IDE не были настроены.<br>" +
+  xrplhookOpErrorIdeOptionTitle: "Что нам нужно сделать с этим Скетчем?",
+  xrplhookOpErrorIdeOptionBody: "Параметры запуска IDE не были настроены.<br>" +
                                "Выберите параметры закуска IDE в настройках.",
-  arduinoOpErrorIdePortTitle: "Последовательный порт не доступен",
-  arduinoOpErrorIdePortBody: "Последовательный порт не доступен.<br>" +
-                             "Проверьте, правильно ли подключена плата Arduino и выберите последовательный порт в Настройках.",
-  arduinoOpErrorIdeBoardTitle: "Неизвестная плата Arduino",
-  arduinoOpErrorIdeBoardBody: "Плата Arduino не была задана.<br>" +
-                              "Выберите соответствующую плату Arduino из списка.",
+  xrplhookOpErrorIdePortTitle: "Последовательный порт не доступен",
+  xrplhookOpErrorIdePortBody: "Последовательный порт не доступен.<br>" +
+                             "Проверьте, правильно ли подключена плата xrplhook и выберите последовательный порт в Настройках.",
+  xrplhookOpErrorIdeBoardTitle: "Неизвестная плата xrplhook",
+  xrplhookOpErrorIdeBoardBody: "Плата xrplhook не была задана.<br>" +
+                              "Выберите соответствующую плату xrplhook из списка.",
   /* Modals */
   noServerTitle: "Blockly2hook не запущен",
   noServerTitleBody: "<p>Чтобы воспользоваться всеми возможностями Blockly2hook, приложение Blockly2hook для рабочего стола должно быть запущено на пользовательском компьютере.</p>" +
-                     "<p>Если вы используете онлайн версию, вы не сможете изменять настройки а также загружать код в Arduino.</p>" +
+                     "<p>Если вы используете онлайн версию, вы не сможете изменять настройки а также загружать код в xrplhook.</p>" +
                      "<p>Инструкции по установке можно найти на <a href=\"https://github.com/carlosperate/Blockly2hook\">Blockly2hook repository</a>.</p>" +
                      "<p>Если Blockly2hook уже установлен, убедитесь что приложение работает корректно.</p>",
   noServerNoLangBody: "Если приложение Blockly2hook не запущено, язык не может быть изменен.",
@@ -66,12 +66,12 @@ Blockly2hook.LOCALISED_TEXT = {
   invalidXmlTitle: "Неверный XML",
   invalidXmlBody: "XML файл не был загружен. Проверьте код XML и попробуйте снова.",
   /* Tooltips */
-  uploadingSketch: "Загружаю код в Arduino...",
-  uploadSketch: "Загрузить код в Arduino",
+  uploadingSketch: "Загружаю код в xrplhook...",
+  uploadSketch: "Загрузить код в xrplhook",
   verifyingSketch: "Проверка скетча...",
   verifySketch: "Проверить скетч на ошибки",
-  openingSketch: "Открываем скетч в Arduino IDE...",
-  openSketch: "Открыть скетч в Arduino IDE",
+  openingSketch: "Открываем скетч в xrplhook IDE...",
+  openSketch: "Открыть скетч в xrplhook IDE",
   notImplemented: "Функция еще не внедрена",
   /* Prompts */
   ok: "Ok",
@@ -79,7 +79,7 @@ Blockly2hook.LOCALISED_TEXT = {
   cancel: "Отменить",
   return: "Вернуться",
   /* Cards */
-  arduinoSourceCode: "Исходный код Arduino",
+  xrplhookSourceCode: "Исходный код xrplhook",
   blocksXml: "XML блоки",
   /* Toolbox Categories*/
   catLogic: "Логика",

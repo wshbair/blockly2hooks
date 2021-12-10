@@ -2,21 +2,21 @@
  * @license Licensed under the Apache License, Version 2.0 (the "License"):
  *          http://www.apache.org/licenses/LICENSE-2.0
  *
- * @fileoverview Generating Arduino code for unit test blocks.
- *               Based on the Dart unite test code.
+ * @fileoverview Generating xrplhook code for unit test blocks.
+ *                
  *
  * TODO: Everything. For now it at least parses the code into (invalid) code
  *       text.
  */
 'use strict';
 
-Blockly.Arduino['unittest_main'] = function(block) {
+Blockly.xrplhook['unittest_main'] = function(block) {
   // Container for unit tests.
-  var resultsVar = Blockly.Arduino.variableDB_.getName('unittestResults',
+  var resultsVar = Blockly.xrplhook.variableDB_.getName('unittestResults',
       Blockly.Variables.NAME_TYPE);
-  var functionName = Blockly.Arduino.provideFunction_(
+  var functionName = Blockly.xrplhook.provideFunction_(
       'unittest_report',
-      [ 'String ' + Blockly.Arduino.FUNCTION_NAME_PLACEHOLDER_ + '() {',
+      [ 'String ' + Blockly.xrplhook.FUNCTION_NAME_PLACEHOLDER_ + '() {',
         '  // Create test report.',
         '  List report = [];',
         '  String summary = new String();',
@@ -46,9 +46,9 @@ Blockly.Arduino['unittest_main'] = function(block) {
   // Setup global to hold test results.
   var code = resultsVar + ' = [];\n';
   // Run tests (unindented).
-  code += Blockly.Arduino.statementToCode(block, 'DO')
+  code += Blockly.xrplhook.statementToCode(block, 'DO')
       .replace(/^  /, '').replace(/\n  /g, '\n');
-  var reportVar = Blockly.Arduino.variableDB_.getDistinctName(
+  var reportVar = Blockly.xrplhook.variableDB_.getDistinctName(
       'report', Blockly.Variables.NAME_TYPE);
   code += 'String ' + reportVar + ' = ' + functionName + '();\n';
   // Destroy results.
@@ -58,12 +58,12 @@ Blockly.Arduino['unittest_main'] = function(block) {
   return code;
 };
 
-Blockly.Arduino['unittest_main'].defineAssert_ = function() {
-  var resultsVar = Blockly.Arduino.variableDB_.getName('unittestResults',
+Blockly.xrplhook['unittest_main'].defineAssert_ = function() {
+  var resultsVar = Blockly.xrplhook.variableDB_.getName('unittestResults',
       Blockly.Variables.NAME_TYPE);
-  var functionName = Blockly.Arduino.provideFunction_(
+  var functionName = Blockly.xrplhook.provideFunction_(
       'unittest_assertequals',
-      [ 'void ' + Blockly.Arduino.FUNCTION_NAME_PLACEHOLDER_ +
+      [ 'void ' + Blockly.xrplhook.FUNCTION_NAME_PLACEHOLDER_ +
           '(dynamic actual, dynamic expected, String message) {',
         '  // Asserts that a value equals another value.',
         '  if (' + resultsVar + ' == null) {',
@@ -95,22 +95,22 @@ Blockly.Arduino['unittest_main'].defineAssert_ = function() {
   return functionName;
 };
 
-Blockly.Arduino['unittest_assertequals'] = function(block) {
+Blockly.xrplhook['unittest_assertequals'] = function(block) {
   // Asserts that a value equals another value.
-  var message = Blockly.Arduino.quote_(block.getFieldValue('MESSAGE'));
-  var actual = Blockly.Arduino.valueToCode(block, 'ACTUAL',
-      Blockly.Arduino.ORDER_NONE) || 'null';
-  var expected = Blockly.Arduino.valueToCode(block, 'EXPECTED',
-      Blockly.Arduino.ORDER_NONE) || 'null';
-  return Blockly.Arduino['unittest_main'].defineAssert_() +
+  var message = Blockly.xrplhook.quote_(block.getFieldValue('MESSAGE'));
+  var actual = Blockly.xrplhook.valueToCode(block, 'ACTUAL',
+      Blockly.xrplhook.ORDER_NONE) || 'null';
+  var expected = Blockly.xrplhook.valueToCode(block, 'EXPECTED',
+      Blockly.xrplhook.ORDER_NONE) || 'null';
+  return Blockly.xrplhook['unittest_main'].defineAssert_() +
       '(' + actual + ', ' + expected + ', ' + message + ');\n';
 };
 
-Blockly.Arduino['unittest_assertvalue'] = function(block) {
+Blockly.xrplhook['unittest_assertvalue'] = function(block) {
   // Asserts that a value is true, false, or null.
-  var message = Blockly.Arduino.quote_(block.getFieldValue('MESSAGE'));
-  var actual = Blockly.Arduino.valueToCode(block, 'ACTUAL',
-      Blockly.Arduino.ORDER_NONE) || 'null';
+  var message = Blockly.xrplhook.quote_(block.getFieldValue('MESSAGE'));
+  var actual = Blockly.xrplhook.valueToCode(block, 'ACTUAL',
+      Blockly.xrplhook.ORDER_NONE) || 'null';
   var expected = block.getFieldValue('EXPECTED');
   if (expected == 'TRUE') {
     expected = 'true';
@@ -119,18 +119,18 @@ Blockly.Arduino['unittest_assertvalue'] = function(block) {
   } else if (expected == 'NULL') {
     expected = 'null';
   }
-  return Blockly.Arduino['unittest_main'].defineAssert_() +
+  return Blockly.xrplhook['unittest_main'].defineAssert_() +
       '(' + actual + ', ' + expected + ', ' + message + ');\n';
 };
 
-Blockly.Arduino['unittest_fail'] = function(block) {
+Blockly.xrplhook['unittest_fail'] = function(block) {
   // Always assert an error.
-  var resultsVar = Blockly.Arduino.variableDB_.getName('unittestResults',
+  var resultsVar = Blockly.xrplhook.variableDB_.getName('unittestResults',
       Blockly.Variables.NAME_TYPE);
-  var message = Blockly.Arduino.quote_(block.getFieldValue('MESSAGE'));
-  var functionName = Blockly.Arduino.provideFunction_(
+  var message = Blockly.xrplhook.quote_(block.getFieldValue('MESSAGE'));
+  var functionName = Blockly.xrplhook.provideFunction_(
       'unittest_fail',
-      [ 'void ' + Blockly.Arduino.FUNCTION_NAME_PLACEHOLDER_ +
+      [ 'void ' + Blockly.xrplhook.FUNCTION_NAME_PLACEHOLDER_ +
           '(String message) {',
         '  // Always assert an error.',
         '  if (' + resultsVar + ' == null) {',

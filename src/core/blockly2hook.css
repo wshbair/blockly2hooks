@@ -285,22 +285,22 @@ ul.side-nav li.side-menu-end {
 
  
 /* IDE output content text formatting */
-#content_ide_output .arduino_dialog_success {
+#content_ide_output .xrplhook_dialog_success {
   color: #0a58ca;   /* hook light teal */
   font-size: 1.2rem;
   margin: 16px 0px 8px 0px;
 }
-#content_ide_output .arduino_dialog_failure {
-  color: #E47128;   /* arduino orange */
+#content_ide_output .xrplhook_dialog_failure {
+  color: #E47128;   /* xrplhook orange */
   font-size: 1.2rem;
   margin: 16px 0px 8px 0px;
 }
-#content_ide_output .arduino_dialog_out {
+#content_ide_output .xrplhook_dialog_out {
   color: #ffffff;
   font-size: 0.9rem;
 }
-#content_ide_output .arduino_dialog_out_error {
-  color: #E47128;   /* arduino orange */
+#content_ide_output .xrplhook_dialog_out_error {
+  color: #E47128;   /* xrplhook orange */
   font-size: 0.9rem;
   padding-top: 8px;
   display: block;
@@ -439,7 +439,7 @@ ul.side-nav li.side-menu-end {
   -webkit-border-radius: 4px 4px 4px 4px !important;
   -moz-border-radius: 4px 4px 4px 4px !important;
   border-radius: 4px 4px 4px 4px !important;
-  background: rgba(98, 174, 178, .2) !important;  /* Arduino Light Teal */
+  background: rgba(98, 174, 178, .2) !important;  /* xrplhook Light Teal */
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); 
@@ -534,21 +534,21 @@ ul.side-nav li.side-menu-end {
   margin-bottom: 8px;
 }
 
-/* Arduino output modal dialog */
-#arduino_dialog_body {
+/* xrplhook output modal dialog */
+#xrplhook_dialog_body {
   padding-top: 25px;
 }
-.arduino_dialog_out {}
-.arduino_dialog_out_error {
-  color: #E47128;   /* arduino orange */
+.xrplhook_dialog_out {}
+.xrplhook_dialog_out_error {
+  color: #E47128;   /* xrplhook orange */
   padding-top: 25px;
   display: block;
 }
-.arduino_dialog_success {
-  color: #00979C;   /* arduino light teal */
+.xrplhook_dialog_success {
+  color: #00979C;   /* xrplhook light teal */
 }
-.arduino_dialog_failure {
-  color: #E47128;   /* arduino orange */
+.xrplhook_dialog_failure {
+  color: #E47128;   /* xrplhook orange */
 }
 
 /* Footer buttons padding */
@@ -653,7 +653,7 @@ ul.side-nav li.side-menu-end {
 
 /* Colours for the new and deleted code highlighting */
 .code_highlight_new {
-  background-color: rgba(255, 204, 51, 0.5); /* Arduino yellow 50% */
+  background-color: rgba(255, 204, 51, 0.5); /* xrplhook yellow 50% */
 }
 .code_highlight_deleted {
   background-color: #FDBEBE;
@@ -685,7 +685,7 @@ ul.side-nav li.side-menu-end {
   border: none !important;
   margin: 0px !important;
   padding: 0px 0px 0px 0px !important;
-  background: rgba(98, 174, 178, .2) !important;  /* Arduino Light Teal */
+  background: rgba(98, 174, 178, .2) !important;  /* xrplhook Light Teal */
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -711,10 +711,10 @@ ul.side-nav li.side-menu-end {
   box-sizing: content-box !important;
 }
 .blocklyTreeSelected {
-  background-color: #E47128 !important;  /* arduino orange */
+  background-color: #E47128 !important;  /* xrplhook orange */
 }
 .blocklyTreeRow:not(.blocklyTreeSelected):hover {
-  background-color: rgba(255, 204, 51, 1) !important;  /* arduino yellow */
+  background-color: rgba(255, 204, 51, 1) !important;  /* xrplhook yellow */
 }
 .blocklyTreeLabel {
 }

@@ -302,11 +302,11 @@ Blockly2hook.MaterialToast = function(message) {
 };
 
 /**
- * Populates the Arduino IDE output content area and triggers the visual
+ * Populates the xrplhook IDE output content area and triggers the visual
  * highlight to call for the user attention.
  * @param {!element} bodyEl HTML to include into IDE output content area.
  */
-Blockly2hook.arduinoIdeOutput = function(bodyEl) {
+Blockly2hook.xrplhookIdeOutput = function(bodyEl) {
   var ideOuputContent = document.getElementById('content_ide_output');
   ideOuputContent.innerHTML = bodyEl;
   
@@ -344,8 +344,8 @@ Blockly2hook.arduinoIdeOutput = function(bodyEl) {
  */
 Blockly2hook.resetIdeOutputContent = function(bodyEl) {
   var ideOuputContent = document.getElementById('content_ide_output');
-  ideOuputContent.innerHTML = '<span class="arduino_dialog_out">' +
-      Blockly2hook.getLocalStr('arduinoOpWaiting') + '</span>';
+  ideOuputContent.innerHTML = '<span class="xrplhook_dialog_out">' +
+      Blockly2hook.getLocalStr('xrplhookOpWaiting') + '</span>';
 };
 
 /**
@@ -386,7 +386,7 @@ Blockly2hook.sketchNameSet = function(newName) {
   sketchNameInput.blur();
 };
 
-/** Creates a highlight animation to the Arduino IDE output header. */
+/** Creates a highlight animation to the xrplhook IDE output header. */
 Blockly2hook.highlightIdeOutputHeader = function() {
   var header = document.getElementById('ide_output_collapsible_header');
   var h = 'ide_output_header_highlight';
@@ -413,7 +413,7 @@ Blockly2hook.highlightIdeOutputHeader = function() {
 Blockly2hook.contentHeightToggle = function() {
   var outputHeader = document.getElementById('ide_output_collapsible_header');
   var blocks = document.getElementById('blocks_panel');
-  var arduino = document.getElementById('content_hook');
+  var xrplhook = document.getElementById('content_hook');
   var xml = document.getElementById('content_xml');
 
   // Blockly doesn't resize with CSS3 transitions enabled, so do it manually
@@ -429,18 +429,18 @@ Blockly2hook.contentHeightToggle = function() {
   // the content to be behind the IDE output data anyway.
   if (!outputHeader.className.match('active') && $(window).height() > 800) {
     blocks.className = 'content height_transition blocks_panel_small';
-    arduino.className = 'content height_transition content_hook_small';
+    xrplhook.className = 'content height_transition content_hook_small';
     xml.className = 'content height_transition content_xml_small';
   } else {
     blocks.className = 'content height_transition blocks_panel_large';
-    arduino.className = 'content height_transition content_hook_large';
+    xrplhook.className = 'content height_transition content_hook_large';
     xml.className = 'content height_transition content_xml_large';
   }
 
   // If the height transition CSS is left then blockly does not resize
   setTimeout(function() {
     blocks.className = blocks.className.replace('height_transition', '');
-    arduino.className = arduino.className.replace('height_transition', '');
+    xrplhook.className = xrplhook.className.replace('height_transition', '');
     xml.className = xml.className.replace('height_transition', '');
   }, 400);
 };

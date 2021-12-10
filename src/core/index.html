@@ -9,14 +9,14 @@
 
   <!-- Materialize, Prettify, and Blockly2hook CSS -->
   <link rel="stylesheet" href="materialize/materialize.css" media="screen,projection">
-  <link rel="stylesheet" href="prettify/arduino.css">
+  <link rel="stylesheet" href="prettify/xrplhook.css">
   <link rel="stylesheet" href="Blockly2hook.css" media="screen,projection">
 
 
   <!-- Blockly2hook - These three files contain the compress version -->
   <script src="../blockly/blockly_uncompressed.js"></script>
   <script src="../blockly/blocks_compressed.js"></script>
-  <script src="../blockly/arduino_compressed.js"></script>
+  <script src="../blockly/xrplhook_compressed.js"></script>
     
   <!-- Default language js files, user selection appended to head on load -->
   <script src="../blockly/msg/js/en.js"></script>
@@ -135,7 +135,7 @@
           <li>
             <div class="collapsible-header active">
               <i class="mdi-hardware-desktop-mac"></i>              
-              <span class="translatable_arduinoSourceCode">Hook Source Code</span> 
+              <span class="translatable_xrplhookSourceCode">Hook Source Code</span> 
 
             </div>
             <!-- <div class="collapsible-body" contenteditable="true"> -->
@@ -169,7 +169,7 @@
       <li>
         <div id="ide_output_collapsible_header" class="collapsible-header ide_output_header_normal">
           <i class="mdi-action-exit-to-app"></i>  
-          <span class="translatable_arduinoOpMainTitle">WASM Compilation Output</span>
+          <span class="translatable_xrplhookOpMainTitle">WASM Compilation Output</span>
         </div>
         <div id="wazen" class="collapsible-body">
           <div class="row" style="background-color: beige;">
@@ -276,9 +276,9 @@
         <input type="text" id="settings_sketch_location">
       </div>
       <div class="modal_section">
-        <label><span class="translatable_arduinoBoard">Arduino Board</span>:</label>
+        <label><span class="translatable_xrplhookBoard">xrplhook Board</span>:</label>
         <select name="settings_board" id="board">
-          <option value="uno" class="translatable_arduinoBoardDefault">Arduino Board unknown</option>
+          <option value="uno" class="translatable_xrplhookBoardDefault">xrplhook Board unknown</option>
         </select>
       </div>
       <div class="modal_section">
@@ -342,8 +342,6 @@
     </div>
   </div>
 
-  <!-- Desktop version of Blockly2hook JS, needs to be loaded first. -->
-  <script src="Blockly2hook_desktop.js"></script>
   <!-- jQuery and Materialize JS -->
   <script src="js_libs/jquery-2.1.3.min.js"></script>
   <script src="materialize/materialize.js"></script>
@@ -365,10 +363,6 @@
       window.removeEventListener('load', load, false);
       Blockly2hook.init();
     });
-  </script>
-
-<!-- <script src="src-min/ace.js" type="text/javascript" charset="utf-8"></script> -->
- 
-  
+  </script> 
 </body>
 </html>

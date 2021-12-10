@@ -4,9 +4,9 @@
  */
 
 /**
- * @fileoverview Block for the Arduino map functionality.
- *     The Arduino built in functions syntax can be found at:
- *     http://arduino.cc/en/Reference/HomePage
+ * @fileoverview Block for the xrplhook map functionality.
+ *     The xrplhook built in functions syntax can be found at:
+ *     http://xrplhook.cc/en/Reference/HomePage
  *
  * TODO: This block can be improved to set the new range properly.
  */
@@ -37,7 +37,7 @@
       this.contextMenu = false;
     },
     /** @return {!boolean} True if the block instance is in the workspace. */
-    getArduinoLoopsInstance: function() {
+    getxrplhookLoopsInstance: function() {
       return true;
     }
   };

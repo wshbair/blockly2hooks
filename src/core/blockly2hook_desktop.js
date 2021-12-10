@@ -85,7 +85,7 @@ Blockly2hook.bindSettingsPathInputs = function() {
   compilerEl.readOnly = true;
   Blockly2hook.bindClick_(compilerEl, function() {
     dialog.showOpenDialog({
-      title: 'Select the Arduino IDE executable',
+      title: 'Select the xrplhook IDE executable',
       buttonLabel: 'Select',
       properties: ['openFile']
     }, function (files) {
@@ -102,7 +102,7 @@ Blockly2hook.bindSettingsPathInputs = function() {
   sketchEl.readOnly = true;
   Blockly2hook.bindClick_(sketchEl, function() {
     dialog.showOpenDialog({
-      title: 'Select the Arduino IDE executable',
+      title: 'Select the xrplhook IDE executable',
       buttonLabel: 'Select',
       properties: ['openDirectory']
     }, function (folders) {

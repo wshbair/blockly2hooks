@@ -4,151 +4,151 @@
  */
 
 /**
- * @fileoverview Generating Arduino code for variables blocks.
+ * @fileoverview Generating xrplhook code for variables blocks.
  */
 'use strict';
 
-goog.provide('Blockly.Arduino.variables');
+goog.provide('Blockly.xrplhook.variables');
 
-goog.require('Blockly.Arduino');
+goog.require('Blockly.xrplhook');
 
 
 /**
  * Code generator for variable (X) getter.
- * Arduino code: loop { X }
+ * xrplhook code: loop { X }
  * @param {Blockly.Block} block Block to generate the code from.
  * @return {array} Completed code with order of operation.
  */
-Blockly.Arduino['variables_get'] = function(block) {
-  var code = Blockly.Arduino.variableDB_.getName(block.getFieldValue('VAR'),
+Blockly.xrplhook['variables_get'] = function(block) {
+  var code = Blockly.xrplhook.variableDB_.getName(block.getFieldValue('VAR'),
       Blockly.Variables.NAME_TYPE);
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
+  return [code, Blockly.xrplhook.ORDER_ATOMIC];
 };
 
 /**
  * Code generator for variable (X) setter (Y).
- * Arduino code: type X;
+ * xrplhook code: type X;
  *               loop { X = Y; }
  * @param {Blockly.Block} block Block to generate the code from.
  * @return {string} Completed code.
  */
-Blockly.Arduino['variables_set'] = function(block) {
-  var argument0 = Blockly.Arduino.valueToCode(block, 'VALUE',
-      Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var varName = Blockly.Arduino.variableDB_.getName(
+Blockly.xrplhook['variables_set'] = function(block) {
+  var argument0 = Blockly.xrplhook.valueToCode(block, 'VALUE',
+      Blockly.xrplhook.ORDER_ASSIGNMENT) || '0';
+  var varName = Blockly.xrplhook.variableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   return varName + ' = ' + argument0 + ';\n';
 };
 
 /**
  * Code generator for variable (X) casting (Y).
- * Arduino code: loop { (Y)X }
+ * xrplhook code: loop { (Y)X }
  * @param {Blockly.Block} block Block to generate the code from.
  * @return {array} Completed code with order of operation.
  */
-Blockly.Arduino['variables_set_type'] = function(block) {
-  var argument0 = Blockly.Arduino.valueToCode(block, 'VARIABLE_SETTYPE_INPUT',
-      Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
+Blockly.xrplhook['variables_set_type'] = function(block) {
+  var argument0 = Blockly.xrplhook.valueToCode(block, 'VARIABLE_SETTYPE_INPUT',
+      Blockly.xrplhook.ORDER_ASSIGNMENT) || '0';
   var varType = block.getFieldValue('VARIABLE_SETTYPE_TYPE');
   var code = '(' + varType + ')(' + argument0 + ')';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
+  return [code, Blockly.xrplhook.ORDER_ATOMIC];
 };
 
 
-Blockly.Arduino['pointer'] = function(block) {
+Blockly.xrplhook['pointer'] = function(block) {
   var dropdown_type = block.getFieldValue('type');
   var text_name = block.getFieldValue('NAME');
   var text_pointer_name = block.getFieldValue('pointer_name');
-  var value_inital = Blockly.Arduino.valueToCode(block, 'initial', Blockly.Arduino.ORDER_ATOMIC);
+  var value_inital = Blockly.xrplhook.valueToCode(block, 'initial', Blockly.xrplhook.ORDER_ATOMIC);
   var code = dropdown_type+' '+text_name+text_pointer_name+' = '+value_inital+ ';\n';
-  Blockly.Arduino.variables_["test1"] = code;
+  Blockly.xrplhook.variables_["test1"] = code;
   
   return code;
 };
 
-Blockly.Arduino['string'] = function(block) {
+Blockly.xrplhook['string'] = function(block) {
   var dropdown_type = block.getFieldValue('type');
   var text_mystring = block.getFieldValue('mystring');
-  var value_length = Blockly.Arduino.valueToCode(block, 'length', Blockly.Arduino.ORDER_ATOMIC);
-  var value_string_var = Blockly.Arduino.valueToCode(block, 'string_var', Blockly.Arduino.ORDER_ATOMIC);
+  var value_length = Blockly.xrplhook.valueToCode(block, 'length', Blockly.xrplhook.ORDER_ATOMIC);
+  var value_string_var = Blockly.xrplhook.valueToCode(block, 'string_var', Blockly.xrplhook.ORDER_ATOMIC);
   var code = dropdown_type +' '+text_mystring+'['+value_length+'] = '+value_string_var+ ';\n';
-   Blockly.Arduino.variables_["test2"] = code;
+   Blockly.xrplhook.variables_["test2"] = code;
 
   return code;
 };
 
 
 ///////
-Blockly.Arduino['define_get'] = function(block) {
+Blockly.xrplhook['define_get'] = function(block) {
   // Variable getter.
-  var code = Blockly.Arduino.variableDB_.getName(block.getFieldValue('VAR'),
+  var code = Blockly.xrplhook.variableDB_.getName(block.getFieldValue('VAR'),
       Blockly.Variables.NAME_TYPE);
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
+  return [code, Blockly.xrplhook.ORDER_ATOMIC];
 };
 
-Blockly.Arduino['define_declare'] = function(block) {
+Blockly.xrplhook['define_declare'] = function(block) {
   // Variable declare.
-  var argument0 = Blockly.Arduino.valueToCode(block, 'VALUE',
-          Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var varName = Blockly.Arduino.variableDB_.getName(
+  var argument0 = Blockly.xrplhook.valueToCode(block, 'VALUE',
+          Blockly.xrplhook.ORDER_ASSIGNMENT) || '0';
+  var varName = Blockly.xrplhook.variableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var define = '#define';
   if (Blockly.Blocks.checkLegalName(Blockly.Msg.VARIABLES_ILLEGALNAME, varName) == -1){
       this.initVar();
   }
   var code = define + ' ' + varName + ' ' + argument0;
-  code = Blockly.Arduino.scrub_(block, code);
-  Blockly.Arduino.definitions_['define_' + varName] = code;
+  code = Blockly.xrplhook.scrub_(block, code);
+  Blockly.xrplhook.definitions_['define_' + varName] = code;
   return null;
 };
 
-Blockly.Arduino['variables_get'] = function(block) {
+Blockly.xrplhook['variables_get'] = function(block) {
   // Variable getter.
-  var code = Blockly.Arduino.variableDB_.getName(block.getFieldValue('VAR'),
+  var code = Blockly.xrplhook.variableDB_.getName(block.getFieldValue('VAR'),
       Blockly.Variables.NAME_TYPE);
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
+  return [code, Blockly.xrplhook.ORDER_ATOMIC];
 };
 
-Blockly.Arduino['variables_set'] = function(block) {
+Blockly.xrplhook['variables_set'] = function(block) {
   // Variable setter.
-  var argument0 = Blockly.Arduino.valueToCode(block, 'VALUE',
-          Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var varName = Blockly.Arduino.variableDB_.getName(
+  var argument0 = Blockly.xrplhook.valueToCode(block, 'VALUE',
+          Blockly.xrplhook.ORDER_ASSIGNMENT) || '0';
+  var varName = Blockly.xrplhook.variableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
    return varName + ' = ' + argument0 + ';\n';
 };
 
-Blockly.Arduino['variables_declare'] = function(block) {
+Blockly.xrplhook['variables_declare'] = function(block) {
   // Variable declare.
-  var argument0 = Blockly.Arduino.valueToCode(block, 'VALUE',
-          Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var varName = Blockly.Arduino.variableDB_.getName(
+  var argument0 = Blockly.xrplhook.valueToCode(block, 'VALUE',
+          Blockly.xrplhook.ORDER_ASSIGNMENT) || '0';
+  var varName = Blockly.xrplhook.variableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var varType = block.getFieldValue('TYPES');
   return varType + ' ' + varName + ' = ' + argument0 + ';\n';
 };
 
-Blockly.Arduino['variables_pointer_get'] = function(block) {
+Blockly.xrplhook['variables_pointer_get'] = function(block) {
   // Variable getter.
-  var code = Blockly.Arduino.variableDB_.getName(block.getFieldValue('VAR'),
+  var code = Blockly.xrplhook.variableDB_.getName(block.getFieldValue('VAR'),
       Blockly.Variables.NAME_TYPE);
-   return [code, Blockly.Arduino.ORDER_ATOMIC];
+   return [code, Blockly.xrplhook.ORDER_ATOMIC];
 };
 
-Blockly.Arduino['variables_pointer_set'] = function(block) {
+Blockly.xrplhook['variables_pointer_set'] = function(block) {
   // Variable setter.
-  var argument0 = Blockly.Arduino.valueToCode(block, 'VALUE',
-          Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var argument1 = Blockly.Arduino.valueToCode(block, 'VAR',
-      Blockly.Arduino.ORDER_ASSIGNMENT);
+  var argument0 = Blockly.xrplhook.valueToCode(block, 'VALUE',
+          Blockly.xrplhook.ORDER_ASSIGNMENT) || '0';
+  var argument1 = Blockly.xrplhook.valueToCode(block, 'VAR',
+      Blockly.xrplhook.ORDER_ASSIGNMENT);
    return argument1 + ' = ' + argument0 + ';\n';
 };
 
-Blockly.Arduino['variables_pointer_declare'] = function(block) {
+Blockly.xrplhook['variables_pointer_declare'] = function(block) {
   // Variable declare.
-  var argument0 = Blockly.Arduino.valueToCode(block, 'VALUE',
-          Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var varName = Blockly.Arduino.variableDB_.getName(
+  var argument0 = Blockly.xrplhook.valueToCode(block, 'VALUE',
+          Blockly.xrplhook.ORDER_ASSIGNMENT) || '0';
+  var varName = Blockly.xrplhook.variableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var varType = block.getFieldValue('TYPES');
   var varIteration;
@@ -164,8 +164,8 @@ Blockly.Arduino['variables_pointer_declare'] = function(block) {
 
 
  // array 
-Blockly.Arduino['variables_array_get'] = function(block) {
-  var varName = Blockly.Arduino.variableDB_.getName(block.getFieldValue('VAR'),
+Blockly.xrplhook['variables_array_get'] = function(block) {
+  var varName = Blockly.xrplhook.variableDB_.getName(block.getFieldValue('VAR'),
       Blockly.Variables.NAME_TYPE);
    var length_1 = block.getFieldValue('LENGTH_1');
  
@@ -197,14 +197,14 @@ Blockly.Arduino['variables_array_get'] = function(block) {
   // else
   //     block.initIdx(isAvbNum1);
   var code = varName + '[' + length_1 + ']';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
+  return [code, Blockly.xrplhook.ORDER_ATOMIC];
 };
 
-Blockly.Arduino['variables_array_set'] = function(block) {
+Blockly.xrplhook['variables_array_set'] = function(block) {
   // Variable setter.
-  var argument0 = Blockly.Arduino.valueToCode(block, 'VALUE',
-          Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var varName = Blockly.Arduino.variableDB_.getName(
+  var argument0 = Blockly.xrplhook.valueToCode(block, 'VALUE',
+          Blockly.xrplhook.ORDER_ASSIGNMENT) || '0';
+  var varName = Blockly.xrplhook.variableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
 
   var length_1 = block.getFieldValue('LENGTH_1');
@@ -241,11 +241,11 @@ Blockly.Arduino['variables_array_set'] = function(block) {
   return code;
 };
 
-Blockly.Arduino['variables_array_declare'] = function(block) {
+Blockly.xrplhook['variables_array_declare'] = function(block) {
   // Variable declare.
-  var argument0 = Blockly.Arduino.valueToCode(block, 'VALUE',
-          Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var varName = Blockly.Arduino.variableDB_.getName(
+  var argument0 = Blockly.xrplhook.valueToCode(block, 'VALUE',
+          Blockly.xrplhook.ORDER_ASSIGNMENT) || '0';
+  var varName = Blockly.xrplhook.variableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var varType = block.getFieldValue('TYPES');
   var length_1 = block.getFieldValue('LENGTH_1');

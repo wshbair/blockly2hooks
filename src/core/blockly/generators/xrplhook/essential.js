@@ -10,19 +10,19 @@
  */
  'use strict';
 
- goog.provide('Blockly.Arduino.essential'); 
- goog.require('Blockly.Arduino');
+ goog.provide('Blockly.xrplhook.essential'); 
+ goog.require('Blockly.xrplhook');
 
 
 
-  Blockly.Arduino['_g_function'] = function(block) {
-    var value_arg1 = Blockly.Arduino.valueToCode(block, 'arg1', Blockly.Arduino.ORDER_ATOMIC);
-    var value_arg2 = Blockly.Arduino.valueToCode(block, 'arg2', Blockly.Arduino.ORDER_ATOMIC);
+  Blockly.xrplhook['_g_function'] = function(block) {
+    var value_arg1 = Blockly.xrplhook.valueToCode(block, 'arg1', Blockly.xrplhook.ORDER_ATOMIC);
+    var value_arg2 = Blockly.xrplhook.valueToCode(block, 'arg2', Blockly.xrplhook.ORDER_ATOMIC);
     var code = '_g('+value_arg1+','+value_arg2+');\n';
     return code;
   };
 
-  Blockly.Arduino['comment'] = function(block) {
+  Blockly.xrplhook['comment'] = function(block) {
     var code = block.getTitleValue('TEXT');
     return '// ' + code+'\n';
   };
@@ -33,18 +33,18 @@
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {string} Completed code.
  */
-Blockly.Arduino['hook_template'] = function(block) {
+Blockly.xrplhook['hook_template'] = function(block) {
     function statementToCodeNoTab(block, name) {
       var targetBlock = block.getInputTargetBlock(name);
-      var code = Blockly.Arduino.blockToCode(targetBlock);
+      var code = Blockly.xrplhook.blockToCode(targetBlock);
       if (!goog.isString(code)) {
         throw 'Expecting code from statement block "' + targetBlock.type + '".';
       }
       return code;
     }
-    var setupBranch = Blockly.Arduino.statementToCode(block, 'SETUP_FUNC');
+    var setupBranch = Blockly.xrplhook.statementToCode(block, 'SETUP_FUNC');
     if (setupBranch) {
-      Blockly.Arduino.addSetup('userSetupCode', setupBranch, true);
+      Blockly.xrplhook.addSetup('userSetupCode', setupBranch, true);
     }
   
     var loopBranch = statementToCodeNoTab(block, 'LOOP_FUNC');

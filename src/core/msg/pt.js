@@ -16,8 +16,8 @@ Blockly2hook.LOCALISED_TEXT = {
   compilerLocationDefault: "Localização do Compilador desconhecido",
   sketchFolder: "Pasta do Sketch",
   sketchFolderDefault: "Pasta do Sketch desconhecida",
-  arduinoBoard: "Placa do Arduino",
-  arduinoBoardDefault: "Placa do Arduino desconhecida",
+  xrplhookBoard: "Placa do xrplhook",
+  xrplhookBoardDefault: "Placa do xrplhook desconhecida",
   comPort: "Porta COM",
   comPortDefault: "Porta COM desconhecida",
   defaultIdeButton: "Botão IDE padrão",
@@ -25,29 +25,29 @@ Blockly2hook.LOCALISED_TEXT = {
   language: "Língua",
   languageDefault: "Língua desconhecida",
   sketchName: "Nome do Sketch",
-  /* Arduino console output */
-  arduinoOpMainTitle: "Saída da IDE Arduino",
-  arduinoOpWaiting: "Esperando pela saída da IDE...",
-  arduinoOpUploadedTitle: "Sketch enviada com sucesso",
-  arduinoOpVerifiedTitle: "Código verficado com sucesso",
-  arduinoOpOpenedTitle: "Sketch aberto com sucesso",
-  arduinoOpOpenedBody: "O Sketch deveria estar carregado no Arduino IDE.",
-  arduinoOpErrorUpVerTitle: "Compilação o Enviando falhou",
-  arduinoOpErrorSketchTitle: "Sketch não encontrado",
-  arduinoOpErrorFlagTitle: "Argumento de linha de comando inválido",
-  arduinoOpErrorFlagPrefTitle: "Preferência passada para flag 'get-pref' não existe",
-  arduinoOpErrorIdeDirTitle: "Incapaz de encontrar o Arduino IDE",
-  arduinoOpErrorIdeDirBody: "O diretório do compilador não foi definido.<br>" +
+  /* xrplhook console output */
+  xrplhookOpMainTitle: "Saída da IDE xrplhook",
+  xrplhookOpWaiting: "Esperando pela saída da IDE...",
+  xrplhookOpUploadedTitle: "Sketch enviada com sucesso",
+  xrplhookOpVerifiedTitle: "Código verficado com sucesso",
+  xrplhookOpOpenedTitle: "Sketch aberto com sucesso",
+  xrplhookOpOpenedBody: "O Sketch deveria estar carregado no xrplhook IDE.",
+  xrplhookOpErrorUpVerTitle: "Compilação o Enviando falhou",
+  xrplhookOpErrorSketchTitle: "Sketch não encontrado",
+  xrplhookOpErrorFlagTitle: "Argumento de linha de comando inválido",
+  xrplhookOpErrorFlagPrefTitle: "Preferência passada para flag 'get-pref' não existe",
+  xrplhookOpErrorIdeDirTitle: "Incapaz de encontrar o xrplhook IDE",
+  xrplhookOpErrorIdeDirBody: "O diretório do compilador não foi definido.<br>" +
                             "Por favor, configurá-lo nas Configurações.",
-  arduinoOpErrorIdeOptionTitle: "Que devemos fazer com o Sketch?",
-  arduinoOpErrorIdeOptionBody: "A opção do IDE option não foi definida.<br>" +
+  xrplhookOpErrorIdeOptionTitle: "Que devemos fazer com o Sketch?",
+  xrplhookOpErrorIdeOptionBody: "A opção do IDE option não foi definida.<br>" +
                                "Por favor, selecione uma opção do IDE nas Configurações.",
-  arduinoOpErrorIdePortTitle: "Porta Serial Port indisponível",
-  arduinoOpErrorIdePortBody: "A Porta Serial não está acessível.<br>" +
-                             "Por favor, verifique se o Arduino está conectado corretamente ao computador e selecione uma Porta Serial nas Configurações.",
-  arduinoOpErrorIdeBoardTitle: "Placa do Arduino desconhecida",
-  arduinoOpErrorIdeBoardBody: "A placa do Arduino não foi definida.<br>" +
-                              "Por favor, selecione a placa do Arduino adequada nas Configurações.",
+  xrplhookOpErrorIdePortTitle: "Porta Serial Port indisponível",
+  xrplhookOpErrorIdePortBody: "A Porta Serial não está acessível.<br>" +
+                             "Por favor, verifique se o xrplhook está conectado corretamente ao computador e selecione uma Porta Serial nas Configurações.",
+  xrplhookOpErrorIdeBoardTitle: "Placa do xrplhook desconhecida",
+  xrplhookOpErrorIdeBoardBody: "A placa do xrplhook não foi definida.<br>" +
+                              "Por favor, selecione a placa do xrplhook adequada nas Configurações.",
   /* Modals */
   noServerTitle: "",
   noServerTitleBody: "",
@@ -63,11 +63,11 @@ Blockly2hook.LOCALISED_TEXT = {
   invalidXmlTitle: "XML Inválido",
   invalidXmlBody: "O arquivo XML não foi convertido em blocos com êxito. Por favor, revise o código XML e tente novamente.",
   /* Tooltips */
-  uploadingSketch: "Enviando Sketch para o Arduino...",
-  uploadSketch: "Envia Sketch para o Arduino",
+  uploadingSketch: "Enviando Sketch para o xrplhook...",
+  uploadSketch: "Envia Sketch para o xrplhook",
   verifyingSketch: "Verificando Sketch...",
   verifySketch: "Verifique o Sketch",
-  openingSketch: "Abrindo Sketch no Arduino IDE...",
+  openingSketch: "Abrindo Sketch no xrplhook IDE...",
   openSketch: "Abrir Sketch no IDE",
   notImplemented: "Função ainda não implementada",
   /* Prompts */
@@ -76,7 +76,7 @@ Blockly2hook.LOCALISED_TEXT = {
   cancel: "Cancelar",
   return: "Retorno",
   /* Cards */
-  arduinoSourceCode: "Código Fonte do Arduino",
+  xrplhookSourceCode: "Código Fonte do xrplhook",
   blocksXml: "Blocos XML",
   /* Toolbox Categories*/
   catLogic: "Lógicos",

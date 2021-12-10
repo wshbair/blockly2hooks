@@ -4,24 +4,24 @@
  */
 
 /**
- * @fileoverview Code generator for Arduino Digital and Analogue input/output.
- *     Arduino built in function docs: http://arduino.cc/en/Reference/HomePage
+ * @fileoverview Code generator for xrplhook Digital and Analogue input/output.
+ *     xrplhook built in function docs: http://xrplhook.cc/en/Reference/HomePage
  */
  'use strict';
 
- goog.provide('Blockly.Arduino.hooks');
+ goog.provide('Blockly.xrplhook.hooks');
  
- goog.require('Blockly.Arduino');
+ goog.require('Blockly.xrplhook');
  
- Blockly.Arduino['firewall'] = function(block) {
+ Blockly.xrplhook['firewall'] = function(block) {
     var text_block_account = block.getFieldValue('block_account');
-    var value_x = Blockly.Arduino.valueToCode(block, 'x', Blockly.Arduino.ORDER_ATOMIC);
+    var value_x = Blockly.xrplhook.valueToCode(block, 'x', Blockly.xrplhook.ORDER_ATOMIC);
     var text_wallet_address = block.getFieldValue('wallet_address');
-    var value_y = Blockly.Arduino.valueToCode(block, 'y', Blockly.Arduino.ORDER_ATOMIC);
+    var value_y = Blockly.xrplhook.valueToCode(block, 'y', Blockly.xrplhook.ORDER_ATOMIC);
     var text_blacklist_server = block.getFieldValue('blacklist_server');
-    var value_z = Blockly.Arduino.valueToCode(block, 'z', Blockly.Arduino.ORDER_ATOMIC);
+    var value_z = Blockly.xrplhook.valueToCode(block, 'z', Blockly.xrplhook.ORDER_ATOMIC);
     
-    Blockly.Arduino.addDeclaration('hooks', '#defind BLACKLIST_ACCOUNT '+value_x+'')
+    Blockly.xrplhook.addDeclaration('hooks', '#defind BLACKLIST_ACCOUNT '+value_x+'')
 
     var code = 'GUARD(1);\n'+
     '// fetch the originating account ID \n'+
@@ -48,12 +48,12 @@
     return code;
   };
 
-  Blockly.Arduino['accept'] = function(block) {
-    //Blockly.Arduino.addInclude('stdint','#include <stdint.h>')
-    //Blockly.Arduino.addDeclaration('TRACESTR','#define TRACESTR(v) trace((uint32_t)(#v), (uint32_t)(sizeof(#v)), (uint32_t)(v), sizeof(v), 0);');
-    //Blockly.Arduino.addInclude('accept', 'extern int64_t accept(uint32_t read_ptr,  uint32_t read_len,   int64_t error_code);');
-    //Blockly.Arduino.addInclude('_g', 'extern int32_t _g (uint32_t id, uint32_t maxiter);');
-    //Blockly.Arduino.addInclude('trace', 'extern int64_t trace(uint32_t mread_ptr, uint32_t mread_len,uint32_t dread_ptr, uint32_t dread_len, uint32_t as_hex);' );
+  Blockly.xrplhook['accept'] = function(block) {
+    //Blockly.xrplhook.addInclude('stdint','#include <stdint.h>')
+    //Blockly.xrplhook.addDeclaration('TRACESTR','#define TRACESTR(v) trace((uint32_t)(#v), (uint32_t)(sizeof(#v)), (uint32_t)(v), sizeof(v), 0);');
+    //Blockly.xrplhook.addInclude('accept', 'extern int64_t accept(uint32_t read_ptr,  uint32_t read_len,   int64_t error_code);');
+    //Blockly.xrplhook.addInclude('_g', 'extern int32_t _g (uint32_t id, uint32_t maxiter);');
+    //Blockly.xrplhook.addInclude('trace', 'extern int64_t trace(uint32_t mread_ptr, uint32_t mread_len,uint32_t dread_ptr, uint32_t dread_len, uint32_t as_hex);' );
     var code = 
     '/** \n'+
     '* This hook just accepts any transaction coming through it\n'+

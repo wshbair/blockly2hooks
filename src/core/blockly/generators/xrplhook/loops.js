@@ -4,29 +4,29 @@
  */
 
 /**
- * @fileoverview Generating Arduino code for the loop blocks.
+ * @fileoverview Generating xrplhook code for the loop blocks.
  *
  * TODO: 'For each' block needs to have lists implemented.
  */
 'use strict';
 
-goog.provide('Blockly.Arduino.loops');
+goog.provide('Blockly.xrplhook.loops');
 
-goog.require('Blockly.Arduino');
+goog.require('Blockly.xrplhook');
 
 
 /**
  * Generator for the repeat block (number in a drop down) using a For loop
  * statement.
- * Arduino code: loop { for (int count = 0; count < X; count++) { Y } }
+ * xrplhook code: loop { for (int count = 0; count < X; count++) { Y } }
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {string} Completed code.
  */
-Blockly.Arduino['controls_repeat'] = function(block) {
+Blockly.xrplhook['controls_repeat'] = function(block) {
   var repeats = Number(block.getFieldValue('TIMES'));
-  var branch = Blockly.Arduino.statementToCode(block, 'DO');
-  branch = Blockly.Arduino.addLoopTrap(branch, block.id);
-  var loopVar = Blockly.Arduino.variableDB_.getDistinctName(
+  var branch = Blockly.xrplhook.statementToCode(block, 'DO');
+  branch = Blockly.xrplhook.addLoopTrap(branch, block.id);
+  var loopVar = Blockly.xrplhook.variableDB_.getDistinctName(
       'count', Blockly.Variables.NAME_TYPE);
   var code = 'for (int ' + loopVar + ' = 0; ' +
       loopVar + ' < ' + repeats + '; ' +
@@ -38,21 +38,21 @@ Blockly.Arduino['controls_repeat'] = function(block) {
 /**
  * Generator for the repeat block (using external number block) using a
  * For loop statement.
- * Arduino code: loop { for (int count = 0; count < X; count++) { Y } }
+ * xrplhook code: loop { for (int count = 0; count < X; count++) { Y } }
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {string} Completed code.
  */
-Blockly.Arduino['controls_repeat_ext'] = function(block) {
-  var repeats = Blockly.Arduino.valueToCode(block, 'TIMES',
-      Blockly.Arduino.ORDER_ADDITIVE) || '0';
-  var branch = Blockly.Arduino.statementToCode(block, 'DO');
-  branch = Blockly.Arduino.addLoopTrap(branch, block.id);
+Blockly.xrplhook['controls_repeat_ext'] = function(block) {
+  var repeats = Blockly.xrplhook.valueToCode(block, 'TIMES',
+      Blockly.xrplhook.ORDER_ADDITIVE) || '0';
+  var branch = Blockly.xrplhook.statementToCode(block, 'DO');
+  branch = Blockly.xrplhook.addLoopTrap(branch, block.id);
   var code = '';
-  var loopVar = Blockly.Arduino.variableDB_.getDistinctName(
+  var loopVar = Blockly.xrplhook.variableDB_.getDistinctName(
       'count', Blockly.Variables.NAME_TYPE);
   var endVar = repeats;
   if (!repeats.match(/^\w+$/) && !Blockly.isNumber(repeats)) {
-    var endVar = Blockly.Arduino.variableDB_.getDistinctName(
+    var endVar = Blockly.xrplhook.variableDB_.getDistinctName(
         'repeat_end', Blockly.Variables.NAME_TYPE);
     code += 'int ' + endVar + ' = ' + repeats + ';\n';
   }
@@ -65,18 +65,18 @@ Blockly.Arduino['controls_repeat_ext'] = function(block) {
 
 /**
  * Generator for the repeat while block using a While statement.
- * Arduino code: loop { while (X) { Y } }
+ * xrplhook code: loop { while (X) { Y } }
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {string} Completed code.
  */
-Blockly.Arduino['controls_whileUntil'] = function(block) {
+Blockly.xrplhook['controls_whileUntil'] = function(block) {
   // Do while/until loop.
   var until = block.getFieldValue('MODE') == 'UNTIL';
-  var argument0 = Blockly.Arduino.valueToCode(block, 'BOOL',
-      until ? Blockly.Arduino.ORDER_LOGICAL_OR :
-      Blockly.Arduino.ORDER_NONE) || 'false';
-  var branch = Blockly.Arduino.statementToCode(block, 'DO');
-  branch = Blockly.Arduino.addLoopTrap(branch, block.id);
+  var argument0 = Blockly.xrplhook.valueToCode(block, 'BOOL',
+      until ? Blockly.xrplhook.ORDER_LOGICAL_OR :
+      Blockly.xrplhook.ORDER_NONE) || 'false';
+  var branch = Blockly.xrplhook.statementToCode(block, 'DO');
+  branch = Blockly.xrplhook.addLoopTrap(branch, block.id);
   if (until) {
     if (!argument0.match(/^\w+$/)) {
       argument0 = '(' + argument0 + ')';
@@ -88,22 +88,22 @@ Blockly.Arduino['controls_whileUntil'] = function(block) {
 
 /**
  * Generator for the For loop statements.
- * Arduino code: loop { for (i = X; i <= Y; i+=Z) { } }
+ * xrplhook code: loop { for (i = X; i <= Y; i+=Z) { } }
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {string} Completed code.
  */
-Blockly.Arduino['controls_for'] = function(block) {
-  //Blockly.Arduino.addDeclaration("guard",'#define GUARD(maxiter) _g(__LINE__, (maxiter)+1)');
-  var variable0 = Blockly.Arduino.variableDB_.getName(
+Blockly.xrplhook['controls_for'] = function(block) {
+  //Blockly.xrplhook.addDeclaration("guard",'#define GUARD(maxiter) _g(__LINE__, (maxiter)+1)');
+  var variable0 = Blockly.xrplhook.variableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
-  var argument0 = Blockly.Arduino.valueToCode(block, 'FROM',
-      Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var argument1 = Blockly.Arduino.valueToCode(block, 'TO',
-      Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var increment = Blockly.Arduino.valueToCode(block, 'BY',
-      Blockly.Arduino.ORDER_ASSIGNMENT) || '1';
-  var branch = Blockly.Arduino.statementToCode(block, 'DO');
-  branch = Blockly.Arduino.addLoopTrap(branch, block.id);
+  var argument0 = Blockly.xrplhook.valueToCode(block, 'FROM',
+      Blockly.xrplhook.ORDER_ASSIGNMENT) || '0';
+  var argument1 = Blockly.xrplhook.valueToCode(block, 'TO',
+      Blockly.xrplhook.ORDER_ASSIGNMENT) || '0';
+  var increment = Blockly.xrplhook.valueToCode(block, 'BY',
+      Blockly.xrplhook.ORDER_ASSIGNMENT) || '1';
+  var branch = Blockly.xrplhook.statementToCode(block, 'DO');
+  branch = Blockly.xrplhook.addLoopTrap(branch, block.id);
   var code;
   // if (Blockly.isNumber(argument0) && Blockly.isNumber(argument1) &&
   //     Blockly.isNumber(increment)) {
@@ -126,19 +126,19 @@ Blockly.Arduino['controls_for'] = function(block) {
   //   // Cache non-trivial values to variables to prevent repeated look-ups.
   //   var startVar = argument0;
   //   if (!argument0.match(/^\w+$/) && !Blockly.isNumber(argument0)) {
-  //     var startVar = Blockly.Arduino.variableDB_.getDistinctName(
+  //     var startVar = Blockly.xrplhook.variableDB_.getDistinctName(
   //         variable0 + '_start', Blockly.Variables.NAME_TYPE);
   //     code += 'int ' + startVar + ' = ' + argument0 + ';\n';
   //   }
   //   var endVar = argument1;
   //   if (!argument1.match(/^\w+$/) && !Blockly.isNumber(argument1)) {
-  //     var endVar = Blockly.Arduino.variableDB_.getDistinctName(
+  //     var endVar = Blockly.xrplhook.variableDB_.getDistinctName(
   //         variable0 + '_end', Blockly.Variables.NAME_TYPE);
   //     code += 'int ' + endVar + ' = ' + argument1 + ';\n';
   //   }
   //   // Determine loop direction at start, in case one of the bounds
   //   // changes during loop execution.
-  //   var incVar = Blockly.Arduino.variableDB_.getDistinctName(
+  //   var incVar = Blockly.xrplhook.variableDB_.getDistinctName(
   //       variable0 + '_inc', Blockly.Variables.NAME_TYPE);
   //   code += 'int ' + incVar + ' = ';
   //   if (Blockly.isNumber(increment)) {
@@ -147,7 +147,7 @@ Blockly.Arduino['controls_for'] = function(block) {
   //     code += 'abs(' + increment + ');\n';
   //   }
   //   code += 'if (' + startVar + ' > ' + endVar + ') {\n';
-  //   code += Blockly.Arduino.INDENT + incVar + ' = -' + incVar + ';\n';
+  //   code += Blockly.xrplhook.INDENT + incVar + ' = -' + incVar + ';\n';
   //   code += '}\n';
   //   code += 'for (' + variable0 + ' = ' + startVar + ';\n' +
   //       '     ' + incVar + ' >= 0 ? ' +
@@ -165,15 +165,15 @@ Blockly.Arduino['controls_for'] = function(block) {
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {string} Completed code.
  */
-Blockly.Arduino['controls_forEach'] = Blockly.Arduino.noGeneratorCodeLine;
+Blockly.xrplhook['controls_forEach'] = Blockly.xrplhook.noGeneratorCodeLine;
 
 /**
  * Generator for the loop flow control statements.
- * Arduino code: loop { break;/continue; }
+ * xrplhook code: loop { break;/continue; }
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {string} Completed code.
  */
-Blockly.Arduino['controls_flow_statements'] = function(block) {
+Blockly.xrplhook['controls_flow_statements'] = function(block) {
   switch (block.getFieldValue('FLOW')) {
     case 'BREAK':
       return 'break;\n';
@@ -183,12 +183,12 @@ Blockly.Arduino['controls_flow_statements'] = function(block) {
   throw 'Unknown flow statement.';
 };
 
-Blockly.Arduino['loops_for'] = function(block) {
-  var variable_var0 = Blockly.Arduino.variableDB_.getName(block.getFieldValue('var0'), Blockly.Variables.NAME_TYPE);
-  var value_arg0 = Blockly.Arduino.valueToCode(block, 'arg0', Blockly.Arduino.ORDER_ATOMIC);
-  var value_arg1 = Blockly.Arduino.valueToCode(block, 'arg1', Blockly.Arduino.ORDER_ATOMIC);
-  var value_arg2 = Blockly.Arduino.valueToCode(block, 'arg2', Blockly.Arduino.ORDER_ATOMIC);
-  var statements_name = Blockly.Arduino.statementToCode(block, 'NAME');
+Blockly.xrplhook['loops_for'] = function(block) {
+  var variable_var0 = Blockly.xrplhook.variableDB_.getName(block.getFieldValue('var0'), Blockly.Variables.NAME_TYPE);
+  var value_arg0 = Blockly.xrplhook.valueToCode(block, 'arg0', Blockly.xrplhook.ORDER_ATOMIC);
+  var value_arg1 = Blockly.xrplhook.valueToCode(block, 'arg1', Blockly.xrplhook.ORDER_ATOMIC);
+  var value_arg2 = Blockly.xrplhook.valueToCode(block, 'arg2', Blockly.xrplhook.ORDER_ATOMIC);
+  var statements_name = Blockly.xrplhook.statementToCode(block, 'NAME');
 
   var code = 'for (int ' + variable_var0 + ' = ' + value_arg0 + '; GUARD('+value_arg1+'),' +
   variable_var0 + ' <' + value_arg1 + '; ++'+variable_var0;

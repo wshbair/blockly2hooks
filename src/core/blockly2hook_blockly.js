@@ -75,7 +75,7 @@ Blockly2hook.bindBlocklyEventListeners = function() {
 
 /** @return {!string} Generated Hook_Code code from the Blockly workspace. */
 Blockly2hook.generateHookCode = function() {
-  return Blockly.Arduino.workspaceToCode(Blockly2hook.workspace);
+  return Blockly.xrplhook.workspaceToCode(Blockly2hook.workspace);
 };
 
 /** @return {!string} Generated XML code from the Blockly workspace. */
