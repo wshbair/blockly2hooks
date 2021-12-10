@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="89.999992mm"
-   height="33.773354mm"
-   viewBox="0 0 89.999996 33.773354"
+   width="69.999992mm"
+   height="26.268166mm"
+   viewBox="0 0 69.999995 26.268166"
    version="1.1"
    id="svg18279"
    inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
@@ -45,8 +45,8 @@
      transform="translate(-43.834107,-5.5423052)">
     <path
        id="path906"
-       d="m 46.683919,5.5540385 c -1.574364,-0.00135 -2.851126,1.2754428 -2.849811,2.8498009 V 32.984755 c -0.0015,1.574367 1.275447,2.851088 2.849811,2.849791 h 1.109468 c 0.547115,2.052007 2.405017,3.480116 4.528677,3.481114 2.122312,-0.0028 3.978256,-1.430443 4.525042,-3.481114 h 1.136519 35.145711 c 1.037137,0 2.058535,-0.856628 1.877783,-1.877857 V 7.4318974 L 93.129336,5.5540385 Z"
-       style="fill:#43cde6;fill-opacity:1;stroke-width:0.234725"
+       d="m 46.050627,5.5514311 c -1.224505,-0.00105 -2.217542,0.9920111 -2.216519,2.2165119 v 19.118491 c -0.0012,1.224508 0.992014,2.217513 2.216519,2.216504 h 0.86292 c 0.425534,1.596006 1.870569,2.706757 3.522305,2.707533 1.650687,-0.0022 3.094199,-1.112567 3.519477,-2.707533 h 0.883959 27.335554 c 0.806663,0 1.601083,-0.666266 1.460498,-1.460555 V 7.0119881 l -1.460498,-1.460557 z"
+       style="fill:#43cde6;fill-opacity:1;stroke-width:0.182564"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccccssccc"
        inkscape:export-filename="/Users/wazenshbair/SnT/Scratch2Hook/path906.png"
@@ -54,8 +54,8 @@
        inkscape:export-ydpi="75.110001" />
     <path
        id="path906-9"
-       d="m 130.98444,35.822823 c 1.57434,0.0012 2.85102,-1.275437 2.84966,-2.849803 V 8.3921056 c 0.002,-1.5743591 -1.27532,-2.8510993 -2.84966,-2.8497994 -8.13292,0.011702 -8.20774,0 -11.29951,0 H 89.233685 c 0.255921,4.333652 0.255921,26.6332608 0,30.2805168 z"
-       style="fill:#4285f4;stroke-width:0.234725"
+       d="m 111.6177,29.09382 c 1.22449,9.34e-4 2.21746,-0.992006 2.2164,-2.216513 V 7.7588167 c 0.002,-1.2245016 -0.99191,-2.2175218 -2.2164,-2.2165107 -6.3256,0.0091 -6.3838,0 -8.78851,0 H 79.144892 c 0.199049,3.3706184 0.199049,20.714759 0,23.551514 z"
+       style="fill:#4285f4;stroke-width:0.182564"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccccc"
        inkscape:export-filename="/Users/wazenshbair/SnT/Scratch2Hook/path906.png"
@@ -63,54 +63,54 @@
        inkscape:export-ydpi="75.110001" />
     <text
        xml:space="preserve"
-       style="font-size:12.5194px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.234725"
-       x="46.881847"
-       y="24.76569"
+       style="font-size:9.73731px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.182564"
+       x="46.204571"
+       y="20.493828"
        id="text1918"
        inkscape:export-filename="/Users/wazenshbair/SnT/Scratch2Hook/path906.png"
        inkscape:export-xdpi="75.110001"
        inkscape:export-ydpi="75.110001"><tspan
          sodipodi:role="line"
          id="tspan1916"
-         x="46.881847"
-         y="24.76569"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5194px;font-family:'DIN Alternate';-inkscape-font-specification:'DIN Alternate';fill:#ffffff;stroke-width:0.234725">Blockly</tspan></text>
+         x="46.204571"
+         y="20.493828"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.73731px;font-family:'DIN Alternate';-inkscape-font-specification:'DIN Alternate';fill:#ffffff;stroke-width:0.182564">Blockly</tspan></text>
     <path
        sodipodi:nodetypes="ccccccc"
        inkscape:connector-curvature="0"
        id="path908"
-       d="m 90.780649,18.020543 -3.903817,-2.206125 c -0.562749,-0.317526 -1.259166,0.08824 -1.260323,0.734458 v 9.5351 c 0.0012,0.646137 0.697577,1.051982 1.260323,0.734455 l 3.903817,-2.206565 c 4.811894,-2.529821 2.464673,-7.224476 0,-6.591323 z"
-       style="fill:#4285f4;fill-opacity:1;stroke-width:0.234725"
+       d="m 80.348086,15.247602 -3.036302,-1.715875 c -0.437694,-0.246965 -0.979352,0.06863 -0.980252,0.571245 v 7.416189 c 9.34e-4,0.502551 0.54256,0.818208 0.980252,0.571243 l 3.036302,-1.716217 c 3.742584,-1.967639 1.916968,-5.619038 0,-5.126585 z"
+       style="fill:#4285f4;fill-opacity:1;stroke-width:0.182564"
        inkscape:export-filename="/Users/wazenshbair/SnT/Scratch2Hook/path906.png"
        inkscape:export-xdpi="75.110001"
        inkscape:export-ydpi="75.110001" />
     <text
        xml:space="preserve"
-       style="font-size:12.5194px;line-height:1.25;font-family:sans-serif;word-spacing:0px;fill:#ffffff;stroke-width:0.234725"
-       x="91.479126"
-       y="24.969564"
+       style="font-size:9.73731px;line-height:1.25;font-family:sans-serif;word-spacing:0px;fill:#ffffff;stroke-width:0.182564"
+       x="80.891342"
+       y="20.652397"
        id="text5393"
        inkscape:export-filename="/Users/wazenshbair/SnT/Scratch2Hook/path906.png"
        inkscape:export-xdpi="75.110001"
        inkscape:export-ydpi="75.110001"><tspan
          sodipodi:role="line"
          id="tspan5391"
-         x="91.479126"
-         y="24.969564"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5194px;font-family:'DIN Alternate';-inkscape-font-specification:'DIN Alternate';fill:#ffffff;stroke-width:0.234725">HOOKS</tspan></text>
+         x="80.891342"
+         y="20.652397"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.73731px;font-family:'DIN Alternate';-inkscape-font-specification:'DIN Alternate';fill:#ffffff;stroke-width:0.182564">HOOKS</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:4.38162px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.234725"
-       x="119.53543"
-       y="14.570622"
+       style="font-size:3.40793px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.182564"
+       x="102.71291"
+       y="12.56433"
        id="text14418"
        inkscape:export-filename="/Users/wazenshbair/SnT/Scratch2Hook/path906.png"
        inkscape:export-xdpi="75.110001"
        inkscape:export-ydpi="75.110001"><tspan
          sodipodi:role="line"
          id="tspan14416"
-         x="119.53543"
-         y="14.570622"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.38162px;font-family:'DIN Alternate';-inkscape-font-specification:'DIN Alternate';fill:#ffffff;stroke-width:0.234725">XRPL</tspan></text>
+         x="102.71291"
+         y="12.56433"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.40793px;font-family:'DIN Alternate';-inkscape-font-specification:'DIN Alternate';fill:#ffffff;stroke-width:0.182564">XRPL</tspan></text>
   </g>
 </svg>
