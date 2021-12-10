@@ -1,4 +1,4 @@
-![logo](logo.png)
+![logo](logo.svg)
 # Blockly2Hooks (Beta version)
 A platform for developing visually XRPL hooks smart contract using Blockly. We have integrated many features such as generating XRPL Hook C code with visual drag-and-drop blocks and compiling hook code into WASM. Also, we have integrated the deployment to the XRPL Hook testnet network.
 
