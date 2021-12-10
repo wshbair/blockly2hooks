@@ -30,7 +30,7 @@
 #
 # This script also generates:
 #   blocks_compressed.js: The compressed Blockly language blocks.
-#   arduino_compressed.js: The compressed Arduino generator.
+#   xrplhook_compressed.js: The compressed xrplhook generator.
 #   javascript_compressed.js: The compressed Javascript generator.
 #   python_compressed.js: The compressed Python generator.
 #   dart_compressed.js: The compressed Dart generator.
@@ -176,7 +176,7 @@ class Gen_compressed(threading.Thread):
   def run(self):
     self.gen_core()
     self.gen_blocks()
-    self.gen_generator("arduino")
+    self.gen_generator("xrplhook")
    # self.gen_generator("javascript")
     # self.gen_generator("python")
     # self.gen_generator("php")

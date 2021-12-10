@@ -4,9 +4,9 @@
  */
 
 /**
- * @fileoverview Block for the Arduino map functionality.
- *     The Arduino built in functions syntax can be found at:
- *     http://arduino.cc/en/Reference/HomePage
+ * @fileoverview Block for the xrplhook map functionality.
+ *     The xrplhook built in functions syntax can be found at:
+ *     http://xrplhook.cc/en/Reference/HomePage
  *
  * TODO: This block can be improved to set the new range properly.
  */
@@ -27,7 +27,7 @@ Blockly.Blocks['base_map'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl('http://arduino.cc/en/Reference/map');
+    this.setHelpUrl('http://xrplhook.cc/en/Reference/map');
     this.setColour(Blockly.Blocks.map.HUE);
     this.appendValueInput('NUM')
         .appendField(Blockly.Msg.ARD_MAP)

@@ -4,14 +4,14 @@ This is a fork of Google's Blockly visual programming editor: https://github.com
 
 It adds the following features:
 
-* Arduino code generation
-* Arduino specific blocks
-* Multiple Arduino boards support
+* xrplhook code generation
+* xrplhook specific blocks
+* Multiple xrplhook boards support
 * Static typing
 * Code warnings
-* Arduino pin tracking
-* Arduino generator unit test (incomplete)
-* Procedures core class modified to include the Arduino setup() and loop() functions
+* xrplhook pin tracking
+* xrplhook generator unit test (incomplete)
+* Procedures core class modified to include the xrplhook setup() and loop() functions
 * Temporarily removed procedure's mutator responsible to add arguments
 * Blocks HSV hue colour value slightly higher for more vibrant colours
 * Minor visual changes to the zoom icons positioning

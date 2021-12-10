@@ -16,7 +16,7 @@ goog.require('Blockly.Blocks');
 /** Common HSV hue for all blocks in this category. */
 Blockly.Blocks.procedures.HUE = 290;
 
-Blockly.Blocks['arduino_functions'] = {
+Blockly.Blocks['xrplhook_functions'] = {
   /**
    * Block for defining the Hook cbak() and hook() functions.
    * @this Blockly.Block
@@ -31,11 +31,11 @@ Blockly.Blocks['arduino_functions'] = {
     this.setInputsInline(false);
     this.setColour(Blockly.Blocks.procedures.HUE);
     this.setTooltip(Blockly.Msg.ARD_FUN_RUN_TIP);
-    this.setHelpUrl('https://arduino.cc/en/Reference/Loop');
+    this.setHelpUrl('https://xrplhook.cc/en/Reference/Loop');
     this.contextMenu = false;
   },
   /** @return {!boolean} True if the block instance is in the workspace. */
-  getArduinoLoopsInstance: function() {
+  getxrplhookLoopsInstance: function() {
     return true;
   }
 };
