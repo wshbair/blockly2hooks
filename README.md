@@ -29,7 +29,9 @@ The platform has been integrated with some hooks for testing.
 More example can be found on [https://github.com/XRPL-Labs/xrpld-hooks/tree/hooks-ssvm/hook-api-examples](https://github.com/XRPL-Labs/xrpld-hooks/tree/hooks-ssvm/hook-api-examples)
 
 ### Credits
-This project has been inspired and built using by [Ardublockly][1], we have modified, extend and adapt it to fit the XRPL Hooks development requirements. 
+This project has been inspired and built using [Ardublockly][1]. 
+
+We have extend and adapt it to fit the XRPL Hooks development requirements. 
 
 ### Acknowledgment 
 This project has been funded by the XRPL grant program 2021 
