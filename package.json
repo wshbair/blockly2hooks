@@ -14,13 +14,17 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "start": "node src/index.js"
-    },
+    "start": "nodemon src/index.js"
+  },
   "devDependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "ripple-lib": "^1.10.0"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.19",
+    "ripple-address-codec": "^4.2.4",
+    "xrpl-hooks": "^2.2.1"
   }
-  
 }

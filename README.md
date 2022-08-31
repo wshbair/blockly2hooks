@@ -1,6 +1,6 @@
 ## Blockly2Hooks
 A platform for developing visually XRPL hooks smart contract using [Blockly][2] from Google. 
-The paltform helps users to develop XRPL Hook using visual drag-and-drop blocks. Also it compiles the hook code into WASM format.
+The platform helps users to develop XRPL Hook using visual drag-and-drop blocks. Also it compiles the hook code into WASM format.
 We have integrated also the deployment function to the XRPL Hook testnet network.
 
 We build our the hooks block based on the official documentation of the XRPL Hook [https://xrpl-hooks.readme.io/](https://xrpl-hooks.readme.io/)
@@ -13,11 +13,15 @@ Clone the Blockly2hook repository
 git clone https://github.com/wshbair/blockly2hooks
 ```
 
+Install required libraries
+```bash
+npm install
+```
+
 Run the server
 ```bash
 npm start
 ```
-Note: no need to install the modules, since it has been already integrated. 
 
 Open the browser using [http://localhost:3000/](http://localhost:3000/)
 

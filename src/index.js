@@ -1,7 +1,10 @@
 const express = require('express')
 const RippleAPI = require('ripple-lib').RippleAPI;
 const keypairs = require('ripple-keypairs');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+
+const xprlhook = require('xrpl-hooks');
+const crypto = require('crypto')
 //------------------------------------------------------------------------------
 // Express Server Setting 
 //------------------------------------------------------------------------------
@@ -22,9 +25,9 @@ app.use(express.static(__dirname+'/core/catalog'))
 // XRPL Hooks API Setting 
 //------------------------------------------------------------------------------
 //const api = new RippleAPI({server: 'ws://localhost:6006'});
-const api = new RippleAPI({server: 'wss://hooks-testnet.xrpl-labs.com'});
+//const api = new RippleAPI({server: 'wss://hooks-testnet.xrpl-labs.com'}); 
 const secret  = "shGfbDdPJ1Qim3MSAizyRdZK4NSFQ";     //hook account secret (this account will receive money from /test)
-
+const client = new xprlhook.Client("wss://hooks-testnet-v2.xrpl-labs.com"); 
 //------------------------------------------------------------------------------
 // Create SetHook Transaction 
 //------------------------------------------------------------------------------
@@ -35,35 +38,52 @@ app.post('/hook/create/sethook_tx', (req, res) => {
     let buff = Buffer.from(wasmTextFile, 'base64');
     let binary = buff.toString('hex').toUpperCase();
 
-    // SetHook transaction preparation 
-    let tx = { Account: walletAddress, TransactionType: "SetHook", CreateCode: binary, HookOn: '0000000000000000'}
+const hash = crypto.createHash("sha256").update("accept")
+    let tx = { 
+        Account: walletAddress,
+        TransactionType: "SetHook",
+        Fee: "2000000",
+        Hooks:
+        [        
+            {                        
+                Hook: {                
+                    CreateCode: binary,
+                    HookOn: '0000000000000000',
+                    HookNamespace: hash.digest("hex").toUpperCase(),
+                    HookApiVersion: 0
+                }
+            }
+        ]
+    }
+    
+
     console.log(">> Create SetHook Transaction")
-    // Connent to Ripple API 
-    api.connect().then(() => {
-        api.prepareTransaction(tx).then((result)=>{
-            api.disconnect();
-            res.json(result.txJSON)
+    // Connent to Ripple client 
+    client.connect().then(() => {
+        client.prepareTransaction(tx).then((result)=>{
+            res.json(result)
         })
     });
-    api.on('error', (errorCode, errorMessage) => { res.json({errorCode : errorMessage})});
+    client.on('error', (errorCode, errorMessage) => { res.json({errorCode : errorMessage})});
 })
 
 //------------------------------------------------------------------------------
 // Sign and Publish the SetHook Transaction 
 //------------------------------------------------------------------------------
 app.post('/hook/sign/publish',(req,res) =>{
-    console.log(">>Sign and publish SetHook request")
+    console.log(">> Sign and publish SetHook request")
     //Get the SetHook transaction 
     const setHookTxJson = JSON.parse(req.body.setHookTx)
-    // Connent to Ripple API 
-    api.connect().then(() => {
-        let signedTx = api.sign(setHookTxJson, secret)
-        api.submit(signedTx.signedTransaction).then(response =>{
-            api.disconnect();
-            res.json({"resultCode":response.resultCode, "resultMessage": response.resultMessage})
+    // Connect to Ripple API 
+    client.connect().then(() => {
+       // let signedTx = client.sign(setHookTxJson, secret)
+         const wallet = xprlhook.Wallet.fromSecret("ssbAdigtXrGPnvWYGm8MukoC4g5sN")
+         const signedTx = wallet.sign(setHookTxJson)
+        client.submit(signedTx.tx_blob).then(response =>{
+            res.json({"resultCode":response, "resultMessage": response.engine_result_message})
         }).catch ( e=> { console.log(e) });
     });
-    api.on('error', (errorCode, errorMessage) => { res.json({errorCode : errorMessage})});
+    client.on('error', (errorCode, errorMessage) => { res.json({errorCode : errorMessage})});
 })
 
 //------------------------------------------------------------------------------

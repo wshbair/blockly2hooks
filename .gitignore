@@ -1,3 +1,4 @@
 ./frontend/ardublocklyserver/local-packages
 ./frontend.zip
 
+./node_modules

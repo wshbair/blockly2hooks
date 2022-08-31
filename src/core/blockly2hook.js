@@ -490,7 +490,7 @@ Blockly2hook.XmlTextareaToBlocks = function() {
  * @type {!String}
  * @private
  */
-Blockly2hook.PREV_xrplhook_CODE_ = 'int64_t cbak(int64_t reserved) {\n\n return 0;}\n\n\n int64_t hook(int64_t reserved) {\n\n return 0;}';
+Blockly2hook.PREV_xrplhook_CODE_ = 'int64_t cbak(uint32_t reserved) {\n\n return 0;}\n\n\n int64_t hook(uint32_t reserved) {\n\n return 0;}';
 
 /**
  * Populate the Hook Code and Blocks XML panels with content generated from

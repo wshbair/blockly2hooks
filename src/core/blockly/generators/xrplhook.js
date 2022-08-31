@@ -175,9 +175,9 @@ Blockly.xrplhook.finish = function(code) {
 
   var allDefs = includes.join('\n') + variables.join('\n') +
       definitions.join('\n') + functions.join('\n\n');
-  var cbak = 'int64_t cbak(int64_t reserved) {' + setups.join('\n  ') + '\n return 0;\n}\n\n';
+  var cbak = 'int64_t cbak(uint32_t reserved) {' + setups.join('\n  ') + '\n return 0;\n}\n\n';
   var cbakDecs="//Executed when an emitted transaction is successfully accepted into a ledger \n";
-  var hook = 'int64_t hook(int64_t reserved) {\n' + code.replace(/\n/g, '\n') + '\n return 0;\n}\n\n';
+  var hook = 'int64_t hook(uint32_t reserved) {\n' + code.replace(/\n/g, '\n') + '\n return 0;\n}\n\n';
   var hookDecs ="//Executed whenever a transaction comes into or leaves from the account the Hook is set on \n";
   return allDefs + cbakDecs+cbak + hookDecs+hook;
 };

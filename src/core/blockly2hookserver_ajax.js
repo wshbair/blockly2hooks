@@ -269,8 +269,8 @@ Blockly2hookServer.getHookApiFile = function(){
  #ifndef HOOKAPI_INCLUDED
  #define HOOKAPI_INCLUDED 1
  
- int64_t hook(int64_t reserved) __attribute__((used));
- int64_t cbak(int64_t reserved) __attribute__((used));
+ int64_t hook(uint32_t reserved) __attribute__((used));
+ int64_t cbak(uint32_t reserved) __attribute__((used));
  
  extern int32_t _g(uint32_t id, uint32_t maxiter);
  extern int64_t accept(uint32_t read_ptr, uint32_t read_len, int64_t error_code);
