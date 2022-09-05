@@ -1,5 +1,5 @@
 ./frontend/ardublocklyserver/local-packages
 ./frontend.zip
 
-./node_modules
-./package-lock.json
+node_modules
+package-lock.json
