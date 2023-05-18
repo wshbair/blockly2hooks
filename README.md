@@ -33,7 +33,7 @@ The platform has been integrated with some hooks for testing.
 More example can be found on [https://github.com/XRPL-Labs/xrpld-hooks/tree/hooks-ssvm/hook-api-examples](https://github.com/XRPL-Labs/xrpld-hooks/tree/hooks-ssvm/hook-api-examples)
 
 ### Online Demo
-Please open the below link in your browser:
+Please open the following link in your browser:
 https://bit.ly/blockly2hooks
 
 ### Credits
