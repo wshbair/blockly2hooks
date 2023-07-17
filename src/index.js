@@ -27,7 +27,7 @@ app.use(express.static(__dirname+'/core/catalog'))
 //const api = new RippleAPI({server: 'ws://localhost:6006'});
 //const api = new RippleAPI({server: 'wss://hooks-testnet.xrpl-labs.com'}); 
 const secret  = "shGfbDdPJ1Qim3MSAizyRdZK4NSFQ";     //hook account secret (this account will receive money from /test)
-const client = new xprlhook.Client("wss://hooks-testnet-v2.xrpl-labs.com"); 
+const client = new xprlhook.Client("wss://hooks-testnet-v3.xrpl-labs.com"); 
 //------------------------------------------------------------------------------
 // Create SetHook Transaction 
 //------------------------------------------------------------------------------
