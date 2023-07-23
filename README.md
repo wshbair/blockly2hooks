@@ -1,9 +1,9 @@
 ## Blockly2Hooks
-A platform for developing visually XRPL hooks smart contract using [Blockly][2] from Google. 
-The platform helps users to develop XRPL Hook using visual drag-and-drop blocks. Also it compiles the hook code into WASM format.
-We have integrated also the deployment function to the XRPL Hook testnet network.
+A platform for developing visually XRPL hooks smart contracts using [Blockly][2] from Google. 
+The platform helps users to develop XRPL Hook using visual drag-and-drop blocks. Also, it compiles the hook code into WASM format.
+We have also integrated the deployment function into the XRPL Hook testnet network.
 
-We build our the hooks block based on the official documentation of the XRPL Hook [https://xrpl-hooks.readme.io/](https://xrpl-hooks.readme.io/)
+We build our hooks block based on the official documentation of the XRPL Hook [https://xrpl-hooks.readme.io/](https://xrpl-hooks.readme.io/)
 
 ### Getting Started 
 
@@ -30,16 +30,16 @@ Open the browser using [http://localhost:3000/](http://localhost:3000/)
 ### XRPL Hooks Examples
 The platform has been integrated with some hooks for testing. 
 
-More example can be found on [https://github.com/XRPL-Labs/xrpld-hooks/tree/hooks-ssvm/hook-api-examples](https://github.com/XRPL-Labs/xrpld-hooks/tree/hooks-ssvm/hook-api-examples)
+More examples can be found on [https://github.com/XRPL-Labs/xrpld-hooks/tree/hooks-ssvm/hook-api-examples](https://github.com/XRPL-Labs/xrpld-hooks/tree/hooks-ssvm/hook-api-examples)
 
-### Online Demo
-Please open the following link in your browser:
-https://bit.ly/blockly2hooks
+<!--- ### Online Demo --->
+<!--- Please open the following link in your browser: --->
+<!--- https://bit.ly/blockly2hooks --->
 
 ### Credits
 This project has been inspired and built using [Ardublockly][1]. 
 
-We have extend and adapt it to fit the XRPL Hooks development requirements. 
+We have extended and adapted it to fit the XRPL Hooks development requirements. 
 
 ### Acknowledgment 
 This project has been funded by the XRPL grant program 2021 
